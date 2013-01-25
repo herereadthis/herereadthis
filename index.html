@@ -1,0 +1,616 @@
+<!DOCTYPE HTML>
+<html version="HTML+RDFa 1.1" lang="en" xml:lang="en"
+prefix:og="http://ogp.me/ns#"
+prefix:fb="http://ogp.me/ns/fb#"
+prefix:foaf="http://xmlns.com/foaf/0.1/"
+prefix:dc="http://purl.org/dc/elements/1.1/"
+prefix:v="http://rdf.data-vocabulary.org/#"
+prefix:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
+<head>
+    <title>Here, Read This</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="author" property="dc:creator" content="Jimmy Ha" />
+    <meta name="robots" content="INDEX, FOLLOW" />
+    <!-- Besides Title, above this line are defaults for essential meta tags for every view -->
+
+<!-- browser-specific tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1" />-->
+<!-- Open Graph RDFa -->
+    <meta name="title" property="og:title dc:title" content="Here, Read This" />
+    <meta name="description" property="og:description" content="A website by Jimmy Ha about design - typography, Modernist philosophy, and mobile-first web development - and interests including photography, gardening, and baking." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://herereadthis.com/" />
+    <meta property="og:image" content="http://herereadthis.com/static/img/herereadthis_fb.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="320" />
+    <meta property="og:image:height" content="320" />
+    <meta property="og:site_name" content="Here, Read This" />
+<!-- Facebook RDFa -->
+    <meta property="fb:admins" content="104276" />
+    <meta property="fb:app_id" content="146371075435162" />
+<!-- Bing Site Verification -->
+    <meta name="msvalidate.01" content="F7EE73CB34D5AF1C9DC816A5C75C32E6" />
+<!-- Google Site Verification -->
+    <meta name="google-site-verification" content="mczqUD0AU2jqxVwDld32k25wCRWJb5bMuQoCzvQCdfE" />
+
+
+
+<!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/query.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/query_mobile.css" />
+<!-- JS - yeah that's right: there's only one -->
+    <script data-main="static/js/main" src="static/js/library/require.js"></script>
+<!-- set canonical...if we're using backbone views, this may be dumb -->
+    <!-- <link rel="canonical" href="http://herereadthis.com/" /> -->
+    <!-- <base href="http://herereadthis.com/" /> -->
+<!-- Icons -->
+    <link rel="shortcut icon" href="/static/img/fav.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/img/logo_icon_ipad.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/img/logo_icon_iphone_retina.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/img/logo_icon_ipad_retina.png" />
+<!-- Friend of a Friend FOAF -->
+    <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://herereadthis.com/static/xml/foaf.rdf" />
+<!-- Google Plus Verification -->
+    <link href="https://plus.google.com/113505279995940079003" rel="author" />
+    <link href="https://plus.google.com/110556642392047316226" rel="publisher" />
+<!-- vcard: http://www.w3.org/Submission/vcard-rdf/ -->
+    <!-- take care of this later -->
+
+<!--
+Remember that Character encoding must appear within first 512 bytes of page:
+    http://www.w3.org/TR/xhtml-rdfa-primer/#using-multiple-vocabularies
+
+RDFa:
+    Primers:
+        http://www.w3.org/MarkUp/2009/rdfa-for-html-authors
+        http://www.w3.org/TR/2008/WD-xhtml-rdfa-primer-20080317/
+        http://www.w3.org/TR/rdfa-in-html/
+        http://answers.semanticweb.com/questions/1187/can-i-use-the-html5-doctype-with-rdfa
+        http://blog.3kbo.com/2010/11/10/simple-html5-rdfa-example/
+        http://notes.3kbo.com/rdfa
+
+    All prefixes on this site, either in HTML or body:
+        Creative Commmons:      cc="http://creativecommons.org/ns#"
+        Dublin Core Elements:   dc="http://purl.org/dc/elements/1.1/"
+        Dublin Core Terms:      dct="http://purl.org/dc/terms/"
+        Geo Spatial:            geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+        Facebook:               fb="http://ogp.me/ns/fb#"
+        Friend of a Friend:     foaf="http://xmlns.com/foaf/0.1/"
+        Open Graph:             og="http://ogp.me/ns#"
+        Open Graph music:       og="http://ogp.me/ns/music#"
+        Vcard:                  v="http://rdf.data-vocabulary.org/#"
+
+    Watch RDF dance at: http://www.visualdataweb.org/relfinder/relfinder.php
+    Ontologies: http://www.w3.org/wiki/Good_Ontologies
+    Test with Google Rich Snippets: http://www.google.com/webmasters/tools/richsnippets
+    W3C pyRDFa XML extraction: http://www.w3.org/2012/pyRdfa/extract?format=xml&uri=http://example.com/
+
+Icons:
+    Online favicon generation: http://convertico.com
+    Apple Icons: http://goo.gl/6Qdi3 (developer.apple.com/)
+
+Open Graph and Facebook:
+    Facebook JSON is https://graph.facebook.com/142652672557253
+    linter is at https://developers.facebook.com/tools/debug
+    documentation on OG protocol at https://developers.facebook.com/docs/opengraphprotocol/
+    curl https://developers.facebook.com/tools/lint/?url=http%3A%2F%2Fherereadthis.com&format=json
+
+FOAF generated from:
+    http://www.ldodds.com/foaf/foaf-a-matic.en.html
+    wiki: http://wiki.foaf-project.org/w/FAQ and spec: http://xmlns.com/foaf/spec/
+    validate at http://www.w3.org/RDF/Validator/
+    explore FOAF connections: http://xml.mfd-consult.dk/foaf/
+-->
+
+</head>
+
+<body data-resizefu-ideal-width="108" data-resizefu-side-pad="5">
+
+
+
+<!-- WAI-ARIA: | http://www.w3.org/TR/wai-aria-primer/ -->
+<!-- Roles: http://www.w3.org/TR/wai-aria/roles -->
+<!-- States and Properties: http://www.w3.org/TR/wai-aria/states_and_properties -->
+<!-- Banner is a landmark role http://www.w3.org/TR/wai-aria/roles#banner -->
+<!-- rich snippets for people http://support.google.com/webmasters/bin/answer.py?hl=en&answer=146646 -->
+<!-- W3C vCard: http://www.w3.org/Submission/vcard-rdf/ -->
+<header role="banner" data-module="head_more" resource="http://herereadthis.com/"
+    typeof="v:Person foaf:Person" resource="#me">
+    <!--
+    The property "dc:title" represents "http://purl.org/dc/elements/1.1/title"
+    "dc:title" is called a Compact URL, aka CURIE, which is a representation of a URI from html prefix
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    -->
+    <h1 property="dc:title" content="Here, Read This" class="font_no_calt_no_swsh">Here, Read This</h1>
+
+    <section>
+        <h3>My Name is Jimmy Ha
+            <span property="v:name foaf:name" content="Jimmy Ha"></span>
+            <span property="v:nickname foaf:nick" content="Jimmy"></span>
+            <span property="v:given-name foaf:givenname" content="Jimmy"></span>
+            <span property="v:family-name foaf:family_name" content="Ha"></span>
+            <span property="v:logo foaf:logo" content="http://herereadthis.com/static/img/herereadthis_logo.svg"></span>
+        </h3>
+        <p>I <span property="v:title" content="UX Web Developer">make web pages</span> <span href="http://herereadthis.com/" rel="v:url foaf:homepage" content="http://herereadthis.com/"></span> and specialize in user interface development and Django frameworks. I live and play in the
+            <span rel="v:address">
+                <span typeof="v:Address">
+                    <span property="v:locality" content="Washington"></span>
+                    <span property="v:region">DC</span>
+                </span> metro area.
+            </span>
+            <span property="based_near">
+                <span property="geo:point">
+                    <span property="geo:lat" content="38.886757"></span>
+                    <span property="geo:long" content="-77.041626"></span>
+                </span>
+            </span>
+            I do 
+            <span property="foaf:topic_interest">photography</span> with a Hasselblad camera, 
+            <span property="foaf:topic_interest" content="gardening">grow roses</span>, 
+            <span property="foaf:topic_interest" content="baking">bake pastries</span>,
+            dance at Burner parties, and
+            <span property="foaf:topic_interest" content="kyudo">practice kyudo</span>.
+            I am guilty of putting Sriracha on everything.</p>
+    </section>
+
+    <p>My favorite team is the Baltimore Orioles. My favorite drink is an extra-dry gin martini with a twist (stirred!) and my favorite soda is Diet Coke. My favorite movie is <cite>The Good, the Bad, and the Ugly.</cite> My favorite song is <cite>Sinnerman</cite> by Nina Simone. I like to eat Vietnamese food and Life Cereal, but not at the same time.</p>
+
+    <aside about="#me" typeof="foaf:person" id="head_soc">
+        <h3>My Social Links</h3>
+        <ul>
+            <li typeof="foaf:account">
+                <span property="foaf:OnlineAccount">
+                    <span rel="foaf:accountServiceHomepage" href="https://www.facebook.com/">Facebook</span><br />
+                    <a href="https://www.facebook.com/herereadthis"
+                        property="foaf:accountName" content="herereadthis" rel="me">herereadthis</a>
+                </span>
+            </li>
+            <li typeof="foaf:account">
+                <span property="foaf:OnlineAccount">
+                    <span rel="foaf:accountServiceHomepage" href="https://twitter.com/">Twitter</span><br />
+                    <a href="http://twitter.com/herereadthis"
+                        property="foaf:accountName" content="herereadthis" rel="me">@herereadthis</a>
+                </span>
+            </li>
+            <li typeof="foaf:account">
+                <span property="foaf:OnlineAccount">
+                    <span rel="foaf:accountServiceHomepage" href="http://www.flickr.com/">Flickr</span><br />
+                    <a href="http://www.flickr.com/photos/applesanity/"
+                        property="foaf:accountName" content="applesanity" rel="me">applesanity</a>
+                </span>
+            </li>
+            <li typeof="foaf:account">
+                <span property="foaf:OnlineAccount">
+                    <span rel="foaf:accountServiceHomepage" href="https://github.com/">Github</span><br />
+                    <a href="https://github.com/herereadthis"
+                        property="foaf:accountName" content="herereadthis" rel="me">herereadthis</a>
+                </span>
+            </li>
+            <li typeof="foaf:account">
+                <span property="foaf:OnlineAccount">
+                    <span rel="foaf:accountServiceHomepage" href="http://pinterest.com/">Pinterest</span><br />
+                    <a href="http://pinterest.com/herereadthis/"
+                        property="foaf:accountName" content="herereadthis" rel="me">herereadthis</a>
+                </span>
+            </li>
+            <li>
+                <span>
+                    <span>Résumé</span><br />
+                    <a href="/resume/" rel="me">.HTML</a> <span>|</span>
+                    <a href="/resume/resume.pdf" rel="me">.PDF</a>
+                </span>
+            </li>
+        </ul>
+    </aslide> 
+
+
+</header>
+
+
+
+<article data-module="resize_fu" data-resize-fu-threshold-top="3">
+    <h2>Geeking Out to Coding</h2>
+
+    <figure>
+        <figcaption>
+            <p>Coders always ought to contribute. You can clone a repository of this entire site with Git:</p>
+        </figcaption>
+        <blockquote>
+<pre><code>git clone http://herereadthis.com/herereadthis.git</code></pre>
+        </blockquote>
+    </figure>
+
+    <p>This page is written with semantic HTML5; you can check out by using Geoffrey Sneddon&rsquo;s <a href="http://gsnedders.html5.org/outliner/process.py?url=http%3A%2F%2Fherereadthis.com%2F" title="HTM5 Outliner tool">HTM5 Outliner tool</a>. Check out all the RDFa action with the <a href="http://www.google.com/webmasters/tools/richsnippets?url=http%3A%2F%2Fherereadthis.com%2F" title="Google Structured Data Testing Tool for http://herereadthis.com/">Google Structured Data</a> Testing Tool, my <a href="/static/xml/foaf.rdf">foaf.rdf</a> XML, or use the <a href="http://www.w3.org/2012/pyRdfa/extract?uri=http%3A%2F%2Fherereadthis.com%2F&format=xml&rdfagraph=processor%2Coutput&vocab_expansion=true&rdfa_lite=true&embedded_rdf=true&space_preserve=true&vocab_cache=true&vocab_cache_report=false&vocab_cache_refresh=false" title="W3C pyRDFa Extraction">W3C RDFa 1.1 Distiller</a> to view as XML.</p>
+    <!--
+    resources on html5 sectioning outline:
+    http://www.456bereastreet.com/archive/201103/html5_sectioning_elements_headings_and_document_outlines/
+    http://www.456bereastreet.com/archive/201104/html5_document_outline_revisited/
+    http://html5doctor.com/downloads/h5d-sectioning-flowchart.pdf
+    RDFa distiller: http://www.w3.org/2012/pyRdfa/
+    -->
+
+    <h3>CoffeeScript is Awesome!</h3>
+
+    <p>CoffeeScript is an abstraction of Javascript. You can write your scripts much faster, have fewer (if any) errors when you lint, see better-defined objects and models.</p>
+
+    <p>Imagine an array called <code>myArray</code> of unknown length and dimension, and we want to make a duplicate array called <code>roundedArray</code> but all the numbers are rounded. Essentially, we want to loop through each row in the array, than loop through each element per row.</p>
+    <div class="double_stack">
+        <div>
+
+            <figure>
+                <figcaption>
+                    <p>Javascript version:</p>
+                </figcaption>
+                <blockquote>
+<pre><code>var i, index, row, _i, _j,
+    roundedArray = [],
+    _len = myArray.length;
+for (index = _i = 0;_i < _len;index = ++_i) {
+    row = myArray[index];
+    roundedArray[index] = [];
+    for (_j = 0;_j < row.length;_j++) {
+        i = row[_j];
+        roundedArray[index].push(Math.round(i));
+    }
+}</code></pre>
+                </blockquote>
+            </figure>
+        </div>
+        <div>
+            <figure>
+                <figcaption>
+                    <p>CoffeeScript Version:</p>
+                </figcaption>
+                <blockquote>
+<pre><code>roundedArray = []
+for row, index in myArray
+    roundedArray[index] = []
+    for i in row
+        roundedArray[index].push Math.round(i)</code></pre>
+                </blockquote>
+            </figure>
+        </div>
+    </div>
+    <!-- html5 canvas tutorial at http://www.html5canvastutorials.com/tutorials/html5-canvas-tutorials-introduction/ -->
+    <canvas id="the_circle" data-module="canvas_sally" data-color="#FBC273" data-shape="circle" data-width="20" data-css-float="left" data-pad="2"></canvas>
+</article>
+
+
+<article id="beautiful" class="quarter_maya" style="clear: both;">
+    <header class="quarter_maya">
+        <h2>Design: Philosphy, Typography, Modern.</h2>
+
+        <p>Design has many connotations. It is the organization of materials and processes in the most productive, economic way, in a harmonious balance of all elements necessary for a certain function. It is not a matter of façade, of mere external appearance&hellip;<!--; rather it is the essence of products and institutions, penetrating and comprehensive.--> Designing is a complex and intricate task. It is integration of technological, social and economic requirements, biological necessities, and the psychophysical effects of materials, shape, color, volume, and space: thinking in relationships. The designer must see the periphery as well as the core&hellip;<!--, the immediate and the ultimate, at least in the biological sense. He must anchor his special job in the complex whole. The designer must be trained not only in the use of materials and various skills, but also in appreciation of organic functions and planning.--> He must know that design is indivisible, that the internal and external characteristics of a dish, a chair, a table, a machine, painting, sculpture are not to be separated. The idea of design and the profession of the designer has to be transformed from the notion of a specialist function into a generally valid attitude of resourcefulness and inventiveness which allows projects to be seen not in isolation but in relationship with the need of the individual and the community.<!--One cannot simply lift out any subject matter from the complexity of life and try to handle it as an independent unit.--></p>
+        <p>&mdash;László Moholy-Nagy, <em>Vision in Motion</em> (1947)</p>
+        <!-- swiped from http://www.dailyicon.net/2009/12/books-vision-in-motion-by-laszlo-moholy-nagy/ -->
+    </header>
+
+
+    <figure id="ezra_pound">
+        <blockquote>
+            <p>Day by Day Make It New</p>
+            <!--<p>This Thing Men Call Immortality.</p>-->
+        </blockquote>
+        <figcaption class="quarter_maya">
+            <p>&mdash;Ezra Pound, <em>Cantos LIII</em></p>
+            <!--<p>&mdash;Ezra Pound, <em>Personae</em></p>-->
+        </figcaption>
+    </figure>
+
+    <section class="quarter_maya">
+        <h3>I want to make everything beautiful.</h3>
+
+        <p>A lot of my inspiration for making things look the way they look is from the Modernist era, from Russian Constructivism to the Swiss International Style. It should use technology without becoming outdated, it should let function determine form, and it should limit the barriers to entry. Good design is never ironic; it is accessible for everyone.</p>
+        <!-- Herbert Spencer? http://en.wikipedia.org/wiki/Pioneers_of_Modern_Typography -->
+        <!-- perhaps some paul rand?
+             http://www.hellerbooks.com/pdfs/catalogs_rand_designers_words.pdf
+             http://arteydisegno.files.wordpress.com/2010/04/paul_rand_thoughts-on-design.pdf -->
+        <!-- Kazimir Malevich, Constructivism, Suprematism?
+             http://www.kazimir-malevich.org/the-complete-works.html
+             http://www.ibiblio.org/wm/paint/auth/malevich/sup/ -->
+    </section>
+
+<!--
+    <p>Dear, an this dream come true,<br />
+        I, who being poet only,<br />
+        Can give thee poor words only,<br />
+        Add this one poor other tribute,<br />
+        <strong>This thing men call immortality.</strong><br />
+        A gift I give thee even as Ronsard gave it.</br />
+        Seeing before time, one sweet face grown old,<br />
+        And seeing the old eyes grow bright<br />
+        From out the border of Her fire-lit wrinkles,<br />
+        As she should make boast unto her maids<br />
+        &ldquo;Ronsard hath sung the beauty, my beauty,<br />
+        Of the days that I was fair.&rdquo;</p>
+-->
+</article>
+
+
+
+<article data-module="resize_fu">
+    <h2>Top Things</h2>
+    <!-- RDFa for reviews: http://support.google.com/webmasters/bin/answer.py?hl=en&answer=146645 -->
+
+<section id="top_movies">
+    <h3>My Top 5 Favorite Movies, Listed by Date</h3>
+    <ol>
+        <li resource="/#/top_things/le_mepris/" typeof="og:video">
+            <cite property="og:video:movie">Le Mépris</cite>, starring
+            <span property="og:video:actor">Brigitte Bardot</span>, directed by
+            <span property="og:video:director">Jean-Luc Godard</span>
+           (<span property="og:video:release_date" content="1963-10-29" datetime="1963-10-29">1963</span>)
+        </li>
+        <li resource="/#/top_things/the_good_the_bad_and_the_ugly/" typeof="og:video">
+            <cite property="og:video:movie">The Good, The Bad, and The Ugly</cite>, starring
+            <span property="og:video:actor">Clint Eastwood</span>, directed by
+            <span property="og:video:director">Sergio Leone</span>
+           (<span property="og:video:release_date" content="1966-12-15" datetime="1966-12-15">1966</span>)
+        </li>
+        <li resource="/#/top_things/blade_runner/" typeof="og:video">
+            <cite property="og:video:movie">Blade Runner</cite>, starring
+            <span property="og:video:actor">Harrison Ford</span>, directed by
+            <span property="og:video:director">Ridley Scott</span>
+           (<time property="og:video:release_date" content="1982-06-25" datetime="1982-06-25">1982</time>)
+        </li>
+        <li resource="/#/top_things/akira/" typeof="og:video">
+            <cite property="og:video:movie">Akira</cite>, starring
+            <span property="og:video:actor">Mitsuo Iwata</span>, directed by
+            <span property="og:video:director">Katsuhiro Otomo</span>
+           (<span property="og:video:release_date" content="1988-07-16" datetime="1998-06-16">1988</span>)
+        </li>
+        <li resource="/#/top_things/melancholia/" typeof="og:video">
+            <cite property="og:video:movie">Melancholia</cite>, starring
+            <span property="og:video:actor">Kirsten Dunst</span>, directed by
+            <span property="og:video:director">Lars von Trier</span>
+           (<span property="og:video:release_date" content="2011-05-18" datetime="2011-05-18">2011</span>)
+        </li>
+        <!--
+        <li><span>Casablanca</span> (<span>1942</span>)</li>
+        <li><span>The Godfather</span> (<span>1972</span>)</li>
+        <li><span>Star Wars: A New Hope</span> (<span>1977</span>)</li>
+        <li><span>Fear and Loathing in Las Vegas</span> (<span>1998</span>)</li>
+        <li><span>Lost in Translation</span> (<span>2003</span>)</li>
+        -->
+    </ol>
+</section>
+<section id="top_songs">
+    <h3>My Top 5 Favorite Songs, Listed by Date</h3>
+    <ol>
+        <li resource="/#/top_things/nina_simone/" typeof="og:music">
+            <cite property="og:music:song dc:title">Sinnerman</cite>, by
+            <span property="og:music:musician dc:creator">Nina Simone</span>
+           (<span property="og:music:album"><em>Pastel Blues</em></span>,
+            <span property="og:music:release_date">1965</span>)
+        </li>
+        <li resource="/#/top_things/the_beatles/" typeof="og:music">
+            <cite property="og:music:song dc:title">Tomorrow Never Knows</cite> by
+            <span property="og:music:musician dc:creator">The Beatles</span>
+           (<span property="og:music:album"><em>Revolver</em></span>,
+            <span property="og:music:release_date">1966</span>)
+        </li>
+        <li resource="/#/top_things/pink_floyd/" typeof="og:music">
+            <cite property="og:music:song dc:title">Time</cite> by
+            <span property="og:music:musician dc:creator">Pink Floyd</span>
+           (<span property="og:music:album"><em>The Dark Side of the Moon</em></span>,
+            <span property="og:music:release_date">1974</span>)
+        </li>
+        <li resource="/#/top_things/bjork/" typeof="og:music">
+            <cite property="og:music:song dc:title">Bachelorette</cite>, by
+            <span property="og:music:musician dc:creator">Björk</span>
+           (<span property="og:music:album"><em>Homogenic</em></span>,
+            <span property="og:music:release_date">1997</span>)
+        </li>
+        <li resource="/#/top_things/wu_tang_clan/" typeof="og:music">
+            <cite property="og:music:song dc:title">Hollow Bones</cite>, by
+            <span property="og:music:musician dc:creator">Wu-Tang Clan</span>
+           (<span property="og:music:album"><em>The W</em></span>,
+            <span property="og:music:release_date">2000</span>)
+        </li>
+    </ol>
+</section>
+<section id="top_photographs">
+    <h3>My Top 5 Favorite Photographs, Listed by Date</h3>
+    <ol>
+        <li resource="/#/top_things/derriere_la_gare_saint_lazare">
+            <cite property="dc:title">Derriere la Gare Saint-Lazare</cite> - 
+            <span property="dc:date" datetime="1932">1932</span>, by
+            <span property="dc:creator">Henri Cartier-Bresson</span>
+           (<span>French</span>)
+        </li>
+        <li resource="/#/top_things/tomoko_uemura_in_her_bath">
+            <cite property="dc:title">Tomoko Uemura in Her Bath</cite> - 
+            <span property="dc:date" datetime="1971">1971</span>, by
+            <span property="dc:creator">W. Eugene Smith</span>
+           (<span>American</span>)
+        </li>
+        <li resource="/#/top_things/asdf">
+            <cite property="dc:title">Elevator Operator, Miami Beach, 1955</cite> - 
+            <span property="dc:date" datetime="1958">1958</span>, by
+            <span property="dc:creator">Robert Frank</span>
+           (<span>Swiss, American</span>)
+        </li>
+        <li resource="/#/top_things/asdf">
+            <cite property="dc:title">Margie Cato</cite>, Junior Bazaar - 
+            <span property="dc:date" datetime="1950">1950</span>, by
+            <span property="dc:creator">Lillian Bassman</span>
+           (<span>American</span>)
+        </li>
+        <li resource="/#/top_things/asdf">
+            <cite property="dc:title">London, 1952</cite> - 
+            <span property="dc:date" datetime="1952">1952</span>, by
+            <span property="dc:creator">Bill Brandt</span>
+           (<span>German, British</span>)
+        </li>
+    </ol>
+</article>
+
+<article data-module="resize_fu">
+    <h2>Excerpts from Literature</h2>
+    <h3>On Writing</h3>
+    <figure resource="/#/literature/emily_post/">
+        <blockquote>
+            <p>In writing notes or letters, as in all other forms of social observance, the highest achievement is in giving the appearance of simplicity, naturalness and force.</p>
+
+            <p>Those who use long periods of flowered prolixity and pretentious phrases&mdash;who write in complicated form with meaningless flourishes, do not make an impression of elegance and erudition upon their readers, but flaunt instead unmistakable evidence of vainglory and ignorance.</p>
+
+            <p>The letter you write, whether you realize it or not, is always a mirror which reflects your appearance, taste and character. A &ldquo;sloppy&rdquo; letter with the writing all pouring into one corner of the page, badly worded, badly spelled, and with unmatched paper and envelope&mdash;even possibly a blot&mdash;proclaims the sort of person who would have unkempt hair, unclean linen and broken shoe laces; just as a neat, precise, evenly written note portrays a person of like characteristics.</p>
+        </blockquote>
+        <figcaption>
+            <p>&mdash;<span property="dc:creator">Emily Post</span>, 
+                <cite property="dc:title">Etiquette in Society, in Business, in Politics, and at Home<cite>,
+                <time property="dc:date" content="1922-07" datetime="1922-07">1922</time></p>
+        </figcaption>
+    </figure>
+    <h3>On Greatness and Legacy</h3>
+    <figure resource="/#/literature/virginia_woolf/">
+        <blockquote>
+            <p><!--He stood stock-still, by the urn, with the geranium flowing over it. How many men in a thousand million, he asked himself, reach Z after all? Surely the leader of a forlorn hope may ask himself that, and answer, without treachery to the expedition behind him, &ldquo;One perhaps.&rdquo; One in a generation. Is he to be blamed then if he is not that one? provided he has toiled honestly, given to the best of his power, and till he has no more left to give? -->And his fame lasts how long? It is permissible even for a dying hero to think before he dies how men will speak of him hereafter. His fame lasts perhaps two thousand years. And what are two thousand years? (asked Mr Ramsay ironically, staring at the hedge). What, indeed, if you look from a mountain top down the long wastes of the ages? The very stone one kicks with one&rsquo;s boot will outlast Shakespeare. His own little light would shine, not very brightly, for a year or two, and would then be merged in some bigger light, and that in a bigger still. (He looked into the hedge, into the intricacy of the twigs.) Who then could blame the leader of that forlorn party which after all has climbed high enough to see the waste of the years and the perishing of the stars, if before death stiffens his limbs beyond the power of movement he does a little consciously raise his numbed fingers to his brow, and square his shoulders, so that when the search party comes they will find him dead at his post, the fine figure of a soldier? Mr Ramsay squared his shoulders and stood very upright by the urn.</p>
+
+            <p>Who shall blame him, if, so standing for a moment he dwells upon fame, upon search parties, upon cairns raised by grateful followers over his bones? Finally, who shall blame the leader of the doomed expedition, if, having adventured to the uttermost, and used his strength wholly to the last ounce and fallen asleep not much caring if he wakes or not, he now perceives by some pricking in his toes that he lives, and does not on the whole object to live, but requires sympathy, and whisky, and some one to tell the story of his suffering to at once? Who shall blame him? Who will not secretly rejoice when the hero puts his armour off, and halts by the window and gazes at his wife and son, who, very distant at first, gradually come closer and closer, till lips and book and head are clearly before him, though still lovely and unfamiliar from the intensity of his isolation and the waste of ages and the perishing of the stars, and finally putting his pipe in his pocket and bending his magnificent head before her-who will blame him if he does homage to the beauty of the world?</p>
+        </blockquote>
+        <figcaption>
+            <p>&mdash;<span property="dc:creator">Virginia Woolf</span>, 
+                <cite property="dc:title">To the Lighthouse<cite>, The Window, Chapter 6,
+                <time property="dc:date" content="1927-05-05" datetime="1927-05-05">1927</time></p>
+        </figcaption>
+    </figure>
+</article>
+
+<!--
+<style>
+.complete {
+    color: #BBB;
+    text-decoration: line-through;
+}
+</style>
+<script>
+var TodoItem = Backbone.Model.extend({
+    toggleStatus: function() {
+        if(this.get("status") === "complete") {
+            this.set("status","incomplete");
+        }
+        else {
+            this.set("status","complete");
+        }
+    }
+});
+var todoItem = new TodoItem({
+    description: 'Pick up milk',
+    status: 'incomplete',
+    id: 1
+});
+
+
+var TodoList = Backbone.Collection.extend({
+    url: "/static/js/json/todo.json",
+    model: TodoItem
+});
+var todoList = new TodoList();
+
+todoList.reset([
+    {
+        "description": "pick up milk",
+        "status": "incomplete",
+        "id": 1
+    },
+    {
+        "description": "get a car wash",
+        "status": "incomplete",
+        "id": 2
+    }
+]);
+// todoList.fetch();
+console.log(todoList.length);
+todoList.forEach(function(todoItem) {
+    console.log(todoItem.get("description"));
+});
+
+
+var TodoView = Backbone.View.extend({
+    tagName: 'article',
+    id: 'todo-view',
+    className: 'todo',
+    events: {
+        "change input": "toggleStatus"
+    },
+    initialize: function() {
+        this.model.on("change", this.render, this);
+    },
+    toggleStatus: function() {
+        this.model.toggleStatus();
+    },
+    template: _.template('<h3 class="<%= status %>">' +
+        '<input type="checkbox" ' +
+        '<% if(status === "complete") print("checked") %> />' +
+        '<%= description %></h3>'),
+    render: function() {
+        var attributes = this.model.toJSON();
+        this.$el.html(this.template(attributes));
+    }
+});
+var todoView = new TodoView({
+    model: todoItem
+});
+todoView.render();
+console.log(todoView.el);
+$('[role="banner"]').before(todoView.el);
+
+
+
+
+</script>
+-->
+<!--
+<article style="display: none;">
+    <h2>Quote Machine</h2>
+</article>
+-->
+<!--
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=252650604778642";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-like-box" data-href="http://www.facebook.com/HereReadThisPage" data-width="250" data-height="63" data-show-faces="false" data-stream="false" data-header="false"></div>
+-->
+
+<footer role="contentinfo">
+    <div>
+        <p class="creative_commons_license" resource="#copyright"><a rel="license" class="creative_commons_image"
+                    href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img
+                    alt="Creative Commons License"
+                    src="/static/img/cc_by-sa.png" width="100%" /></a>
+            <small>Except where otherwise noted,
+                <span prefix:dct="http://purl.org/dc/terms/" property="dct:title">Here, Read This</span> by
+                <a prefix:cc="http://creativecommons.org/ns#" href="http://herereadthis.com/" property="cc:attributionName" rel="cc:attributionURL">Jimmy Ha</a> is licensed under a 
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</small></p>
+        <p>Here are 5 rules for life:</p>
+        <ol>
+            <li>The secret to communication is accepting that what the other person knows is different than what I know.</li>
+            <li>It&rsquo;s okay to have issues; everyone has issues.</li>
+            <li>Cynicism isn&rsquo;t really about other people&mdash;it&rsquo;s about me.</li>
+            <li>If I see a problem, and the solution for the problem is for other people to change, then I am the problem.</li>
+            <li>I am the company I keep.</li>
+        </ol>
+    </div>
+    <div>
+        <p>Here are 6 circles.</p>
+    </div>
+</footer>
+
+
+
+</body>
+</html>
+
+
+
