@@ -2,22 +2,23 @@
 (function() {
 
   define(function(require) {
-    var $, exports;
-    $ = require("jquery");
+    var exports;
     exports = {
       track: function(accountId) {
-        var secure, unsecure, _gaq;
+        var ga, s, secure, unsecure, _gaq;
         _gaq = window._gaq = _gaq || [];
+        ga = document.createElement("script");
+        s = document.getElementsByTagName('script')[0];
         _gaq.push(['_setAccount', accountId]);
         _gaq.push(['_trackPageview']);
+        ga.type = "text/javascript";
+        ga.async = true;
         secure = "https://ssl.google-analytics.com/ga.js";
         unsecure = "http://www.google-analytics.com/ga.js";
+        ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + ".google-analytics.com/ga.js";
+        console.log(ga.src);
         return window.onload = function() {
-          $("head").append($("<script />").attr({
-            "type": "text/javascript",
-            "async": true,
-            "src": 'https:' === document.location.protocol ? secure : unsecure
-          }));
+          s.parentNode.insertBefore(ga, s);
           return console.log("analytics init");
         };
       }
