@@ -1,6 +1,0 @@
-AuthType Basic
-AuthName "protected area"
-AuthUserFile /home/82299/.htpasswd
-AuthGroupFile /home/82299/.htgroup
-Require group guest
-Require user guest
