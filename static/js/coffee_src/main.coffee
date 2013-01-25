@@ -35,6 +35,14 @@ requirejs.config
     # "paths" are path mappings for module names not found directly under baseUrl
     paths:
         main: "main"
+
+    # In-House -------------
+        # ModuleJack: "module_jack"
+        HeadMore: "head_more"
+        Coding: "coding"
+        ResizeFu: "resize_fu"
+        CanvasSally: "canvas_sally"
+    # Libraries ------------
         jquery: "library/jquery.1.9.0.min"
         Modernizr: "library/modernizr_custom"
         # backbone tutorials:
@@ -42,7 +50,6 @@ requirejs.config
         # http://www.joezimjs.com/javascript/introduction-to-backbone-js-part-1-models-video-tutorial/
         Backbone: "library/backbone-min"
         underscore: "library/underscore-min"
-        ResizeFu: "resize_fu"
 
 
 
@@ -63,26 +70,28 @@ require ["jquery", "maya_stripes", "accordian_player"], ($) ->
             _article.accordianPlayer()
 ###
 
-require ["jquery", "code_tango"], ($) ->
-    $ () ->
-        _pre = $("pre")
-        _pre.codeTango()
-
-# require ["jquery", "widerFatter"], (widerFatter) ->
+# require ["jquery", "code_tango"], ($) ->
 #     $ () ->
-#         $("#beautiful").widerFatter
-#             "message": "noped out"
-#         # $("#beautiful").widerFatter
-#             # "message": "noped out"
+#         _pre = $("pre")
+#         _pre.codeTango()
 
 
-# module jack inspired from http://paceyourself.net/2011/05/14/managing-client-side-javascript-with-requirejs/
 require [
     "jquery",
-    'Modernizr',
-    'module_jack', 'Backbone', 'analytics'], ($, Modernizr, moduleJack, Backbone, analytics) ->
-    moduleJack.execute()
-    analytics.track('UA-37798496-1')
+    'HeadMore', "Coding"
+    'CanvasSally'
+    'Modernizr', 'Backbone',
+    'Analytics'], (
+        $,
+        HeadMore, Coding
+        CanvasSally
+        Modernizr, Backbone, 
+        Analytics) ->
+    if Modernizr.touch is false
+        do HeadMore.init
+        do CanvasSally.init
+        do Coding.init
+    Analytics.track('UA-37798496-1')
 
 
 

@@ -30,6 +30,10 @@
 		line-height: 1.333333em;
 		font-family: Helvetica, sans-serif;
 	}
+	body > header cite {
+		font-style: italic;
+		font-family: Helvetica, sans-serif;
+	}
 	#head_soc ul {
 		margin-bottom: 3em;
 		padding-left: 0;

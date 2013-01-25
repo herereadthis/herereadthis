@@ -33,11 +33,14 @@
     },
     paths: {
       main: "main",
+      HeadMore: "head_more",
+      Coding: "coding",
+      ResizeFu: "resize_fu",
+      CanvasSally: "canvas_sally",
       jquery: "library/jquery.1.9.0.min",
       Modernizr: "library/modernizr_custom",
       Backbone: "library/backbone-min",
-      underscore: "library/underscore-min",
-      ResizeFu: "resize_fu"
+      underscore: "library/underscore-min"
     }
   });
 
@@ -59,17 +62,13 @@
   */
 
 
-  require(["jquery", "code_tango"], function($) {
-    return $(function() {
-      var _pre;
-      _pre = $("pre");
-      return _pre.codeTango();
-    });
-  });
-
-  require(["jquery", 'Modernizr', 'module_jack', 'Backbone', 'analytics'], function($, Modernizr, moduleJack, Backbone, analytics) {
-    moduleJack.execute();
-    return analytics.track('UA-37798496-1');
+  require(["jquery", 'HeadMore', "Coding", 'CanvasSally', 'Modernizr', 'Backbone', 'Analytics'], function($, HeadMore, Coding, CanvasSally, Modernizr, Backbone, Analytics) {
+    if (Modernizr.touch === false) {
+      HeadMore.init();
+      CanvasSally.init();
+      Coding.init();
+    }
+    return Analytics.track('UA-37798496-1');
   });
 
   /*

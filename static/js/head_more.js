@@ -2,12 +2,13 @@
 (function() {
 
   define(function(require) {
-    var $, Modernizr, ResizeFu, em, exports, gVars, makeSocialClick;
+    var $, Modernizr, ResizeFu, em, exports, gVars, makeItHappen, makeSocialClick, moduleName;
     $ = require("jquery");
     Modernizr = require("Modernizr");
     ResizeFu = require("resize_fu");
     exports = {};
     gVars = {};
+    moduleName = "head_more";
     em = parseInt($("body").css("font-size"), 10);
     makeSocialClick = function(_this) {
       return _this.on("click", "li", function(e) {
@@ -19,9 +20,20 @@
         }
       });
     };
-    exports.init = function(_this) {
+    makeItHappen = function(_this) {
       ResizeFu.init(_this);
       return makeSocialClick(_this.find("aside"));
+    };
+    exports.init = function(_this) {
+      var element;
+      if (_this !== void 0) {
+        return makeItHappen(_this);
+      } else {
+        element = $("body").find("[data-module=\"" + moduleName + "\"]");
+        return element.each(function() {
+          return makeItHappen($(this));
+        });
+      }
     };
     return exports;
   });

@@ -3,6 +3,8 @@ define (require) ->
 	$ = require "jquery"
 	exports = {}
 	gVars = {}
+	# name of actual file here
+	moduleName = "canvas_sally"
 	em = parseInt $("body").css("font-size"), 10
 
 
@@ -62,7 +64,10 @@ define (require) ->
 		}
 
 
-	exports.init = ( element ) ->
+	# exports.init = ( element ) ->
+
+
+	makeItHappen = ( element ) ->
 		em = parseInt $("body").css("font-size"), 10
 		settings = 
 			id: element.attr "id"
@@ -85,6 +90,16 @@ define (require) ->
             positionCanvas $(element), settings
 			if settings.shape is "circle"
                 makeCircle context, $(element), settings
+
+
+	exports.init = ( _this ) ->
+		# _this is a jQuery object
+		if _this != undefined
+			makeItHappen _this
+		else
+			element = $("body").find("[data-module=\"#{ moduleName }\"]")
+			element.each () ->
+				makeItHappen $(@)
 
 
 

@@ -55,6 +55,15 @@
 		width: auto;
 	}
 }
+@media all and (max-width: 850px) {
+	#head_soc li {
+		width: 10em;
+		margin-bottom: 1em;
+	}
+	#head_soc li:nth-child(4) {
+		clear: both;
+	}
+}
 @media all and (min-width: 801px) and (max-width: 1024px) {
 	body {
 		width: 100%;

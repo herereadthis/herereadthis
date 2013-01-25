@@ -2,10 +2,11 @@
 (function() {
 
   define(function(require) {
-    var $, em, exports, gVars, makeCircle, positionCanvas;
+    var $, em, exports, gVars, makeCircle, makeItHappen, moduleName, positionCanvas;
     $ = require("jquery");
     exports = {};
     gVars = {};
+    moduleName = "canvas_sally";
     em = parseInt($("body").css("font-size"), 10);
     makeCircle = function(context, _this, settings) {
       var center, radius;
@@ -58,7 +59,7 @@
         "margin-left": parentPad + canvasWidth + absAdjust - parentLeftPad
       });
     };
-    exports.init = function(element) {
+    makeItHappen = function(element) {
       var canvas, context, settings;
       em = parseInt($("body").css("font-size"), 10);
       settings = {
@@ -80,6 +81,17 @@
       });
       if (settings.shape === "circle") {
         return makeCircle(context, $(element), settings);
+      }
+    };
+    exports.init = function(_this) {
+      var element;
+      if (_this !== void 0) {
+        return makeItHappen(_this);
+      } else {
+        element = $("body").find("[data-module=\"" + moduleName + "\"]");
+        return element.each(function() {
+          return makeItHappen($(this));
+        });
       }
     };
     return exports;

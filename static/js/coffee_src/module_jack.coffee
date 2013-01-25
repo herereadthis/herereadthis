@@ -1,4 +1,5 @@
 # inspired from http://paceyourself.net/js/util/module-activator.js and modified accordingly
+# module jack inspired from http://paceyourself.net/2011/05/14/managing-client-side-javascript-with-requirejs/
 define (require) ->
     $ = require "jquery"
     # Modernizr is going to be used for touch capability
