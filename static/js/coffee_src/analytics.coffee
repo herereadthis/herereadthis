@@ -16,7 +16,7 @@ define (require) ->
 			secure = "https://ssl.google-analytics.com/ga.js"
 			unsecure = "http://www.google-analytics.com/ga.js"
 			ga.src = (if 'https:' is document.location.protocol then 'https://ssl' else 'http://www') + ".google-analytics.com/ga.js"
-			console.log ga.src
+			console.log ga.src, "!"
 
 			window.onload = () ->
 				s.parentNode.insertBefore ga, s
