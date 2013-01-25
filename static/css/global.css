@@ -67,11 +67,15 @@ a:link {
 	text-decoration:  none;
 }
 a:visited {
-	color: #73C2FB;
+	color: #3D048C;
 	text-decoration: none;
 }
-a:hover {
-	color: #3D048C;
+a:hover, #head_soc li:hover:nth-child(6) a:hover {
+	color: #8C043D;
+	text-decoration: underline;
+}
+a:active, a:focus {
+	color: #3D8C04;
 	text-decoration: underline;
 }
 
@@ -156,12 +160,19 @@ header > aside#head_soc {
 	cursor: default;
 }
 #head_soc li:hover a {
+	color: #8C043D;
 	text-decoration: underline;
 }
-#head_soc li:hover:nth-child(6) a {
+#head_soc li:hover:nth-child(6) a:link {
+	color: #043D8C;
 	text-decoration: none;
 }
-#head_soc li:nth-child(6) a:hover {
+#head_soc li:hover:nth-child(6) a:visited {
+	color: #3D048C;
+	text-decoration: none;
+}
+#head_soc li:hover:nth-child(6) a:hover {
+	color: #8C043D;
 	text-decoration: underline;
 }
 
