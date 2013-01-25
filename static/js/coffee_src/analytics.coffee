@@ -13,18 +13,19 @@ define (require) ->
 			ga.type = "text/javascript"
 			ga.async = true
 
-			secure = "https://ssl.google-analytics.com/ga.js"
-			unsecure = "http://www.google-analytics.com/ga.js"
+			# secure = "https://ssl.google-analytics.com/ga.js"
+			# unsecure = "http://www.google-analytics.com/ga.js"
 			ga.src = (if 'https:' is document.location.protocol then 'https://ssl' else 'http://www') + ".google-analytics.com/ga.js"
-			console.log ga.src, "!"
+			console.log _gaq, "!"
 
-			window.onload = () ->
-				s.parentNode.insertBefore ga, s
-				# $("head").append $("<script />").attr
-				# 	"type": "text/javascript"
-				# 	"async": true
-				# 	"src": if 'https:' is document.location.protocol then secure else unsecure
-				console.log "analytics init"
+			s.parentNode.insertBefore ga, s
+			# window.onload = () ->
+			# 	s.parentNode.insertBefore ga, s
+			# 	# $("head").append $("<script />").attr
+			# 	# 	"type": "text/javascript"
+			# 	# 	"async": true
+			# 	# 	"src": if 'https:' is document.location.protocol then secure else unsecure
+			# 	console.log "analytics init"
 
 	exports
 ###
