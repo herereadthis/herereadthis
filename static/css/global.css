@@ -1,0 +1,574 @@
+/* THE COLOR PALETTE!
+	Everything will be based off Maya Blue. #73c2fb
+	Left column is Maya Blue and its complements
+	#73C2FB	rgba(115, 194, 251, 1)		#8C3D04
+	#73FBC2 rgba(115, 251, 194, 1)		#8C043D
+	#C273FB rgba(194, 115, 251, 1)		#3D8C04
+	#C2FB73 rgba(194, 251, 115, 1)		#3D048C
+	#FB73C2 rgba(251, 115, 251, 1)		#048C3D
+	#FBC273 rgba(251, 251, 115, 1)		#043D8C
+
+
+*/
+
+/* start looking into parallax page scrolling
+http://net.tutsplus.com/tutorials/html-css-techniques/simple-parallax-scrolling-technique/
+http://richardshepherd.com/smashing/parallax/background.html
+*/
+
+
+html {
+    font-size: 62.5%;
+    -webkit-text-size-adjust: 100%; 
+    -ms-text-size-adjust: 100%;
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+}
+body {
+	margin: 0;
+	padding: 0;
+    font: normal normal normal 100%/1.5 Helvetica, Arial, sans-serif;
+    /* ligatures https://developer.mozilla.org/en-US/docs/CSS/text-rendering */
+}
+img {
+	border-width: 0;
+}
+h1, h2, h3, p, li {
+	margin: 0;
+}
+ul, ol {
+	margin: 0 0 2em 0;
+	padding: 0;
+}
+p, li {
+	font-size: 1.5em;
+	line-height: 1.3333333em;
+}
+p {
+	padding-bottom: 1.333333em;
+}
+code, pre > span {
+	font-size: 1.6em;
+	line-height: 1.25em;
+	font-family: "inconsolatamedium", "Consolas", "Menlo", "Monaco", monospace;
+}
+p > code {
+	padding: 0 0.125em;
+	font-size: 1.066667em;
+	line-height: 1.125em;
+	background-color: #EEE;
+	border: 0.0625em solid #E5E5E5;
+}
+p > small {
+	font-size: 1em;
+}
+a:link {
+	color: #043D8C;
+	text-decoration:  none;
+}
+a:visited {
+	color: #73C2FB;
+	text-decoration: none;
+}
+a:hover {
+	color: #3D048C;
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
+header {
+	padding-top: 3em;
+	font-family: "gillsans", sans-serif;
+	overflow: auto;
+}
+header h1 {
+	padding: 0 0 0.25em 0;
+	font-weight: normal;
+	font-size: 12em;
+	line-height: 1em;
+	font-family: "lavanderiaregular", "Helvetica", sans-serif;
+}
+header h3 {
+	font-weight: normal;
+	font-family: "gillsans_bold", sans-serif;
+}
+header h3, header p {
+	font-size: 2em;
+	line-height: 1.5em;
+}
+header cite {
+	font-style: normal;
+	font-family: "gillsans_italic", sans-serif;
+}
+header > aside#head_soc {
+}
+#head_soc h3 {
+	display: none;
+}
+#head_soc ul {
+	overflow: auto;
+}
+#head_soc li {
+	list-style-type: none;
+	float: left;
+	font-size: 1em;
+	overflow: auto;
+	height: 4em;
+	margin: 0 1em 0 0;
+	padding-left: 4.2em;
+	background-image: url(../img/social_sprites.png);
+	background-size: 4em 48em;
+	background-repeat: no-repeat;
+}
+#head_soc li:last-of-type {
+	margin-right: 0;
+}
+#head_soc li > span {
+	display: block;
+	height: 3em;
+	padding-top: 0.7em;
+}
+#head_soc li > span > * {
+	font-size: 1.5em;
+	line-height: 1em;
+}
+#head_soc li:nth-child(1) {background-position: 0em 0em;}
+#head_soc li:nth-child(2) {background-position: 0em -4em;}
+#head_soc li:nth-child(3) {background-position: 0em -8em;}
+#head_soc li:nth-child(4) {background-position: 0em -12em;}
+#head_soc li:nth-child(5) {background-position: 0em -16em;}
+#head_soc li:nth-child(6) {background-position: 0em -20em;}
+
+#head_soc li:hover {
+	cursor: pointer;
+}
+#head_soc li:hover:nth-child(1) {background-position: 0em -24em;}
+#head_soc li:hover:nth-child(2) {background-position: 0em -28em;}
+#head_soc li:hover:nth-child(3) {background-position: 0em -32em;}
+#head_soc li:hover:nth-child(4) {background-position: 0em -36em;}
+#head_soc li:hover:nth-child(5) {background-position: 0em -40em;}
+#head_soc li:hover:nth-child(6) {background-position: 0em -44em;
+	cursor: default;
+}
+#head_soc li:hover a {
+	text-decoration: underline;
+}
+#head_soc li:hover:nth-child(6) a {
+	text-decoration: none;
+}
+#head_soc li:nth-child(6) a:hover {
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+article {
+	clear: both;
+	padding-top: 3em;
+}
+article:nth-of-type(1) {
+	position: relative;
+}
+article:nth-of-type(1) canvas#the_circle {
+	position: absolute;
+	top: 1em;
+	left: 0em;
+	float: left;
+}
+article:nth-of-type(1):before {
+}
+article:last-of-type {
+	padding-bottom: 2em;
+}
+
+
+article h2 {
+	font-size: 2em;
+	line-height: 1em;
+	padding-bottom: 0.5em;
+}
+article h3 {
+	font-size: 1.5em;
+	line-height: 1.333333em;
+	padding-bottom: 0em;
+}
+
+
+
+figure {
+	margin: 0;
+}
+figure > blockquote {
+	margin: 0;
+}
+
+
+body > footer {
+	background-image: 
+		linear-gradient(0deg, #3D048C 0em, #3D048C 1em),
+		linear-gradient(0deg, #3D048C 0em, #3D048C 1em),
+		linear-gradient(90deg, #3D048C 0em, #3D048C 1em),
+		linear-gradient(0deg, #C2FB73 0em, #C2FB73 1em);
+	background-image: 
+		-moz-linear-gradient(0deg, #3D048C 0em, #3D048C 1em),
+		-moz-linear-gradient(0deg, #3D048C 0em, #3D048C 1em),
+		-moz-linear-gradient(90deg, #3D048C 0em, #3D048C 1em),
+		-moz-linear-gradient(0deg, #C2FB73 0em, #C2FB73 1em);
+	background-image: 
+		-webkit-linear-gradient(0deg, #3D048C 0em, #3D048C 1em),
+		-webkit-linear-gradient(0deg, #3D048C 0em, #3D048C 1em),
+		-webkit-linear-gradient(90deg, #3D048C 0em, #3D048C 1em),
+		-webkit-linear-gradient(0deg, #C2FB73 0em, #C2FB73 1em);
+	background-repeat: no-repeat, no-repeat, no-repeat;
+}
+body > footer > div + div {
+	/*  understanding radial gradients
+		http://www.impressivewebs.com/css3-radial-gradient-syntax/
+		http://westciv.com/tools/radialgradients/
+		http://lea.verou.me/css3patterns/
+		when using radial backgrounds as a circle, use 0.70710678118 as outer edge
+		100% means the 45 deg diagonal hits the corner, so 1/sqrt(2) is 70.7%
+	*/
+/*	background-color:rgba(255, 255, 255, 1);
+	background-image: -moz-radial-gradient(90px 90px, circle farthest-side,
+		rgba(255, 0, 0, 1) 0px,
+		rgba(0, 255, 0, 1) 70px,
+		rgba(0, 0, 255, 1) 89px,
+		rgba(255, 255, 255, 1) 90px); */
+	padding-top: 0;
+	min-height: 28em;
+	background-image:
+		radial-gradient(rgba(115, 251, 194, 0.8) 40%, rgba(115, 251, 194, 1) 60%, rgba(115, 251, 194, 1) 70.7107%, transparent 70.7107%),
+		radial-gradient(rgba(115, 194, 251, 0.8) 40%, rgba(115, 194, 251, 1) 60%, rgba(115, 194, 251, 1) 70.7107%, transparent 70.7107%),
+		radial-gradient(rgba(194, 251, 115, 0.8) 40%, rgba(194, 251, 115, 1) 60%, rgba(194, 251, 115, 1) 70.7107%, transparent 70.7107%),
+		radial-gradient(rgba(194, 115, 251, 0.8) 40%, rgba(194, 115, 251, 1) 60%, rgba(194, 115, 251, 1) 70.7107%, transparent 70.7107%),
+		radial-gradient(rgba(251, 194, 115, 0.8) 40%, rgba(251, 194, 115, 1) 60%, rgba(251, 194, 115, 1) 70.7107%, transparent 70.7107%),
+		radial-gradient(rgba(251, 115, 194, 0.8) 40%, rgba(251, 115, 194, 1) 60%, rgba(251, 115, 194, 1) 70.7107%, transparent 70.7107%);
+	background-image:
+		-moz-radial-gradient(rgba(115, 251, 194, 0.8) 40%, rgba(115, 251, 194, 1) 60%, rgba(115, 251, 194, 1) 70.7107%, transparent 70.7107%),
+		-moz-radial-gradient(rgba(115, 194, 251, 0.8) 40%, rgba(115, 194, 251, 1) 60%, rgba(115, 194, 251, 1) 70.7107%, transparent 70.7107%),
+		-moz-radial-gradient(rgba(194, 251, 115, 0.8) 40%, rgba(194, 251, 115, 1) 60%, rgba(194, 251, 115, 1) 70.7107%, transparent 70.7107%),
+		-moz-radial-gradient(rgba(194, 115, 251, 0.8) 40%, rgba(194, 115, 251, 1) 60%, rgba(194, 115, 251, 1) 70.7107%, transparent 70.7107%),
+		-moz-radial-gradient(rgba(251, 194, 115, 0.8) 40%, rgba(251, 194, 115, 1) 60%, rgba(251, 194, 115, 1) 70.7107%, transparent 70.7107%),
+		-moz-radial-gradient(rgba(251, 115, 194, 0.8) 40%, rgba(251, 115, 194, 1) 60%, rgba(251, 115, 194, 1) 70.7107%, transparent 70.7107%);
+	background-image:
+		-webkit-radial-gradient(rgba(115, 251, 194, 0.8) 40%, rgba(115, 251, 194, 1) 60%, rgba(115, 251, 194, 1) 70.7107%, transparent 70.7107%),
+		-webkit-radial-gradient(rgba(115, 194, 251, 0.8) 40%, rgba(115, 194, 251, 1) 60%, rgba(115, 194, 251, 1) 70.7107%, transparent 70.7107%),
+		-webkit-radial-gradient(rgba(194, 251, 115, 0.8) 40%, rgba(194, 251, 115, 1) 60%, rgba(194, 251, 115, 1) 70.7107%, transparent 70.7107%),
+		-webkit-radial-gradient(rgba(194, 115, 251, 0.8) 40%, rgba(194, 115, 251, 1) 60%, rgba(194, 115, 251, 1) 70.7107%, transparent 70.7107%),
+		-webkit-radial-gradient(rgba(251, 194, 115, 0.8) 40%, rgba(251, 194, 115, 1) 60%, rgba(251, 194, 115, 1) 70.7107%, transparent 70.7107%),
+		-webkit-radial-gradient(rgba(251, 115, 194, 0.8) 40%, rgba(251, 115, 194, 1) 60%, rgba(251, 115, 194, 1) 70.7107%, transparent 70.7107%);
+	/*background-size: 12em 12em, 20em 20em, 10em 10em, 8em 8em, 4em 4em, 13em 13em;*/
+	background-repeat: no-repeat;
+	/*background-position: 25% 4em, 0% 2em, 55% 2em, 50% 0em, 100% 4em, 90% 2em;*/
+	background-size: 24em 24em, 40em 40em, 20em 20em, 16em 16em, 8em 8em, 26em 26em;
+	background-repeat: no-repeat;
+	background-position: 27% 10em, 0% 6em, 55% 6em, 50% 2em, 100% 10em, 90% 6em;
+}
+
+
+
+#beautiful {
+	width: 100%;
+	padding: 0;
+}
+#beautiful h3 {
+	padding-left: 30%;
+	font-size: 3em;
+	line-height: 1.666667em;
+	font-weight: normal;
+	font-family: "gillsans_italic", sans-serif;
+}
+#beautiful p {
+	margin-left: 0;
+	padding-bottom: 1em;
+	padding-left: 30%;
+	font-size: 2em;
+	line-height: 1.25em;
+	font-family: "joanna", serif;
+}
+#beautiful p strong {
+	font-weight: normal;
+	font-family: "joanna_bold", serif;
+}
+#beautiful p em {
+	font-style: normal;
+	font-family: "joanna_italic", serif;
+}
+#beautiful header {
+	width: 108em;
+	margin: 0 auto;
+	padding: 0 5em;
+	overflow: auto;
+}
+#beautiful header h2 {
+	float: left;
+	width: 25%;
+	padding-top: 0.7407407em;
+	padding-bottom: 0.333333em;
+	font-weight: normal;
+	font-size: 5.4em;
+	line-height: 1.2037037em;
+	font-family: "gillsans_light", serif;
+	text-align: left;
+	/*letter-spacing: -0.0185185em;*/
+}
+#beautiful header p {
+	/*text-indent: -0.45em;*/
+	padding-left: 28.148148%;
+}
+#beautiful figure#ezra_pound {
+	width: 100%;
+	clear: both;
+}
+#ezra_pound blockquote {
+	background-color: #000;
+}
+#ezra_pound blockquote p:before {
+
+}
+#ezra_pound blockquote p {
+	position: relative;
+	width: 7.2em;
+	margin: 0 auto;
+	padding: 0.3em 0.0 0% 0%;
+	font: normal normal normal 15em/0.5em "gillsans_condensed", sans-serif;
+	color: #FFF;
+	background-color: #000;
+	text-transform: uppercase;
+	text-align: right;
+	word-spacing: -0.2em;
+	letter-spacing: 0.006667em;
+}
+#ezra_pound blockquote p:before {
+	display: block;
+	content: "";
+	position: absolute;
+	background-color: #73C2FB;
+	top: 0;
+	right: 100%;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+}
+#ezra_pound figcaption {
+	width: 118em;
+	margin: 0 auto;
+}
+#ezra_pound figcaption p {
+	padding: 0.25em 2.5em 0 0;
+	text-align: right;
+}
+#beautiful section {
+	width: 118em;
+	margin: 0 auto;
+}
+#beautiful section > *:last-child {
+	padding-bottom: 0;
+}
+#beautiful section > p {
+	padding-right: 2.5em;
+}
+#beautiful.quarter_maya, #beautiful .quarter_maya {
+	background-image: 
+		linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em);
+	background-image: 
+		-moz-linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em);
+	background-image: 
+		-webkit-linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em);
+	background-repeat: no-repeat, no-repeat;
+	background-size: 28% 100%;
+	background-position: 0em 0em;
+}
+
+
+
+/* Creative Commons License */
+.creative_commons_license {
+	width: 54em;
+	font-size: 1em;
+	line-height: 1em;
+	padding-bottom: 2em;
+	height: 3.5em;
+}
+.creative_commons_license > a.creative_commons_image {
+	display: block;
+	float: left;
+	width: 10em;
+	height: 3.5em;
+	margin-right: 0.4em;
+}
+.creative_commons_license > small {
+	display: block;
+	font-size: 1.2em;
+	line-height: 1.25em;
+	padding-top: 0.25em;
+}
+
+
+/* special classes on page */
+.double_stack {
+	overflow: auto;
+}
+.double_stack > div {
+	float: left;
+	width: 50%;
+}
+.double_stack > div:first-child > * {
+	margin-right: 1em;
+}
+.double_stack > div:last-child > * {
+	margin-left: 1em;
+}
+
+
+/* makes stripes, fits with maya_stripes.js */
+.maya_stripes {
+	background-image: 
+		linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em),
+		linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em),
+		linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em);
+	background-image: 
+		-moz-linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em),
+		-moz-linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em),
+		-moz-linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em);
+	background-image: 
+		-webkit-linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em),
+		-webkit-linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em),
+		-webkit-linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em);
+	background-repeat: no-repeat, no-repeat, no-repeat;
+	background-size: 0 0, 0 0, 0 0;
+	background-position: 108em 108em, 108em 108em, 108em 108em;
+}
+
+
+
+/* makes code blocks, fits with code_tango.js */
+pre {
+	margin: 0;
+	font-size: 1.2295082em;
+	line-height: 1em;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	pre {
+	font-size: 1em;
+	}
+}
+.code_tango {
+	overflow: auto;
+	background-color: #EEE;
+	border-right: 0.1em solid #E5E5E5;
+	margin-bottom: 2em;
+}
+.code_tango > div {
+
+}
+.code_tango > div > div {
+	float: left;
+}
+.code_tango > div > div:first-child:not(:only-child) {
+	border-top: 0.1em solid #EEE;
+	border-right: 0.1em solid #DDD;
+	border-bottom: 0.1em solid #EEE;
+	border-left: 0.1em solid #EEE;
+	padding: 0.9em 0.6em 0.9em 1.2em;
+	background-color: #F5F5F5;
+}
+.code_tango > div > div:last-child:not(:only-child) {
+	border-top: 0.1em solid #E5E5E5;
+	border-bottom: 0.1em solid #E5E5E5;
+	padding: 0.9em 1.1em 0.9em 0.8em;
+	background-color: #EEE;
+}
+
+
+/* accordian player */
+.accordian:after {
+	content: "";
+	display: block;
+	background-color: #73C2FB;
+	height: 0.1em;
+	width: 100%;
+}
+.accordian > *:first-child {
+	position: relative;
+}
+html.touch .accordian > *:first-child {
+	padding: 1em 0;
+}
+.accordian span.toggler {
+	position: absolute;
+	right: 0;
+	top: 12em;
+	height: 7em;
+	width: 10em;
+	font-size: 0.1em;
+	background-image:
+		linear-gradient(135deg, #FFF 25%, FFF 25%),
+		linear-gradient(225deg, #FFF 25%, transparent 25%),
+		linear-gradient(315deg, #FFF 25%, transparent 25%),
+		linear-gradient(45deg, #FFF 25%, transparent 25%);
+	background-image:
+		-moz-linear-gradient(135deg, #FFF 25%, transparent 25%),
+		-moz-linear-gradient(225deg, #FFF 25%, transparent 25%),
+		-moz-linear-gradient(315deg, #FFF 25%, transparent 25%),
+		-moz-linear-gradient(45deg, #FFF 25%, transparent 25%);	
+	background-image:
+		-webkit-linear-gradient(135deg, #FFF 25%, transparent 25%),
+		-webkit-linear-gradient(225deg, #FFF 25%, transparent 25%),
+		-webkit-linear-gradient(315deg, #FFF 25%, transparent 25%),
+		-webkit-linear-gradient(45deg, #FFF 25%, transparent 25%);	
+	background-position: 0em -3em, -5em 0em, -5em 0em, 0 -3em;
+	background-size: 10em 10em;
+	background-color: #000;
+
+/*	background: 
+linear-gradient(135deg, #ECEDDC 25%, transparent 25%) -50px 0,
+linear-gradient(225deg, #ECEDDC 25%, transparent 25%) -50px 0,
+linear-gradient(315deg, #ECEDDC 25%, transparent 25%),
+linear-gradient(45deg, #ECEDDC 25%, transparent 25%);	
+background-size: 100px 100px;
+background-color: #EC173A;*/
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .accordian span.toggler {
+	background-position: 0em -3em, -5em 0em, -5em 0em, 0 -3em;
+	}
+	.accordian.selected span.toggler {	
+		background-position: -5em -3em, 0 0em, 0em 0em, -5em -3em;
+
+	}
+}
+@media screen and (-webkit-min-device-pixel-ratio:2) {
+	.accordian span.toggler {
+		background-position: 0em -3em, -5em 0em, -5em 0em, 0 -3em;
+	}
+	.accordian.selected span.toggler {	
+		background-position: -5em -3em, 0 0em, 0em 0em, -5em -3em;
+
+	}
+}
+@-moz-document url-prefix() {
+	.accordian span.toggler {
+		background-position: 0em -3em, -5em 0em, -5em 0em, 0 -3em;
+	}
+	.accordian.selected span.toggler {	
+		background-position: -5em -3em, 0 0em, 0em 0em, -5em -3em;
+
+	}
+}
+
+

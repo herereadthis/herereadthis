@@ -1,0 +1,213 @@
+
+
+@media all and (max-width: 800px) {
+	body {
+		width: 100%;
+	}
+	body > header {
+		padding-right: 2em;
+		padding-left: 2em;
+	}
+	body > header > h1 {
+		font-size: 10em;
+	}
+	article {
+		padding-right: 2em;
+		padding-left: 2em;
+	}
+	body > footer {
+		background-size: 61.8% 2.4em, 23.6% 0.4em, 23.6% 0.4em, 14.6% 4.8em;
+		background-position: 2em 0em, 0em 2.8em, 0em 3.6em, 10.6% 4.4em;
+	}
+	body > footer > div {
+		padding: 4em 2em 0 25.6%;
+	}
+	body > footer > div + div {
+		margin: 0 0em;
+		padding: 0em 0 0 27.5em;
+	}
+	#beautiful header {
+		width: auto;
+		padding: 0 2em;
+	}
+	#beautiful header h2 {
+		font-size: 3.8em;
+	}
+	#ezra_pound blockquote p {
+		width: auto;
+		font-size: 10em;
+		text-align: center;
+	}
+	#ezra_pound figcaption {
+		width: auto;
+		padding: 0 2em;
+	}
+	#ezra_pound figcaption p {
+		padding: 0;
+	}
+	#beautiful section {
+		width: auto;
+	}
+	#beautiful section > p {
+		padding-right: 1em;
+	}
+	.creative_commons_license {
+		width: auto;
+	}
+}
+@media all and (min-width: 801px) and (max-width: 1024px) {
+	body {
+		width: 100%;
+	}
+	body > header {
+		padding-right: 3em;
+		padding-left: 3em;
+	}
+	article {
+		padding-right: 3em;
+		padding-left: 3em;
+	}
+	body > footer {
+		background-size: 61.8% 2.4em, 23.6% 0.4em, 23.6% 0.4em, 14.6% 4.8em;
+		background-position: 2em 0em, 0em 2.8em, 0em 3.6em, 10.6% 4.4em;
+	}
+	body > footer > div {
+		padding: 4em 3em 0 25.6%;
+	}
+	body > footer > div + div {
+		margin: 0 0em;
+		padding: 0em 0 0 27.5em;
+	}
+	#beautiful header {
+		width: auto;
+		padding: 0 3em;
+	}
+	#ezra_pound blockquote {
+		padding-right: 3em;
+	}
+	#ezra_pound figcaption {
+		width: auto;
+		padding: 0 3em;
+	}
+	#ezra_pound figcaption p {
+		padding: 0;
+	}
+	#beautiful section {
+		width: auto;
+	}
+	#beautiful section > p {
+		padding-right: 1.5em;
+	}
+}
+
+@media all and (min-width: 801px) and (max-width: 900px) {
+	#beautiful header h2 {
+		font-size: 3.8em;
+	}
+	#ezra_pound blockquote p {
+		width: auto;
+		font-size: 10em;
+	}
+}
+@media all and (min-width: 901px) and (max-width: 1024px) {
+	#beautiful header h2 {
+		font-size: 4.3em;
+	}
+	#ezra_pound blockquote p {
+		width: auto;
+		font-size: 12em;
+	}
+}
+@media all and (min-width: 1025px) and (max-width: 1180px) {
+	body {
+		width: 100%;
+	}
+	body > header {
+		padding-right: 5em;
+		padding-left: 5em;
+	}
+	article {
+		padding-right: 5em;
+		padding-left: 5em;
+	}
+	body > footer {
+		background-size: 61.8% 2.4em, 23.6% 0.4em, 23.6% 0.4em, 14.6% 4.8em;
+		background-position: 2em 0em, 0em 2.8em, 0em 3.6em, 10.6% 4.4em;
+	}
+	body > footer > div {
+		padding: 4em 5em 0 25.6%;
+	}
+	body > footer > div + div {
+		margin: 0 2em;
+		padding: 0em 0 0 27.5em;
+	}
+	#beautiful header {
+		width: auto;
+		padding: 0 5em;
+	}
+	#ezra_pound blockquote {
+		padding-right: 5em;
+		text-align: right;
+	}
+	#ezra_pound figcaption {
+		width: auto;
+		padding: 0 5em;
+	}
+	#ezra_pound figcaption p {
+		padding: 0;
+	}
+	#beautiful section {
+		width: auto;
+	}
+}
+@media all and (min-width: 1025px) and (max-width: 1100px) {
+	#beautiful header h2 {
+		font-size: 4.5em;
+	}
+	#ezra_pound blockquote p {
+		width: auto;
+		font-size: 13em;
+	}
+}
+@media all and (min-width: 1101px) and (max-width: 1179px) {
+	#beautiful header h2 {
+		font-size: 5em;
+	}
+	#ezra_pound blockquote p {
+		width: auto;
+		font-size: 14em;
+	}
+}
+@media all and (min-width: 1180px) {
+	body {
+		width: 100%;
+		margin: 0 auto;
+		padding: 0 0em;
+	}
+	body > header, body > article, body > footer {
+		width: 108em;
+		margin: 0 auto;
+	}
+	body > header {
+		padding-right: 5em;
+		padding-left: 5em;
+	}
+	article {
+		padding-right: 5em;
+		padding-left: 5em;
+	}
+	body > footer {
+		width: 118em;
+		background-size: 66.7em 2.4em, 30.5em 0.4em, 30.5em 0.4em, 15.6em 4.8em;
+		background-position: 5em 0em, 0em 2.8em, 0em 3.6em, 14.9em 4.4em;
+	}
+	body > footer > div {
+		padding: 4em 5em 0 32.5em;
+	}
+	body > footer > div + div {
+		margin: 0 5em;
+		padding: 0em 0 0 27.5em;
+	}
+}
+
+

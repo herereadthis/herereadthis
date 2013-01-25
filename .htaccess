@@ -1,0 +1,31 @@
+#404 page
+ErrorDocument 404 /404.html
+
+
+# sets mime type for fonts
+AddType application/vnd.ms-fontobject .eot
+AddType font/ttf .ttf
+AddType font/otf .otf
+AddType application/x-font-woff .woff
+
+
+RewriteEngine On
+
+# rewrite all http://www- traffic to just http:// traffic
+RewriteCond %{HTTP_HOST} !^herereadthis.com$ [NC]
+RewriteRule ^(.*)$ http://herereadthis.com/$1 [L,R=301]
+
+# redirect all urls that doesn’t have a trailing slash to urls with a trailing slash
+RewriteBase /
+# files that are existing will not get a slash added
+RewriteCond %{REQUEST_FILENAME} !-f
+# a sample url that shouldn’t be rewritten
+# RewriteCond %{REQUEST_URI} !example.php
+# fires when a urls doesn’t contain a trailing slash
+RewriteCond %{REQUEST_URI} !(.*)/$
+# 301 redirect to the url with the trailing slash appended
+RewriteRule ^(.*)$ http://domain.com/$1/ [L,R=301] 
+
+# redirects index.html to root
+# redirect html pages to the root domain
+RewriteRule ^index\.html$ / [NC,R,L]
