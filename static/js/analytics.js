@@ -8,7 +8,7 @@ define(function(){
 
         _gaq.push(['_setAccount', accountId]);
         _gaq.push(['_trackPageview']);
-        console.log(_gaq);
+        console.log(_gaq,"!");
 
         ga.type = 'text/javascript';
         ga.async = true;
