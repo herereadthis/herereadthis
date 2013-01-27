@@ -63,7 +63,9 @@ define (require) ->
 
 
 	makeMinHeight = ( _this ) ->
+		console.log "rtyuioiuytrtyui"
 		minHeight = parseInt(_this.css("min-height"), 10) / em
+		console.log minHeight, "YES"
 		_section = _this.find "section"
 		# console.log minHeight, "???"
 		_section.css

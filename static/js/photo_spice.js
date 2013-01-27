@@ -58,7 +58,9 @@
     };
     makeMinHeight = function(_this) {
       var minHeight, _section;
+      console.log("rtyuioiuytrtyui");
       minHeight = parseInt(_this.css("min-height"), 10) / em;
+      console.log(minHeight, "YES");
       _section = _this.find("section");
       return _section.css({
         "min-height": "" + minHeight + "em"
