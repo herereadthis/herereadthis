@@ -34,6 +34,7 @@
     paths: {
       main: "main",
       HeadMore: "head_more",
+      PhotoSpice: "photo_spice",
       Coding: "coding",
       ResizeFu: "resize_fu",
       CanvasSally: "canvas_sally",
@@ -62,12 +63,13 @@
   */
 
 
-  require(["jquery", 'HeadMore', "Coding", 'CanvasSally', 'Modernizr', 'Backbone', 'Analytics'], function($, HeadMore, Coding, CanvasSally, Modernizr, Backbone, Analytics) {
+  require(["jquery", 'HeadMore', "PhotoSpice", "Coding", 'CanvasSally', 'Modernizr', 'Backbone', 'Analytics'], function($, HeadMore, PhotoSpice, Coding, CanvasSally, Modernizr, Backbone, Analytics) {
     if (Modernizr.touch === false) {
       HeadMore.init();
+      PhotoSpice.init();
       CanvasSally.init();
-      Coding.init();
     }
+    Coding.init();
     return Analytics.track('UA-37798496-1');
   });
 

@@ -39,6 +39,7 @@ requirejs.config
     # In-House -------------
         # ModuleJack: "module_jack"
         HeadMore: "head_more"
+        PhotoSpice: "photo_spice"
         Coding: "coding"
         ResizeFu: "resize_fu"
         CanvasSally: "canvas_sally"
@@ -70,27 +71,24 @@ require ["jquery", "maya_stripes", "accordian_player"], ($) ->
             _article.accordianPlayer()
 ###
 
-# require ["jquery", "code_tango"], ($) ->
-#     $ () ->
-#         _pre = $("pre")
-#         _pre.codeTango()
 
 
 require [
     "jquery",
-    'HeadMore', "Coding"
+    'HeadMore', "PhotoSpice", "Coding"
     'CanvasSally'
     'Modernizr', 'Backbone',
     'Analytics'], (
         $,
-        HeadMore, Coding
+        HeadMore, PhotoSpice, Coding
         CanvasSally
         Modernizr, Backbone, 
         Analytics) ->
     if Modernizr.touch is false
         do HeadMore.init
+        do PhotoSpice.init
         do CanvasSally.init
-        do Coding.init
+    do Coding.init
     Analytics.track('UA-37798496-1')
 
 

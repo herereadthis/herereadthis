@@ -26,6 +26,7 @@
     getElementDim = function(_this) {
       var thisDim;
       _this.css({
+        "min-height": "",
         "padding-top": "",
         "padding-bottom": ""
       });
@@ -52,11 +53,13 @@
       });
     };
     makeResize = function(_this, thisData) {
-      var subTheoryHeight, theoryWidth, thisDim, thresholds;
+      var botT, subTheoryHeight, theoryWidth, thisDim, thresholds, topT;
       getBrowserDim();
       thisDim = getElementDim(_this);
       theoryWidth = (gVars.idealWidth + 2 * gVars.sidePad) * gVars.em;
+      console.log(gVars.browserWt, theoryWidth);
       if (gVars.browserWt > theoryWidth) {
+        console.log("09876");
         if (gVars.browserHt < thisDim.height) {
           console.log("we have too much for  " + (_this.find("h2").html()));
           return makePads(_this, thisDim.padding.top / gVars.em, gVars.threshold.bottom);
@@ -73,14 +76,42 @@
         } else {
           console.log("we have ideal for  " + (_this.find("h2").html()));
           if (((gVars.browserHt - thisDim.height) / gVars.em) > (gVars.threshold.top + gVars.threshold.bottom)) {
-            thresholds = (((gVars.browserHt - thisDim.height) / gVars.em) - gVars.peekNext) / 2;
-            return makePads(_this, thresholds);
+            console.log("extra ideal for " + (_this.find("h2").html()));
+            if (gVars.threshold.top === 0 && gVars.threshold.bottom === 0) {
+              console.log(gVars.threshold.top, gVars.threshold.bottom, _this.find("h2").html());
+              console.log((gVars.browserHt - thisDim.height) / gVars.em, "!!!");
+              return _this.css({
+                "min-height": "" + ((gVars.browserHt / gVars.em) - gVars.peekNext) + "em"
+              });
+            } else {
+              thresholds = ((gVars.browserHt - thisDim.height) / gVars.em) - gVars.peekNext;
+              console.log(thresholds, _this.find("h2").html());
+              if (thisData.threshold.top === void 0 && thisData.threshold.bottom === void 0) {
+                return makePads(_this, thresholds / 2);
+              } else if (thisData.threshold.top !== void 0 && thisData.threshold.bottom === void 0) {
+                botT = thresholds - thisData.threshold.top >= 0 ? thresholds - thisData.threshold.top : 0;
+                return makePads(_this, thisData.threshold.top, botT);
+              } else if (thisData.threshold.top === void 0 && thisData.threshold.bottom !== void 0) {
+                topT = thresholds - thisData.threshold.bottom >= 0 ? thresholds - thisData.threshold.bottom : 0;
+                return makePads(_this, topT, thisData.threshold.bottom);
+              } else {
+                return makePads(_this, thisData.threshold.top, thisData.threshold.bottom);
+              }
+            }
           } else {
             return makePads(_this, gVars.threshold.top, gVars.threshold.bottom);
           }
         }
       } else {
-        return makePads(_this, gVars.threshold.top, gVars.threshold.bottom);
+        console.log(gVars.threshold);
+        if (gVars.threshold.top === 0 && gVars.threshold.bottom === 0) {
+          console.log("rhyme!");
+          return _this.css({
+            "min-height": "" + ((gVars.browserHt / gVars.em) - gVars.peekNext) + "em"
+          });
+        } else {
+          return makePads(_this, gVars.threshold.top, gVars.threshold.bottom);
+        }
       }
     };
     exports.init = function(_this) {
@@ -109,7 +140,7 @@
       gVars.maxRatio = thisData.maxRatio != null ? thisData.maxRatio : gVars.maxRatio;
       makeResize(_this, thisData);
       return $(window).resize(function() {
-        return makeResize(_this);
+        return makeResize(_this, thisData);
       });
     };
     return exports;
