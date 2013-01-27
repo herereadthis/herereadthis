@@ -38,6 +38,7 @@
       Coding: "coding",
       ResizeFu: "resize_fu",
       CanvasSally: "canvas_sally",
+      Analytics: "analytics",
       jquery: "library/jquery.1.9.0.min",
       Modernizr: "library/modernizr_custom",
       Backbone: "library/backbone-min",
