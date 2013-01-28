@@ -2,15 +2,16 @@
 (function() {
 
   define(function(require) {
-    var $, Modernizr, ResizeFu, checkScroll, em, exports, gVars, makeItHappen, makeMinHeight, moduleName, _window;
+    var $, Modernizr, NextArrow, ResizeFu, checkScroll, em, exports, makeItHappen, makeMinHeight, moduleName, psVars, _window;
     $ = require("jquery");
     Modernizr = require("Modernizr");
     ResizeFu = require("resize_fu");
+    NextArrow = require("next_arrow");
     exports = {};
-    gVars = {
+    psVars = {
       fade: {
         low: 0.15,
-        high: 0.61803
+        high: 0.75
       },
       fadebarID: "ps_fadebar",
       fadebar: "#ps_fadebar",
@@ -29,26 +30,26 @@
       if (place > 0) {
         pc = (_window.height() - offset.top + _window.scrollTop()) / _window.height();
         _h2 = _this.find("h2");
-        if (pc <= gVars.fade.low) {
-          $(gVars.fadebar).css("opacity", 1);
+        if (pc <= psVars.fade.low) {
+          $(psVars.fadebar).css("opacity", 1);
           return _h2.css({
             "opacity": 0,
             "color": "#000"
           });
-        } else if (pc < gVars.fade.high) {
-          opacity = Math.round(100 * (1 - ((pc - gVars.fade.low) / (gVars.fade.high - gVars.fade.low)))) / 100;
+        } else if (pc < psVars.fade.high) {
+          opacity = Math.round(100 * (1 - ((pc - psVars.fade.low) / (psVars.fade.high - psVars.fade.low)))) / 100;
           getRGB = Math.round((1 - opacity) * 255);
           rgb = "rgb(" + getRGB + "," + getRGB + "," + getRGB + ")";
-          $(gVars.fadebar).css("opacity", opacity);
+          $(psVars.fadebar).css("opacity", opacity);
           inverseOp = 1 - opacity;
-          range = gVars.h2.ml2 - gVars.h2.ml1;
-          gRange = ((1 - opacity) * range) + gVars.h2.ml1;
+          range = psVars.h2.ml2 - psVars.h2.ml1;
+          gRange = ((1 - opacity) * range) + psVars.h2.ml1;
           return _h2.css({
             "opacity": inverseOp,
             "color": rgb
           });
         } else {
-          $(gVars.fadebar).css("opacity", 0);
+          $(psVars.fadebar).css("opacity", 0);
           return _h2.css({
             "opacity": 1,
             "color": "#FFF"
@@ -58,9 +59,7 @@
     };
     makeMinHeight = function(_this) {
       var minHeight, _section;
-      console.log("rtyuioiuytrtyui");
       minHeight = parseInt(_this.css("min-height"), 10) / em;
-      console.log(minHeight, "YES");
       _section = _this.find("section");
       return _section.css({
         "min-height": "" + minHeight + "em"
@@ -70,7 +69,7 @@
       ResizeFu.init(_this);
       console.log("made it happen for photo_spice");
       makeMinHeight(_this);
-      _this.append($("<span />").attr("id", gVars.fadebarID));
+      _this.append($("<span />").attr("id", psVars.fadebarID));
       _window.scroll(function() {
         return checkScroll(_this);
       });

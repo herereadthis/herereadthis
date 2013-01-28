@@ -2,7 +2,10 @@
 define (require) ->
 	$ = require "jquery"
 	Modernizr = require "Modernizr"
+	NextArrow = require "next_arrow"
 	ResizeFu = require "resize_fu"
+	NextArrow = require "next_arrow"
+	# NextArrow = require "next_arrow"
 	exports = {}
 	gVars = {}
 	# name of actual file here
@@ -26,6 +29,9 @@ define (require) ->
 		# resize header to fit page, accordingly
 		ResizeFu.init _this
 		makeSocialClick _this.find("aside")
+
+		#make the arrow leading to this
+		NextArrow.init _this
 
 
 	exports.init = ( _this ) ->

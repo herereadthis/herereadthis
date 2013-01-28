@@ -86,9 +86,9 @@ a:active, a:focus {
 
 
 header {
+	position: relative;
 	padding-top: 3em;
 	font-family: "gillsans", sans-serif;
-	overflow: auto;
 }
 header h1 {
 	padding: 0 0 0.25em 0;
@@ -175,6 +175,39 @@ header > aside#head_soc {
 	color: #8C043D;
 	text-decoration: underline;
 }
+[role="banner"] .next_arrow {
+	color: #043D8C;
+	background-image:
+		-webkit-linear-gradient(270deg, rgba(115,137,153,0.18) 0%, rgba(115,137,153,0.13) 20%,
+			rgba(115,137,153,0.25) 20%, rgba(115,137,153,0.20) 40%,
+			rgba(115,137,153,0.31) 40%, rgba(115,137,153,0.26) 60%,
+			rgba(115,137,153,0.39) 60%, rgba(115,137,153,0.34) 80%,
+			rgba(115,137,153,0.47) 80%, rgba(115,137,153,0.42) 100%);
+	background-image:
+		linear-gradient(180deg, rgba(115,137,153,0.18) 0%, rgba(115,137,153,0.13) 20%,
+			rgba(115,137,153,0.25) 20%, rgba(115,137,153,0.20) 40%,
+			rgba(115,137,153,0.31) 40%, rgba(115,137,153,0.26) 60%,
+			rgba(115,137,153,0.39) 60%, rgba(115,137,153,0.34) 80%,
+			rgba(115,137,153,0.47) 80%, rgba(115,137,153,0.42) 100%);
+	background-repeat: no-repeat;
+	background-size: 0.8em 0.8em;
+	background-position: 0.2em 0.2em;
+}
+[role="banner"] .next_arrow:hover {
+	color: #3D048C;
+	background-image:
+		-webkit-linear-gradient(270deg, rgba(115,137,153,0.18) 0%, rgba(115,137,153,0.13) 20%,
+			rgba(115,137,153,0.25) 20%, rgba(115,137,153,0.20) 40%,
+			rgba(115,137,153,0.31) 40%, rgba(115,137,153,0.26) 60%,
+			rgba(115,137,153,0.39) 60%, rgba(115,137,153,0.34) 80%,
+			rgba(115,137,153,0.47) 80%, rgba(115,137,153,0.42) 100%);
+	background-image:
+		linear-gradient(180deg, rgba(115,137,153,0.31) 0%, rgba(115,137,153,0.26) 20%,
+			rgba(115,137,153,0.39) 20%, rgba(115,137,153,0.34) 40%,
+			rgba(115,137,153,0.47) 40%, rgba(115,137,153,0.42) 60%,
+			rgba(115,137,153,0.54) 60%, rgba(115,137,153,0.49) 80%,
+			rgba(115,137,153,0.63) 80%, rgba(115,137,153,0.58) 100%);
+}
 
 
 
@@ -198,6 +231,8 @@ article {
 	padding: 0;
 	background-color: #282828;
 	background-image:
+		-webkit-linear-gradient(90deg, #FFF 0em, #FFF 1em),
+		-webkit-linear-gradient(90deg, #FFF 0em, #FFF 1em),
 		-webkit-linear-gradient(0deg, #282828 0em, #242424 0.75em,
 			#242424 0.75em, #141414 1.25em,
 			#141414 1.25em, #080808 1.5em,
@@ -205,15 +240,17 @@ article {
 			#141414 119.75em, #242424 120.25em,
 			#242424 120.25em, #282828 121em);
 	background-image:
+		linear-gradient(0deg, #FFF 0em, #FFF 1em),
+		linear-gradient(0deg, #FFF 0em, #FFF 1em),
 		linear-gradient(90deg, rgba(0,0,0,0) 0em, rgba(0,0,0,0.1) 0.75em,
 			rgba(0,0,0,0.1) 0.75em, rgba(000,0,0,0.5) 1.25em,
 			rgba(0,0,0,0.5) 1.25em, rgba(000,0,0,0.8) 1.5em,
 			rgba(0,0,0,0.8) 119.5em, rgba(0,0,0,0.5) 119.75em,
 			rgba(0,0,0,0.5) 119.75em, rgba(0,0,0,0.1) 120.25em,
 			rgba(0,0,0,0.1) 120.25em, rgba(0,0,0,0) 121em);
-	background-position: 50% 50%;
-	background-size: 121em 1em;
-	background-repeat: repeat-y;
+	background-position: 0 100%, 0 0, 50% 50%;
+	background-size: 100% 1em, 100% 1em, 121em 1em;
+	background-repeat: repeat-x, repeat-x, repeat-y;
 }
 #photo_spice #ps_fadebar {
 	display: block;
@@ -222,11 +259,11 @@ article {
 	top: 0;
 	left: 0;
 	right: 0;
-	height: 20em;
+	height: 40em;
 	z-index: 2;
 	opacity: 1;
 	background-image:
-		-webkit-linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 12.5%,
+		-webkit-linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 6.25%,
 			rgba(255,255,255,0.75) 50%, rgba(255,255,255,0.25) 75%, rgba(255,255,255,0) 100%);
 	background-image:
 		linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 12.5%,
@@ -237,11 +274,11 @@ article {
 	text-transform: uppercase;
 	font-weight: normal;
 	font-family: "gillsans_condensed", sans-serif;
-	text-align: center;
+	text-align: right;
 	color: rgb(115, 194, 251);
 	color: #000;
 	opacity: 0;
-	top: -0.05em;
+	top: 0.075em;
 	width: 2.25em;
 	left: 50%;
 	margin-left: 5.125em;
@@ -253,6 +290,8 @@ article {
 	margin: 0 auto;
 	background-color: #F00;
 	background-image:
+		-webkit-linear-gradient(90deg, #FFF 0em, #FFF 1em),
+		-webkit-linear-gradient(90deg, #FFF 0em, #FFF 1em),
 		-webkit-linear-gradient(0deg,        #ECEDEE 0%,  #ECEDEE 4%,  #ECEEF0 4%,  #ECEEF0 12%, #EBEEF1 12%, #EBEEF1 14%,
 			#ECEEF1 14%, #ECEEF1 21%, #EBEEF0 21%, #EBEEF0 41%, #EAEEF0 41%, #EAEEF0 61%, #EBEEEF 61%, #EBEEEF 69%,
 			#ECEEF0 69%, #ECEEF0 74%, #ECEFF0 74%, #ECEFF0 82%, #ECF0EF 82%, #ECF0F0 86%, #EDF0F1 86%, #EDF0F1 88%,
@@ -276,6 +315,8 @@ article {
 			#120D2E 83%, #0E0F30 85%, #0F0F30 85%, #0F0F30 87%, #0F1231 87%, #0F1131 89%, #0F1330 89%, #0F1330 90%,
 			#0F1233 90%, #0F1233 93%, #0F1132 93%, #0F1536 95%, #101436 95%, #0C1634 97%, #0D1534 97%, #0D1534 100%);
 	background-image:
+		linear-gradient(0deg, #FFF 0em, #FFF 1em),
+		linear-gradient(0deg, #FFF 0em, #FFF 1em),
 		linear-gradient(90deg,        #ECEDEE 0%,  #ECEDEE 4%,  #ECEEF0 4%,  #ECEEF0 12%, #EBEEF1 12%, #EBEEF1 14%,
 			#ECEEF1 14%, #ECEEF1 21%, #EBEEF0 21%, #EBEEF0 41%, #EAEEF0 41%, #EAEEF0 61%, #EBEEEF 61%, #EBEEEF 69%,
 			#ECEEF0 69%, #ECEEF0 74%, #ECEFF0 74%, #ECEFF0 82%, #ECF0EF 82%, #ECF0F0 86%, #EDF0F1 86%, #EDF0F1 88%,
@@ -302,8 +343,8 @@ article {
 			rgba(0,0,0,0.1) 0.75em, rgba(0,0,0,0.5) 1.5em,
 			rgba(0,0,0,0.5) 119.5em, rgba(0,0,0,0.1) 120.25em,
 			rgba(0,0,0,0.1) 120.25em, rgba(0,0,0,0) 121em);
-	background-size: 6% 100%, 2.5% 100%, 100% 100%;
-	background-position: 0% 0%, 85.5% 0%, 0% 0%;
+	background-size: 100% 1em, 100% 1em, 6% 100%, 2.5% 100%, 100% 100%;
+	background-position: 0 100%, 0 0, 0% 0%, 85.5% 0%, 0% 0%;
 	background-repeat: no-repeat;
 	/*box-shadow:  -1.2em 0px 1.2em -1em rgba(0, 0, 0, 0.8), 1.2em 0px 1.2em -1em rgba(0, 0, 0, 0.8);*/
 	/*-webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 0 1em;*/
@@ -567,6 +608,24 @@ body > footer > div + div {
 }
 
 
+/* arrow to lead to next section */
+.next_arrow {
+	position: absolute;
+	bottom: 0;
+	width: 1.2em;
+	height: 0.8em;
+	padding-top: 0.2em;
+	z-index: 4;
+	font-size: 5em;
+	line-height: 0.8em;
+	font-family: "inconsolatamedium", monospace;
+	text-align: center;
+}
+.next_arrow:hover {
+	cursor: pointer;
+}
+
+
 /* special classes on page */
 .double_stack {
 	overflow: auto;
@@ -584,6 +643,7 @@ body > footer > div + div {
 
 
 /* makes stripes, fits with maya_stripes.js */
+/*
 .maya_stripes {
 	background-image: 
 		linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em),
@@ -601,6 +661,7 @@ body > footer > div + div {
 	background-size: 0 0, 0 0, 0 0;
 	background-position: 108em 108em, 108em 108em, 108em 108em;
 }
+*/
 
 
 

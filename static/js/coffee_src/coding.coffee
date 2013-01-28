@@ -101,7 +101,6 @@ define (require) ->
 	makeItHappen = ( _this ) ->
 		# resize header to fit page, accordingly
 		pres = _this.find "pre"
-		console.log pres.length
 		for i in pres
 			code_tango $(i)
 		# pres.each () ->

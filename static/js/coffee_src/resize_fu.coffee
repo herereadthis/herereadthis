@@ -10,22 +10,23 @@ define (require) ->
 	Modernizr = require "Modernizr"
 	exports = {}
 	gVars =
+		# these variables will be passed globally inside ResizeFu
 		browserWt: 0
 		browserHt: 0
 		# ideal size is expressed as EMs, that is the width of content
 		idealWidth: 108
 		# padding is left and right, as breathing room past idealSize, expressed as EMs
 		sidePad: 5
-		# margins between articles, in case content is larger than browser can fit, expressed as EMs
-		threshold:
-			top: 5
-			bottom: 5
-		# maximum height displacement, that is ratio of height to ((idealsize / em) + 2 * sizePad), is PHI
-		maxRatio: (1 + Math.sqrt(5)) / 2 - 1
-		# to remind user that more content is to come, offer a small slice of the next article down, EMs
-		peekNext: 3
 		# EM-value of page
 		em: parseInt $("body").css("font-size"), 10
+		# The rest of the globals will be passed locally
+		# maximum height displacement, that is ratio of height to ((idealsize / em) + 2 * sizePad), is PHI
+		maxRatio: (1 + Math.sqrt(5)) / 2 - 1
+		# margins between articles, in case content is larger than browser can fit, expressed as EMs
+		thresholdTop: 5
+		thresholdBot: 5
+		# to remind user that more content is to come, offer a small slice of the next article down, EMs
+		peekNext: 3
 
 
 	getBrowserDim = () ->
@@ -61,7 +62,7 @@ define (require) ->
     		"padding-bottom": "#{ threshBot }em"
 
 
-    makeResize = ( _this, thisData ) ->
+    makeResize = ( _this, thisData, lVars ) ->
     	# get the browser's dimensions
     	do getBrowserDim
     	# get the box dimensions of the article
@@ -70,83 +71,75 @@ define (require) ->
     	# calculate theoretical ideal width
     	theoryWidth = (gVars.idealWidth + 2 * gVars.sidePad) * gVars.em
     	# that is, if browser width can allow for ideal width
-    	console.log gVars.browserWt, theoryWidth
     	if gVars.browserWt > theoryWidth
-	    	console.log "09876"
 	    	# condition 1: if capping article height to browser height will clip content
 	    	if gVars.browserHt < thisDim.height
-		    	console.log "we have too much for  #{_this.find("h2").html()}"
-		    	makePads _this, thisDim.padding.top / gVars.em, gVars.threshold.bottom
+		    	# console.log "we have too much for  #{_this.find("h2").html()}"
+		    	makePads _this, thisDim.padding.top / gVars.em, lVars.thresholdBot
 
 	    	# condition 2: if the height of the browser is too great such that resizing becomes impractical
-	    	else if ((gVars.browserHt - gVars.peekNext * gVars.em) / (theoryWidth * gVars.em)) > gVars.maxRatio
-		    	console.log "we have very large window size for  #{_this.find("h2").html()}"
+	    	else if ((gVars.browserHt - lVars.peekNext * gVars.em) / (theoryWidth * gVars.em)) > lVars.maxRatio
+		    	# console.log "we have very large window size for  #{_this.find("h2").html()}"
 	    		# console.log "gVars.browserHt (#{gVars.browserHt}) is too great for #{_this.find("h2").html()}"
 	    		# sub-condition A: if adding threshold padding is less than max ratio
 	    		# height if we added the article's height to thresholds
-	    		subTheoryHeight = thisDim.height + (gVars.threshold.top + gVars.threshold.bottom) * gVars.em
-	    		if subTheoryHeight < gVars.maxRatio * theoryWidth * gVars.em
-	    			thresholds = (gVars.maxRatio * theoryWidth * gVars.em) - (thisDim.height)
+	    		subTheoryHeight = thisDim.height + (lVars.thresholdTop + lVars.thresholdBot) * gVars.em
+	    		if subTheoryHeight < lVars.maxRatio * theoryWidth * gVars.em
+	    			thresholds = (lVars.maxRatio * theoryWidth * gVars.em) - (thisDim.height)
 	    			thresholds = (thresholds / 2) / gVars.em
 	    			makePads _this, thresholds
 
 	    		# sub-condition B: otherwise add thresholds padding
 	    		else
-	    			makePads _this, gVars.threshold.top, gVars.threshold.bottom
+	    			makePads _this, lVars.thresholdTop, lVars.thresholdBot
 
 	    	# condition 3: the ideal one: resize article to fit whole of page, with peek
 		    else
-		    	console.log "we have ideal for  #{_this.find("h2").html()}"
+		    	# console.log "we have ideal for  #{_this.find("h2").html()}"
 		    	# sub-condition A: if the added padding to fill out height of article is greater than thresholds
 		    	# console.log thisData, _this.find("h2").html()
-		    	# alert "#{thisData.threshold.top}, #{_this.find("h2").html()}"
-		    	# tTop = if thisData.threshold.top.length then thisData.threshold.top else gVars.threshold.top
-		    	# tBot = if thisData.threshold.bottom.lenth then thisData.threshold.bottm else gVars.threshold.bottom
-		    	if ((gVars.browserHt - thisDim.height) / gVars.em) > (gVars.threshold.top + gVars.threshold.bottom)
-		    		console.log "extra ideal for #{_this.find("h2").html()}"
+		    	# alert "#{thisData.thresholdTop}, #{_this.find("h2").html()}"
+		    	if ((gVars.browserHt - thisDim.height) / gVars.em) > (lVars.thresholdTop + lVars.thresholdBot)
 		   			# special case where we don't want any padding means set a min-height
-		   			if gVars.threshold.top is 0 and gVars.threshold.bottom is 0
-			   			console.log gVars.threshold.top, gVars.threshold.bottom, _this.find("h2").html()
+		   			if lVars.thresholdTop is 0 and lVars.thresholdBot is 0
+			   			# console.log lVars.thresholdTop, lVars.thresholdBot, _this.find("h2").html()
 			   			console.log (gVars.browserHt - thisDim.height) / gVars.em, "!!!"
 		   				_this.css
-		   					"min-height": "#{ (gVars.browserHt / gVars.em) - gVars.peekNext }em"
+		   					"min-height": "#{ (gVars.browserHt / gVars.em) - lVars.peekNext }em"
 
 		   			else
 			    		# then the thresholds will be calculated such that article appears visually at center of page,
 			    		# minus a little peek for succeeding content
-			    		# if thisData.threshold.top is undefined and thisData.threshold.bottom is undefined
-		    			# 	threshtop = (((gVars.browserHt - thisDim.height) / gVars.em) - gVars.peekNext) / 2
+			    		# if thisData.thresholdTop is undefined and thisData.thresholdBot is undefined
+		    			# 	threshtop = (((gVars.browserHt - thisDim.height) / gVars.em) - lVars.peekNext) / 2
 		    			# 	threshBot = threshtop
-		    			# else if thisData.threshold.top.length and thisData.threshold.bottom is undefined
-		    			thresholds = (((gVars.browserHt - thisDim.height) / gVars.em) - gVars.peekNext)
-		    			console.log thresholds, _this.find("h2").html()
+		    			# else if thisData.thresholdTop.length and thisData.thresholdBot is undefined
+		    			thresholds = (((gVars.browserHt - thisDim.height) / gVars.em) - lVars.peekNext)
 		    			# makePads _this, threshtop, threshBot
-		    			if thisData.threshold.top is undefined and thisData.threshold.bottom is undefined
+		    			if thisData.thresholdTop is undefined and thisData.thresholdBot is undefined
 		    				makePads _this, thresholds / 2
-		    			else if thisData.threshold.top != undefined and thisData.threshold.bottom is undefined
-		    				botT = if thresholds - thisData.threshold.top >= 0 then thresholds - thisData.threshold.top else 0
-		    				makePads _this, thisData.threshold.top, botT
-		    			else if thisData.threshold.top is undefined and thisData.threshold.bottom != undefined
-		    				topT = if thresholds - thisData.threshold.bottom >= 0 then thresholds - thisData.threshold.bottom else 0
-		    				makePads _this, topT, thisData.threshold.bottom
+		    			else if thisData.thresholdTop != undefined and thisData.thresholdBot is undefined
+		    				botT = if thresholds - thisData.thresholdTop >= 0 then thresholds - thisData.thresholdTop else 0
+		    				makePads _this, thisData.thresholdTop, botT
+		    			else if thisData.thresholdTop is undefined and thisData.thresholdBot != undefined
+		    				topT = if thresholds - thisData.thresholdBot >= 0 then thresholds - thisData.thresholdBot else 0
+		    				makePads _this, topT, thisData.thresholdBot
 		    			else
-			    			makePads _this, thisData.threshold.top, thisData.threshold.bottom
+			    			makePads _this, thisData.thresholdTop, thisData.thresholdBot
 
 
 	    		# sub-condition B: if adding thresholds to center the content makes for very tiny thresholds,
 	    		# then default to global variables, unless data-attributes specify otherwise.
 	    		else
-	    			makePads _this, gVars.threshold.top, gVars.threshold.bottom
+	    			makePads _this, lVars.thresholdTop, lVars.thresholdBot
 	    
 	    # else, browser width cannot allow for ideal width
 	    else
-	    	console.log gVars.threshold
-	    	if gVars.threshold.top is 0 and gVars.threshold.bottom is 0
-		    	console.log "rhyme!"
+	    	if lVars.thresholdTop is 0 and lVars.thresholdBot is 0
 	    		_this.css
-	    			"min-height": "#{ (gVars.browserHt / gVars.em) - gVars.peekNext }em"
+	    			"min-height": "#{ (gVars.browserHt / gVars.em) - lVars.peekNext }em"
 	    	else
-		    	makePads _this, gVars.threshold.top, gVars.threshold.bottom
+		    	makePads _this, lVars.thresholdTop, lVars.thresholdBot
 
 
 
@@ -155,29 +148,28 @@ define (require) ->
 			var1: "foo"
 		_body = $("body")
 		# set a few globals based on data-attributes
-		thisData = 
-			idealWidth: if _body.data("resizefu-ideal-width") != undefined then parseInt _body.data("resizefu-ideal-width"), 10
-			sidePad: if _body.data("resizefu-side-pad") != undefined then parseInt _body.data("resizefu-side-pad"), 10
-			threshold: 
-				top: if _this.data("resizefu-threshold-top") != undefined then parseInt _this.data("resizefu-threshold-top"), 10
-				bottom: if _this.data("resizefu-threshold-bottom") != undefined then parseInt _this.data("resizefu-threshold-bottom"), 10
-			peekNext: if _this.data("resizefu-peek-next") != undefined then parseInt _this.data("resizefu-peek-next"), 10
-			maxRatio: if _this.data("resizefu-max-ratio") != undefined then parseInt _this.data("resizefu-max-ratio"), 10
+		thisData = {}
+		if _this.data("resizefu-threshold-top") != undefined
+			thisData.thresholdTop = parseInt _this.data("resizefu-threshold-top"), 10
+		if _this.data("resizefu-threshold-bottom") != undefined
+			thisData.thresholdBot = parseInt _this.data("resizefu-threshold-bottom"), 10
+		if _this.data("resizefu-peek-next") != undefined
+			thisData.peekNext = parseInt _this.data("resizefu-peek-next"), 10
+		if _this.data("resizefu-max-ratio") != undefined
+			thisData.maxRatio = parseInt _this.data("resizefu-max-ratio"), 10
+		console.log thisData,"?????"
 
+		lVars = {}
+		lVars.thresholdTop = if thisData.thresholdTop? then thisData.thresholdTop else gVars.thresholdTop
+		lVars.thresholdBot = if thisData.thresholdBot? then thisData.thresholdBot else gVars.thresholdBot
+		lVars.maxRatio = if thisData.maxRatio? then thisData.maxRatio else gVars.maxRatio
+		lVars.peekNext = if thisData.peekNext? then thisData.peekNext else gVars.peekNext
 
-		gVars.idealWidth = if thisData.idealWidth? then thisData.idealWidth else gVars.peekNext
-		gVars.sidePad = if thisData.sidePad? then thisData.sidePad else gVars.peekNext
-		gVars.threshold = 
-			top: if thisData.threshold.top? then  thisData.threshold.top else gVars.threshold.top
-			bottom: if thisData.threshold.bottom? then  thisData.threshold.bottom else gVars.threshold.top
-		gVars.peekNext = if thisData.peekNext? then thisData.peekNext else gVars.peekNext
-		gVars.maxRatio = if thisData.maxRatio? then thisData.maxRatio else gVars.maxRatio
+		console.log _this.data("module"), lVars.peekNext, lVars.thresholdBot, thisData.peekNext
 
-		# console.log gVars
-
-		makeResize _this, thisData
+		makeResize _this, thisData, lVars
 		$(window).resize () ->
-			makeResize _this, thisData
+			makeResize _this, thisData, lVars
 
 
 

@@ -2,10 +2,12 @@
 (function() {
 
   define(function(require) {
-    var $, Modernizr, ResizeFu, em, exports, gVars, makeItHappen, makeSocialClick, moduleName;
+    var $, Modernizr, NextArrow, ResizeFu, em, exports, gVars, makeItHappen, makeSocialClick, moduleName;
     $ = require("jquery");
     Modernizr = require("Modernizr");
+    NextArrow = require("next_arrow");
     ResizeFu = require("resize_fu");
+    NextArrow = require("next_arrow");
     exports = {};
     gVars = {};
     moduleName = "head_more";
@@ -22,7 +24,8 @@
     };
     makeItHappen = function(_this) {
       ResizeFu.init(_this);
-      return makeSocialClick(_this.find("aside"));
+      makeSocialClick(_this.find("aside"));
+      return NextArrow.init(_this);
     };
     exports.init = function(_this) {
       var element;

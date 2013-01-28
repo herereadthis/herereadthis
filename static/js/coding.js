@@ -83,7 +83,6 @@
     makeItHappen = function(_this) {
       var i, pres, _i, _len;
       pres = _this.find("pre");
-      console.log(pres.length);
       for (_i = 0, _len = pres.length; _i < _len; _i++) {
         i = pres[_i];
         code_tango($(i));

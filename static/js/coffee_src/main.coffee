@@ -42,6 +42,7 @@ requirejs.config
         PhotoSpice: "photo_spice"
         Coding: "coding"
         ResizeFu: "resize_fu"
+        NextArrow: "next_arrow"
         CanvasSally: "canvas_sally"
         Analytics: "analytics"
     # Libraries ------------

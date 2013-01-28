@@ -3,11 +3,12 @@ define (require) ->
 	$ = require "jquery"
 	Modernizr = require "Modernizr"
 	ResizeFu = require "resize_fu"
+	NextArrow = require "next_arrow"
 	exports = {}
-	gVars =
+	psVars =
 		fade:
 			low: 0.15
-			high: 0.61803
+			high: 0.75
 		fadebarID: "ps_fadebar"
 		fadebar: "#ps_fadebar"
 		h2:
@@ -29,25 +30,25 @@ define (require) ->
 			_h2 = _this.find "h2"
 			# basically, what happens in this section is when the article comes into view, the top part changes
 			# Starts off with a full opacity top bar, black title
-			if pc <= gVars.fade.low
-				$(gVars.fadebar).css "opacity",1
+			if pc <= psVars.fade.low
+				$(psVars.fadebar).css "opacity",1
 				_h2.css
 					"opacity":0
 					"color":"#000"
 			# transisitons within tolerances as percentage
-			# e.g. if gVars.fade = {0.15,0.5}, then the transition occurs when top of article is within
+			# e.g. if psVars.fade = {0.15,0.5}, then the transition occurs when top of article is within
 			# 15% - 50% from the bottom of the browser
-			else if pc < gVars.fade.high
-				opacity = Math.round(100 * (1 - ((pc - gVars.fade.low) / (gVars.fade.high - gVars.fade.low)))) / 100
+			else if pc < psVars.fade.high
+				opacity = Math.round(100 * (1 - ((pc - psVars.fade.low) / (psVars.fade.high - psVars.fade.low)))) / 100
 				# color of title is greyscale, built on hexadecimal web color
 				getRGB = Math.round((1 - opacity) * 255)
 				rgb = "rgb(#{ getRGB },#{ getRGB },#{ getRGB })"
 				# console.log opacity, getRGB, rgb
-				$(gVars.fadebar).css "opacity",opacity
+				$(psVars.fadebar).css "opacity",opacity
 				inverseOp = 1 - opacity
 
-				range = gVars.h2.ml2 - gVars.h2.ml1
-				gRange = ((1 - opacity) * range) + gVars.h2.ml1
+				range = psVars.h2.ml2 - psVars.h2.ml1
+				gRange = ((1 - opacity) * range) + psVars.h2.ml1
 				# console.log gRange
 				_h2.css
 					"opacity":inverseOp
@@ -56,16 +57,14 @@ define (require) ->
 
 			# finishes without top bar, and white title
 			else
-				$(gVars.fadebar).css "opacity",0
+				$(psVars.fadebar).css "opacity",0
 				_h2.css
 					"opacity":1
 					"color":"#FFF"
 
 
 	makeMinHeight = ( _this ) ->
-		console.log "rtyuioiuytrtyui"
 		minHeight = parseInt(_this.css("min-height"), 10) / em
-		console.log minHeight, "YES"
 		_section = _this.find "section"
 		# console.log minHeight, "???"
 		_section.css
@@ -78,7 +77,10 @@ define (require) ->
 		makeMinHeight _this
 
 		#make the fadebar
-		_this.append $("<span />").attr("id",gVars.fadebarID)
+		_this.append $("<span />").attr("id",psVars.fadebarID)
+
+		#make the arrow leading to this
+		# NextArrow.init _this
 
 		_window.scroll () ->
 			checkScroll _this

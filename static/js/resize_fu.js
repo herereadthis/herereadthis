@@ -11,13 +11,11 @@
       browserHt: 0,
       idealWidth: 108,
       sidePad: 5,
-      threshold: {
-        top: 5,
-        bottom: 5
-      },
+      em: parseInt($("body").css("font-size"), 10),
       maxRatio: (1 + Math.sqrt(5)) / 2 - 1,
-      peekNext: 3,
-      em: parseInt($("body").css("font-size"), 10)
+      thresholdTop: 5,
+      thresholdBot: 5,
+      peekNext: 3
     };
     getBrowserDim = function() {
       gVars.browserWt = $(window).width();
@@ -52,95 +50,87 @@
         "padding-bottom": "" + threshBot + "em"
       });
     };
-    makeResize = function(_this, thisData) {
+    makeResize = function(_this, thisData, lVars) {
       var botT, subTheoryHeight, theoryWidth, thisDim, thresholds, topT;
       getBrowserDim();
       thisDim = getElementDim(_this);
       theoryWidth = (gVars.idealWidth + 2 * gVars.sidePad) * gVars.em;
-      console.log(gVars.browserWt, theoryWidth);
       if (gVars.browserWt > theoryWidth) {
-        console.log("09876");
         if (gVars.browserHt < thisDim.height) {
-          console.log("we have too much for  " + (_this.find("h2").html()));
-          return makePads(_this, thisDim.padding.top / gVars.em, gVars.threshold.bottom);
-        } else if (((gVars.browserHt - gVars.peekNext * gVars.em) / (theoryWidth * gVars.em)) > gVars.maxRatio) {
-          console.log("we have very large window size for  " + (_this.find("h2").html()));
-          subTheoryHeight = thisDim.height + (gVars.threshold.top + gVars.threshold.bottom) * gVars.em;
-          if (subTheoryHeight < gVars.maxRatio * theoryWidth * gVars.em) {
-            thresholds = (gVars.maxRatio * theoryWidth * gVars.em) - thisDim.height;
+          return makePads(_this, thisDim.padding.top / gVars.em, lVars.thresholdBot);
+        } else if (((gVars.browserHt - lVars.peekNext * gVars.em) / (theoryWidth * gVars.em)) > lVars.maxRatio) {
+          subTheoryHeight = thisDim.height + (lVars.thresholdTop + lVars.thresholdBot) * gVars.em;
+          if (subTheoryHeight < lVars.maxRatio * theoryWidth * gVars.em) {
+            thresholds = (lVars.maxRatio * theoryWidth * gVars.em) - thisDim.height;
             thresholds = (thresholds / 2) / gVars.em;
             return makePads(_this, thresholds);
           } else {
-            return makePads(_this, gVars.threshold.top, gVars.threshold.bottom);
+            return makePads(_this, lVars.thresholdTop, lVars.thresholdBot);
           }
         } else {
-          console.log("we have ideal for  " + (_this.find("h2").html()));
-          if (((gVars.browserHt - thisDim.height) / gVars.em) > (gVars.threshold.top + gVars.threshold.bottom)) {
-            console.log("extra ideal for " + (_this.find("h2").html()));
-            if (gVars.threshold.top === 0 && gVars.threshold.bottom === 0) {
-              console.log(gVars.threshold.top, gVars.threshold.bottom, _this.find("h2").html());
+          if (((gVars.browserHt - thisDim.height) / gVars.em) > (lVars.thresholdTop + lVars.thresholdBot)) {
+            if (lVars.thresholdTop === 0 && lVars.thresholdBot === 0) {
               console.log((gVars.browserHt - thisDim.height) / gVars.em, "!!!");
               return _this.css({
-                "min-height": "" + ((gVars.browserHt / gVars.em) - gVars.peekNext) + "em"
+                "min-height": "" + ((gVars.browserHt / gVars.em) - lVars.peekNext) + "em"
               });
             } else {
-              thresholds = ((gVars.browserHt - thisDim.height) / gVars.em) - gVars.peekNext;
-              console.log(thresholds, _this.find("h2").html());
-              if (thisData.threshold.top === void 0 && thisData.threshold.bottom === void 0) {
+              thresholds = ((gVars.browserHt - thisDim.height) / gVars.em) - lVars.peekNext;
+              if (thisData.thresholdTop === void 0 && thisData.thresholdBot === void 0) {
                 return makePads(_this, thresholds / 2);
-              } else if (thisData.threshold.top !== void 0 && thisData.threshold.bottom === void 0) {
-                botT = thresholds - thisData.threshold.top >= 0 ? thresholds - thisData.threshold.top : 0;
-                return makePads(_this, thisData.threshold.top, botT);
-              } else if (thisData.threshold.top === void 0 && thisData.threshold.bottom !== void 0) {
-                topT = thresholds - thisData.threshold.bottom >= 0 ? thresholds - thisData.threshold.bottom : 0;
-                return makePads(_this, topT, thisData.threshold.bottom);
+              } else if (thisData.thresholdTop !== void 0 && thisData.thresholdBot === void 0) {
+                botT = thresholds - thisData.thresholdTop >= 0 ? thresholds - thisData.thresholdTop : 0;
+                return makePads(_this, thisData.thresholdTop, botT);
+              } else if (thisData.thresholdTop === void 0 && thisData.thresholdBot !== void 0) {
+                topT = thresholds - thisData.thresholdBot >= 0 ? thresholds - thisData.thresholdBot : 0;
+                return makePads(_this, topT, thisData.thresholdBot);
               } else {
-                return makePads(_this, thisData.threshold.top, thisData.threshold.bottom);
+                return makePads(_this, thisData.thresholdTop, thisData.thresholdBot);
               }
             }
           } else {
-            return makePads(_this, gVars.threshold.top, gVars.threshold.bottom);
+            return makePads(_this, lVars.thresholdTop, lVars.thresholdBot);
           }
         }
       } else {
-        console.log(gVars.threshold);
-        if (gVars.threshold.top === 0 && gVars.threshold.bottom === 0) {
-          console.log("rhyme!");
+        if (lVars.thresholdTop === 0 && lVars.thresholdBot === 0) {
           return _this.css({
-            "min-height": "" + ((gVars.browserHt / gVars.em) - gVars.peekNext) + "em"
+            "min-height": "" + ((gVars.browserHt / gVars.em) - lVars.peekNext) + "em"
           });
         } else {
-          return makePads(_this, gVars.threshold.top, gVars.threshold.bottom);
+          return makePads(_this, lVars.thresholdTop, lVars.thresholdBot);
         }
       }
     };
     exports.init = function(_this) {
-      var settings, thisData, _body;
+      var lVars, settings, thisData, _body;
       settings = {
         var1: "foo"
       };
       _body = $("body");
-      thisData = {
-        idealWidth: _body.data("resizefu-ideal-width") !== void 0 ? parseInt(_body.data("resizefu-ideal-width"), 10) : void 0,
-        sidePad: _body.data("resizefu-side-pad") !== void 0 ? parseInt(_body.data("resizefu-side-pad"), 10) : void 0,
-        threshold: {
-          top: _this.data("resizefu-threshold-top") !== void 0 ? parseInt(_this.data("resizefu-threshold-top"), 10) : void 0,
-          bottom: _this.data("resizefu-threshold-bottom") !== void 0 ? parseInt(_this.data("resizefu-threshold-bottom"), 10) : void 0
-        },
-        peekNext: _this.data("resizefu-peek-next") !== void 0 ? parseInt(_this.data("resizefu-peek-next"), 10) : void 0,
-        maxRatio: _this.data("resizefu-max-ratio") !== void 0 ? parseInt(_this.data("resizefu-max-ratio"), 10) : void 0
-      };
-      gVars.idealWidth = thisData.idealWidth != null ? thisData.idealWidth : gVars.peekNext;
-      gVars.sidePad = thisData.sidePad != null ? thisData.sidePad : gVars.peekNext;
-      gVars.threshold = {
-        top: thisData.threshold.top != null ? thisData.threshold.top : gVars.threshold.top,
-        bottom: thisData.threshold.bottom != null ? thisData.threshold.bottom : gVars.threshold.top
-      };
-      gVars.peekNext = thisData.peekNext != null ? thisData.peekNext : gVars.peekNext;
-      gVars.maxRatio = thisData.maxRatio != null ? thisData.maxRatio : gVars.maxRatio;
-      makeResize(_this, thisData);
+      thisData = {};
+      if (_this.data("resizefu-threshold-top") !== void 0) {
+        thisData.thresholdTop = parseInt(_this.data("resizefu-threshold-top"), 10);
+      }
+      if (_this.data("resizefu-threshold-bottom") !== void 0) {
+        thisData.thresholdBot = parseInt(_this.data("resizefu-threshold-bottom"), 10);
+      }
+      if (_this.data("resizefu-peek-next") !== void 0) {
+        thisData.peekNext = parseInt(_this.data("resizefu-peek-next"), 10);
+      }
+      if (_this.data("resizefu-max-ratio") !== void 0) {
+        thisData.maxRatio = parseInt(_this.data("resizefu-max-ratio"), 10);
+      }
+      console.log(thisData, "?????");
+      lVars = {};
+      lVars.thresholdTop = thisData.thresholdTop != null ? thisData.thresholdTop : gVars.thresholdTop;
+      lVars.thresholdBot = thisData.thresholdBot != null ? thisData.thresholdBot : gVars.thresholdBot;
+      lVars.maxRatio = thisData.maxRatio != null ? thisData.maxRatio : gVars.maxRatio;
+      lVars.peekNext = thisData.peekNext != null ? thisData.peekNext : gVars.peekNext;
+      console.log(_this.data("module"), lVars.peekNext, lVars.thresholdBot, thisData.peekNext);
+      makeResize(_this, thisData, lVars);
       return $(window).resize(function() {
-        return makeResize(_this, thisData);
+        return makeResize(_this, thisData, lVars);
       });
     };
     return exports;

@@ -20,7 +20,7 @@ prefix:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
     <!--<meta name="viewport" content="width=device-width, initial-scale=1" />-->
 <!-- Open Graph RDFa -->
     <meta name="title" property="og:title dc:title" content="Here, Read This" />
-    <meta name="description" property="og:description" content="A website by Jimmy Ha about design - typography, Modernist philosophy, and mobile-first web development - and interests including photography, gardening, and baking." />
+    <meta name="description" property="og:description" content="A website by Jimmy Ha about design - typography, Modernism, and mobile-first web development - and interests including photography, gardening, and baking." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://herereadthis.com/" />
     <meta property="og:image" content="http://herereadthis.com/static/img/herereadthis_fb.jpg" />
@@ -122,7 +122,8 @@ FOAF generated from:
 <!-- rich snippets for people http://support.google.com/webmasters/bin/answer.py?hl=en&answer=146646 -->
 <!-- W3C vCard: http://www.w3.org/Submission/vcard-rdf/ -->
 <header role="banner" data-module="head_more" resource="http://herereadthis.com/"
-    typeof="v:Person foaf:Person" resource="#me">
+    typeof="v:Person foaf:Person"
+    data-nextarrow-location="10">
     <!--
     The property "dc:title" represents "http://purl.org/dc/elements/1.1/title"
     "dc:title" is called a Compact URL, aka CURIE, which is a representation of a URI from html prefix
@@ -208,21 +209,20 @@ FOAF generated from:
                 </span>
             </li>
         </ul>
-    </aslide> 
+    </aside> 
 
 
 </header>
 
 
 <article id="photo_spice" data-module="photo_spice"
-    data-resizefu-threshold-top="0" 
-    data-resizefu-threshold-bottom="0"
-    data-resizefu-peek-next="2">
+    data-resizefu-threshold-top="0"  data-resizefu-threshold-bottom="0" data-resizefu-peek-next="-10">
     <h2>Photo<span>s</span></h2>
     <section>
         <h3>Photo Slideshow</h3>
     </section>
 </article>
+
 
 <article data-module="coding" data-resizefu-threshold-top="3">
     <h2>Geeking Out to Coding</h2>
@@ -459,6 +459,7 @@ for row, index in myArray
            (<span>German, British</span>)
         </li>
     </ol>
+</section>
 </article>
 
 <article data-module="resize_fu">
