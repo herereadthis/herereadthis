@@ -176,6 +176,7 @@ header > aside#head_soc {
 	text-decoration: underline;
 }
 [role="banner"] .next_arrow {
+	text-shadow: 0 0.02em 0.02em rgba(255,255,255,1);
 	color: #043D8C;
 	background-image:
 		-webkit-linear-gradient(270deg, rgba(115,137,153,0.18) 0%, rgba(115,137,153,0.13) 20%,
@@ -512,6 +513,7 @@ body > footer > div + div {
 	font-size: 5.4em;
 	line-height: 1.2037037em;
 	font-family: "gillsans_light", serif;
+	/*text-shadow: 0 0.0185185em 0.0185185em rgba(255,255,255,0.25);*/
 	text-align: left;
 	/*letter-spacing: -0.0185185em;*/
 }
