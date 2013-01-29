@@ -2,9 +2,10 @@
 (function() {
 
   define(function(require) {
-    var $, Modernizr, em, exports, gVars, idealWidth, makeItHappen, moduleClass, moduleName, positionMe, scrollMe, _window;
+    var $, Modernizr, ResizeFu, em, exports, gVars, idealWidth, makeItHappen, moduleClass, moduleName, positionMe, scrollMe, _window;
     $ = require("jquery");
     Modernizr = require("Modernizr");
+    ResizeFu = require("resize_fu");
     exports = {};
     gVars = {};
     moduleName = "next_arrow";
@@ -40,23 +41,31 @@
       }
     };
     positionMe = function(_this, _arrow) {
-      var arrowEm, horLoc, thisHt;
+      var bottom, horLoc, thisHt, winHt;
       horLoc = (_this.data("nextarrow-location") / 100) * idealWidth * em;
-      arrowEm = _arrow;
       thisHt = _this.outerHeight(false);
+      winHt = _window.height();
+      alert(winHt);
+      alert(thisHt + ResizeFu.getPeekNext(_this) * em);
+      if (winHt > (thisHt + ResizeFu.getPeekNext(_this) * em)) {
+        bottom = 0;
+      } else {
+        bottom = thisHt - winHt;
+      }
+      alert(bottom);
       if (_window.height() > thisHt) {
         return _arrow.css({
-          "bottom": thisHt - _window.height(),
+          "bottom": bottom,
           "left": horLoc
         });
       }
     };
     makeItHappen = function(_this) {
       var _arrow;
-      console.log("arrow for " + (_this.find("h2").html()));
-      _this.append($("<span />").addClass(moduleName).html("&darr;"));
+      _this.append($("<a />").addClass(moduleName).html("&darr;"));
       _arrow = _this.find(moduleClass);
       positionMe(_this, _arrow);
+      scrollMe(_this, _arrow);
       _window.resize(function() {
         return positionMe(_this, _arrow);
       });
@@ -67,8 +76,7 @@
         var aniSpeed, nextOffTop, nextOffset;
         nextOffset = $(this).parent().next().offset();
         nextOffTop = Math.round(nextOffset.top);
-        aniSpeed = Math.round(nextOffset.top / gVars.scrollSpeed);
-        console.log(aniSpeed);
+        aniSpeed = Math.round((nextOffset.top - _window.scrollTop()) / gVars.scrollSpeed);
         return $("html,body").animate({
           scrollTop: nextOffTop
         }, aniSpeed);

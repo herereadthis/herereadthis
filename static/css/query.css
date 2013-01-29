@@ -26,11 +26,11 @@
 		margin: 0 0em;
 		padding: 0em 0 0 27.5em;
 	}
-	#beautiful header {
+	#design_modern header {
 		width: auto;
 		padding: 0 2em;
 	}
-	#beautiful header h2 {
+	#design_modern header h2 {
 		font-size: 3.8em;
 	}
 	#ezra_pound blockquote p {
@@ -45,10 +45,10 @@
 	#ezra_pound figcaption p {
 		padding: 0;
 	}
-	#beautiful section {
+	#design_modern section {
 		width: auto;
 	}
-	#beautiful section > p {
+	#design_modern section > p {
 		padding-right: 1em;
 	}
 	.creative_commons_license {
@@ -87,7 +87,7 @@
 		margin: 0 0em;
 		padding: 0em 0 0 27.5em;
 	}
-	#beautiful header {
+	#design_modern header {
 		width: auto;
 		padding: 0 3em;
 	}
@@ -101,16 +101,16 @@
 	#ezra_pound figcaption p {
 		padding: 0;
 	}
-	#beautiful section {
+	#design_modern section {
 		width: auto;
 	}
-	#beautiful section > p {
+	#design_modern section > p {
 		padding-right: 1.5em;
 	}
 }
 
 @media all and (min-width: 801px) and (max-width: 900px) {
-	#beautiful header h2 {
+	#design_modern header h2 {
 		font-size: 3.8em;
 	}
 	#ezra_pound blockquote p {
@@ -119,7 +119,7 @@
 	}
 }
 @media all and (min-width: 901px) and (max-width: 1024px) {
-	#beautiful header h2 {
+	#design_modern header h2 {
 		font-size: 4.3em;
 	}
 	#ezra_pound blockquote p {
@@ -150,7 +150,7 @@
 		margin: 0 2em;
 		padding: 0em 0 0 27.5em;
 	}
-	#beautiful header {
+	#design_modern header {
 		width: auto;
 		padding: 0 5em;
 	}
@@ -165,12 +165,12 @@
 	#ezra_pound figcaption p {
 		padding: 0;
 	}
-	#beautiful section {
+	#design_modern section {
 		width: auto;
 	}
 }
 @media all and (min-width: 1025px) and (max-width: 1100px) {
-	#beautiful header h2 {
+	#design_modern header h2 {
 		font-size: 4.5em;
 	}
 	#ezra_pound blockquote p {
@@ -179,7 +179,7 @@
 	}
 }
 @media all and (min-width: 1101px) and (max-width: 1179px) {
-	#beautiful header h2 {
+	#design_modern header h2 {
 		font-size: 5em;
 	}
 	#ezra_pound blockquote p {

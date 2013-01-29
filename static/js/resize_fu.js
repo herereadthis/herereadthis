@@ -24,7 +24,6 @@
     getElementDim = function(_this) {
       var thisDim;
       _this.css({
-        "min-height": "",
         "padding-top": "",
         "padding-bottom": ""
       });
@@ -58,19 +57,26 @@
       if (gVars.browserWt > theoryWidth) {
         if (gVars.browserHt < thisDim.height) {
           return makePads(_this, thisDim.padding.top / gVars.em, lVars.thresholdBot);
-        } else if (((gVars.browserHt - lVars.peekNext * gVars.em) / (theoryWidth * gVars.em)) > lVars.maxRatio) {
+        } else if (((gVars.browserHt - lVars.peekNext * gVars.em) / theoryWidth) > lVars.maxRatio) {
+          console.log("we have very large window size for  " + (_this.find("h2").html()));
           subTheoryHeight = thisDim.height + (lVars.thresholdTop + lVars.thresholdBot) * gVars.em;
-          if (subTheoryHeight < lVars.maxRatio * theoryWidth * gVars.em) {
-            thresholds = (lVars.maxRatio * theoryWidth * gVars.em) - thisDim.height;
-            thresholds = (thresholds / 2) / gVars.em;
-            return makePads(_this, thresholds);
+          console.log(thisDim.height, (lVars.thresholdTop + lVars.thresholdBot) * gVars.em);
+          if (subTheoryHeight < lVars.maxRatio * theoryWidth) {
+            if (thisData.thresholdTop === 0 && thisData.thresholdBot === 0) {
+              return _this.css({
+                "min-height": lVars.maxRatio * theoryWidth
+              });
+            } else {
+              thresholds = (lVars.maxRatio * theoryWidth) - thisDim.height;
+              thresholds = (thresholds / 2) / gVars.em;
+              return makePads(_this, thresholds);
+            }
           } else {
             return makePads(_this, lVars.thresholdTop, lVars.thresholdBot);
           }
         } else {
           if (((gVars.browserHt - thisDim.height) / gVars.em) > (lVars.thresholdTop + lVars.thresholdBot)) {
             if (lVars.thresholdTop === 0 && lVars.thresholdBot === 0) {
-              console.log((gVars.browserHt - thisDim.height) / gVars.em, "!!!");
               return _this.css({
                 "min-height": "" + ((gVars.browserHt / gVars.em) - lVars.peekNext) + "em"
               });
@@ -102,6 +108,14 @@
         }
       }
     };
+    exports.getPeekNext = function(_this) {
+      var peekNext, tdPeekNext;
+      if (_this.data("resizefu-peek-next") !== void 0) {
+        tdPeekNext = parseInt(_this.data("resizefu-peek-next"), 10);
+      }
+      peekNext = tdPeekNext != null ? tdPeekNext : gVars.peekNext;
+      return peekNext;
+    };
     exports.init = function(_this) {
       var lVars, settings, thisData, _body;
       settings = {
@@ -121,13 +135,11 @@
       if (_this.data("resizefu-max-ratio") !== void 0) {
         thisData.maxRatio = parseInt(_this.data("resizefu-max-ratio"), 10);
       }
-      console.log(thisData, "?????");
       lVars = {};
       lVars.thresholdTop = thisData.thresholdTop != null ? thisData.thresholdTop : gVars.thresholdTop;
       lVars.thresholdBot = thisData.thresholdBot != null ? thisData.thresholdBot : gVars.thresholdBot;
       lVars.maxRatio = thisData.maxRatio != null ? thisData.maxRatio : gVars.maxRatio;
       lVars.peekNext = thisData.peekNext != null ? thisData.peekNext : gVars.peekNext;
-      console.log(_this.data("module"), lVars.peekNext, lVars.thresholdBot, thisData.peekNext);
       makeResize(_this, thisData, lVars);
       return $(window).resize(function() {
         return makeResize(_this, thisData, lVars);

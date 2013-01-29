@@ -8,6 +8,7 @@
 define (require) ->
     $ = require "jquery"
     Modernizr = require "Modernizr"
+    ResizeFu = require "resize_fu"
     exports = {}
     gVars = {}
     # name of actual file here
@@ -51,21 +52,33 @@ define (require) ->
 
     positionMe = ( _this, _arrow ) ->
         horLoc = (_this.data("nextarrow-location") / 100) * idealWidth * em
-        arrowEm = _arrow
         thisHt = _this.outerHeight false
+        winHt = _window.height()
+        # that is, suppose if the be browser window is very large, and the next article is visible
+        # even though the whole of the current article is visible.
+        # Then placing the next arrow at bottom of the page is impractical.
+        # Place instead at the bottom of the current article
+        alert winHt
+        alert (thisHt + ResizeFu.getPeekNext(_this) * em)
+        if winHt > (thisHt + ResizeFu.getPeekNext(_this) * em)
+            bottom = 0
+        else
+            bottom = thisHt - winHt
+        alert bottom
+
         if _window.height() > thisHt
             _arrow.css
-                "bottom": thisHt - _window.height()
+                "bottom": bottom
                 "left": horLoc
 
 
 
     makeItHappen = ( _this ) ->
-        console.log "arrow for #{ _this.find("h2").html() }"
-        _this.append $("<span />").addClass(moduleName).html("&darr;")
+        _this.append $("<a />").addClass(moduleName).html("&darr;")
         _arrow = _this.find(moduleClass)
 
         positionMe _this, _arrow
+        scrollMe _this, _arrow
 
         _window.resize () ->
             positionMe _this, _arrow
@@ -76,9 +89,8 @@ define (require) ->
         _arrow.on "click", (e) ->
             nextOffset = $(@).parent().next().offset()
             nextOffTop = Math.round nextOffset.top
-            aniSpeed = Math.round nextOffset.top / gVars.scrollSpeed
-            console.log aniSpeed
-            # _window.scrollTop nextOffTop
+            # that is, the further away the next article is, the longer it will take to scroll there
+            aniSpeed = Math.round ((nextOffset.top - _window.scrollTop()) / gVars.scrollSpeed)
             $("html,body").animate({
                 scrollTop: nextOffTop
                 }, aniSpeed

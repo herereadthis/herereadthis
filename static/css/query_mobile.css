@@ -76,10 +76,10 @@
 		background-size: 12em 12em, 20em 20em, 10em 10em, 8em 8em, 4em 4em, 13em 13em;
 		background-position: 25% 5em, 0% 3em, 55% 3em, 50% 1em, 100% 5em, 90% 3em;
 	}
-	#beautiful.quarter_maya, #beautiful .quarter_maya, #beautiful > * {
+	#design_modern, #design_modern .quarter_maya, #design_modern > * {
 		background-image: none;
 	}
-	#beautiful.accordian span.toggler {
+	#design_modern.accordian span.toggler {
 		position: absolute;
 		right: 7.5em;
 		top: 10em;
@@ -87,21 +87,21 @@
 		width: 10em;
 		font-size: 0.2em;
 	}
-	#beautiful h3 {
+	#design_modern h3 {
 		padding-left: 0.833333em;
 		padding-bottom: 0;
 		font-size: 2em;
 		line-height: 1.25em;
 	}
-	#beautiful p {
+	#design_modern p {
 		font-size: 1.5em;
 		padding: 1em 1em 1em 1em;
 	}
-	#beautiful header {
+	#design_modern header {
 		width: auto;
 		padding: 0 0em;
 	}
-	#beautiful header h2 {
+	#design_modern header h2 {
 		padding: 1.5em 1em 1em 1em;
 		float: none;
 		width: auto;
@@ -109,7 +109,7 @@
 		background-color: #73C2FB;
 		font-family: "gillsans_bolditalic", sans-serif
 	}
-	#beautiful header p {
+	#design_modern header p {
 		float: none;
 		width: auto;
 		margin: 0;
@@ -135,10 +135,10 @@
 	#ezra_pound figcaption p {
 		padding: 0 0.833333em 0 0;
 	}
-	#beautiful section {
+	#design_modern section {
 		width: auto;
 	}
-	#beautiful section > *:last-child {
+	#design_modern section > *:last-child {
 		padding-bottom: 1em;
 	}
 

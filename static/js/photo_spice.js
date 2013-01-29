@@ -2,11 +2,10 @@
 (function() {
 
   define(function(require) {
-    var $, Modernizr, NextArrow, ResizeFu, checkScroll, em, exports, makeItHappen, makeMinHeight, moduleName, psVars, _window;
+    var $, Modernizr, ResizeFu, checkScroll, em, exports, makeItHappen, makeMinHeight, moduleName, psVars, _window;
     $ = require("jquery");
     Modernizr = require("Modernizr");
     ResizeFu = require("resize_fu");
-    NextArrow = require("next_arrow");
     exports = {};
     psVars = {
       fade: {
@@ -18,7 +17,12 @@
       h2: {
         ml1: -550,
         ml2: 410
-      }
+      },
+      sectionMargin: {
+        top: 0,
+        bottom: 0
+      },
+      peekNext: 3
     };
     moduleName = "photo_spice";
     em = parseInt($("body").css("font-size"), 10);
@@ -62,14 +66,21 @@
       minHeight = parseInt(_this.css("min-height"), 10) / em;
       _section = _this.find("section");
       return _section.css({
-        "min-height": "" + minHeight + "em"
+        "min-height": "" + (minHeight - psVars.sectionMargin.top - psVars.sectionMargin.bottom) + "em"
       });
     };
     makeItHappen = function(_this) {
+      var _section;
       ResizeFu.init(_this);
       console.log("made it happen for photo_spice");
+      _section = _this.find("section");
+      psVars.sectionMargin = {
+        top: parseInt(_section.css("margin-top"), 10) / em,
+        bottom: parseInt(_section.css("margin-bottom"), 10) / em
+      };
       makeMinHeight(_this);
       _this.append($("<span />").attr("id", psVars.fadebarID));
+      checkScroll(_this);
       _window.scroll(function() {
         return checkScroll(_this);
       });
