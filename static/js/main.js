@@ -70,7 +70,10 @@
     if (Modernizr.touch === false) {
       HeadMore.init();
       PhotoSpice.init();
+      MakeItNew.init();
+      CanvasSally.init();
     }
+    Coding.init();
     return Analytics.track('UA-37798496-1');
   });
 

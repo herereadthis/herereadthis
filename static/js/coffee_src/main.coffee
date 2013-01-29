@@ -90,9 +90,9 @@ require [
     if Modernizr.touch is false
         do HeadMore.init
         do PhotoSpice.init
-    #     do MakeItNew.init
-    #     do CanvasSally.init
-    # do Coding.init
+        do MakeItNew.init
+        do CanvasSally.init
+    do Coding.init
     Analytics.track('UA-37798496-1')
 
 

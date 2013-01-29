@@ -304,7 +304,7 @@ pre {
 	width: 118em;
 	margin: 0 auto;
 	background-color: #F00;
-	margin: 1em auto 5em auto;
+	margin: 1em auto 7em auto;
 	background-image:
 		-webkit-linear-gradient(0deg, #ECEDEE 0%,  #ECEDEE 4%,  #ECEEF0 4%,  #ECEEF0 12%, #EBEEF1 12%, #EBEEF1 14%,
 			#ECEEF1 14%, #ECEEF1 21%, #EBEEF0 21%, #EBEEF0 41%, #EAEEF0 41%, #EAEEF0 61%, #EBEEEF 61%, #EBEEEF 69%,
@@ -356,6 +356,10 @@ pre {
 	background-repeat: no-repeat;
 	box-shadow: 0em 0em 1em 0.5em rgba(0, 0, 0, 0.8);
 }
+
+
+
+
 
 
 
