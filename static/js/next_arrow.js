@@ -45,14 +45,11 @@
       horLoc = (_this.data("nextarrow-location") / 100) * idealWidth * em;
       thisHt = _this.outerHeight(false);
       winHt = _window.height();
-      alert(winHt);
-      alert(thisHt + ResizeFu.getPeekNext(_this) * em);
       if (winHt > (thisHt + ResizeFu.getPeekNext(_this) * em)) {
         bottom = 0;
       } else {
         bottom = thisHt - winHt;
       }
-      alert(bottom);
       if (_window.height() > thisHt) {
         return _arrow.css({
           "bottom": bottom,

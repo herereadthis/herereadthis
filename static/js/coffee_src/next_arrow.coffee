@@ -58,13 +58,10 @@ define (require) ->
         # even though the whole of the current article is visible.
         # Then placing the next arrow at bottom of the page is impractical.
         # Place instead at the bottom of the current article
-        alert winHt
-        alert (thisHt + ResizeFu.getPeekNext(_this) * em)
         if winHt > (thisHt + ResizeFu.getPeekNext(_this) * em)
             bottom = 0
         else
             bottom = thisHt - winHt
-        alert bottom
 
         if _window.height() > thisHt
             _arrow.css
