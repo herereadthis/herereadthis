@@ -71,7 +71,10 @@ define (require) ->
 
 
     makeItHappen = ( _this ) ->
-        _this.append $("<a />").addClass(moduleName).html("&darr;")
+        href = _this.next().attr "id"
+        href = "#/#{ href }/"
+        _this.append $("<a />").addClass(moduleName).html("&darr;").attr
+            "href": href
         _arrow = _this.find(moduleClass)
 
         positionMe _this, _arrow

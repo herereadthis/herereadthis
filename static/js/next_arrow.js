@@ -58,8 +58,12 @@
       }
     };
     makeItHappen = function(_this) {
-      var _arrow;
-      _this.append($("<a />").addClass(moduleName).html("&darr;"));
+      var href, _arrow;
+      href = _this.next().attr("id");
+      href = "#/" + href + "/";
+      _this.append($("<a />").addClass(moduleName).html("&darr;").attr({
+        "href": href
+      }));
       _arrow = _this.find(moduleClass);
       positionMe(_this, _arrow);
       scrollMe(_this, _arrow);

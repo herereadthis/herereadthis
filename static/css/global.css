@@ -250,14 +250,14 @@ pre {
 
 
 
-#photo_spice {
+#photos {
 	position: relative;
 	width: 100%;
 	padding: 0;
 	background-color: #282828;
 	overflow: auto;
 }
-#photo_spice:before {
+#photos:before {
 	display: block;
 	position: absolute;
 	content: "";
@@ -267,7 +267,7 @@ pre {
 	height: 1em;
 	background-color: #FFF;
 }
-#photo_spice #ps_fadebar {
+#photos #ps_fadebar {
 	display: block;
 	content: "";
 	position: absolute;
@@ -284,7 +284,7 @@ pre {
 		linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 12.5%,
 			rgba(255,255,255,0.75) 50%, rgba(255,255,255,0.25) 75%, rgba(255,255,255,0) 100%);
 }
-#photo_spice h2 {
+#photos h2 {
 	position: absolute;
 	text-transform: uppercase;
 	font-weight: normal;
@@ -300,7 +300,7 @@ pre {
 	font-size: 8em;
 	z-index: 4;
 }
-#photo_spice section {
+#photos section {
 	width: 118em;
 	margin: 0 auto;
 	background-color: #F00;
