@@ -143,9 +143,10 @@ define (require) ->
                 "padding-left": ""
                 "width": "auto"
 
-        if Modernizr.touch is false
+        if Modernizr.touch is true
             _this.children().css
                 "width": "auto"
+        else
             if _window.width() > cVars.titleThreshold
                 _title.css
                     "width": titleWidth

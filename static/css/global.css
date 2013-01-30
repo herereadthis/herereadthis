@@ -11,7 +11,8 @@
 
 */
 
-/* start looking into parallax page scrolling
+/*
+start looking into parallax page scrolling
 http://net.tutsplus.com/tutorials/html-css-techniques/simple-parallax-scrolling-technique/
 http://richardshepherd.com/smashing/parallax/background.html
 */
@@ -257,18 +258,6 @@ pre {
 	background-color: #282828;
 	overflow: auto;
 }
-/*
-#photos:before {
-	display: block;
-	position: absolute;
-	content: "";
-	top: 0;
-	right: 0;
-	left: 0;
-	height: 1em;
-	background-color: #FFF;
-}
-*/
 #photos #ps_fadebar {
 	display: block;
 	content: "";
@@ -394,28 +383,6 @@ pre {
     padding: 0;
     text-align: center;
 }
-/*
-#coding p {
-	font-family: "joanna", serif;
-	font-size: 2em;
-	line-height: 1.25em;
-}
-#coding h3 {
-	font-weight: normal;
-	font-family: "gillsans_bold", sans-serif;
-	font-size: 2em;
-	line-height: 1.25em;
-}
-*/
-
-
-
-#coding canvas#the_circle {
-	position: absolute;
-	top: 1em;
-	left: 0em;
-	float: left;
-}
 #coding .code_tango {
 	overflow: auto;
 	background-color: #EEE;
@@ -423,7 +390,6 @@ pre {
 	margin-bottom: 2em;
 }
 .code_tango > div {
-
 }
 .code_tango > div > div {
 	float: left;
@@ -496,9 +462,7 @@ pre {
 	font-size: 5.4em;
 	line-height: 1.2037037em;
 	font-family: "gillsans_light", serif;
-	/*text-shadow: 0 0.0185185em 0.0185185em rgba(255,255,255,0.25);*/
 	text-align: left;
-	/*letter-spacing: -0.0185185em;*/
 }
 #design_modern header p {
 	/*text-indent: -0.45em;*/
@@ -611,29 +575,27 @@ body > footer > div + div {
 	padding-top: 0;
 	min-height: 28em;
 	background-image:
-		-moz-radial-gradient(rgba(115,251,194,0.8) 40%, rgba(115,251,194,1) 60%, rgba(115,251,194,1) 70.7107%, transparent 70.7107%),
-		-moz-radial-gradient(rgba(115,194,251,0.8) 40%, rgba(115,194,251,1) 60%, rgba(115,194,251,1) 70.7107%, transparent 70.7107%),
-		-moz-radial-gradient(rgba(194,251,115,0.8) 40%, rgba(194,251,115,1) 60%, rgba(194,251,115,1) 70.7107%, transparent 70.7107%),
-		-moz-radial-gradient(rgba(194,115,251,0.8) 40%, rgba(194,115,251,1) 60%, rgba(194,115,251,1) 70.7107%, transparent 70.7107%),
-		-moz-radial-gradient(rgba(251,194,115,0.8) 40%, rgba(251,194,115,1) 60%, rgba(251,194,115,1) 70.7107%, transparent 70.7107%),
-		-moz-radial-gradient(rgba(251,115,194,0.8) 40%, rgba(251,115,194,1) 60%, rgba(251,115,194,1) 70.7107%, transparent 70.7107%);
+		-moz-radial-gradient(rgba(115,251,194,0.8) 40%, #73FBC2 60%, #73FBC2 70.7107%, transparent 70.7107%),
+		-moz-radial-gradient(rgba(115,194,251,0.8) 40%, #73C2FB 60%, #73C2FB 70.7107%, transparent 70.7107%),
+		-moz-radial-gradient(rgba(194,251,115,0.8) 40%, #C2FB73 60%, #C2FB73 70.7107%, transparent 70.7107%),
+		-moz-radial-gradient(rgba(194,115,251,0.8) 40%, #C273FB 60%, #C273FB 70.7107%, transparent 70.7107%),
+		-moz-radial-gradient(rgba(251,194,115,0.8) 40%, #FBC273 60%, #FBC273 70.7107%, transparent 70.7107%),
+		-moz-radial-gradient(rgba(251,115,194,0.8) 40%, #FB73C2 60%, #FB73C2 70.7107%, transparent 70.7107%);
 	background-image:
-		-webkit-radial-gradient(rgba(115,251,194,0.8) 40%, rgba(115,251,194,1) 60%, rgba(115,251,194,1) 70.7107%, transparent 70.7107%),
-		-webkit-radial-gradient(rgba(115,194,251,0.8) 40%, rgba(115,194,251,1) 60%, rgba(115,194,251,1) 70.7107%, transparent 70.7107%),
-		-webkit-radial-gradient(rgba(194,251,115,0.8) 40%, rgba(194,251,115,1) 60%, rgba(194,251,115,1) 70.7107%, transparent 70.7107%),
-		-webkit-radial-gradient(rgba(194,115,251,0.8) 40%, rgba(194,115,251,1) 60%, rgba(194,115,251,1) 70.7107%, transparent 70.7107%),
-		-webkit-radial-gradient(rgba(251,194,115,0.8) 40%, rgba(251,194,115,1) 60%, rgba(251,194,115,1) 70.7107%, transparent 70.7107%),
-		-webkit-radial-gradient(rgba(251,115,194,0.8) 40%, rgba(251,115,194,1) 60%, rgba(251,115,194,1) 70.7107%, transparent 70.7107%);
+		-webkit-radial-gradient(rgba(115,251,194,0.8) 40%, #73FBC2 60%, #73FBC2 70.7107%, transparent 70.7107%),
+		-webkit-radial-gradient(rgba(115,194,251,0.8) 40%, #73C2FB 60%, #73C2FB 70.7107%, transparent 70.7107%),
+		-webkit-radial-gradient(rgba(194,251,115,0.8) 40%, #C2FB73 60%, #C2FB73 70.7107%, transparent 70.7107%),
+		-webkit-radial-gradient(rgba(194,115,251,0.8) 40%, #C273FB 60%, #C273FB 70.7107%, transparent 70.7107%),
+		-webkit-radial-gradient(rgba(251,194,115,0.8) 40%, #FBC273 60%, #FBC273 70.7107%, transparent 70.7107%),
+		-webkit-radial-gradient(rgba(251,115,194,0.8) 40%, #FB73C2 60%, #FB73C2 70.7107%, transparent 70.7107%);
 	background-image:
-		radial-gradient(rgba(115,251,194,0.8) 40%, rgba(115,251,194,1) 60%, rgba(115,251,194,1) 70.7107%, transparent 70.7107%),
-		radial-gradient(rgba(115,194,251,0.8) 40%, rgba(115,194,251,1) 60%, rgba(115,194,251,1) 70.7107%, transparent 70.7107%),
-		radial-gradient(rgba(194,251,115,0.8) 40%, rgba(194,251,115,1) 60%, rgba(194,251,115,1) 70.7107%, transparent 70.7107%),
-		radial-gradient(rgba(194,115,251,0.8) 40%, rgba(194,115,251,1) 60%, rgba(194,115,251,1) 70.7107%, transparent 70.7107%),
-		radial-gradient(rgba(251,194,115,0.8) 40%, rgba(251,194,115,1) 60%, rgba(251,194,115,1) 70.7107%, transparent 70.7107%),
-		radial-gradient(rgba(251,115,194,0.8) 40%, rgba(251,115,194,1) 60%, rgba(251,115,194,1) 70.7107%, transparent 70.7107%);
-	/*background-size: 12em 12em, 20em 20em, 10em 10em, 8em 8em, 4em 4em, 13em 13em;*/
+		radial-gradient(rgba(115,251,194,0.8) 40%, #73FBC2 60%, #73FBC2 70.7107%, transparent 70.7107%),
+		radial-gradient(rgba(115,194,251,0.8) 40%, #73C2FB 60%, #73C2FB 70.7107%, transparent 70.7107%),
+		radial-gradient(rgba(194,251,115,0.8) 40%, #C2FB73 60%, #C2FB73 70.7107%, transparent 70.7107%),
+		radial-gradient(rgba(194,115,251,0.8) 40%, #C273FB 60%, #C273FB 70.7107%, transparent 70.7107%),
+		radial-gradient(rgba(251,194,115,0.8) 40%, #FBC273 60%, #FBC273 70.7107%, transparent 70.7107%),
+		radial-gradient(rgba(251,115,194,0.8) 40%, #FB73C2 60%, #FB73C2 70.7107%, transparent 70.7107%);
 	background-repeat: no-repeat;
-	/*background-position: 25% 4em, 0% 2em, 55% 2em, 50% 0em, 100% 4em, 90% 2em;*/
 	background-size: 24em 24em, 40em 40em, 20em 20em, 16em 16em, 8em 8em, 26em 26em;
 	background-repeat: no-repeat;
 	background-position: 27% 10em, 0% 6em, 55% 6em, 50% 2em, 100% 10em, 90% 6em;
@@ -691,7 +653,7 @@ body > footer > div + div {
 
 
 
-/* special classes on page */
+/* If there is a need to split to parts on a page, where CSS columns wouldn't cut it */
 .double_stack {
 	overflow: auto;
 }
