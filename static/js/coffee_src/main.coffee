@@ -78,12 +78,10 @@ require ["jquery", "maya_stripes", "accordian_player"], ($) ->
 require [
     "jquery",
     'HeadMore', "PhotoSpice", "Coding", "MakeItNew"
-    'CanvasSally'
     'Modernizr', 'Backbone',
     'Analytics'], (
         $,
         HeadMore, PhotoSpice, Coding, MakeItNew
-        CanvasSally
         Modernizr, Backbone, 
         Analytics) ->
     if Modernizr.touch is false

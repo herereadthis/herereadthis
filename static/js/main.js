@@ -65,7 +65,7 @@
   */
 
 
-  require(["jquery", 'HeadMore', "PhotoSpice", "Coding", "MakeItNew", 'CanvasSally', 'Modernizr', 'Backbone', 'Analytics'], function($, HeadMore, PhotoSpice, Coding, MakeItNew, CanvasSally, Modernizr, Backbone, Analytics) {
+  require(["jquery", 'HeadMore', "PhotoSpice", "Coding", "MakeItNew", 'Modernizr', 'Backbone', 'Analytics'], function($, HeadMore, PhotoSpice, Coding, MakeItNew, Modernizr, Backbone, Analytics) {
     if (Modernizr.touch === false) {
       HeadMore.init();
       PhotoSpice.init();
