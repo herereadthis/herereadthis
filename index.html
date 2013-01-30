@@ -97,7 +97,7 @@ Icons:
     Apple Icons: http://goo.gl/6Qdi3 (developer.apple.com/)
 
 Open Graph and Facebook:
-    Facebook JSON is https://graph.facebook.com/142652672557253
+    Facebook JSON is https://graph.facebook.com/142652672557253&scraped=true
     linter is at https://developers.facebook.com/tools/debug
     documentation on OG protocol at https://developers.facebook.com/docs/opengraphprotocol/
     curl https://developers.facebook.com/tools/lint/?url=http%3A%2F%2Fherereadthis.com&format=json
@@ -348,7 +348,7 @@ for row, index in myArray
 
 
 
-<article data-module="resize_fu">
+<article id="top_things">
     <h2>Top Things</h2>
     <!-- RDFa for reviews: http://support.google.com/webmasters/bin/answer.py?hl=en&answer=146645 -->
 
@@ -466,36 +466,40 @@ for row, index in myArray
 </section>
 </article>
 
-<article data-module="resize_fu">
+<article id="excerpts">
     <h2>Excerpts from Literature</h2>
-    <h3>On Writing</h3>
-    <figure resource="/#/literature/emily_post/">
-        <blockquote>
-            <p>In writing notes or letters, as in all other forms of social observance, the highest achievement is in giving the appearance of simplicity, naturalness and force.</p>
+    <section>
+        <h3>On Writing</h3>
+        <figure resource="/#/literature/emily_post/">
+            <blockquote>
+                <p>In writing notes or letters, as in all other forms of social observance, the highest achievement is in giving the appearance of simplicity, naturalness and force.</p>
 
-            <p>Those who use long periods of flowered prolixity and pretentious phrases&mdash;who write in complicated form with meaningless flourishes, do not make an impression of elegance and erudition upon their readers, but flaunt instead unmistakable evidence of vainglory and ignorance.</p>
+                <p>Those who use long periods of flowered prolixity and pretentious phrases&mdash;who write in complicated form with meaningless flourishes, do not make an impression of elegance and erudition upon their readers, but flaunt instead unmistakable evidence of vainglory and ignorance.</p>
 
-            <p>The letter you write, whether you realize it or not, is always a mirror which reflects your appearance, taste and character. A &ldquo;sloppy&rdquo; letter with the writing all pouring into one corner of the page, badly worded, badly spelled, and with unmatched paper and envelope&mdash;even possibly a blot&mdash;proclaims the sort of person who would have unkempt hair, unclean linen and broken shoe laces; just as a neat, precise, evenly written note portrays a person of like characteristics.</p>
-        </blockquote>
-        <figcaption>
-            <p>&mdash;<span property="dc:creator">Emily Post</span>, 
-                <cite property="dc:title">Etiquette in Society, in Business, in Politics, and at Home<cite>,
-                <time property="dc:date" content="1922-07" datetime="1922-07">1922</time></p>
-        </figcaption>
-    </figure>
-    <h3>On Greatness and Legacy</h3>
-    <figure resource="/#/literature/virginia_woolf/">
-        <blockquote>
-            <p><!--He stood stock-still, by the urn, with the geranium flowing over it. How many men in a thousand million, he asked himself, reach Z after all? Surely the leader of a forlorn hope may ask himself that, and answer, without treachery to the expedition behind him, &ldquo;One perhaps.&rdquo; One in a generation. Is he to be blamed then if he is not that one? provided he has toiled honestly, given to the best of his power, and till he has no more left to give? -->And his fame lasts how long? It is permissible even for a dying hero to think before he dies how men will speak of him hereafter. His fame lasts perhaps two thousand years. And what are two thousand years? (asked Mr Ramsay ironically, staring at the hedge). What, indeed, if you look from a mountain top down the long wastes of the ages? The very stone one kicks with one&rsquo;s boot will outlast Shakespeare. His own little light would shine, not very brightly, for a year or two, and would then be merged in some bigger light, and that in a bigger still. (He looked into the hedge, into the intricacy of the twigs.) Who then could blame the leader of that forlorn party which after all has climbed high enough to see the waste of the years and the perishing of the stars, if before death stiffens his limbs beyond the power of movement he does a little consciously raise his numbed fingers to his brow, and square his shoulders, so that when the search party comes they will find him dead at his post, the fine figure of a soldier? Mr Ramsay squared his shoulders and stood very upright by the urn.</p>
+                <p>The letter you write, whether you realize it or not, is always a mirror which reflects your appearance, taste and character. A &ldquo;sloppy&rdquo; letter with the writing all pouring into one corner of the page, badly worded, badly spelled, and with unmatched paper and envelope&mdash;even possibly a blot&mdash;proclaims the sort of person who would have unkempt hair, unclean linen and broken shoe laces; just as a neat, precise, evenly written note portrays a person of like characteristics.</p>
+            </blockquote>
+            <figcaption>
+                <p>&mdash;<span property="dc:creator">Emily Post</span>, 
+                    <cite property="dc:title">Etiquette in Society, in Business, in Politics, and at Home<cite>,
+                    <time property="dc:date" content="1922-07" datetime="1922-07">1922</time></p>
+            </figcaption>
+        </figure>
+    </section>
+    <section>
+        <h3>On Greatness and Legacy</h3>
+        <figure resource="/#/literature/virginia_woolf/">
+            <blockquote>
+                <p><!--He stood stock-still, by the urn, with the geranium flowing over it. How many men in a thousand million, he asked himself, reach Z after all? Surely the leader of a forlorn hope may ask himself that, and answer, without treachery to the expedition behind him, &ldquo;One perhaps.&rdquo; One in a generation. Is he to be blamed then if he is not that one? provided he has toiled honestly, given to the best of his power, and till he has no more left to give? -->And his fame lasts how long? It is permissible even for a dying hero to think before he dies how men will speak of him hereafter. His fame lasts perhaps two thousand years. And what are two thousand years? (asked Mr Ramsay ironically, staring at the hedge). What, indeed, if you look from a mountain top down the long wastes of the ages? The very stone one kicks with one&rsquo;s boot will outlast Shakespeare. His own little light would shine, not very brightly, for a year or two, and would then be merged in some bigger light, and that in a bigger still. (He looked into the hedge, into the intricacy of the twigs.) Who then could blame the leader of that forlorn party which after all has climbed high enough to see the waste of the years and the perishing of the stars, if before death stiffens his limbs beyond the power of movement he does a little consciously raise his numbed fingers to his brow, and square his shoulders, so that when the search party comes they will find him dead at his post, the fine figure of a soldier? Mr Ramsay squared his shoulders and stood very upright by the urn.</p>
 
-            <p>Who shall blame him, if, so standing for a moment he dwells upon fame, upon search parties, upon cairns raised by grateful followers over his bones? Finally, who shall blame the leader of the doomed expedition, if, having adventured to the uttermost, and used his strength wholly to the last ounce and fallen asleep not much caring if he wakes or not, he now perceives by some pricking in his toes that he lives, and does not on the whole object to live, but requires sympathy, and whisky, and some one to tell the story of his suffering to at once? Who shall blame him? Who will not secretly rejoice when the hero puts his armour off, and halts by the window and gazes at his wife and son, who, very distant at first, gradually come closer and closer, till lips and book and head are clearly before him, though still lovely and unfamiliar from the intensity of his isolation and the waste of ages and the perishing of the stars, and finally putting his pipe in his pocket and bending his magnificent head before her-who will blame him if he does homage to the beauty of the world?</p>
-        </blockquote>
-        <figcaption>
-            <p>&mdash;<span property="dc:creator">Virginia Woolf</span>, 
-                <cite property="dc:title">To the Lighthouse<cite>, The Window, Chapter 6,
-                <time property="dc:date" content="1927-05-05" datetime="1927-05-05">1927</time></p>
-        </figcaption>
-    </figure>
+                <p>Who shall blame him, if, so standing for a moment he dwells upon fame, upon search parties, upon cairns raised by grateful followers over his bones? Finally, who shall blame the leader of the doomed expedition, if, having adventured to the uttermost, and used his strength wholly to the last ounce and fallen asleep not much caring if he wakes or not, he now perceives by some pricking in his toes that he lives, and does not on the whole object to live, but requires sympathy, and whisky, and some one to tell the story of his suffering to at once? Who shall blame him? Who will not secretly rejoice when the hero puts his armour off, and halts by the window and gazes at his wife and son, who, very distant at first, gradually come closer and closer, till lips and book and head are clearly before him, though still lovely and unfamiliar from the intensity of his isolation and the waste of ages and the perishing of the stars, and finally putting his pipe in his pocket and bending his magnificent head before her-who will blame him if he does homage to the beauty of the world?</p>
+            </blockquote>
+            <figcaption>
+                <p>&mdash;<span property="dc:creator">Virginia Woolf</span>, 
+                    <cite property="dc:title">To the Lighthouse<cite>, The Window, Chapter 6,
+                    <time property="dc:date" content="1927-05-05" datetime="1927-05-05">1927</time></p>
+            </figcaption>
+        </figure>
+    </section>
 </article>
 
 <!--

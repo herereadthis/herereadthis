@@ -46,7 +46,7 @@ define (require) ->
         ]
         em: parseInt $("body").css("font-size"), 10
         # in pixels, at what point to stop the title fu dancing
-        titleThreshold: 1025
+        titleThreshold: 1040
 
 
 

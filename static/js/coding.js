@@ -23,7 +23,7 @@
       sidePad: 5,
       rileyColors: ["0e90d2", "c96977", "3f8be6", "cea635", "0b90d7", "cb6573", "0b91d6", "cb6676", "23293d", "d0a62e", "0e8fd6", "cb6371", "408ae9", "c96474", "dfe7f4", "0d90d7", "ca6774", "3a8be6", "cfa632", "0b91d7", "cea834", "198fc8", "142c47", "d2a631", "3e8de7", "e5ecf7", "cc6874", "0c95d7", "cf6671", "172945", "3b8ce6", "d2a831", "0c8fd7", "ca6571", "0b8eda", "e2eefb", "398ce9", "1092d5", "cc6670", "0d94db", "d5a730", "3d8deb", "152942", "0d91d9", "cc6571", "428aeb", "d4a834", "3f8de9", "ecf0f7", "d3a933", "3e8dec", "d5a932", "3e8cec", "d06674", "1a2844", "3e8cee", "d4ab34", "3c8fee", "0b95dc", "d7aa33", "0b94dc", "f0f1f6", "d6aa35", "3e8feb", "d16772", "0c91dc", "1a283b", "d8ab31", "0a97dc", "d7ab32", "f3f3f6", "d36770", "3c8feb", "202b3d", "d1ad3c", "4590ea", "d7ab32", "d36974", "0c94d3", "d8aa34", "0d94db", "f1f4f3", "d7ad31", "0d98dc", "d7ad34", "4692ec", "d56875", "242e3e", "d6ae33", "0a9ce0", "d7af34", "4a94f0", "d26d78", "4894ef", "0a98dc", "eef5f7", "0b98dc", "daae35", "3c96ea", "0b98dd", "d16e7c", "4294ec", "1d2d4a", "d56c7c", "4495ee", "dbb03d", "4796ea", "0e99e3", "309bf0"],
       em: parseInt($("body").css("font-size"), 10),
-      titleThreshold: 1025
+      titleThreshold: 1040
     };
     rileyGo = function(_this, lVars) {
       var barStart, beyondView, bgi1, bgi2, bgi3, bgs1, bgs2, bgs3, canvas, canvas2, canvas3, color, context, context2, context3, horBarStartWidth, horBarVert, horBars, i, pRight, rVars, titleWidth, widthPlusPad, _i, _j, _k, _len, _len1, _len2, _ref, _title;

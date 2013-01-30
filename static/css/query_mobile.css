@@ -1,12 +1,19 @@
 /*@media only screen and (max-device-width: 1136px) and (-webkit-min-device-pixel-ratio: 2) { */
 
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2), only screen and (max-device-width: 1136px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+@media all, only screen and (min-device-width: 320px) and (max-device-width: 640px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2), only screen and (max-device-width: 1136px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
 	body > header, body > article, body >footer {
 		font-size: 300%;
 	}
-	body > header, article {
+	[role="banner"], article > section, article > h2 {
+		width: auto;
 		padding: 0 1.5em;
+	}
+	article > h2 {
+		padding: 0 0.75em 0.5em 0.75em;
+	}
+	article {
+		padding-bottom: 2em;
 	}
 	ul {
 		margin-bottom: 1em;
@@ -15,8 +22,6 @@
 	ol {
 		margin-bottom: 1em;
 		padding-left: 3em;
-	}
-	[role="banner"] {
 	}
 	[role="banner"] h1 {
 		font-size: 5em;
@@ -49,15 +54,6 @@
 	#head_soc li:nth-child(4) {background-position: 0em -36em;}
 	#head_soc li:nth-child(5) {background-position: 0em -40em;}
 	#head_soc li:nth-child(6) {background-position: 0em -44em;}
-	article {
-		padding-top: 0em;
-	}
-	article:nth-of-type(2) {
-		padding-bottom: 0;
-	}
-	article h2 {
-		padding-bottom: 0em;
-	}
 	article p {
 		padding-bottom: 0.666667em;
 	}
@@ -65,6 +61,7 @@
 		display: none;
 	}
 	body > footer {
+		width: auto;
 		background-image: none;
 	}
 	body > footer > div {
@@ -85,7 +82,8 @@
 	}
 	#coding h2 {
 		position: static;
-		line-height: 2em;
+		font-size: 3em;
+		line-height: 1.333333em;
 	}
 	#coding header, #coding section {
 		padding-left: 1.5em;
@@ -103,14 +101,14 @@
 		font-size: 0.2em;
 	}
 	#design_modern h3 {
-		padding-left: 0.833333em;
+		padding-left: 0em;
 		padding-bottom: 0;
 		font-size: 2em;
 		line-height: 1.25em;
 	}
 	#design_modern p {
 		font-size: 1.5em;
-		padding: 1em 1em 1em 1em;
+		padding: 0;
 	}
 	#design_modern header {
 		width: auto;
@@ -130,7 +128,6 @@
 		margin: 0;
 		padding: 0.5em 1em 0.5em 1em;
 		font-size: 1.5em;
-		display: none;
 	}
 	#ezra_pound blockquote {
 		padding-right: 0em;

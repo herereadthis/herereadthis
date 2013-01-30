@@ -31,6 +31,9 @@ body {
     font: normal normal normal 100%/1.5 Helvetica, Arial, sans-serif;
     /* ligatures https://developer.mozilla.org/en-US/docs/CSS/text-rendering */
 }
+body > header, body > article, body > footer {
+	margin: 0 auto;
+}
 img {
 	border-width: 0;
 }
@@ -83,7 +86,16 @@ article {
 	clear: both;
 	position: relative;
 }
+article > section {
+	width: 108em;
+	margin: 0 auto;
+	padding-right: 5em;
+	padding-left: 5em;
+}
 article h2 {
+	width: 54em;
+	margin: 0 auto;
+	padding: 0 2.5em 0.5em 2.5em;
 	font-size: 2em;
 	line-height: 1em;
 	padding-bottom: 0.5em;
@@ -122,7 +134,9 @@ pre {
 
 [role="banner"] {
 	position: relative;
-	padding-top: 3em;
+	width: 108em;
+	padding-right: 5em;
+	padding-left: 5em;
 	font-family: "gillsans", sans-serif;
 }
 [role="banner"] h1 {
@@ -277,6 +291,8 @@ pre {
 }
 #photos h2 {
 	position: absolute;
+	width: auto;
+	padding: 0;
 	text-transform: uppercase;
 	font-weight: normal;
 	font-family: "gillsans_condensed", sans-serif;
@@ -295,6 +311,7 @@ pre {
 #photos section {
 	width: 118em;
 	margin: 0 auto;
+	padding: 0;
 	background-color: #F00;
 	margin: 5em auto 7em auto;
 	background-image:
@@ -372,6 +389,7 @@ pre {
 }
 #coding h2 {
 	position: absolute;
+	width: auto;
 	color: #FFF;
 	right: 0;
 	font-style: normal;
@@ -424,8 +442,26 @@ pre {
 	width: 100%;
 	padding: 0;
 }
+#design_modern header {
+	width: 108em;
+	margin: 0 auto;
+	padding: 0 5em;
+	overflow: auto;
+}
+#design_modern header h2 {
+	float: left;
+	width: 25%;
+	padding: 0.7407407em 0 0.333333em 0;
+	font-weight: normal;
+	font-size: 5.4em;
+	line-height: 1.2037037em;
+	font-family: "gillsans_light", serif;
+	text-align: left;
+}
+#design_modern p, #design_modern h3 {
+	padding-left: 28.148148%;
+}
 #design_modern h3 {
-	padding-left: 30%;
 	font-size: 3em;
 	line-height: 1.666667em;
 	font-weight: normal;
@@ -434,7 +470,6 @@ pre {
 #design_modern p {
 	margin-left: 0;
 	padding-bottom: 1em;
-	padding-left: 30%;
 	font-size: 2em;
 	line-height: 1.25em;
 	font-family: "joanna", serif;
@@ -447,36 +482,12 @@ pre {
 	font-style: normal;
 	font-family: "joanna_italic", serif;
 }
-#design_modern header {
-	width: 108em;
-	margin: 0 auto;
-	padding: 0 5em;
-	overflow: auto;
-}
-#design_modern header h2 {
-	float: left;
-	width: 25%;
-	padding-top: 0.7407407em;
-	padding-bottom: 0.333333em;
-	font-weight: normal;
-	font-size: 5.4em;
-	line-height: 1.2037037em;
-	font-family: "gillsans_light", serif;
-	text-align: left;
-}
-#design_modern header p {
-	/*text-indent: -0.45em;*/
-	padding-left: 28.148148%;
-}
 #design_modern figure#ezra_pound {
 	width: 100%;
 	clear: both;
 }
 #ezra_pound blockquote {
 	background-color: #000;
-}
-#ezra_pound blockquote p:before {
-
 }
 #ezra_pound blockquote p {
 	position: relative;
@@ -510,15 +521,8 @@ pre {
 	padding: 0.25em 2.5em 0 0;
 	text-align: right;
 }
-#design_modern section {
-	width: 118em;
-	margin: 0 auto;
-}
 #design_modern section > *:last-child {
 	padding-bottom: 0;
-}
-#design_modern section > p {
-	padding-right: 2.5em;
 }
 #design_modern, #design_modern > *, #design_modern .quarter_maya {
 	background-image: 
@@ -541,6 +545,7 @@ pre {
 
 
 body > footer {
+	width: 118em;
 	background-image: 
 		linear-gradient(0deg, #3D048C 0em, #3D048C 1em),
 		linear-gradient(0deg, #3D048C 0em, #3D048C 1em),
@@ -557,6 +562,11 @@ body > footer {
 		-webkit-linear-gradient(90deg, #3D048C 0em, #3D048C 1em),
 		-webkit-linear-gradient(0deg, #C2FB73 0em, #C2FB73 1em);
 	background-repeat: no-repeat, no-repeat, no-repeat;
+	background-size: 66.7em 2.4em, 30.5em 0.4em, 30.5em 0.4em, 15.6em 4.8em;
+	background-position: 5em 0em, 0em 2.8em, 0em 3.6em, 14.9em 4.4em;
+}
+body > footer > div {
+	padding: 4em 5em 0 32.5em;
 }
 body > footer > div + div {
 	/*  understanding radial gradients
@@ -572,8 +582,9 @@ body > footer > div + div {
 		rgba(0, 255, 0, 1) 70px,
 		rgba(0, 0, 255, 1) 89px,
 		rgba(255, 255, 255, 1) 90px); */
-	padding-top: 0;
 	min-height: 28em;
+	margin: 0 5em;
+	padding: 0em 0 0 27.5em;
 	background-image:
 		-moz-radial-gradient(rgba(115,251,194,0.8) 40%, #73FBC2 60%, #73FBC2 70.7107%, transparent 70.7107%),
 		-moz-radial-gradient(rgba(115,194,251,0.8) 40%, #73C2FB 60%, #73C2FB 70.7107%, transparent 70.7107%),
