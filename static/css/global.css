@@ -29,6 +29,7 @@ body {
 	margin: 0;
 	padding: 0;
     font: normal normal normal 100%/1.5 Helvetica, Arial, sans-serif;
+    text-rendering: optimizeLegibility;
     /* ligatures https://developer.mozilla.org/en-US/docs/CSS/text-rendering */
 }
 body > header, body > article, body > footer {
@@ -145,6 +146,7 @@ pre {
 	font-size: 12em;
 	line-height: 1em;
 	font-family: "lavanderiaregular", "Helvetica", sans-serif;
+	-moz-font-variant-ligatures: no-common-ligatures, no-discretionary-ligatures;
 }
 [role="banner"] h3 {
 	font-weight: normal;
@@ -292,28 +294,25 @@ pre {
 #photos h2 {
 	position: absolute;
 	width: auto;
+	left: 50%;
 	padding: 0;
-	text-transform: uppercase;
+	z-index: 4;
 	font-weight: normal;
+	line-height: 1em;
 	font-family: "gillsans_condensed", sans-serif;
-	text-align: right;
-	color: rgb(115, 194, 251);
+	text-align: center;
+	text-transform: uppercase;
 	color: #000;
 	opacity: 0;
-	top: 0.075em;
-	top: 50px;
-	width: 2.25em;
-	left: 50%;
-	margin-left: 5.125em;
-	font-size: 8em;
-	z-index: 4;
+	/*background-color: #F00;*/
+
+
 }
 #photos section {
-	width: 118em;
+	width: auto;
 	margin: 0 auto;
 	padding: 0;
 	background-color: #F00;
-	margin: 5em auto 7em auto;
 	background-image:
 		-webkit-linear-gradient(0deg, #ECEDEE 0%,  #ECEDEE 4%,  #ECEEF0 4%,  #ECEEF0 12%, #EBEEF1 12%, #EBEEF1 14%,
 			#ECEEF1 14%, #ECEEF1 21%, #EBEEF0 21%, #EBEEF0 41%, #EAEEF0 41%, #EAEEF0 61%, #EBEEEF 61%, #EBEEEF 69%,
@@ -656,7 +655,7 @@ body > footer > div + div {
 	font-family: "inconsolatamedium", monospace;
 	text-align: center;
 }
-.next_arrow:hover {
+.next_arrow:hover, .next_arrow:active, .next_arrow:focus {
 	cursor: pointer;
 	text-decoration: none;
 }

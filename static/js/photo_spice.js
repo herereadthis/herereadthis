@@ -2,12 +2,14 @@
 (function() {
 
   define(function(require) {
-    var $, Modernizr, ResizeFu, checkScroll, em, exports, makeItHappen, makeMinHeight, moduleName, psVars, _window;
+    var $, Modernizr, checkScroll, exports, gVars, makeItHappen, makeMinHeight, moduleName, positionTitle, _window;
     $ = require("jquery");
     Modernizr = require("Modernizr");
-    ResizeFu = require("resize_fu");
     exports = {};
-    psVars = {
+    moduleName = "photo_spice";
+    _window = $(window);
+    gVars = {
+      em: parseFloat($("body").css("font-size"), 10),
       fade: {
         low: 0.15,
         high: 0.75
@@ -22,11 +24,12 @@
         top: 0,
         bottom: 0
       },
-      peekNext: 3
+      threshSides: 0.05,
+      threshTB: 0.05,
+      overhang: 5,
+      maxRatio: 1 / 2,
+      titleWidth: 0.1475
     };
-    moduleName = "photo_spice";
-    em = parseInt($("body").css("font-size"), 10);
-    _window = $(window);
     checkScroll = function(_this) {
       var gRange, getRGB, inverseOp, offset, opacity, pc, place, range, rgb, _h2;
       offset = _this.offset();
@@ -34,26 +37,26 @@
       if (place > 0) {
         pc = (_window.height() - offset.top + _window.scrollTop()) / _window.height();
         _h2 = _this.find("h2");
-        if (pc <= psVars.fade.low) {
-          $(psVars.fadebar).css("opacity", 1);
+        if (pc <= gVars.fade.low) {
+          $(gVars.fadebar).css("opacity", 1);
           return _h2.css({
             "opacity": 0,
             "color": "#000"
           });
-        } else if (pc < psVars.fade.high) {
-          opacity = Math.round(100 * (1 - ((pc - psVars.fade.low) / (psVars.fade.high - psVars.fade.low)))) / 100;
+        } else if (pc < gVars.fade.high) {
+          opacity = Math.round(100 * (1 - ((pc - gVars.fade.low) / (gVars.fade.high - gVars.fade.low)))) / 100;
           getRGB = Math.round((1 - opacity) * 255);
           rgb = "rgb(" + getRGB + "," + getRGB + "," + getRGB + ")";
-          $(psVars.fadebar).css("opacity", opacity);
+          $(gVars.fadebar).css("opacity", opacity);
           inverseOp = 1 - opacity;
-          range = psVars.h2.ml2 - psVars.h2.ml1;
-          gRange = ((1 - opacity) * range) + psVars.h2.ml1;
+          range = gVars.h2.ml2 - gVars.h2.ml1;
+          gRange = ((1 - opacity) * range) + gVars.h2.ml1;
           return _h2.css({
             "opacity": inverseOp,
             "color": rgb
           });
         } else {
-          $(psVars.fadebar).css("opacity", 0);
+          $(gVars.fadebar).css("opacity", 0);
           return _h2.css({
             "opacity": 1,
             "color": "#FFF"
@@ -61,31 +64,90 @@
         }
       }
     };
-    makeMinHeight = function(_this) {
-      var minHeight, _section;
-      minHeight = parseInt(_this.css("min-height"), 10) / em;
-      _section = _this.find("section");
-      return _section.css({
-        "min-height": "" + (minHeight - psVars.sectionMargin.top - psVars.sectionMargin.bottom) + "em"
+    positionTitle = function(_this, winDim, lVars) {
+      var fontAdjust, titleWidth, _title;
+      _title = _this.find("h2");
+      titleWidth = Math.round(lVars.titleWidth * winDim.adjusted.width);
+      fontAdjust = 0.45;
+      return _title.css({
+        "width": titleWidth,
+        "margin-left": (winDim.adjusted.width / 2) - titleWidth,
+        "top": Math.round(winDim.adjusted.marginTop),
+        "font-size": Math.round(fontAdjust * titleWidth)
       });
     };
-    makeItHappen = function(_this) {
-      var _section;
-      ResizeFu.init(_this);
-      console.log("made it happen for photo_spice");
-      _section = _this.find("section");
-      psVars.sectionMargin = {
-        top: parseInt(_section.css("margin-top"), 10) / em,
-        bottom: parseInt(_section.css("margin-bottom"), 10) / em
+    makeMinHeight = function(_this, lVars) {
+      var mLeft, mTop, winDim, winHeight, winWidth, _section;
+      winWidth = _window.width();
+      winHeight = _window.height();
+      mTop = lVars.threshTB * winHeight;
+      mLeft = lVars.threshSides * winHeight;
+      winDim = {
+        width: winWidth,
+        height: winHeight,
+        margin: {
+          top: mTop,
+          left: mLeft
+        },
+        adjusted: {
+          marginTop: 0,
+          width: winWidth - 2 * mLeft,
+          height: winHeight - 2 * mTop
+        }
       };
-      makeMinHeight(_this);
-      _this.append($("<span />").attr("id", psVars.fadebarID));
+      console.log(winDim);
+      console.log(winDim.adjusted.height / winDim.adjusted.width);
+      _section = _this.find("section");
+      if (winDim.adjusted.height / winDim.adjusted.width <= lVars.maxRatio) {
+        winDim.adjusted.width = winDim.adjusted.height / lVars.maxRatio;
+        winDim.adjusted.marginTop = winDim.margin.top;
+      } else {
+        winDim.adjusted.height = winDim.adjusted.width * lVars.maxRatio;
+        winDim.adjusted.marginTop = (winDim.height - winDim.adjusted.height) / 2;
+      }
+      _section.css({
+        "width": Math.round(winDim.adjusted.width),
+        "height": Math.round(winDim.adjusted.height),
+        "margin-top": Math.round(winDim.adjusted.marginTop),
+        "margin-bottom": Math.round(lVars.overhang * gVars.em + winDim.adjusted.marginTop)
+      });
+      return positionTitle(_this, winDim, lVars);
+    };
+    makeItHappen = function(_this) {
+      var lVars, thisData;
+      thisData = {};
+      if (_this.data("photospice-thresh-sides") !== void 0) {
+        thisData.threshSides = parseFloat(_this.data("photospice-thresh-sides"), 10);
+      }
+      if (_this.data("photospice-thresh-tb") !== void 0) {
+        thisData.threshTB = parseFloat(_this.data("photospice-thresh-tb"), 10);
+      }
+      if (_this.data("photospice-max-ratio") !== void 0) {
+        thisData.maxRatio = parseFloat(_this.data("photospice-max-ratio"), 10);
+      }
+      if (_this.data("photospice-overhang") !== void 0) {
+        thisData.overhang = parseInt(_this.data("photospice-overhang"), 10);
+      }
+      if (_this.data("photospice-max-ratio") !== void 0) {
+        thisData.maxRatio = parseFloat(_this.data("photospice-max-ratio"), 10);
+      }
+      if (_this.data("photospice-title-width") !== void 0) {
+        thisData.titleWidth = parseFloat(_this.data("photospice-title-width"), 10);
+      }
+      lVars = {};
+      lVars.threshSides = thisData.threshSides != null ? thisData.threshSides : gVars.threshSides;
+      lVars.threshTB = thisData.threshTB != null ? thisData.threshTB : gVars.threshTB;
+      lVars.overhang = thisData.overhang != null ? thisData.overhang : gVars.overhang;
+      lVars.maxRatio = thisData.maxRatio != null ? thisData.maxRatio : gVars.maxRatio;
+      lVars.titleWidth = thisData.titleWidth != null ? thisData.titleWidth : gVars.titleWidth;
+      makeMinHeight(_this, lVars);
+      _this.append($("<span />").attr("id", gVars.fadebarID));
       checkScroll(_this);
       _window.scroll(function() {
         return checkScroll(_this);
       });
       return _window.resize(function() {
-        return makeMinHeight(_this);
+        return makeMinHeight(_this, lVars);
       });
     };
     exports.init = function(_this) {
