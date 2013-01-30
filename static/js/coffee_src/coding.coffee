@@ -66,7 +66,6 @@ define (require) ->
             horFactor: lVars.horFactor
 
         rVars.start = rVars.ideal - (rVars.ideal * rVars.pc) + ((rVars.cWidth - rVars.ideal) / 2)
-        
         rVars.docIdealWidth = rVars.ideal + 2 * lVars.sidePad * cVars.em
         rVars.adjustedWidth = rVars.ideal - rVars.pc * rVars.ideal - rVars.pLeftThreshold
 
@@ -145,6 +144,8 @@ define (require) ->
                 "width": "auto"
 
         if Modernizr.touch is false
+            _this.children().css
+                "width": "auto"
             if _window.width() > cVars.titleThreshold
                 _title.css
                     "width": titleWidth

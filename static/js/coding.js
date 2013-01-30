@@ -115,6 +115,9 @@
         });
       }
       if (Modernizr.touch === false) {
+        _this.children().css({
+          "width": "auto"
+        });
         if (_window.width() > cVars.titleThreshold) {
           return _title.css({
             "width": titleWidth,

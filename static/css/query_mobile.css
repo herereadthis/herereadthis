@@ -81,10 +81,14 @@
 	}
 	#coding {
 		padding-top: 1.5em;
+		padding-left: 0;
 	}
 	#coding h2 {
 		position: static;
 		line-height: 2em;
+	}
+	#coding header, #coding section {
+		padding-left: 1.5em;
 	}
 
 	#design_modern, #design_modern .quarter_maya, #design_modern > * {
