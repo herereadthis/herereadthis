@@ -133,13 +133,21 @@
         thisData.peekNext = parseInt(_this.data("resizefu-peek-next"), 10);
       }
       if (_this.data("resizefu-max-ratio") !== void 0) {
-        thisData.maxRatio = parseInt(_this.data("resizefu-max-ratio"), 10);
+        thisData.maxRatio = parseFloat(_this.data("resizefu-max-ratio"), 10);
+      }
+      if (_body.data("resizefu-ideal-width") !== void 0) {
+        thisData.idealWidth = parseInt(_body.data("resizefu-ideal-width"), 10);
+      }
+      if (_body.data("resizefu-side-pad") !== void 0) {
+        thisData.sidePad = parseInt(_body.data("resizefu-side-pad"), 10);
       }
       lVars = {};
       lVars.thresholdTop = thisData.thresholdTop != null ? thisData.thresholdTop : gVars.thresholdTop;
       lVars.thresholdBot = thisData.thresholdBot != null ? thisData.thresholdBot : gVars.thresholdBot;
       lVars.maxRatio = thisData.maxRatio != null ? thisData.maxRatio : gVars.maxRatio;
       lVars.peekNext = thisData.peekNext != null ? thisData.peekNext : gVars.peekNext;
+      lVars.idealWidth = thisData.idealWidth != null ? thisData.idealWidth : gVars.idealWidth;
+      lVars.sidePad = thisData.sidePad != null ? thisData.sidePad : gVars.sidePad;
       makeResize(_this, thisData, lVars);
       return $(window).resize(function() {
         return makeResize(_this, thisData, lVars);

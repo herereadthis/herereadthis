@@ -39,7 +39,6 @@
       MakeItNew: "make_it_new",
       ResizeFu: "resize_fu",
       NextArrow: "next_arrow",
-      CanvasSally: "canvas_sally",
       Analytics: "analytics",
       jquery: "library/jquery.1.9.0.min",
       Modernizr: "library/modernizr_custom",
@@ -71,7 +70,6 @@
       HeadMore.init();
       PhotoSpice.init();
       MakeItNew.init();
-      CanvasSally.init();
     }
     Coding.init();
     return Analytics.track('UA-37798496-1');

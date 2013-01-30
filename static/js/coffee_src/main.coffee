@@ -44,7 +44,6 @@ requirejs.config
         MakeItNew: "make_it_new"
         ResizeFu: "resize_fu"
         NextArrow: "next_arrow"
-        CanvasSally: "canvas_sally"
         Analytics: "analytics"
     # Libraries ------------
         jquery: "library/jquery.1.9.0.min"
@@ -91,7 +90,6 @@ require [
         do HeadMore.init
         do PhotoSpice.init
         do MakeItNew.init
-        do CanvasSally.init
     do Coding.init
     Analytics.track('UA-37798496-1')
 

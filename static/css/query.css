@@ -51,6 +51,9 @@
 	#design_modern section > p {
 		padding-right: 1em;
 	}
+	#coding header, #coding section {
+		padding-left: 2em;
+	}
 	.creative_commons_license {
 		width: auto;
 	}
@@ -107,6 +110,9 @@
 	#design_modern section > p {
 		padding-right: 1.5em;
 	}
+	#coding header, #coding section {
+		padding-left: 3em;
+	}
 }
 
 @media all and (min-width: 801px) and (max-width: 900px) {
@@ -125,6 +131,9 @@
 	#ezra_pound blockquote p {
 		width: auto;
 		font-size: 12em;
+	}
+	#coding h2 {
+		position: static;
 	}
 }
 @media all and (min-width: 1025px) and (max-width: 1180px) {
@@ -168,6 +177,9 @@
 	#design_modern section {
 		width: auto;
 	}
+	#coding header, #coding section {
+		padding-left: 5em;
+	}
 }
 @media all and (min-width: 1025px) and (max-width: 1100px) {
 	#design_modern header h2 {
@@ -177,6 +189,9 @@
 		width: auto;
 		font-size: 13em;
 	}
+	#coding h2 {
+		font-size: 4em;
+	}
 }
 @media all and (min-width: 1101px) and (max-width: 1179px) {
 	#design_modern header h2 {
@@ -185,6 +200,9 @@
 	#ezra_pound blockquote p {
 		width: auto;
 		font-size: 14em;
+	}
+	#coding h2 {
+		font-size: 5em;
 	}
 }
 @media all and (min-width: 1180px) {

@@ -135,7 +135,7 @@ pre {
 	font-weight: normal;
 	font-family: "gillsans_bold", sans-serif;
 }
-[role="banner"] h3, header p {
+[role="banner"] h3, [role="banner"] p {
 	font-size: 2em;
 	line-height: 1.5em;
 }
@@ -257,6 +257,7 @@ pre {
 	background-color: #282828;
 	overflow: auto;
 }
+/*
 #photos:before {
 	display: block;
 	position: absolute;
@@ -267,6 +268,7 @@ pre {
 	height: 1em;
 	background-color: #FFF;
 }
+*/
 #photos #ps_fadebar {
 	display: block;
 	content: "";
@@ -294,6 +296,7 @@ pre {
 	color: #000;
 	opacity: 0;
 	top: 0.075em;
+	top: 50px;
 	width: 2.25em;
 	left: 50%;
 	margin-left: 5.125em;
@@ -304,7 +307,7 @@ pre {
 	width: 118em;
 	margin: 0 auto;
 	background-color: #F00;
-	margin: 1em auto 7em auto;
+	margin: 5em auto 7em auto;
 	background-image:
 		-webkit-linear-gradient(0deg, #ECEDEE 0%,  #ECEDEE 4%,  #ECEEF0 4%,  #ECEEF0 12%, #EBEEF1 12%, #EBEEF1 14%,
 			#ECEEF1 14%, #ECEEF1 21%, #EBEEF0 21%, #EBEEF0 41%, #EAEEF0 41%, #EAEEF0 61%, #EBEEEF 61%, #EBEEEF 69%,
@@ -364,6 +367,46 @@ pre {
 
 
 
+#coding {
+	width: 100%;
+	padding-right: 0;
+	padding-left: 0;
+    background-color: rgba(115,194,251,0.5);
+}
+#coding header {
+	position: relative
+}
+#coding header, #coding section {
+	width: 108em;
+	margin: 0 auto;
+	padding-left: 5em;
+}
+#coding h2 {
+	position: absolute;
+	color: #FFF;
+	right: 0;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 60px;
+	font-family: "inconsolatamedium", "gillsans_light", sans-serif;
+	text-transform: lowercase;
+    background-color: rgba(0,0,0,0.80);
+    padding: 0;
+    text-align: center;
+}
+/*
+#coding p {
+	font-family: "joanna", serif;
+	font-size: 2em;
+	line-height: 1.25em;
+}
+#coding h3 {
+	font-weight: normal;
+	font-family: "gillsans_bold", sans-serif;
+	font-size: 2em;
+	line-height: 1.25em;
+}
+*/
 
 
 

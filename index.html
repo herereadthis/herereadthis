@@ -123,7 +123,7 @@ FOAF generated from:
 <!-- W3C vCard: http://www.w3.org/Submission/vcard-rdf/ -->
 <header role="banner" data-module="head_more" resource="http://herereadthis.com/"
     typeof="v:Person foaf:Person"
-    data-nextarrow-location="10">
+    data-nextarrow-location="10" data-resizefu-max-ratio="0.75">
     <!--
     The property "dc:title" represents "http://purl.org/dc/elements/1.1/title"
     "dc:title" is called a Compact URL, aka CURIE, which is a representation of a URI from html prefix
@@ -223,41 +223,46 @@ FOAF generated from:
     </section>
 </article>
 
+<article id="coding" data-module="coding" data-coding-pc="0.15" data-coding-bar-width="0.8">
+    <header>
+        <h2>Coding</h2>
 
-<article id="coding" data-module="coding" data-resizefu-threshold-top="3">
-    <h2>Geeking Out to Coding</h2>
+        <figure>
+            <figcaption>
+                <p>Coders always ought to contribute. You can clone a repository of this entire site with Git:</p>
+            </figcaption>
+            <blockquote>
+    <pre><code>git clone https://github.com/herereadthis/herereadthis.git</code></pre>
+            </blockquote>
+        </figure>
+    </header>
 
-    <figure>
-        <figcaption>
-            <p>Coders always ought to contribute. You can clone a repository of this entire site with Git:</p>
-        </figcaption>
-        <blockquote>
-<pre><code>git clone https://github.com/herereadthis/herereadthis.git</code></pre>
-        </blockquote>
-    </figure>
+    <section>
+        <h3>Semantic Web</h3>
+        <p>This page is written with semantic HTML5; you can check out by using Geoffrey Sneddon&rsquo;s <a href="http://gsnedders.html5.org/outliner/process.py?url=http%3A%2F%2Fherereadthis.com%2F" title="HTM5 Outliner tool">HTM5 Outliner tool</a>. Check out all the RDFa action with the <a href="http://www.google.com/webmasters/tools/richsnippets?url=http%3A%2F%2Fherereadthis.com%2F" title="Google Structured Data Testing Tool for http://herereadthis.com/">Google Structured Data</a> Testing Tool, my <a href="/static/xml/foaf.rdf">foaf.rdf</a> XML, or use the <a href="http://www.w3.org/2012/pyRdfa/extract?uri=http%3A%2F%2Fherereadthis.com%2F&format=xml&rdfagraph=processor%2Coutput&vocab_expansion=true&rdfa_lite=true&embedded_rdf=true&space_preserve=true&vocab_cache=true&vocab_cache_report=false&vocab_cache_refresh=false" title="W3C pyRDFa Extraction">W3C RDFa 1.1 Distiller</a> to view as XML.</p>
+        <!--
+        resources on html5 sectioning outline:
+        http://www.456bereastreet.com/archive/201103/html5_sectioning_elements_headings_and_document_outlines/
+        http://www.456bereastreet.com/archive/201104/html5_document_outline_revisited/
+        http://html5doctor.com/downloads/h5d-sectioning-flowchart.pdf
+        RDFa distiller: http://www.w3.org/2012/pyRdfa/
+        -->
+    </section>
 
-    <p>This page is written with semantic HTML5; you can check out by using Geoffrey Sneddon&rsquo;s <a href="http://gsnedders.html5.org/outliner/process.py?url=http%3A%2F%2Fherereadthis.com%2F" title="HTM5 Outliner tool">HTM5 Outliner tool</a>. Check out all the RDFa action with the <a href="http://www.google.com/webmasters/tools/richsnippets?url=http%3A%2F%2Fherereadthis.com%2F" title="Google Structured Data Testing Tool for http://herereadthis.com/">Google Structured Data</a> Testing Tool, my <a href="/static/xml/foaf.rdf">foaf.rdf</a> XML, or use the <a href="http://www.w3.org/2012/pyRdfa/extract?uri=http%3A%2F%2Fherereadthis.com%2F&format=xml&rdfagraph=processor%2Coutput&vocab_expansion=true&rdfa_lite=true&embedded_rdf=true&space_preserve=true&vocab_cache=true&vocab_cache_report=false&vocab_cache_refresh=false" title="W3C pyRDFa Extraction">W3C RDFa 1.1 Distiller</a> to view as XML.</p>
-    <!--
-    resources on html5 sectioning outline:
-    http://www.456bereastreet.com/archive/201103/html5_sectioning_elements_headings_and_document_outlines/
-    http://www.456bereastreet.com/archive/201104/html5_document_outline_revisited/
-    http://html5doctor.com/downloads/h5d-sectioning-flowchart.pdf
-    RDFa distiller: http://www.w3.org/2012/pyRdfa/
-    -->
+    <section>
+        <h3>CoffeeScript is Awesome!</h3>
 
-    <h3>CoffeeScript is Awesome!</h3>
+        <p>CoffeeScript is an abstraction of Javascript. You can write your scripts much faster, have fewer (if any) errors when you lint, see better-defined objects and models.</p>
 
-    <p>CoffeeScript is an abstraction of Javascript. You can write your scripts much faster, have fewer (if any) errors when you lint, see better-defined objects and models.</p>
+        <p>Imagine an array called <code>myArray</code> of unknown length and dimension, and we want to make a duplicate array called <code>roundedArray</code> but all the numbers are rounded. Essentially, we want to loop through each row in the array, than loop through each element per row.</p>
+        <div class="double_stack">
+            <div>
 
-    <p>Imagine an array called <code>myArray</code> of unknown length and dimension, and we want to make a duplicate array called <code>roundedArray</code> but all the numbers are rounded. Essentially, we want to loop through each row in the array, than loop through each element per row.</p>
-    <div class="double_stack">
-        <div>
-
-            <figure>
-                <figcaption>
-                    <p>Javascript version:</p>
-                </figcaption>
-                <blockquote>
+                <figure>
+                    <figcaption>
+                        <p>Javascript version:</p>
+                    </figcaption>
+                    <blockquote>
 <pre><code>var i, index, row, _i, _j,
     roundedArray = [],
     _len = myArray.length;
@@ -269,26 +274,25 @@ for (index = _i = 0;_i < _len;index = ++_i) {
         roundedArray[index].push(Math.round(i));
     }
 }</code></pre>
-                </blockquote>
-            </figure>
-        </div>
-        <div>
-            <figure>
-                <figcaption>
-                    <p>CoffeeScript Version:</p>
-                </figcaption>
-                <blockquote>
+                    </blockquote>
+                </figure>
+            </div>
+            <div>
+                <figure>
+                    <figcaption>
+                        <p>CoffeeScript Version:</p>
+                    </figcaption>
+                    <blockquote>
 <pre><code>roundedArray = []
 for row, index in myArray
     roundedArray[index] = []
     for i in row
         roundedArray[index].push Math.round(i)</code></pre>
-                </blockquote>
-            </figure>
+                    </blockquote>
+                </figure>
+            </div>
         </div>
-    </div>
-    <!-- html5 canvas tutorial at http://www.html5canvastutorials.com/tutorials/html5-canvas-tutorials-introduction/ -->
-    <canvas id="the_circle" data-module="canvas_sally" data-color="#FBC273" data-shape="circle" data-width="20" data-css-float="left" data-pad="2"></canvas>
+    </section>
 </article>
 
 
