@@ -168,7 +168,6 @@ define (require) ->
             # place is > 0 if any bit of the article is visible in browser.
             place = Math.round _this.outerHeight() + offset.top - _window.scrollTop()
             # if any part of the article is within view
-            rate = 0.5
             if _window.scrollTop() + _window.outerHeight() >= offset.top and place > 0
                 # showing is amount of pixels of the article is visible from the bottom
                 showing = _window.scrollTop() +  _window.height() - offset.top

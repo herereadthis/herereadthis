@@ -135,11 +135,10 @@
       }
     };
     scrollTitle = function(_this) {
-      var distance, offset, place, range, rate, showing, theory, titleHeight, topPad, _title;
+      var distance, offset, place, range, showing, theory, titleHeight, topPad, _title;
       if (_window.width() > cVars.titleThreshold) {
         offset = _this.offset();
         place = Math.round(_this.outerHeight() + offset.top - _window.scrollTop());
-        rate = 0.5;
         if (_window.scrollTop() + _window.outerHeight() >= offset.top && place > 0) {
           showing = _window.scrollTop() + _window.height() - offset.top;
           _title = _this.find("h2");
