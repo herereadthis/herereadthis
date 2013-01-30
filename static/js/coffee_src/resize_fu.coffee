@@ -103,10 +103,10 @@ define (require) ->
 
             # condition 3: the ideal one: resize article to fit whole of page, with peek
             else
-                # console.log "we have ideal for  #{_this.find("h2").html()}"
+                console.log "we have ideal for  #{_this.find("h2").html()}"
                 # sub-condition 3A: if the added padding to fill out height of article is greater than thresholds
                 # console.log thisData, _this.find("h2").html()
-                if ((gVars.browserHt - thisDim.height) / gVars.em) > (lVars.thresholdTop + lVars.thresholdBot)
+                if ((gVars.browserHt-thisDim.height)/gVars.em) > (lVars.thresholdTop+lVars.thresholdBot+lVars.peekNext)
                     # special case where we don't want any padding means set a min-height
                     if lVars.thresholdTop is 0 and lVars.thresholdBot is 0
                         # console.log lVars.thresholdTop, lVars.thresholdBot, _this.find("h2").html()
@@ -124,6 +124,7 @@ define (require) ->
                         thresholds = (((gVars.browserHt - thisDim.height) / gVars.em) - lVars.peekNext)
                         # makePads _this, threshtop, threshBot
                         if thisData.thresholdTop is undefined and thisData.thresholdBot is undefined
+                            theoryThresholds = thresholds / 2
                             makePads _this, thresholds / 2
                         else if thisData.thresholdTop != undefined and thisData.thresholdBot is undefined
                             botT = if thresholds - thisData.thresholdTop >= 0 then thresholds - thisData.thresholdTop else 0
@@ -138,6 +139,7 @@ define (require) ->
                 # sub-condition 3B: if adding thresholds to center the content makes for very tiny thresholds,
                 # then default to global variables, unless data-attributes specify otherwise.
                 else
+                    console.log "4567890"
                     makePads _this, lVars.thresholdTop, lVars.thresholdBot
 
         # else, browser width cannot allow for ideal width
