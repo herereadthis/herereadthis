@@ -16,9 +16,6 @@
   requirejs.config({
     baseUrl: "/static/js/",
     shim: {
-      "maya_stripes": ["jquery"],
-      "code_tango": ["jquery"],
-      "accordian_player": ["jquery"],
       "Modernizr": {
         deps: ["jquery"],
         exports: "Modernizr"
@@ -65,7 +62,7 @@
   */
 
 
-  require(["jquery", 'HeadMore', "PhotoSpice", "Coding", "MakeItNew", 'Modernizr', 'Backbone', 'Analytics'], function($, HeadMore, PhotoSpice, Coding, MakeItNew, Modernizr, Backbone, Analytics) {
+  require(["jquery", 'Modernizr', 'Backbone', 'HeadMore', "PhotoSpice", "Coding", "MakeItNew", 'Analytics'], function($, Modernizr, Backbone, HeadMore, PhotoSpice, Coding, MakeItNew, Analytics) {
     if (Modernizr.touch === false) {
       HeadMore.init();
       PhotoSpice.init();

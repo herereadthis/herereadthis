@@ -20,9 +20,6 @@ requirejs.config
     # "baseURL" is the root path to use for all module lookups, root is defined as where index.html lives
     baseUrl: "/static/js/"
     shim:
-        "maya_stripes": ["jquery"]
-        "code_tango": ["jquery"]
-        "accordian_player": ["jquery"]
         "Modernizr":
             deps: ["jquery"]
             exports: "Modernizr"
@@ -76,13 +73,13 @@ require ["jquery", "maya_stripes", "accordian_player"], ($) ->
 
 
 require [
-    "jquery",
+    "jquery"
+    'Modernizr', 'Backbone'
     'HeadMore', "PhotoSpice", "Coding", "MakeItNew"
-    'Modernizr', 'Backbone',
     'Analytics'], (
         $,
+        Modernizr, Backbone
         HeadMore, PhotoSpice, Coding, MakeItNew
-        Modernizr, Backbone, 
         Analytics) ->
     if Modernizr.touch is false
         do HeadMore.init

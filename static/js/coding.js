@@ -114,18 +114,20 @@
           "width": "auto"
         });
       }
-      if (_window.width() > cVars.titleThreshold) {
-        return _title.css({
-          "width": titleWidth,
-          "height": titleWidth,
-          "line-height": "" + titleWidth + "px"
-        });
-      } else {
-        return _title.css({
-          "width": "",
-          "height": "",
-          "line-height": ""
-        });
+      if (Modernizr.touch === false) {
+        if (_window.width() > cVars.titleThreshold) {
+          return _title.css({
+            "width": titleWidth,
+            "height": titleWidth,
+            "line-height": "" + titleWidth + "px"
+          });
+        } else {
+          return _title.css({
+            "width": "",
+            "height": "",
+            "line-height": ""
+          });
+        }
       }
     };
     scrollTitle = function(_this) {
@@ -149,6 +151,10 @@
             theory = (showing - titleHeight) / distance;
             return _title.css({
               "top": range * theory - topPad
+            });
+          } else {
+            return _title.css({
+              "top": _this.outerHeight() - titleHeight - topPad
             });
           }
         }
@@ -265,13 +271,17 @@
       lVars.idealWidth = thisData.idealWidth != null ? thisData.idealWidth : cVars.bgWidth;
       lVars.sidePad = thisData.sidePad != null ? thisData.sidePad : cVars.sidePad;
       rileyGo(_this, lVars);
-      ResizeFu.init(_this);
-      scrollTitle(_this);
+      if (Modernizr.touch === false) {
+        ResizeFu.init(_this);
+        scrollTitle(_this);
+      }
       _window.resize(function() {
         return rileyGo(_this, lVars);
       });
       return _window.scroll(function() {
-        return scrollTitle(_this);
+        if (Modernizr.touch === false) {
+          return scrollTitle(_this);
+        }
       });
     };
     exports.init = function(_this) {

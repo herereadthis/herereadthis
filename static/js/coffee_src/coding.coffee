@@ -144,16 +144,17 @@ define (require) ->
                 "padding-left": ""
                 "width": "auto"
 
-        if _window.width() > cVars.titleThreshold
-            _title.css
-                "width": titleWidth
-                "height": titleWidth
-                "line-height": "#{ titleWidth }px"
-        else
-            _title.css
-                "width": ""
-                "height": ""
-                "line-height": ""
+        if Modernizr.touch is false
+            if _window.width() > cVars.titleThreshold
+                _title.css
+                    "width": titleWidth
+                    "height": titleWidth
+                    "line-height": "#{ titleWidth }px"
+            else
+                _title.css
+                    "width": ""
+                    "height": ""
+                    "line-height": ""
 
 
 
@@ -167,6 +168,7 @@ define (require) ->
             # if any part of the article is within view
             rate = 0.5
             if _window.scrollTop() + _window.outerHeight() >= offset.top and place > 0
+                # showing is amount of pixels of the article is visible from the bottom
                 showing = _window.scrollTop() +  _window.height() - offset.top
                 # showing / _this.outerHeight()  is percentage that the top of the article is from the bottom
                 # 0% if top of article is at the bottom, 100% if top of article is at the top
@@ -175,6 +177,7 @@ define (require) ->
                 titleHeight = _title.height()
                 # console.log showing
                 topPad = parseFloat(_this.css("padding-top"), 10)
+                # if the visible portion of the article is smaller than than the title box
                 if showing <= titleHeight
                     _title.css
                         "top": -1 * topPad
@@ -188,6 +191,11 @@ define (require) ->
                     theory = ((showing - titleHeight) / distance)
                     _title.css
                         "top": range * theory - topPad
+                # else, user has started scrolling past this article, place the title at the bottom
+                else
+                    _title.css
+                        "top": _this.outerHeight() - titleHeight - topPad
+
 
     makeIndex = ( _this, lineCount ) -> 
         # build array of indices based on line count
@@ -313,14 +321,16 @@ define (require) ->
 
 
         rileyGo _this, lVars
-        ResizeFu.init _this
-        scrollTitle _this
+        if Modernizr.touch is false
+            ResizeFu.init _this
+            scrollTitle _this
 
         _window.resize () ->
             rileyGo _this, lVars
 
         _window.scroll () ->
-            scrollTitle _this
+            if Modernizr.touch is false
+                scrollTitle _this
 
 
     exports.init = ( _this ) ->
