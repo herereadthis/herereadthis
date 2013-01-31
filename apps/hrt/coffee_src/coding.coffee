@@ -257,23 +257,38 @@ define (require) ->
 
         # in case the code is wider than the container can hold, a <DIV> will handle the issue
         _div = _this.parent("div")
-        divDim =
-            pr: parseInt _div.attr("padding-right"), 10
-            pl: parseInt _div.attr("padding-left"), 10
-            outerWt: _div.outerWidth()
-        indexWidth = _this.parent().prev("div").outerWidth()
-        _div.parent("div").css
-            "min-width": divDim.outerWt + indexWidth
+        # console.log _this.find("code").width()
+        # divDim =
+        #     pr: parseInt _div.css("padding-right"), 10
+        #     pl: parseInt _div.css("padding-left"), 10
+        #     outerWt: _div.outerWidth()
+
+        # blockWidth = _this.closest(cVars.preParent).width()
+        indexWidth = _div.prev("div").outerWidth false
+        _this.closest(cVars.preParent).css
+            "background-size": "#{ indexWidth }px 100%"
+        # console.log blockWidth, "???",indexWidth,divDim.outerWt,  indexWidth + divDim.outerWt, divDim
+
+        # indexWidth = _div.prev("div").outerWidth()
+
+        # codeWidth = divDim.outerWt + indexWidth
+
+        # _div.parent("div").css
+        #     "min-width": codeWidth
         # <DIV> width is wide enough so both the code and the indices can float side-by-side
-        blockWidth = _this.closest("blockquote").width()
+        # blockWidth = _this.closest("blockquote").width()
         # console.log divDim.outerWt, indexWidth, divDim.outerWt + indexWidth, blockWidth, blockWidth - indexWidth
-        if blockWidth > divDim.outerWt + indexWidth
+        # if blockWidth > codeWidth
+             
+        #     console.log blockWidth, indexWidth, divDim.pr, divDim.pl
+            # _this.parent().css
+            #     "width": blockWidth - indexWidth - divDim.pr - divDim.pl
             # buggy, fix later
             # $this.parent("div").css
             #     "width": blockWidth - indexWidth - divDim.pr - divDim.pl
-        else
-            _this.parent("div").parent("div").css
-                "width": divDim.outerWt + indexWidth
+        # else
+        #     _this.parent("div").parent("div").css
+        #         "width": divDim.outerWt + indexWidth
 
         # $this.closest("figure").append $("<p />").html(divDim.outerWt)
         # $this.closest("figure").append $("<p />").html(indexWidth)
@@ -284,9 +299,6 @@ define (require) ->
 
     makeItHappen = ( _this ) ->
         # resize header to fit page, accordingly
-        pres = _this.find "pre"
-        for i in pres
-            code_tango $(i)
 
 
         # set a few globals based on data-attributes
@@ -324,6 +336,10 @@ define (require) ->
         rileyGo _this, lVars
         if Modernizr.touch is false
             ResizeFu.init _this
+        pres = _this.find "pre"
+        for i in pres
+            code_tango $(i)
+        if Modernizr.touch is false
             scrollTitle _this
 
         _window.resize () ->

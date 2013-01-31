@@ -95,8 +95,6 @@
           height: winHeight - 2 * mTop
         }
       };
-      console.log(winDim);
-      console.log(winDim.adjusted.height / winDim.adjusted.width);
       _section = _this.find("section");
       if (winDim.adjusted.height / winDim.adjusted.width <= lVars.maxRatio) {
         winDim.adjusted.width = winDim.adjusted.height / lVars.maxRatio;

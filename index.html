@@ -121,7 +121,7 @@ FOAF generated from:
 <!-- rich snippets for people http://support.google.com/webmasters/bin/answer.py?hl=en&answer=146646 -->
 <!-- W3C vCard: http://www.w3.org/Submission/vcard-rdf/ -->
 <header role="banner" data-module="head_more" resource="http://herereadthis.com/"
-    typeof="v:Person foaf:Person"
+    typeof="v:Person foaf:Person" about="#me"
     data-nextarrow-location="10" data-resizefu-max-ratio="0.75">
     <!--
     The property "dc:title" represents "http://purl.org/dc/elements/1.1/title"
@@ -136,7 +136,7 @@ FOAF generated from:
             <span property="v:nickname foaf:nick" content="Jimmy"></span>
             <span property="v:given-name foaf:givenname" content="Jimmy"></span>
             <span property="v:family-name foaf:family_name" content="Ha"></span>
-            <span property="v:logo foaf:logo" content="http://herereadthis.com/static/img/herereadthis_logo.svg"></span>
+            <span property="v:logo foaf:logo" content="http://herereadthis.com/apps/hrt/img/herereadthis_logo.svg"></span>
         </h3>
         <p>I <span property="v:title" content="UX Web Developer">make web pages</span> <span href="http://herereadthis.com/" rel="v:url foaf:homepage" content="http://herereadthis.com/"></span> and specialize in user interface development and Django frameworks. I live and play in the
             <span rel="v:address">
@@ -237,7 +237,7 @@ FOAF generated from:
 
     <section>
         <h3>Semantic Web</h3>
-        <p>This page is written with semantic HTML5; you can check out by using Geoffrey Sneddon&rsquo;s <a href="http://gsnedders.html5.org/outliner/process.py?url=http%3A%2F%2Fherereadthis.com%2F" title="HTM5 Outliner tool">HTM5 Outliner tool</a>. Check out all the RDFa action with the <a href="http://www.google.com/webmasters/tools/richsnippets?url=http%3A%2F%2Fherereadthis.com%2F" title="Google Structured Data Testing Tool for http://herereadthis.com/">Google Structured Data</a> Testing Tool, my <a href="/static/xml/foaf.rdf">foaf.rdf</a> XML, or use the <a href="http://www.w3.org/2012/pyRdfa/extract?uri=http%3A%2F%2Fherereadthis.com%2F&format=xml&rdfagraph=processor%2Coutput&vocab_expansion=true&rdfa_lite=true&embedded_rdf=true&space_preserve=true&vocab_cache=true&vocab_cache_report=false&vocab_cache_refresh=false" title="W3C pyRDFa Extraction">W3C RDFa 1.1 Distiller</a> to view as XML.</p>
+        <p>This page is written with semantic HTML5; you can check out by using Geoffrey Sneddon&rsquo;s <a href="http://gsnedders.html5.org/outliner/process.py?url=http%3A%2F%2Fherereadthis.com%2F" title="HTM5 Outliner tool">HTM5 Outliner tool</a>. Check out all the RDFa action with the <a href="http://www.google.com/webmasters/tools/richsnippets?url=http%3A%2F%2Fherereadthis.com%2F" title="Google Structured Data Testing Tool for http://herereadthis.com/">Google Structured Data</a> Testing Tool, my <a href="/apps/hrt/xml/foaf.rdf">foaf.rdf</a> XML, or use the <a href="http://www.w3.org/2012/pyRdfa/extract?uri=http%3A%2F%2Fherereadthis.com%2F&format=xml&rdfagraph=processor%2Coutput&vocab_expansion=true&rdfa_lite=true&embedded_rdf=true&space_preserve=true&vocab_cache=true&vocab_cache_report=false&vocab_cache_refresh=false" title="W3C pyRDFa Extraction">W3C RDFa 1.1 Distiller</a> to view as XML.</p>
         <!--
         resources on html5 sectioning outline:
         http://www.456bereastreet.com/archive/201103/html5_sectioning_elements_headings_and_document_outlines/
@@ -464,11 +464,12 @@ for row, index in myArray
 </section>
 </article>
 
-<article id="excerpts">
+<article id="excerpts"
+    prefix="bibo: http://purl.org/ontology/bibo/ dc: http://purl.org/dc/terms/">
     <h2>Excerpts from Literature</h2>
     <section>
         <h3>On Writing</h3>
-        <figure resource="/#/literature/emily_post/">
+        <figure resource="/#/excerpts/emily_post/">
             <blockquote>
                 <p>In writing notes or letters, as in all other forms of social observance, the highest achievement is in giving the appearance of simplicity, naturalness and force.</p>
 
@@ -485,7 +486,7 @@ for row, index in myArray
     </section>
     <section>
         <h3>On Greatness and Legacy</h3>
-        <figure resource="/#/literature/virginia_woolf/">
+        <figure resource="/#/excerpts/virginia_woolf/">
             <blockquote>
                 <p><!--He stood stock-still, by the urn, with the geranium flowing over it. How many men in a thousand million, he asked himself, reach Z after all? Surely the leader of a forlorn hope may ask himself that, and answer, without treachery to the expedition behind him, &ldquo;One perhaps.&rdquo; One in a generation. Is he to be blamed then if he is not that one? provided he has toiled honestly, given to the best of his power, and till he has no more left to give? -->And his fame lasts how long? It is permissible even for a dying hero to think before he dies how men will speak of him hereafter. His fame lasts perhaps two thousand years. And what are two thousand years? (asked Mr Ramsay ironically, staring at the hedge). What, indeed, if you look from a mountain top down the long wastes of the ages? The very stone one kicks with one&rsquo;s boot will outlast Shakespeare. His own little light would shine, not very brightly, for a year or two, and would then be merged in some bigger light, and that in a bigger still. (He looked into the hedge, into the intricacy of the twigs.) Who then could blame the leader of that forlorn party which after all has climbed high enough to see the waste of the years and the perishing of the stars, if before death stiffens his limbs beyond the power of movement he does a little consciously raise his numbed fingers to his brow, and square his shoulders, so that when the search party comes they will find him dead at his post, the fine figure of a soldier? Mr Ramsay squared his shoulders and stood very upright by the urn.</p>
 
@@ -495,6 +496,28 @@ for row, index in myArray
                 <p>&mdash;<span property="dc:creator">Virginia Woolf</span>, 
                     <cite property="dc:title">To the Lighthouse<cite>, The Window, Chapter 6,
                     <time property="dc:date" content="1927-05-05" datetime="1927-05-05">1927</time></p>
+            </figcaption>
+        </figure>
+    </section>
+    <section about="/#/excerpts/anna_karenina/">
+        <h3>On Desperation</h3>
+        <figure>
+            <blockquote typeof="bibo:excerpt">
+                <p>Yes, of what Yashvin says, the struggle for existence and hatred is the one thing that holds men together. No, it’s a useless journey you’re making,” she said, mentally addressing a party in a coach and four, evidently going for an excursion  into the country. “And the dog you’re taking with you will be no help to you. You can’t get away from yourselves.” Turning her eyes in the direction Pyotr had turned to look, she saw a factory-hand almost dead-drunk, with hanging head, being led away by a policeman. “Come, he’s found a quicker way,” she thought. “Count Vronsky and I did not find that happiness either, though we expected so much from it.” And now for the first time Anna turned that glaring light in which she was seeing everything on to her relations with him, which she had hitherto avoided thinking about. “What was it he sought in me? Not love so much as the satisfaction of vanity.” She remembered his words, the expression of his face, that recalled an abject setter-dog, in the early days of their connection. And everything now confirmed this. “Yes, there was the triumph of success in him. Of course there was love too, but the chief element was the pride of success. He boasted of me. Now that’s over. There’s nothing to be proud of. Not to be proud of, but to be ashamed of. He has taken from me all he could, and now I am no use to him. He is weary of me and is trying not to be dishonorable in his behavior to me. He let that out yesterday—he wants divorce and marriage so as to burn his ships. He loves me, but how? The zest is gone, as the English say. That fellow wants every one to admire him and is very much pleased with himself,” she thought, looking at a red-faced clerk, riding on a riding-school horse. “Yes, there’s not the same flavor about me for him now. If I go away from him, at the bottom of his heart he will be glad.”</p>
+
+                <p>This was not mere supposition, she saw it distinctly in the piercing light, which revealed to her now the meaning of life and human relations.</p>
+
+                <p>“My love keeps growing more passionate and egoistic, while his is waning and waning, and that’s why we’re drifting apart.” She went on musing. “And there’s no help for it. He is everything for me, and I want him more and more to give himself up to me entirely. And he wants more and more to get away from me. We walked to meet each other up to the time of our love, and then we have been irresistibly drifting in different directions. And there’s no altering that. He tells me I’m insanely jealous, and I have told myself that I am insanely jealous; but it’s not true. I’m not jealous, but I’m unsatisfied. But ...” she opened her lips, and shifted her place in the carriage in the excitement, aroused by the thought that suddenly struck her. “If I could be anything but a mistress, passionately caring for nothing but his caresses; but I can’t and I don’t care to be anything else. And by that desire I rouse aversion in him, and he rouses fury in me, and it cannot be different. Don’t I know that he wouldn’t deceive me, that he has no schemes about Princess Sorokina, that he’s not in love with Kitty, that he won’t desert me! I know all that, but it makes it no better for me. If without loving me, from duty he’ll be good and kind to me, without what I want, that’s a thousand times worse than unkindness! That‘s—hell! And that’s just how it is. For a long while now he hasn’t loved me. And where love ends, hate begins. I don’t know these streets at all. Hills it seems, and still houses, and houses ... And in the houses always people and people ... How many of them, no  end, and all hating each other! Come, let me try and think what I want, to make me happy. Well? Suppose I am divorced, and Alexey Alexandrovitch lets me have Seryozha, and I marry Vronsky.” Thinking of Alexey Alexandrovitch, she at once pictured him with extraordinary vividness as though he were alive before her, with his mild, lifeless, dull eyes, the blue veins in his white hands, his intonations and the cracking of his fingers, and remembering the feeling which had existed between them, and which was also called love, she shuddered with loathing. “Well, I’m divorced, and become Vronsky’s wife. Well, will Kitty cease looking at me as she looked at me to-day? No. And will Seryozha leave off asking and wondering about my two husbands? And is there any new feeling I can awaken between Vronsky and me? Is there possible, if not happiness, some sort of ease from misery? No, no!” she answered now without the slightest hesitation. “Impossible! We are drawn apart by life, and I make his unhappiness, and he mine, and there’s no altering him or me. Every attempt has been made, the screw has come unscrewed. Oh, a beggar-woman with a baby. She thinks I’m sorry for her. Aren’t we all flung into the world only to hate each other, and so to torture ourselves and each other? Schoolboys coming—laughing—Seryozha?” she thought. “I thought, too, that I loved him, and used to be touched by my own tenderness. But I have lived without him, I gave him up for another love, and did not regret the exchange till that love was satisfied.” And with loathing she thought of what she meant by that love. And the clearness with which she saw life now, her own and all men’s, was a pleasure to her. “It’s so with me and Pyotr, and the coachman, Fyodor, and that merchant, and all the people living along the Volga, where those placards invite one to go, and everywhere and always,” she thought when she had driven under the low-pitched roof of the Nizhigorod station, and the porters ran to meet her.</p>
+
+                <p>“A ticket to Obiralovka?” said Pyotr.</p>
+
+                <p>She had utterly forgotten where and why she was going, and only by a great effort she understood the question</p>
+            </blockquote>
+            <figcaption>
+            <figcaption>
+                <p>&mdash;<span property="dc:creator">Leo Tolstoy</span>, 
+                    <cite property="dc:title" typeof="bibo:Book">Anna Karenina<cite>, Part 7, Chapter XXX,
+                    <time property="dc:date" datetime="1878">1878</time></p>
             </figcaption>
         </figure>
     </section>

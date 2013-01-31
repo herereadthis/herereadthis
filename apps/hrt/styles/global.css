@@ -60,9 +60,8 @@ code, pre > span {
 p > code {
 	padding: 0 0.125em;
 	font-size: 1.066667em;
-	line-height: 1.125em;
-	background-color: #EEE;
-	border: 0.0625em solid #E5E5E5;
+	line-height: 1.25em;
+	background-color: rgba(0,0,0,0.05);
 }
 p > small {
 	font-size: 1em;
@@ -371,7 +370,6 @@ pre {
 
 
 
-
 #coding {
 	width: 100%;
 	padding-right: 0;
@@ -402,28 +400,29 @@ pre {
 }
 #coding .code_tango {
 	overflow: auto;
-	background-color: #EEE;
-	border-right: 0.1em solid #E5E5E5;
+	/*background-color: rgba(0,0,0,0.1);*/
 	margin-bottom: 2em;
+	border: 0.1em solid rgba(0,0,0,0.05);
+	background-color: rgba(0,0,0,0.15);
+	background-image:
+		-webkit-linear-gradient(0deg, rgba(0,0,0,0.1) 0em, rgba(0,0,0,0.1) 1em);
+	background-image:
+		linear-gradient(90deg, rgba(0,0,0,0.1) 0em, rgba(0,0,0,0.1) 1em);
+	background-repeat: repeat-y;
+	background-position: 0 0;
+	background-size: 1em 1em;
 }
 .code_tango > div {
 }
 .code_tango > div > div {
-	float: left;
 }
 .code_tango > div > div:first-child:not(:only-child) {
-	border-top: 0.1em solid #EEE;
-	border-right: 0.1em solid #DDD;
-	border-bottom: 0.1em solid #EEE;
-	border-left: 0.1em solid #EEE;
+	float: left;
 	padding: 0.9em 0.6em 0.9em 1.2em;
-	background-color: #F5F5F5;
 }
 .code_tango > div > div:last-child:not(:only-child) {
-	border-top: 0.1em solid #E5E5E5;
-	border-bottom: 0.1em solid #E5E5E5;
+	overflow: auto;
 	padding: 0.9em 1.1em 0.9em 0.8em;
-	background-color: #EEE;
 }
 
 

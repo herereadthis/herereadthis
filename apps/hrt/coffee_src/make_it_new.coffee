@@ -27,7 +27,7 @@ define (require) ->
 	makeItHappen = ( _this ) ->
 		# resize header to fit page, accordingly
 		ResizeFu.init _this
-		console.log "made it happen for #{  moduleName }"
+		# console.log "made it happen for #{  moduleName }"
 		# set top and bottom paddings of section based on css
 		_section = _this.find "section"
 		makeShape _this
@@ -44,7 +44,6 @@ define (require) ->
 
 	exports.init = ( _this ) ->
 		# _this is a jQuery object
-		console.log "init #{ moduleName }"
 		if _this != undefined
 			makeItHappen _this
 		else

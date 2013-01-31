@@ -79,12 +79,12 @@ define (require) ->
 
             # condition 2: if the height of the browser is too great such that resizing becomes impractical
             else if ((gVars.browserHt - lVars.peekNext * gVars.em) / (theoryWidth)) > lVars.maxRatio
-                console.log "we have very large window size for  #{_this.find("h2").html()}"
+                # console.log "we have very large window size for  #{_this.find("h2").html()}"
                 # console.log "gVars.browserHt (#{gVars.browserHt}) is too great for #{_this.find("h2").html()}"
                 # sub-condition 2A: if adding threshold padding is less than max ratio
                 # height if we added the article's height to thresholds
                 subTheoryHeight = thisDim.height + (lVars.thresholdTop + lVars.thresholdBot) * gVars.em
-                console.log thisDim.height, (lVars.thresholdTop + lVars.thresholdBot) * gVars.em
+                # console.log thisDim.height, (lVars.thresholdTop + lVars.thresholdBot) * gVars.em
                 if subTheoryHeight < lVars.maxRatio * theoryWidth
                     # if data attributes specify that article is not to have top and bottom paddings,
                     # then give a min height
@@ -103,7 +103,7 @@ define (require) ->
 
             # condition 3: the ideal one: resize article to fit whole of page, with peek
             else
-                console.log "we have ideal for  #{_this.find("h2").html()}"
+                # console.log "we have ideal for  #{_this.find("h2").html()}"
                 # sub-condition 3A: if the added padding to fill out height of article is greater than thresholds
                 # console.log thisData, _this.find("h2").html()
                 if ((gVars.browserHt-thisDim.height)/gVars.em) > (lVars.thresholdTop+lVars.thresholdBot+lVars.peekNext)
@@ -139,7 +139,7 @@ define (require) ->
                 # sub-condition 3B: if adding thresholds to center the content makes for very tiny thresholds,
                 # then default to global variables, unless data-attributes specify otherwise.
                 else
-                    console.log "4567890"
+                    # console.log "4567890"
                     makePads _this, lVars.thresholdTop, lVars.thresholdBot
 
         # else, browser width cannot allow for ideal width

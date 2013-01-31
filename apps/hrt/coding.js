@@ -195,7 +195,7 @@
       return _results;
     };
     code_tango = function(_this) {
-      var blockWidth, divDim, i, indexWidth, j, lineCount, snippet, _code, _div, _i, _len;
+      var i, indexWidth, j, lineCount, snippet, _code, _div, _i, _len;
       _this.closest(cVars.preParent).addClass(cVars.preClass);
       _this.wrap('<div class="code_container" />');
       _this.wrap('<div class="code_copy" />');
@@ -213,31 +213,13 @@
       }
       makeIndex(_this, lineCount);
       _div = _this.parent("div");
-      divDim = {
-        pr: parseInt(_div.attr("padding-right"), 10),
-        pl: parseInt(_div.attr("padding-left"), 10),
-        outerWt: _div.outerWidth()
-      };
-      indexWidth = _this.parent().prev("div").outerWidth();
-      _div.parent("div").css({
-        "min-width": divDim.outerWt + indexWidth
+      indexWidth = _div.prev("div").outerWidth(false);
+      return _this.closest(cVars.preParent).css({
+        "background-size": "" + indexWidth + "px 100%"
       });
-      blockWidth = _this.closest("blockquote").width();
-      if (blockWidth > divDim.outerWt + indexWidth) {
-
-      } else {
-        return _this.parent("div").parent("div").css({
-          "width": divDim.outerWt + indexWidth
-        });
-      }
     };
     makeItHappen = function(_this) {
       var i, lVars, pres, thisData, _body, _i, _len;
-      pres = _this.find("pre");
-      for (_i = 0, _len = pres.length; _i < _len; _i++) {
-        i = pres[_i];
-        code_tango($(i));
-      }
       _body = $("body");
       thisData = {};
       if (_this.data("coding-bgwidth") !== void 0) {
@@ -276,6 +258,13 @@
       rileyGo(_this, lVars);
       if (Modernizr.touch === false) {
         ResizeFu.init(_this);
+      }
+      pres = _this.find("pre");
+      for (_i = 0, _len = pres.length; _i < _len; _i++) {
+        i = pres[_i];
+        code_tango($(i));
+      }
+      if (Modernizr.touch === false) {
         scrollTitle(_this);
       }
       _window.resize(function() {

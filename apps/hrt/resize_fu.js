@@ -58,9 +58,7 @@
         if (gVars.browserHt < thisDim.height) {
           return makePads(_this, thisDim.padding.top / gVars.em, lVars.thresholdBot);
         } else if (((gVars.browserHt - lVars.peekNext * gVars.em) / theoryWidth) > lVars.maxRatio) {
-          console.log("we have very large window size for  " + (_this.find("h2").html()));
           subTheoryHeight = thisDim.height + (lVars.thresholdTop + lVars.thresholdBot) * gVars.em;
-          console.log(thisDim.height, (lVars.thresholdTop + lVars.thresholdBot) * gVars.em);
           if (subTheoryHeight < lVars.maxRatio * theoryWidth) {
             if (thisData.thresholdTop === 0 && thisData.thresholdBot === 0) {
               return _this.css({
@@ -75,7 +73,6 @@
             return makePads(_this, lVars.thresholdTop, lVars.thresholdBot);
           }
         } else {
-          console.log("we have ideal for  " + (_this.find("h2").html()));
           if (((gVars.browserHt - thisDim.height) / gVars.em) > (lVars.thresholdTop + lVars.thresholdBot + lVars.peekNext)) {
             if (lVars.thresholdTop === 0 && lVars.thresholdBot === 0) {
               return _this.css({
@@ -97,7 +94,6 @@
               }
             }
           } else {
-            console.log("4567890");
             return makePads(_this, lVars.thresholdTop, lVars.thresholdBot);
           }
         }

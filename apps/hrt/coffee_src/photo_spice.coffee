@@ -114,8 +114,8 @@ define (require) ->
                 width: winWidth - 2 * mLeft
                 height: winHeight - 2 * mTop
 
-        console.log winDim
-        console.log winDim.adjusted.height / winDim.adjusted.width
+        # console.log winDim
+        # console.log winDim.adjusted.height / winDim.adjusted.width
         _section = _this.find "section"
         # if the window is too wide, favor adusted height
         if winDim.adjusted.height / winDim.adjusted.width <= lVars.maxRatio

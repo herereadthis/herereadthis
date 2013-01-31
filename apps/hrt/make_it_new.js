@@ -28,7 +28,6 @@
     makeItHappen = function(_this) {
       var _section;
       ResizeFu.init(_this);
-      console.log("made it happen for " + moduleName);
       _section = _this.find("section");
       makeShape(_this);
       return _window.resize(function() {
@@ -37,7 +36,6 @@
     };
     exports.init = function(_this) {
       var element;
-      console.log("init " + moduleName);
       if (_this !== void 0) {
         return makeItHappen(_this);
       } else {
