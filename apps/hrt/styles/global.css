@@ -304,9 +304,6 @@ pre {
 	text-transform: uppercase;
 	color: #000;
 	opacity: 0;
-	/*background-color: #F00;*/
-
-
 }
 #photos section {
 	width: auto;
@@ -364,6 +361,9 @@ pre {
 	background-repeat: no-repeat;
 	box-shadow: 0em 0em 1em 0.5em rgba(0, 0, 0, 0.8);
 }
+
+
+
 
 
 
@@ -491,14 +491,13 @@ pre {
 #ezra_pound blockquote p {
 	position: relative;
 	width: 7.2em;
+	color: #FFF;
 	margin: 0 auto;
 	padding: 0.3em 0.0 0% 0%;
 	font: normal normal normal 15em/0.5em "gillsans_condensed", sans-serif;
-	color: #FFF;
-	background-color: #000;
-	text-transform: uppercase;
-	text-align: right;
 	word-spacing: -0.2em;
+	text-indent: 0.166667em;
+	text-transform: uppercase;
 	letter-spacing: 0.006667em;
 }
 #ezra_pound blockquote p:before {
@@ -568,19 +567,6 @@ body > footer > div {
 	padding: 4em 5em 0 32.5em;
 }
 body > footer > div + div {
-	/*  understanding radial gradients
-		http://www.impressivewebs.com/css3-radial-gradient-syntax/
-		http://westciv.com/tools/radialgradients/
-		http://lea.verou.me/css3patterns/
-		when using radial backgrounds as a circle, use 0.70710678118 as outer edge
-		100% means the 45 deg diagonal hits the corner, so 1/sqrt(2) is 70.7%
-	*/
-/*	background-color:rgba(255, 255, 255, 1);
-	background-image: -moz-radial-gradient(90px 90px, circle farthest-side,
-		rgba(255, 0, 0, 1) 0px,
-		rgba(0, 255, 0, 1) 70px,
-		rgba(0, 0, 255, 1) 89px,
-		rgba(255, 255, 255, 1) 90px); */
 	min-height: 28em;
 	margin: 0 5em;
 	padding: 0em 0 0 27.5em;
@@ -722,14 +708,6 @@ html.touch .accordian > *:first-child {
 	background-position: 0em -3em, -5em 0em, -5em 0em, 0 -3em;
 	background-size: 10em 10em;
 	background-color: #000;
-
-/*	background: 
-linear-gradient(135deg, #ECEDDC 25%, transparent 25%) -50px 0,
-linear-gradient(225deg, #ECEDDC 25%, transparent 25%) -50px 0,
-linear-gradient(315deg, #ECEDDC 25%, transparent 25%),
-linear-gradient(45deg, #ECEDDC 25%, transparent 25%);	
-background-size: 100px 100px;
-background-color: #EC173A;*/
 }
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   .accordian span.toggler {
@@ -762,6 +740,19 @@ background-color: #EC173A;*/
 
 
 
+	/*  understanding radial gradients
+		http://www.impressivewebs.com/css3-radial-gradient-syntax/
+		http://westciv.com/tools/radialgradients/
+		http://lea.verou.me/css3patterns/
+		when using radial backgrounds as a circle, use 0.70710678118 as outer edge
+		100% means the 45 deg diagonal hits the corner, so 1/sqrt(2) is 70.7%
+	*/
+/*	background-color:rgba(255, 255, 255, 1);
+	background-image: -moz-radial-gradient(90px 90px, circle farthest-side,
+		rgba(255, 0, 0, 1) 0px,
+		rgba(0, 255, 0, 1) 70px,
+		rgba(0, 0, 255, 1) 89px,
+		rgba(255, 255, 255, 1) 90px); */
 
 /* makes stripes, fits with maya_stripes.js */
 /*

@@ -14,33 +14,22 @@
 (function() {
 
   requirejs.config({
-    baseUrl: "/static/js/",
     shim: {
       "Modernizr": {
         deps: ["jquery"],
         exports: "Modernizr"
-      },
-      'Backbone': {
-        deps: ['jquery', 'underscore'],
-        exports: 'Backbone'
-      },
-      'underscore': {
-        exports: '_'
       }
     },
     paths: {
-      main: "main",
       HeadMore: "head_more",
       PhotoSpice: "photo_spice",
       Coding: "coding",
       MakeItNew: "make_it_new",
       ResizeFu: "resize_fu",
       NextArrow: "next_arrow",
-      Analytics: "analytics",
-      jquery: "library/jquery.1.9.0.min",
-      Modernizr: "library/modernizr_custom",
-      Backbone: "library/backbone-min",
-      underscore: "library/underscore-min"
+      "Analytics": "analytics",
+      "jquery": "../../lib/jquery.1.9.0.min",
+      "Modernizr": "../../lib/modernizr_custom"
     }
   });
 
@@ -62,7 +51,7 @@
   */
 
 
-  require(["jquery", 'Modernizr', 'Backbone', 'HeadMore', "PhotoSpice", "Coding", "MakeItNew", 'Analytics'], function($, Modernizr, Backbone, HeadMore, PhotoSpice, Coding, MakeItNew, Analytics) {
+  require(["jquery", 'Modernizr', 'HeadMore', "PhotoSpice", "Coding", "MakeItNew", 'Analytics'], function($, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Analytics) {
     if (Modernizr.touch === false) {
       HeadMore.init();
       PhotoSpice.init();

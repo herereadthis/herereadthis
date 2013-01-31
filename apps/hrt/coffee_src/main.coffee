@@ -18,21 +18,14 @@
 # using RequireJs API
 requirejs.config
     # "baseURL" is the root path to use for all module lookups, root is defined as where index.html lives
-    baseUrl: "/static/js/"
+    # baseUrl: "/static/js/"
     shim:
         "Modernizr":
             deps: ["jquery"]
             exports: "Modernizr"
-        'Backbone': 
-            deps: [ 'jquery', 'underscore']
-            exports: 'Backbone'
-        'underscore':
-            exports: '_'
 
     # "paths" are path mappings for module names not found directly under baseUrl
     paths:
-        main: "main"
-
     # In-House -------------
         # ModuleJack: "module_jack"
         HeadMore: "head_more"
@@ -41,17 +34,15 @@ requirejs.config
         MakeItNew: "make_it_new"
         ResizeFu: "resize_fu"
         NextArrow: "next_arrow"
-        Analytics: "analytics"
+        "Analytics": "analytics"
     # Libraries ------------
-        jquery: "library/jquery.1.9.0.min"
-        Modernizr: "library/modernizr_custom"
-        # backbone tutorials:
-        # http://backbonetutorials.com
-        # http://www.joezimjs.com/javascript/introduction-to-backbone-js-part-1-models-video-tutorial/
-        Backbone: "library/backbone-min"
-        underscore: "library/underscore-min"
+        "jquery": "../../lib/jquery.1.9.0.min"
+        "Modernizr": "../../lib/modernizr_custom"
 
 
+# backbone tutorials:
+# http://backbonetutorials.com
+# http://www.joezimjs.com/javascript/introduction-to-backbone-js-part-1-models-video-tutorial/
 
 ###
 require ["jquery", "maya_stripes", "accordian_player"], ($) ->
@@ -74,18 +65,18 @@ require ["jquery", "maya_stripes", "accordian_player"], ($) ->
 
 require [
     "jquery"
-    'Modernizr', 'Backbone'
+    'Modernizr'
     'HeadMore', "PhotoSpice", "Coding", "MakeItNew"
-    'Analytics'], (
-        $,
-        Modernizr, Backbone
-        HeadMore, PhotoSpice, Coding, MakeItNew
-        Analytics) ->
+    'Analytics'], ($, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Analytics ) ->
+    # do TestApp.init
+    # do Backbone.history.start
     if Modernizr.touch is false
         do HeadMore.init
         do PhotoSpice.init
         do MakeItNew.init
     do Coding.init
+        # do TestApp.init
+        # do Backbone.history.start
     Analytics.track('UA-37798496-1')
 
 

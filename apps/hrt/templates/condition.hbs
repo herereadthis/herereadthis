@@ -1,0 +1,20 @@
+
+
+
+
+
+<h2>{{ condition.name }}</h2>
+
+<section>
+	<h3>Treatments for {{ condition.name }}:</h3>
+
+	<dl id="condition_listing">
+	    {{# each condition.treatments }}
+		<dt><dfn>{{ this.display_name }}</dfn></dt>
+		<dd>{{ this.description }}</dd>
+	    {{/each}}
+    </dl>
+
+	<p id="return"><a href="./index.html">&laquo; Return to Test App Homepage</a></p>
+
+</section>
