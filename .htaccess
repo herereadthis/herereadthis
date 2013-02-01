@@ -23,11 +23,11 @@ RewriteBase /
 # Rewrite rule to serve HTML content from the vocabulary URI if requested
 RewriteCond %{HTTP_ACCEPT} !application/rdf\+xml.*(text/html|application/xhtml\+xml)
 # files that are existing will not get a slash added
-RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-f
 # a sample url that shouldn’t be rewritten
 # RewriteCond %{REQUEST_URI} !example.php
 # fires when a urls doesn’t contain a trailing slash
-RewriteCond %{REQUEST_URI} !(.*)/$
+# RewriteCond %{REQUEST_URI} !(.*)/$
 # 301 redirect to the url with the trailing slash appended
 RewriteRule ^(.*)$ http://domain.com/$1/ [L,R=301] 
 
@@ -36,7 +36,7 @@ RewriteRule ^(.*)$ http://domain.com/$1/ [L,R=301]
 RewriteRule ^index\.html$ / [NC,R,L]
 
 
-
+# taken from http://trueg.wordpress.com/2012/03/15/webid-a-guide-for-the-clueless/
 # Rewrite rule to serve RDF/XML content from the vocabulary URI if requested
 RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
 RewriteRule ^([^/]+)$ $1/foaf.rdf [R=303]
