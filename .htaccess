@@ -10,6 +10,13 @@ AddType application/x-font-woff .woff
 AddType application/rdf+xml .rdf
 
 
+# Add the following headers to every response  
+Header add ALL-YOUR-BASE "ARE BELONG TO US" 
+Header add X-Apples "How do you like them?" 
+Header add X-BAMF "Jimmy Ha"   
+Header add X-Clue-Number-One "Stand by for further instructions."   
+
+
 RewriteEngine On
 
 # rewrite all http://www- traffic to just http:// traffic
