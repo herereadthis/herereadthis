@@ -20,12 +20,13 @@ RewriteRule ^(.*)$ http://herereadthis.com/$1 [L,R=301]
 RewriteBase /
 # files that are existing will not get a slash added
 RewriteCond %{REQUEST_FILENAME} !-f
-# a sample url that shouldn’t be rewritten
-# RewriteCond %{REQUEST_URI} !example.php
+# url that shouldn’t be rewritten
+RewriteCond %{REQUEST_URI} !apps/hrt/xml/foaf
+RewriteCond %{REQUEST_URI} !apps/hrt/xml/foaf#me
 # fires when a urls doesn’t contain a trailing slash
 RewriteCond %{REQUEST_URI} !(.*)/$
 # 301 redirect to the url with the trailing slash appended
-RewriteRule ^(.*)$ http://domain.com/$1/ [L,R=301] 
+RewriteRule ^(.*)$ http://herereadthis.com/$1/ [L,R=301] 
 
 # redirects index.html to root
 # redirect html pages to the root domain
