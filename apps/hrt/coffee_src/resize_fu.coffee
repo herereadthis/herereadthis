@@ -75,7 +75,7 @@ define (require) ->
             # condition 1: if capping article height to browser height will clip content
             if gVars.browserHt < thisDim.height
                 # console.log "we have too much for  #{_this.find("h2").html()}"
-                makePads _this, thisDim.padding.top / gVars.em, lVars.thresholdBot
+                makePads _this, lVars.thresholdTop, lVars.thresholdBot
 
             # condition 2: if the height of the browser is too great such that resizing becomes impractical
             else if ((gVars.browserHt - lVars.peekNext * gVars.em) / (theoryWidth)) > lVars.maxRatio
@@ -159,6 +159,7 @@ define (require) ->
 
 
     exports.init = ( _this ) ->
+        # console.log "init ResizeFu for #{_this.find("h2").html()}"
         settings = 
             var1: "foo"
         _body = $("body")

@@ -32,6 +32,7 @@ requirejs.config
         PhotoSpice: "photo_spice"
         Coding: "coding"
         MakeItNew: "make_it_new"
+        Excerpts: "excerpts"
         ResizeFu: "resize_fu"
         NextArrow: "next_arrow"
         "Analytics": "analytics"
@@ -66,8 +67,8 @@ require ["jquery", "maya_stripes", "accordian_player"], ($) ->
 require [
     "jquery"
     'Modernizr'
-    'HeadMore', "PhotoSpice", "Coding", "MakeItNew"
-    'Analytics'], ($, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Analytics ) ->
+    'HeadMore', "PhotoSpice", "Coding", "MakeItNew", "Excerpts"
+    'Analytics'], ($, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Excerpts, Analytics ) ->
     # do TestApp.init
     # do Backbone.history.start
     if Modernizr.touch is false
@@ -75,6 +76,7 @@ require [
         do PhotoSpice.init
         do MakeItNew.init
     do Coding.init
+    do Excerpts.init
         # do TestApp.init
         # do Backbone.history.start
     Analytics.track('UA-37798496-1')

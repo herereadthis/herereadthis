@@ -63,55 +63,7 @@ prefix:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
 <!-- vcard: http://www.w3.org/Submission/vcard-rdf/ -->
     <!-- take care of this later -->
 
-<!--
-Remember that Character encoding must appear within first 512 bytes of page:
-    http://www.w3.org/TR/xhtml-rdfa-primer/#using-multiple-vocabularies
-
-RDFa:
-    Primers:
-        http://www.w3.org/MarkUp/2009/rdfa-for-html-authors
-        http://www.w3.org/TR/2008/WD-xhtml-rdfa-primer-20080317/
-        http://www.w3.org/TR/rdfa-in-html/
-        http://answers.semanticweb.com/questions/1187/can-i-use-the-html5-doctype-with-rdfa
-        http://blog.3kbo.com/2010/11/10/simple-html5-rdfa-example/
-        http://notes.3kbo.com/rdfa
-        http://manu.sporny.org/2011/rdfa-lite/ (RDFa Lite for Dummies sort of)
-
-    All prefixes on this site, either in HTML or body:
-        Creative Commmons:      cc="http://creativecommons.org/ns#"
-        Dublin Core Elements:   dc="http://purl.org/dc/elements/1.1/"
-        Dublin Core Terms:      dct="http://purl.org/dc/terms/"
-        Geo Spatial:            geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
-        Facebook:               fb="http://ogp.me/ns/fb#"
-        Friend of a Friend:     foaf="http://xmlns.com/foaf/0.1/"
-        Open Graph:             og="http://ogp.me/ns#"
-        Open Graph music:       og="http://ogp.me/ns/music#"
-        Vcard:                  v="http://rdf.data-vocabulary.org/#"
-        Bibliographic:          bibo="http://purl.org/ontology/bibo/" reference: http://uri.gbv.de/ontology/bibo/
-
-    DEBUG: http://rdfa.info/play/
-    Watch RDF dance at: http://www.visualdataweb.org/relfinder/relfinder.php
-    Ontologies: http://www.w3.org/wiki/Good_Ontologies
-    Test with Google Rich Snippets: http://www.google.com/webmasters/tools/richsnippets
-    W3C pyRDFa XML extraction: http://www.w3.org/2012/pyRdfa/extract?format=xml&uri=http://example.com/
-
-Icons:
-    Online favicon generation: http://convertico.com
-    Apple Icons: http://goo.gl/6Qdi3 (developer.apple.com/)
-
-Open Graph and Facebook:
-    Facebook JSON is https://graph.facebook.com/142652672557253&scraped=true
-    linter is at https://developers.facebook.com/tools/debug
-    documentation on OG protocol at https://developers.facebook.com/docs/opengraphprotocol/
-    curl https://developers.facebook.com/tools/lint/?url=http%3A%2F%2Fherereadthis.com&format=json
-
-FOAF generated from:
-    http://www.ldodds.com/foaf/foaf-a-matic.en.html
-    wiki: http://wiki.foaf-project.org/w/FAQ and spec: http://xmlns.com/foaf/spec/
-    validate at http://www.w3.org/RDF/Validator/
-    explore FOAF connections: http://xml.mfd-consult.dk/foaf/
--->
-
+<!-- CHECK THE BOTTOM OF THIS PAGE FOR DOCUMENTATION ON THE <HEAD /> SECTION -->
 </head>
 
 <body data-resizefu-ideal-width="108" data-resizefu-side-pad="5">
@@ -123,8 +75,8 @@ FOAF generated from:
 <!-- Banner is a landmark role http://www.w3.org/TR/wai-aria/roles#banner -->
 <!-- rich snippets for people http://support.google.com/webmasters/bin/answer.py?hl=en&answer=146646 -->
 <!-- W3C vCard: http://www.w3.org/Submission/vcard-rdf/ -->
-<header role="banner" data-module="head_more" resource="http://herereadthis.com/"
-    typeof="v:Person foaf:Person" about="#me"
+<header role="banner" data-module="head_more" resource="#me"
+    typeof="v:Person foaf:Person"
     data-nextarrow-location="10" data-resizefu-max-ratio="0.75">
     <!--
     The property "dc:title" represents "http://purl.org/dc/elements/1.1/title"
@@ -330,21 +282,6 @@ for row, index in myArray
              http://www.kazimir-malevich.org/the-complete-works.html
              http://www.ibiblio.org/wm/paint/auth/malevich/sup/ -->
     </section>
-
-<!--
-    <p>Dear, an this dream come true,<br />
-        I, who being poet only,<br />
-        Can give thee poor words only,<br />
-        Add this one poor other tribute,<br />
-        <strong>This thing men call immortality.</strong><br />
-        A gift I give thee even as Ronsard gave it.</br />
-        Seeing before time, one sweet face grown old,<br />
-        And seeing the old eyes grow bright<br />
-        From out the border of Her fire-lit wrinkles,<br />
-        As she should make boast unto her maids<br />
-        &ldquo;Ronsard hath sung the beauty, my beauty,<br />
-        Of the days that I was fair.&rdquo;</p>
--->
 </article>
 
 
@@ -467,13 +404,13 @@ for row, index in myArray
 </section>
 </article>
 
-<article id="excerpts"
+<article id="excerpts" role="document" data-module="excerpts"
     prefix="bibo: http://purl.org/ontology/bibo/">
     <h2>Excerpts from Literature</h2>
     <section>
         <h3>On Writing</h3>
         <figure resource="/#/excerpts/etiquette_in_society/" typeof="bibo:Book dc:BibliographicResource">
-            <blockquote property="bibo:Excerpt">
+            <blockquote property="bibo:Excerpt" aria-expanded="false">
                 <p>In writing notes or letters, as in all other forms of social observance, the highest achievement is in giving the appearance of simplicity, naturalness and force.</p>
 
                 <p>Those who use long periods of flowered prolixity and pretentious phrases&mdash;who write in complicated form with meaningless flourishes, do not make an impression of elegance and erudition upon their readers, but flaunt instead unmistakable evidence of vainglory and ignorance.</p>
@@ -490,10 +427,11 @@ for row, index in myArray
     </section>
 
     <section>
-        <h3>On Greatness and Legacy</h3>
+        <h3>On Legacy</h3>
         <figure resource="/#/excerpts/to_the_lighthouse/" typeof="bibo:Book dc:BibliographicResource">
-            <blockquote property="bibo:Excerpt">
-                <p><!--He stood stock-still, by the urn, with the geranium flowing over it. How many men in a thousand million, he asked himself, reach Z after all? Surely the leader of a forlorn hope may ask himself that, and answer, without treachery to the expedition behind him, &ldquo;One perhaps.&rdquo; One in a generation. Is he to be blamed then if he is not that one? provided he has toiled honestly, given to the best of his power, and till he has no more left to give? -->And his fame lasts how long? It is permissible even for a dying hero to think before he dies how men will speak of him hereafter. His fame lasts perhaps two thousand years. And what are two thousand years? (asked Mr Ramsay ironically, staring at the hedge). What, indeed, if you look from a mountain top down the long wastes of the ages? The very stone one kicks with one&rsquo;s boot will outlast Shakespeare. His own little light would shine, not very brightly, for a year or two, and would then be merged in some bigger light, and that in a bigger still. (He looked into the hedge, into the intricacy of the twigs.) Who then could blame the leader of that forlorn party which after all has climbed high enough to see the waste of the years and the perishing of the stars, if before death stiffens his limbs beyond the power of movement he does a little consciously raise his numbed fingers to his brow, and square his shoulders, so that when the search party comes they will find him dead at his post, the fine figure of a soldier? Mr Ramsay squared his shoulders and stood very upright by the urn.</p>
+            <!--He stood stock-still, by the urn, with the geranium flowing over it. How many men in a thousand million, he asked himself, reach Z after all? Surely the leader of a forlorn hope may ask himself that, and answer, without treachery to the expedition behind him, &ldquo;One perhaps.&rdquo; One in a generation. Is he to be blamed then if he is not that one? provided he has toiled honestly, given to the best of his power, and till he has no more left to give? -->
+            <blockquote property="bibo:Excerpt" aria-expanded="false">
+                <p>And his fame lasts how long? It is permissible even for a dying hero to think before he dies how men will speak of him hereafter. His fame lasts perhaps two thousand years. And what are two thousand years? (asked Mr Ramsay ironically, staring at the hedge). What, indeed, if you look from a mountain top down the long wastes of the ages? The very stone one kicks with one&rsquo;s boot will outlast Shakespeare. His own little light would shine, not very brightly, for a year or two, and would then be merged in some bigger light, and that in a bigger still. (He looked into the hedge, into the intricacy of the twigs.) Who then could blame the leader of that forlorn party which after all has climbed high enough to see the waste of the years and the perishing of the stars, if before death stiffens his limbs beyond the power of movement he does a little consciously raise his numbed fingers to his brow, and square his shoulders, so that when the search party comes they will find him dead at his post, the fine figure of a soldier? Mr Ramsay squared his shoulders and stood very upright by the urn.</p>
 
                 <p>Who shall blame him, if, so standing for a moment he dwells upon fame, upon search parties, upon cairns raised by grateful followers over his bones? Finally, who shall blame the leader of the doomed expedition, if, having adventured to the uttermost, and used his strength wholly to the last ounce and fallen asleep not much caring if he wakes or not, he now perceives by some pricking in his toes that he lives, and does not on the whole object to live, but requires sympathy, and whisky, and some one to tell the story of his suffering to at once? Who shall blame him? Who will not secretly rejoice when the hero puts his armour off, and halts by the window and gazes at his wife and son, who, very distant at first, gradually come closer and closer, till lips and book and head are clearly before him, though still lovely and unfamiliar from the intensity of his isolation and the waste of ages and the perishing of the stars, and finally putting his pipe in his pocket and bending his magnificent head before her-who will blame him if he does homage to the beauty of the world?</p>
             </blockquote>
@@ -508,21 +446,23 @@ for row, index in myArray
     </section>
 
     <section resource="/#/excerpts/anna_karenina/" typeof="bibo:Book dc:BibliographicResource">
-        <h3>On Desperation</h3>
+        <h3>On Desire</h3>
         <figure>
-            <blockquote property="bibo:Excerpt">
-                <p>Yes, of what Yashvin says, the struggle for existence and hatred is the one thing that holds men together. No, it’s a useless journey you’re making,” she said, mentally addressing a party in a coach and four, evidently going for an excursion  into the country. “And the dog you’re taking with you will be no help to you. You can’t get away from yourselves.” Turning her eyes in the direction Pyotr had turned to look, she saw a factory-hand almost dead-drunk, with hanging head, being led away by a policeman. “Come, he’s found a quicker way,” she thought. “Count Vronsky and I did not find that happiness either, though we expected so much from it.” And now for the first time Anna turned that glaring light in which she was seeing everything on to her relations with him, which she had hitherto avoided thinking about. “What was it he sought in me? Not love so much as the satisfaction of vanity.” She remembered his words, the expression of his face, that recalled an abject setter-dog, in the early days of their connection. And everything now confirmed this. “Yes, there was the triumph of success in him. Of course there was love too, but the chief element was the pride of success. He boasted of me. Now that’s over. There’s nothing to be proud of. Not to be proud of, but to be ashamed of. He has taken from me all he could, and now I am no use to him. He is weary of me and is trying not to be dishonorable in his behavior to me. He let that out yesterday—he wants divorce and marriage so as to burn his ships. He loves me, but how? The zest is gone, as the English say. That fellow wants every one to admire him and is very much pleased with himself,” she thought, looking at a red-faced clerk, riding on a riding-school horse. “Yes, there’s not the same flavor about me for him now. If I go away from him, at the bottom of his heart he will be glad.”</p>
+            <blockquote property="bibo:Excerpt" aria-expanded="false">
+                <p>&ldquo;Yes; what was the last thing I thought of so clearly?&rdquo; she tried to recall it. &ldquo;<em>&lsquo;Tiutkin, coiffeur?&rsquo;</em>&mdash;no, not that. Yes, of what Yashvin says, the struggle for existence and hatred is the one thing that holds men together. No, it&rsquo;s a useless journey you&rsquo;re making,&rdquo; she said, mentally addressing a party in a coach and four, evidently going for an excursion into the country. &ldquo;And the dog you&rsquo;re taking with you will be no help to you. You can&rsquo;t get away from yourselves.&rdquo; Turning her eyes in the direction Pyotr had turned to look, she saw a factory-hand almost dead-drunk, with hanging head, being led away by a policeman. &ldquo;Come, he&rsquo;s found a quicker way,&rdquo; she thought. &ldquo;Count Vronsky and I did not find that happiness either, though we expected so much from it.&rdquo; And now for the first time Anna turned that glaring light in which she was seeing everything on to her relations with him, which she had hitherto avoided thinking about. &ldquo;What was it he sought in me? Not love so much as the satisfaction of vanity.&rdquo; She remembered his words, the expression of his face, that recalled an abject setter-dog, in the early days of their connection. And everything now confirmed this. &ldquo;Yes, there was the triumph of success in him. Of course there was love too, but the chief element was the pride of success. He boasted of me. Now that&rsquo;s over. There&rsquo;s nothing to be proud of. Not to be proud of, but to be ashamed of. He has taken from me all he could, and now I am no use to him. He is weary of me and is trying not to be dishonorable in his behavior to me. He let that out yesterday&mdash;he wants divorce and marriage so as to burn his ships. He loves me, but how? The zest is gone, as the English say. That fellow wants every one to admire him and is very much pleased with himself,&rdquo; she thought, looking at a red-faced clerk, riding on a riding-school horse. &ldquo;Yes, there&rsquo;s not the same flavor about me for him now. If I go away from him, at the bottom of his heart he will be glad.&rdquo;</p>
 
                 <p>This was not mere supposition, she saw it distinctly in the piercing light, which revealed to her now the meaning of life and human relations.</p>
 
-                <p>“My love keeps growing more passionate and egoistic, while his is waning and waning, and that’s why we’re drifting apart.” She went on musing. “And there’s no help for it. He is everything for me, and I want him more and more to give himself up to me entirely. And he wants more and more to get away from me. We walked to meet each other up to the time of our love, and then we have been irresistibly drifting in different directions. And there’s no altering that. He tells me I’m insanely jealous, and I have told myself that I am insanely jealous; but it’s not true. I’m not jealous, but I’m unsatisfied. But ...” she opened her lips, and shifted her place in the carriage in the excitement, aroused by the thought that suddenly struck her. “If I could be anything but a mistress, passionately caring for nothing but his caresses; but I can’t and I don’t care to be anything else. And by that desire I rouse aversion in him, and he rouses fury in me, and it cannot be different. Don’t I know that he wouldn’t deceive me, that he has no schemes about Princess Sorokina, that he’s not in love with Kitty, that he won’t desert me! I know all that, but it makes it no better for me. If without loving me, from duty he’ll be good and kind to me, without what I want, that’s a thousand times worse than unkindness! That‘s—hell! And that’s just how it is. For a long while now he hasn’t loved me. And where love ends, hate begins. I don’t know these streets at all. Hills it seems, and still houses, and houses ... And in the houses always people and people ... How many of them, no  end, and all hating each other! Come, let me try and think what I want, to make me happy. Well? Suppose I am divorced, and Alexey Alexandrovitch lets me have Seryozha, and I marry Vronsky.” Thinking of Alexey Alexandrovitch, she at once pictured him with extraordinary vividness as though he were alive before her, with his mild, lifeless, dull eyes, the blue veins in his white hands, his intonations and the cracking of his fingers, and remembering the feeling which had existed between them, and which was also called love, she shuddered with loathing. “Well, I’m divorced, and become Vronsky’s wife. Well, will Kitty cease looking at me as she looked at me to-day? No. And will Seryozha leave off asking and wondering about my two husbands? And is there any new feeling I can awaken between Vronsky and me? Is there possible, if not happiness, some sort of ease from misery? No, no!” she answered now without the slightest hesitation. “Impossible! We are drawn apart by life, and I make his unhappiness, and he mine, and there’s no altering him or me. Every attempt has been made, the screw has come unscrewed. Oh, a beggar-woman with a baby. She thinks I’m sorry for her. Aren’t we all flung into the world only to hate each other, and so to torture ourselves and each other? Schoolboys coming—laughing—Seryozha?” she thought. “I thought, too, that I loved him, and used to be touched by my own tenderness. But I have lived without him, I gave him up for another love, and did not regret the exchange till that love was satisfied.” And with loathing she thought of what she meant by that love. And the clearness with which she saw life now, her own and all men’s, was a pleasure to her. “It’s so with me and Pyotr, and the coachman, Fyodor, and that merchant, and all the people living along the Volga, where those placards invite one to go, and everywhere and always,” she thought when she had driven under the low-pitched roof of the Nizhigorod station, and the porters ran to meet her.</p>
+                <p>&ldquo;My love keeps growing more passionate and egoistic, while his is waning and waning, and that&rsquo;s why we&rsquo;re drifting apart.&rdquo; She went on musing. &ldquo;And there&rsquo;s no help for it. He is everything for me, and I want him more and more to give himself up to me entirely. And he wants more and more to get away from me. We walked to meet each other up to the time of our love, and then we have been irresistibly drifting in different directions. And there&rsquo;s no altering that. He tells me I&rsquo;m insanely jealous, and I have told myself that I am insanely jealous; but it&rsquo;s not true. I&rsquo;m not jealous, but I&rsquo;m unsatisfied. But&hellip;&rdquo; she opened her lips, and shifted her place in the carriage in the excitement, aroused by the thought that suddenly struck her. &ldquo;If I could be anything but a mistress, passionately caring for nothing but his caresses; but I can&rsquo;t and I don&rsquo;t care to be anything else. And by that desire I rouse aversion in him, and he rouses fury in me, and it cannot be different. Don&rsquo;t I know that he wouldn&rsquo;t deceive me, that he has no schemes about Princess Sorokina, that he&rsquo;s not in love with Kitty, that he won&rsquo;t desert me! I know all that, but it makes it no better for me. If without loving me, from duty he&rsquo;ll be good and kind to me, without what I want, that&rsquo;s a thousand times worse than unkindness! That&rsquo;s&mdash;hell! And that&rsquo;s just how it is. For a long while now he hasn&rsquo;t loved me. And where love ends, hate begins. I don&rsquo;t know these streets at all. Hills it seems, and still houses, and houses&hellip;And in the houses always people and people&hellip;How many of them, no  end, and all hating each other! Come, let me try and think what I want, to make me happy. Well? Suppose I am divorced, and Alexey Alexandrovitch lets me have Seryozha, and I marry Vronsky.&rdquo; Thinking of Alexey Alexandrovitch, she at once pictured him with extraordinary vividness as though he were alive before her, with his mild, lifeless, dull eyes, the blue veins in his white hands, his intonations and the cracking of his fingers, and remembering the feeling which had existed between them, and which was also called love, she shuddered with loathing. &ldquo;Well, I&rsquo;m divorced, and become Vronsky&rsquo;s wife. Well, will Kitty cease looking at me as she looked at me to-day? No. And will Seryozha leave off asking and wondering about my two husbands? And is there any new feeling I can awaken between Vronsky and me? Is there possible, if not happiness, some sort of ease from misery? No, no!&rdquo; she answered now without the slightest hesitation. &ldquo;Impossible! We are drawn apart by life, and I make his unhappiness, and he mine, and there&rsquo;s no altering him or me. Every attempt has been made, the screw has come unscrewed. Oh, a beggar-woman with a baby. She thinks I&rsquo;m sorry for her. Aren&rsquo;t we all flung into the world only to hate each other, and so to torture ourselves and each other? Schoolboys coming&mdash;laughing&mdash;Seryozha?&rdquo; she thought. &ldquo;I thought, too, that I loved him, and used to be touched by my own tenderness. But I have lived without him, I gave him up for another love, and did not regret the exchange till that love was satisfied.&rdquo; And with loathing she thought of what she meant by that love. And the clearness with which she saw life now, her own and all men&rsquo;s, was a pleasure to her. &ldquo;It&rsquo;s so with me and Pyotr, and the coachman, Fyodor, and that merchant, and all the people living along the Volga, where those placards invite one to go, and everywhere and always,&rdquo; she thought when she had driven under the low-pitched roof of the Nizhigorod station, and the porters ran to meet her.</p>
 
-                <p>“A ticket to Obiralovka?” said Pyotr.</p>
+                <p>&ldquo;A ticket to Obiralovka?&rdquo; said Pyotr.</p>
 
-                <p>She had utterly forgotten where and why she was going, and only by a great effort she understood the question</p>
+                <p>She had utterly forgotten where and why she was going, and only by a great effort she understood the question.</p>
             </blockquote>
             <figcaption>
-                <p>&mdash;<span property="dc:creator">Leo Tolstoy</span>, 
+                <!-- Russian text: http://ilibrary.ru/text/1099/p.219/index.html -->
+                <p><q property="bibo:Quote">И собака, которую вы везете с собой, не поможет вам. От себя не уйдете.</q><br >
+                    &mdash;<span property="dc:creator">Leo Tolstoy</span>, 
                     <cite property="dc:title">Anna Karenina</cite>,
                     <span property="bibo:BookSection">Part 7</span>, 
                     <span property="bibo:Chapter">Chapter 30</span>,
@@ -658,6 +598,73 @@ $('[role="banner"]').before(todoView.el);
 </footer>
 
 
+<!--
+
+<HEAD /> DOCUMENTATION
+
+Remember that Character encoding must appear within first 512 bytes of page:
+    http://www.w3.org/TR/xhtml-rdfa-primer/#using-multiple-vocabularies
+
+RDFa:
+    Primers:
+        http://www.w3.org/MarkUp/2009/rdfa-for-html-authors
+        http://www.w3.org/TR/2008/WD-xhtml-rdfa-primer-20080317/
+        http://www.w3.org/TR/rdfa-in-html/
+        http://answers.semanticweb.com/questions/1187/can-i-use-the-html5-doctype-with-rdfa
+        http://blog.3kbo.com/2010/11/10/simple-html5-rdfa-example/
+        http://notes.3kbo.com/rdfa
+        http://manu.sporny.org/2011/rdfa-lite/ (RDFa Lite for Dummies sort of)
+
+    All prefixes on this site, either in HTML or body:
+        Creative Commmons:      cc="http://creativecommons.org/ns#"
+        Dublin Core Elements:   dc="http://purl.org/dc/elements/1.1/"
+        Dublin Core Terms:      dct="http://purl.org/dc/terms/"
+        Geo Spatial:            geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+        Facebook:               fb="http://ogp.me/ns/fb#"
+        Friend of a Friend:     foaf="http://xmlns.com/foaf/0.1/"
+        Open Graph:             og="http://ogp.me/ns#"
+        Open Graph music:       og="http://ogp.me/ns/music#"
+        Vcard:                  v="http://rdf.data-vocabulary.org/#"
+        Bibliographic:          bibo="http://purl.org/ontology/bibo/" reference: http://uri.gbv.de/ontology/bibo/
+
+    DEBUG: http://rdfa.info/play/
+    Watch RDF dance at: http://www.visualdataweb.org/relfinder/relfinder.php
+    Ontologies: http://www.w3.org/wiki/Good_Ontologies
+    Test with Google Rich Snippets: http://www.google.com/webmasters/tools/richsnippets
+    W3C pyRDFa XML extraction: http://www.w3.org/2012/pyRdfa/extract?format=xml&uri=http://example.com/
+
+Icons:
+    Online favicon generation: http://convertico.com
+    Apple Icons: http://goo.gl/6Qdi3 (developer.apple.com/)
+
+Open Graph and Facebook:
+    Facebook JSON is https://graph.facebook.com/142652672557253&scraped=true
+    linter is at https://developers.facebook.com/tools/debug
+    documentation on OG protocol at https://developers.facebook.com/docs/opengraphprotocol/
+    curl https://developers.facebook.com/tools/lint/?url=http%3A%2F%2Fherereadthis.com&format=json
+
+FOAF generated from:
+    http://www.ldodds.com/foaf/foaf-a-matic.en.html
+    wiki: http://wiki.foaf-project.org/w/FAQ and spec: http://xmlns.com/foaf/spec/
+    validate at http://www.w3.org/RDF/Validator/
+    explore FOAF connections: http://xml.mfd-consult.dk/foaf/
+-->
+
+<!--
+Ezra Pound, Personae
+    <p>Dear, an this dream come true,<br />
+        I, who being poet only,<br />
+        Can give thee poor words only,<br />
+        Add this one poor other tribute,<br />
+        <strong>This thing men call immortality.</strong><br />
+        A gift I give thee even as Ronsard gave it.</br />
+        Seeing before time, one sweet face grown old,<br />
+        And seeing the old eyes grow bright<br />
+        From out the border of Her fire-lit wrinkles,<br />
+        As she should make boast unto her maids<br />
+        &ldquo;Ronsard hath sung the beauty, my beauty,<br />
+        Of the days that I was fair.&rdquo;</p>
+-->
 
 </body>
 </html>

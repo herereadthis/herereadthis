@@ -25,6 +25,7 @@
       PhotoSpice: "photo_spice",
       Coding: "coding",
       MakeItNew: "make_it_new",
+      Excerpts: "excerpts",
       ResizeFu: "resize_fu",
       NextArrow: "next_arrow",
       "Analytics": "analytics",
@@ -51,13 +52,14 @@
   */
 
 
-  require(["jquery", 'Modernizr', 'HeadMore', "PhotoSpice", "Coding", "MakeItNew", 'Analytics'], function($, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Analytics) {
+  require(["jquery", 'Modernizr', 'HeadMore', "PhotoSpice", "Coding", "MakeItNew", "Excerpts", 'Analytics'], function($, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Excerpts, Analytics) {
     if (Modernizr.touch === false) {
       HeadMore.init();
       PhotoSpice.init();
       MakeItNew.init();
     }
     Coding.init();
+    Excerpts.init();
     return Analytics.track('UA-37798496-1');
   });
 

@@ -56,7 +56,7 @@
       theoryWidth = (gVars.idealWidth + 2 * gVars.sidePad) * gVars.em;
       if (gVars.browserWt > theoryWidth) {
         if (gVars.browserHt < thisDim.height) {
-          return makePads(_this, thisDim.padding.top / gVars.em, lVars.thresholdBot);
+          return makePads(_this, lVars.thresholdTop, lVars.thresholdBot);
         } else if (((gVars.browserHt - lVars.peekNext * gVars.em) / theoryWidth) > lVars.maxRatio) {
           subTheoryHeight = thisDim.height + (lVars.thresholdTop + lVars.thresholdBot) * gVars.em;
           if (subTheoryHeight < lVars.maxRatio * theoryWidth) {
