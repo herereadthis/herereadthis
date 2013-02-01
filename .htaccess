@@ -16,6 +16,10 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} !^herereadthis.com$ [NC]
 RewriteRule ^(.*)$ http://herereadthis.com/$1 [L,R=301]
 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.rdf -f
+RewriteRule ^(.*)$ $1.rdf
+
 # redirect all urls that doesn’t have a trailing slash to urls with a trailing slash
 RewriteBase /
 # files that are existing will not get a slash added
