@@ -370,6 +370,9 @@ pre {
 
 
 
+
+
+
 #coding {
 	width: 100%;
 	padding-right: 0;
@@ -424,6 +427,8 @@ pre {
 	overflow: auto;
 	padding: 0.9em 1.1em 0.9em 0.8em;
 }
+
+
 
 
 
@@ -532,6 +537,38 @@ pre {
 	background-size: 28% 100%;
 	background-position: 0em 0em;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+#excerpts {
+}
+[aria-expanded="false"] .cut_after ~ * {
+	display: none;
+}
+[aria-expanded="false"] .cut_after ~ .cut_hellip,
+[aria-expanded="false"] span.cut_after ~ .cut_show:first-of-type  {
+	display: inline;
+}
+[aria-expanded="true"] .cut_after ~ .cut_hellip,
+[aria-expanded="true"] span.cut_after ~ .cut_show:first-of-type {
+	display: none;
+}
+[aria-expanded] .cut_hellip {
+	color: #999;
+}
+[aria-expanded] .cut_show {
+	font-style: italic;
+}
+
 
 
 
