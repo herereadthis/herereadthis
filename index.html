@@ -75,32 +75,29 @@ prefix:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
 <!-- Banner is a landmark role http://www.w3.org/TR/wai-aria/roles#banner -->
 <!-- rich snippets for people http://support.google.com/webmasters/bin/answer.py?hl=en&answer=146646 -->
 <!-- W3C vCard: http://www.w3.org/Submission/vcard-rdf/ -->
-<header role="banner" data-module="head_more" resource="#me"
-    typeof="v:Person foaf:Person"
+<header role="banner" data-module="head_more"
     data-nextarrow-location="10" data-resizefu-max-ratio="0.75">
     <!--
     The property "dc:title" represents "http://purl.org/dc/elements/1.1/title"
     "dc:title" is called a Compact URL, aka CURIE, which is a representation of a URI from html prefix
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     -->
-    <h1 property="dc:title" content="Here, Read This" class="font_no_calt_no_swsh">Here, Read This</h1>
+    <h1 property="dc:title" about="#/me/" class="font_no_calt_no_swsh">Here, Read This</h1>
 
     <section>
-        <h3>My Name is Jimmy Ha
+        <h3  typeof="v:Person foaf:Person" resource="#/me/">My Name is Jimmy Ha
             <span property="v:name foaf:name" content="Jimmy Ha"></span>
             <span property="v:nickname foaf:nick" content="Jimmy"></span>
             <span property="v:given-name foaf:givenname" content="Jimmy"></span>
             <span property="v:family-name foaf:family_name" content="Ha"></span>
             <span property="v:logo foaf:logo" content="http://herereadthis.com/apps/hrt/img/herereadthis_logo.svg"></span>
         </h3>
-        <p>I <span property="v:title" content="UX Web Developer">make web pages</span> <span href="http://herereadthis.com/" rel="v:url foaf:homepage" content="http://herereadthis.com/"></span> and specialize in user interface development and Django frameworks. I live and play in the
-            <span rel="v:address">
-                <span typeof="v:Address">
-                    <span property="v:locality" content="Washington"></span>
-                    <span property="v:region">DC</span>
-                </span> metro area.
-            </span>
-            <span property="based_near">
+        <p  typeof="v:Person foaf:Person" resource="#/me/">I <span property="v:title" content="UX Web Developer">make web pages</span> <span href="http://herereadthis.com/" rel="v:url foaf:homepage" content="http://herereadthis.com/"></span> and specialize in user interface development and Django frameworks. I live and play in the
+            <span typeof="v:Address" resource="#/me/">
+                <span property="v:locality" content="Washington"></span>
+                <span property="v:region">DC</span>
+            </span> metro area.
+            <span resource="#/me/" typeof="based_near">
                 <span property="geo:point">
                     <span property="geo:lat" content="38.886757"></span>
                     <span property="geo:long" content="-77.041626"></span>
@@ -109,15 +106,15 @@ prefix:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
             I do 
             <span property="foaf:topic_interest">photography</span> with a Hasselblad camera, 
             <span property="foaf:topic_interest" content="gardening">grow roses</span>, 
-            <span property="foaf:topic_interest" content="baking">bake pastries</span>,
-            dance at Burner parties, and
+            <span property="foaf:topic_interest" content="baking">bake pastries</span>, 
+            dance at <span property="foaf:topic_interest" content="Burning Man">Burner parties</span>, and
             <span property="foaf:topic_interest" content="kyudo">practice kyudo</span>.
             I am guilty of putting Sriracha on everything.</p>
     </section>
 
     <p>My favorite team is the Baltimore Orioles. My favorite drink is an extra-dry gin martini with a twist (stirred!) and my favorite soda is Diet Coke. My favorite movie is <cite>The Good, the Bad, and the Ugly.</cite> My favorite song is <cite>Sinnerman</cite> by Nina Simone. I like to eat Vietnamese food and Life Cereal, but not at the same time.</p>
 
-    <aside about="#me" typeof="foaf:person" id="head_soc">
+    <aside resource="#/me/" id="head_soc">
         <h3>My Social Links</h3>
         <ul>
             <li typeof="foaf:account">
@@ -134,7 +131,7 @@ prefix:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
                         property="foaf:accountName" content="herereadthis" rel="me">@herereadthis</a>
                 </span>
             </li>
-            <li typeof="foaf:account">
+            <li typeof="foaf:account" rel="#/me/">
                 <span property="foaf:OnlineAccount">
                     <span rel="foaf:accountServiceHomepage" href="http://www.flickr.com/">Flickr</span><br />
                     <a href="http://www.flickr.com/photos/applesanity/"
@@ -158,14 +155,12 @@ prefix:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
             <li>
                 <span>
                     <span>Résumé</span><br />
-                    <a href="/resume/" rel="me">.HTML</a> <span>|</span>
+                    <a href="/resume/" rel="#/me/">.HTML</a> <span>|</span>
                     <a href="/resume/resume.pdf" rel="me">.PDF</a>
                 </span>
             </li>
         </ul>
     </aside> 
-
-
 </header>
 
 
