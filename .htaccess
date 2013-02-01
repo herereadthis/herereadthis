@@ -20,6 +20,7 @@ RewriteRule ^(.*)$ http://herereadthis.com/$1 [L,R=301]
 RewriteBase /
 # files that are existing will not get a slash added
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 # url that shouldn’t be rewritten
 RewriteCond %{REQUEST_URI} !apps/hrt/xml/foaf
 RewriteCond %{REQUEST_URI} !apps/hrt/xml/foaf#me
