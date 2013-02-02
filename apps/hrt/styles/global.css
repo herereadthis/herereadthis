@@ -727,7 +727,7 @@ html.touch .accordian > *:first-child {
 	width: 10em;
 	font-size: 0.1em;
 	background-image:
-		linear-gradient(135deg, #FFF 25%, FFF 25%),
+		linear-gradient(135deg, #FFF 25%, transparent 25%),
 		linear-gradient(225deg, #FFF 25%, transparent 25%),
 		linear-gradient(315deg, #FFF 25%, transparent 25%),
 		linear-gradient(45deg, #FFF 25%, transparent 25%);

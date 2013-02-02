@@ -56,8 +56,10 @@
       theoryWidth = (gVars.idealWidth + 2 * gVars.sidePad) * gVars.em;
       if (gVars.browserWt > theoryWidth) {
         if (gVars.browserHt < thisDim.height) {
+          console.log("we have too much for  " + (_this.find("h2").html()));
           return makePads(_this, lVars.thresholdTop, lVars.thresholdBot);
         } else if (((gVars.browserHt - lVars.peekNext * gVars.em) / theoryWidth) > lVars.maxRatio) {
+          console.log("we have very large window size for  " + (_this.find("h2").html()));
           subTheoryHeight = thisDim.height + (lVars.thresholdTop + lVars.thresholdBot) * gVars.em;
           if (subTheoryHeight < lVars.maxRatio * theoryWidth) {
             if (thisData.thresholdTop === 0 && thisData.thresholdBot === 0) {
@@ -73,6 +75,8 @@
             return makePads(_this, lVars.thresholdTop, lVars.thresholdBot);
           }
         } else {
+          console.log("we have ideal for  " + (_this.find("h2").html()));
+          console.log((gVars.browserHt - thisDim.height) / gVars.em, lVars.thresholdTop + lVars.thresholdBot + lVars.peekNext);
           if (((gVars.browserHt - thisDim.height) / gVars.em) > (lVars.thresholdTop + lVars.thresholdBot + lVars.peekNext)) {
             if (lVars.thresholdTop === 0 && lVars.thresholdBot === 0) {
               return _this.css({
@@ -81,6 +85,7 @@
             } else {
               thresholds = ((gVars.browserHt - thisDim.height) / gVars.em) - lVars.peekNext;
               if (thisData.thresholdTop === void 0 && thisData.thresholdBot === void 0) {
+                console.log("both thresholds are undefined");
                 theoryThresholds = thresholds / 2;
                 return makePads(_this, thresholds / 2);
               } else if (thisData.thresholdTop !== void 0 && thisData.thresholdBot === void 0) {

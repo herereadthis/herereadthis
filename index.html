@@ -7,20 +7,22 @@ prefix:dc="http://purl.org/dc/terms/"
 prefix:v="http://rdf.data-vocabulary.org/#"
 prefix:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
 <head>
-    <title>Here, Read This</title>
+    <title property="dc:title">Here, Read This</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="author" property="dc:creator" content="Jimmy Ha" />
     <meta name="robots" content="INDEX, FOLLOW" />
-    <!-- Besides Title, above this line are defaults for essential meta tags for every view -->
 
 <!-- browser-specific tags -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <!--<meta name="viewport" content="width=device-width, initial-scale=1" />-->
+<!-- Dublin Core RDFa -->
+    <meta property="dc:creator" content="Jimmy Ha" name="author" />
+    <meta property="dc:created" content="2012-12-12" />
+    <meta property="dc:language" content="en-US" />
 <!-- Open Graph RDFa -->
     <meta name="title" property="og:title" content="Here, Read This" />
-    <meta name="description" property="og:description" content="A website by Jimmy Ha about design - typography, Modernism, and mobile-first web development - and interests including photography, gardening, and baking." />
+    <meta name="description" property="og:description" content="A website by Jimmy Ha about design: typography, Modernism, and web development; and interests: photography, gardening, and baking." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://herereadthis.com/" />
     <meta property="og:image" content="http://herereadthis.com/static/img/herereadthis_fb.jpg" />
@@ -79,7 +81,7 @@ prefix:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
     "dc:title" is called a Compact URL, aka CURIE, which is a representation of a URI from html prefix
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     -->
-    <h1 property="dc:title" about="#/me/" class="font_no_calt_no_swsh">Here, Read This</h1>
+    <h1 class="font_no_calt_no_swsh">Here, Read This</h1>
 
     <section  typeof="v:Person foaf:Person" resource="#/me/">
         <h3>My Name is Jimmy Ha
@@ -361,26 +363,26 @@ for row, index in myArray
 </section>
 <section id="top_photographs">
     <h3>My Top 5 Favorite Photographs, Listed by Date</h3>
-    <ol>
-        <li resource="#/top_things/derriere_la_gare_saint_lazare" typeof="dc:image">
+    <ol prefix="dcmitype: http://purl.org/dc/dcmitype/">
+        <li resource="#/top_things/derriere_la_gare_saint_lazare" typeof="dcmitype:image">
             <cite property="dc:title">Derriere la Gare Saint-Lazare</cite> - 
             <span property="dc:date" datetime="1932">1932</span>, by
             <span property="dc:creator">Henri Cartier-Bresson</span>
            (<span>French</span>)
         </li>
-        <li resource="#/top_things/tomoko_uemura_in_her_bath" typeof="dc:image">
+        <li resource="#/top_things/tomoko_uemura_in_her_bath" typeof="dcmitype:image">
             <cite property="dc:title">Tomoko Uemura in Her Bath</cite> - 
             <span property="dc:date" datetime="1971">1971</span>, by
             <span property="dc:creator">W. Eugene Smith</span>
            (<span>American</span>)
         </li>
-        <li resource="#/top_things/elevator_operator" typeof="dc:image">
+        <li resource="#/top_things/elevator_operator" typeof="dcmitype:image">
             <cite property="dc:title">Elevator Operator, Miami Beach, 1955</cite> - 
             <span property="dc:date" datetime="1958">1958</span>, by
             <span property="dc:creator">Robert Frank</span>
            (<span>Swiss, American</span>)
         </li>
-        <li resource="#/top_things/margie_cato" typeof="dc:image">
+        <li resource="#/top_things/margie_cato" typeof="dcmitype:image">
             <cite property="dc:title">Margie Cato</cite>, Junior Bazaar - 
             <span property="dc:date" datetime="1950">1950</span>, by
             <span property="dc:creator">Lillian Bassman</span>

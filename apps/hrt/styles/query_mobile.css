@@ -135,10 +135,15 @@
 	}
 	#ezra_pound blockquote p {
 		width: auto;
+		padding: 0.3em 0 0;
 		font-size: 4.4em;
-		text-align: center;
-		padding: 0.5em 0.0 0.2em 0%;
+		line-height: 1em;
 		letter-spacing: 0em;
+		text-align: center;
+		text-indent: 0;
+	}
+	#ezra_pound blockquote p:before {
+		display: none;
 	}
 	#ezra_pound figcaption {
 		width: auto;

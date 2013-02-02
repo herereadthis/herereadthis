@@ -74,12 +74,12 @@ define (require) ->
         if gVars.browserWt > theoryWidth
             # condition 1: if capping article height to browser height will clip content
             if gVars.browserHt < thisDim.height
-                # console.log "we have too much for  #{_this.find("h2").html()}"
+                console.log "we have too much for  #{_this.find("h2").html()}"
                 makePads _this, lVars.thresholdTop, lVars.thresholdBot
 
             # condition 2: if the height of the browser is too great such that resizing becomes impractical
             else if ((gVars.browserHt - lVars.peekNext * gVars.em) / (theoryWidth)) > lVars.maxRatio
-                # console.log "we have very large window size for  #{_this.find("h2").html()}"
+                console.log "we have very large window size for  #{_this.find("h2").html()}"
                 # console.log "gVars.browserHt (#{gVars.browserHt}) is too great for #{_this.find("h2").html()}"
                 # sub-condition 2A: if adding threshold padding is less than max ratio
                 # height if we added the article's height to thresholds
@@ -103,14 +103,14 @@ define (require) ->
 
             # condition 3: the ideal one: resize article to fit whole of page, with peek
             else
-                # console.log "we have ideal for  #{_this.find("h2").html()}"
+                console.log "we have ideal for  #{_this.find("h2").html()}"
                 # sub-condition 3A: if the added padding to fill out height of article is greater than thresholds
                 # console.log thisData, _this.find("h2").html()
+                console.log (gVars.browserHt-thisDim.height)/gVars.em, (lVars.thresholdTop+lVars.thresholdBot+lVars.peekNext)
                 if ((gVars.browserHt-thisDim.height)/gVars.em) > (lVars.thresholdTop+lVars.thresholdBot+lVars.peekNext)
                     # special case where we don't want any padding means set a min-height
                     if lVars.thresholdTop is 0 and lVars.thresholdBot is 0
-                        # console.log lVars.thresholdTop, lVars.thresholdBot, _this.find("h2").html()
-                        # console.log (gVars.browserHt - thisDim.height) / gVars.em, "!!!"
+                        # console.log "both paddings are set to 0, so set at min height"
                         _this.css
                             "min-height": "#{ (gVars.browserHt / gVars.em) - lVars.peekNext }em"
 
@@ -124,6 +124,7 @@ define (require) ->
                         thresholds = (((gVars.browserHt - thisDim.height) / gVars.em) - lVars.peekNext)
                         # makePads _this, threshtop, threshBot
                         if thisData.thresholdTop is undefined and thisData.thresholdBot is undefined
+                            console.log "both thresholds are undefined"
                             theoryThresholds = thresholds / 2
                             makePads _this, thresholds / 2
                         else if thisData.thresholdTop != undefined and thisData.thresholdBot is undefined

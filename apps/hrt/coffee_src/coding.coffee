@@ -333,6 +333,7 @@ define (require) ->
         lVars.sidePad = if thisData.sidePad? then thisData.sidePad else cVars.sidePad
 
 
+        # the first thing is set the background of this article
         rileyGo _this, lVars
         if Modernizr.touch is false
             ResizeFu.init _this
