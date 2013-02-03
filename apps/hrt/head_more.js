@@ -2,7 +2,7 @@
 (function() {
 
   define(function(require) {
-    var $, Modernizr, NextArrow, ResizeFu, em, exports, gVars, makeItHappen, makeSocialClick, moduleName;
+    var $, Modernizr, NextArrow, ResizeFu, em, exports, gVars, makeItHappen, makeSocialClick, moduleName, _window;
     $ = require("jquery");
     Modernizr = require("Modernizr");
     NextArrow = require("next_arrow");
@@ -12,6 +12,7 @@
     gVars = {};
     moduleName = "head_more";
     em = parseInt($("body").css("font-size"), 10);
+    _window = $(window);
     makeSocialClick = function(_this) {
       return _this.on("click", "li", function(e) {
         var href, _links;

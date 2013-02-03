@@ -18,6 +18,8 @@ http://richardshepherd.com/smashing/parallax/background.html
 */
 
 
+/* Begin Global settings ----- */
+/* --------------------------- */
 html {
     font-size: 62.5%;
     -webkit-text-size-adjust: 100%; 
@@ -122,16 +124,51 @@ pre {
 	font-size: 1em;
 	}
 }
+/* End Global settings ------- */
+/* --------------------------- */
 
 
 
+/* Begin Shared Class--------- */
+/* --------------------------- */
+/* arrow to lead to next section */
+.next_arrow {
+	position: absolute;
+	bottom: 0;
+	width: 1.12em;
+	height: 0.8em;
+	padding-top: 0.32em;
+	z-index: 6;
+	font-size: 5em;
+	line-height: 0.8em;
+	font-family: "inconsolatamedium", monospace;
+	text-align: center;
+}
+.next_arrow:hover, .next_arrow:active, .next_arrow:focus {
+	cursor: pointer;
+	text-decoration: none;
+}
+/* If there is a need to split to parts on a page, where CSS columns wouldn't cut it */
+.double_stack {
+	overflow: auto;
+}
+.double_stack > div {
+	float: left;
+	width: 50%;
+}
+.double_stack > div:first-child > * {
+	margin-right: 1em;
+}
+.double_stack > div:last-child > * {
+	margin-left: 1em;
+}
+/* --------------------------- */
+/* End Shared Classes -------- */
 
 
 
-
-
-
-
+/* Begin Header -------------- */
+/* --------------------------- */
 [role="banner"] {
 	position: relative;
 	width: 108em;
@@ -145,7 +182,6 @@ pre {
 	font-size: 12em;
 	line-height: 1em;
 	font-family: "lavanderiaregular", "Helvetica", sans-serif;
-	-moz-font-variant-ligatures: no-common-ligatures, no-discretionary-ligatures;
 }
 [role="banner"] h3 {
 	font-weight: normal;
@@ -254,18 +290,13 @@ pre {
 	color: #3D048C;
 	background-position: 0.16em 0em;
 }
+/* --------------------------- */
+/* End Header ---------------- */
 
 
 
-
-
-
-
-
-
-
-
-
+/* Begin Photos Article ------ */
+/* --------------------------- */
 #photos {
 	position: relative;
 	width: 100%;
@@ -360,19 +391,13 @@ pre {
 	background-repeat: no-repeat;
 	box-shadow: 0em 0em 1em 0.5em rgba(0, 0, 0, 0.8);
 }
+/* --------------------------- */
+/* End Photos Article -------- */
 
 
 
-
-
-
-
-
-
-
-
-
-
+/* Begin Coding Article ------ */
+/* --------------------------- */
 #coding {
 	width: 100%;
 	padding-right: 0;
@@ -427,20 +452,13 @@ pre {
 	overflow: auto;
 	padding: 0.9em 1.1em 0.9em 0.8em;
 }
+/* --------------------------- */
+/* End Coding Article -------- */
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+/* Begin Design Article ------ */
+/* --------------------------- */
 #design_modern {
 	width: 100%;
 	padding: 0;
@@ -537,20 +555,36 @@ pre {
 	background-size: 28% 100%;
 	background-position: 0em 0em;
 }
+/* --------------------------- */
+/* End Design Article -------- */
 
 
 
-
-
-
-
-
-
-
-
-
+/* Begin Excerpts Article ---- */
+/* --------------------------- */
+/*
 #excerpts {
+	background-color: rgba(115, 194, 251, 0.05)
 }
+#excerpts h2 {
+	width: 59em;
+	padding: 0;
+}
+#excerpts section {
+	width: 118em;
+	padding: 0;
+	background-image: 
+		linear-gradient(0deg, #000 0em, #000 1em);
+	background-image: 
+		-moz-linear-gradient(0deg, #000 0em, #000 1em);
+	background-image: 
+		-webkit-linear-gradient(0deg, #000 0em, #000 1em);
+	background-repeat: no-repeat;
+	background-size: 25% 100%;
+	background-position: 0em 0em;
+
+}
+*/
 [aria-expanded="false"] .cut_after ~ * {
 	display: none;
 }
@@ -568,137 +602,54 @@ pre {
 [aria-expanded] .cut_show {
 	font-style: italic;
 }
+/* --------------------------- */
+/* End Excerpts Article ------ */
 
 
 
-
-
-
-
-
-
-
-body > footer {
-	width: 118em;
-	background-image: 
-		linear-gradient(0deg, #3D048C 0em, #3D048C 1em),
-		linear-gradient(0deg, #3D048C 0em, #3D048C 1em),
-		linear-gradient(90deg, #3D048C 0em, #3D048C 1em),
-		linear-gradient(0deg, #C2FB73 0em, #C2FB73 1em);
-	background-image: 
-		-moz-linear-gradient(0deg, #3D048C 0em, #3D048C 1em),
-		-moz-linear-gradient(0deg, #3D048C 0em, #3D048C 1em),
-		-moz-linear-gradient(90deg, #3D048C 0em, #3D048C 1em),
-		-moz-linear-gradient(0deg, #C2FB73 0em, #C2FB73 1em);
-	background-image: 
-		-webkit-linear-gradient(0deg, #3D048C 0em, #3D048C 1em),
-		-webkit-linear-gradient(0deg, #3D048C 0em, #3D048C 1em),
-		-webkit-linear-gradient(90deg, #3D048C 0em, #3D048C 1em),
-		-webkit-linear-gradient(0deg, #C2FB73 0em, #C2FB73 1em);
-	background-repeat: no-repeat, no-repeat, no-repeat;
-	background-size: 66.7em 2.4em, 30.5em 0.4em, 30.5em 0.4em, 15.6em 4.8em;
-	background-position: 5em 0em, 0em 2.8em, 0em 3.6em, 14.9em 4.4em;
+/* Begin Footer -------------- */
+/* --------------------------- */
+[role="contentinfo"] {
+	background-color: #3D048C;
+	color: #FFF;
+	background-repeat: no-repeat, repeat;
 }
-body > footer > div {
-	padding: 4em 5em 0 32.5em;
+[role="contentinfo"] a:link, [role="contentinfo"] a:visited {
+	color: #73C2FB;
 }
-body > footer > div + div {
-	min-height: 28em;
-	margin: 0 5em;
-	padding: 0em 0 0 27.5em;
-	background-image:
-		-moz-radial-gradient(rgba(115,251,194,0.8) 40%, #73FBC2 60%, #73FBC2 70.7107%, transparent 70.7107%),
-		-moz-radial-gradient(rgba(115,194,251,0.8) 40%, #73C2FB 60%, #73C2FB 70.7107%, transparent 70.7107%),
-		-moz-radial-gradient(rgba(194,251,115,0.8) 40%, #C2FB73 60%, #C2FB73 70.7107%, transparent 70.7107%),
-		-moz-radial-gradient(rgba(194,115,251,0.8) 40%, #C273FB 60%, #C273FB 70.7107%, transparent 70.7107%),
-		-moz-radial-gradient(rgba(251,194,115,0.8) 40%, #FBC273 60%, #FBC273 70.7107%, transparent 70.7107%),
-		-moz-radial-gradient(rgba(251,115,194,0.8) 40%, #FB73C2 60%, #FB73C2 70.7107%, transparent 70.7107%);
-	background-image:
-		-webkit-radial-gradient(rgba(115,251,194,0.8) 40%, #73FBC2 60%, #73FBC2 70.7107%, transparent 70.7107%),
-		-webkit-radial-gradient(rgba(115,194,251,0.8) 40%, #73C2FB 60%, #73C2FB 70.7107%, transparent 70.7107%),
-		-webkit-radial-gradient(rgba(194,251,115,0.8) 40%, #C2FB73 60%, #C2FB73 70.7107%, transparent 70.7107%),
-		-webkit-radial-gradient(rgba(194,115,251,0.8) 40%, #C273FB 60%, #C273FB 70.7107%, transparent 70.7107%),
-		-webkit-radial-gradient(rgba(251,194,115,0.8) 40%, #FBC273 60%, #FBC273 70.7107%, transparent 70.7107%),
-		-webkit-radial-gradient(rgba(251,115,194,0.8) 40%, #FB73C2 60%, #FB73C2 70.7107%, transparent 70.7107%);
-	background-image:
-		radial-gradient(rgba(115,251,194,0.8) 40%, #73FBC2 60%, #73FBC2 70.7107%, transparent 70.7107%),
-		radial-gradient(rgba(115,194,251,0.8) 40%, #73C2FB 60%, #73C2FB 70.7107%, transparent 70.7107%),
-		radial-gradient(rgba(194,251,115,0.8) 40%, #C2FB73 60%, #C2FB73 70.7107%, transparent 70.7107%),
-		radial-gradient(rgba(194,115,251,0.8) 40%, #C273FB 60%, #C273FB 70.7107%, transparent 70.7107%),
-		radial-gradient(rgba(251,194,115,0.8) 40%, #FBC273 60%, #FBC273 70.7107%, transparent 70.7107%),
-		radial-gradient(rgba(251,115,194,0.8) 40%, #FB73C2 60%, #FB73C2 70.7107%, transparent 70.7107%);
-	background-repeat: no-repeat;
-	background-size: 24em 24em, 40em 40em, 20em 20em, 16em 16em, 8em 8em, 26em 26em;
-	background-repeat: no-repeat;
-	background-position: 27% 10em, 0% 6em, 55% 6em, 50% 2em, 100% 10em, 90% 6em;
+[role="contentinfo"] a:hover {
+	color: #73FBC2;
 }
-
-
-
-
-
-
-
-/* Creative Commons License */
-.creative_commons_license {
-	width: 54em;
-	font-size: 1em;
-	line-height: 1em;
-	padding-bottom: 2em;
-	height: 3.5em;
+[role="contentinfo"] h3, [role="contentinfo"] p, [role="contentinfo"] li {
+	font-size: 2em;
+	line-height: 1.5em;
+	font-family: "gillsans_light", sans-serif;
+}
+[role="contentinfo"] .creative_commons_license {
+	font-size: 1.5em;
+	height: 2.666667em;
 }
 .creative_commons_license > a.creative_commons_image {
 	display: block;
 	float: left;
-	width: 10em;
-	height: 3.5em;
-	margin-right: 0.4em;
+	width: 7.6em;
+	height: 2.666667em;
+	margin-right: 0.333333em;
 }
 .creative_commons_license > small {
 	display: block;
-	font-size: 1.2em;
-	line-height: 1.25em;
-	padding-top: 0.25em;
+	line-height: 1.333333em;
+	font-family: "gillsans", sans-serif;
 }
+/* --------------------------- */
+/* End Footer ---------------- */
 
 
 
 
-/* arrow to lead to next section */
-.next_arrow {
-	position: absolute;
-	bottom: 0;
-	width: 1.12em;
-	height: 0.8em;
-	padding-top: 0.32em;
-	z-index: 6;
-	font-size: 5em;
-	line-height: 0.8em;
-	font-family: "inconsolatamedium", monospace;
-	text-align: center;
-}
-.next_arrow:hover, .next_arrow:active, .next_arrow:focus {
-	cursor: pointer;
-	text-decoration: none;
-}
 
 
 
-
-/* If there is a need to split to parts on a page, where CSS columns wouldn't cut it */
-.double_stack {
-	overflow: auto;
-}
-.double_stack > div {
-	float: left;
-	width: 50%;
-}
-.double_stack > div:first-child > * {
-	margin-right: 1em;
-}
-.double_stack > div:last-child > * {
-	margin-left: 1em;
-}
 
 
 
@@ -773,41 +724,4 @@ html.touch .accordian > *:first-child {
 	}
 }
 
-
-
-
-	/*  understanding radial gradients
-		http://www.impressivewebs.com/css3-radial-gradient-syntax/
-		http://westciv.com/tools/radialgradients/
-		http://lea.verou.me/css3patterns/
-		when using radial backgrounds as a circle, use 0.70710678118 as outer edge
-		100% means the 45 deg diagonal hits the corner, so 1/sqrt(2) is 70.7%
-	*/
-/*	background-color:rgba(255, 255, 255, 1);
-	background-image: -moz-radial-gradient(90px 90px, circle farthest-side,
-		rgba(255, 0, 0, 1) 0px,
-		rgba(0, 255, 0, 1) 70px,
-		rgba(0, 0, 255, 1) 89px,
-		rgba(255, 255, 255, 1) 90px); */
-
-/* makes stripes, fits with maya_stripes.js */
-/*
-.maya_stripes {
-	background-image: 
-		linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em),
-		linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em),
-		linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em);
-	background-image: 
-		-moz-linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em),
-		-moz-linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em),
-		-moz-linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em);
-	background-image: 
-		-webkit-linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em),
-		-webkit-linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em),
-		-webkit-linear-gradient(0deg, #73C2FB 0em, #73C2FB 1em);
-	background-repeat: no-repeat, no-repeat, no-repeat;
-	background-size: 0 0, 0 0, 0 0;
-	background-position: 108em 108em, 108em 108em, 108em 108em;
-}
-*/
 

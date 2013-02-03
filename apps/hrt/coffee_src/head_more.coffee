@@ -11,6 +11,7 @@ define (require) ->
 	# name of actual file here
 	moduleName = "head_more"
 	em = parseInt $("body").css("font-size"), 10
+	_window = $(window)
 
 
 	# adds a little more intuitive action for user: the link acts for the whole list item
@@ -29,6 +30,7 @@ define (require) ->
 		# resize header to fit page, accordingly
 		ResizeFu.init _this
 		makeSocialClick _this.find("aside")
+			
 
 		#make the arrow leading to this
 		NextArrow.init _this

@@ -467,18 +467,9 @@ for row, index in myArray
 </article>
 
 
-<footer role="contentinfo">
-    <div>
-        <!-- CC license discovery: http://wiki.creativecommons.org/RDFa -->
-        <p class="creative_commons_license" resource="#copyright"><a rel="license" class="creative_commons_image"
-                    href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img
-                    alt="Creative Commons License"
-                    src="/apps/hrt/img/cc_by-sa.png" width="100%" /></a>
-            <small>Except where otherwise noted,
-                <span prefix:dct="http://purl.org/dc/terms/" property="dct:title">Here, Read This</span> by
-                <a prefix:cc="http://creativecommons.org/ns#" href="http://herereadthis.com/" property="cc:attributionName" rel="cc:attributionURL">Jimmy Ha</a> is licensed under a 
-                <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</small></p>
-        <p>Here are 5 rules for life:</p>
+<footer role="contentinfo" data-module="footsie">
+    <section>
+        <h3>Here are 5 rules for life:</h3>
         <ol>
             <li>The secret to communication is accepting that what the other person knows is different than what I know.</li>
             <li>It&rsquo;s okay to have issues; everyone has issues.</li>
@@ -486,10 +477,19 @@ for row, index in myArray
             <li>If I see a problem, and the solution for the problem is for other people to change, then I am the problem.</li>
             <li>I am the company I keep.</li>
         </ol>
-    </div>
-    <div>
-        <p>Here are 6 circles.</p>
-    </div>
+    </section>
+    <section>
+        <h3>Here, Read This</h3>
+        <!-- CC license discovery: http://wiki.creativecommons.org/RDFa -->
+        <p class="creative_commons_license" resource="#copyright"><a rel="license" class="creative_commons_image"
+                    href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img
+                    alt="Creative Commons License"
+                    src="/apps/hrt/img/cc_by-sa.png" width="100%" /></a>
+            <small>Except where otherwise noted,
+                <span prefix:dct="http://purl.org/dc/terms/" property="dct:title">Here, Read This</span> by
+                <a prefix:cc="http://creativecommons.org/ns#" href="http://herereadthis.com/" property="cc:attributionName" rel="cc:attributionURL">Jimmy Ha</a> is licensed under<br />a
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</small></p>
+    </section>
 </footer>
 
 

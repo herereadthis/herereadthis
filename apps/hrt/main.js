@@ -26,6 +26,7 @@
       Coding: "coding",
       MakeItNew: "make_it_new",
       Excerpts: "excerpts",
+      Footsie: "footsie",
       ResizeFu: "resize_fu",
       NextArrow: "next_arrow",
       "Analytics": "analytics",
@@ -52,7 +53,7 @@
   */
 
 
-  require(["jquery", 'Modernizr', 'HeadMore', "PhotoSpice", "Coding", "MakeItNew", "Excerpts", 'Analytics'], function($, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Excerpts, Analytics) {
+  require(["jquery", 'Modernizr', 'HeadMore', "PhotoSpice", "Coding", "MakeItNew", "Excerpts", "Footsie", 'Analytics'], function($, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Excerpts, Footsie, Analytics) {
     if (Modernizr.touch === false) {
       HeadMore.init();
       PhotoSpice.init();
@@ -60,6 +61,7 @@
     }
     Coding.init();
     Excerpts.init();
+    Footsie.init();
     return Analytics.track('UA-37798496-1');
   });
 

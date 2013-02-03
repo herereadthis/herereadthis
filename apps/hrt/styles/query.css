@@ -12,18 +12,6 @@
 	body > header > h1 {
 		font-size: 10em;
 	}
-	body > footer {
-		width: auto;
-		background-size: 61.8% 2.4em, 23.6% 0.4em, 23.6% 0.4em, 14.6% 4.8em;
-		background-position: 2em 0em, 0em 2.8em, 0em 3.6em, 10.6% 4.4em;
-	}
-	body > footer > div {
-		padding: 4em 2em 0 25.6%;
-	}
-	body > footer > div + div {
-		margin: 0 0em;
-		padding: 0em 0 0 27.5em;
-	}
 	#design_modern header {
 		width: auto;
 		padding: 0 2em;
@@ -74,18 +62,6 @@
 		width: auto;
 		padding-right: 3em;
 		padding-left: 3em;
-	}
-	body > footer {
-		width: auto;
-		background-size: 61.8% 2.4em, 23.6% 0.4em, 23.6% 0.4em, 14.6% 4.8em;
-		background-position: 2em 0em, 0em 2.8em, 0em 3.6em, 10.6% 4.4em;
-	}
-	body > footer > div {
-		padding: 4em 3em 0 25.6%;
-	}
-	body > footer > div + div {
-		margin: 0 0em;
-		padding: 0em 0 0 27.5em;
 	}
 	#design_modern header {
 		width: auto;
@@ -145,18 +121,6 @@
 	}
 	[role="banner"], article > section {
 		width: auto;
-	}
-	body > footer {
-		width: auto;
-		background-size: 61.8% 2.4em, 23.6% 0.4em, 23.6% 0.4em, 14.6% 4.8em;
-		background-position: 2em 0em, 0em 2.8em, 0em 3.6em, 10.6% 4.4em;
-	}
-	body > footer > div {
-		padding: 4em 5em 0 25.6%;
-	}
-	body > footer > div + div {
-		margin: 0 2em;
-		padding: 0em 0 0 27.5em;
 	}
 	#design_modern header {
 		width: auto;
