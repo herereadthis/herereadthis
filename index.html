@@ -65,7 +65,7 @@ prefix:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
 <!-- CHECK THE BOTTOM OF THIS PAGE FOR DOCUMENTATION ON THE <HEAD /> SECTION -->
 </head>
 
-<body data-resizefu-ideal-width="108" data-resizefu-side-pad="5">
+<body class="helvetica" data-resizefu-ideal-width="108" data-resizefu-side-pad="5">
 
 
 <!-- WAI-ARIA: | http://www.w3.org/TR/wai-aria-primer/ -->
@@ -74,7 +74,7 @@ prefix:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
 <!-- Banner is a landmark role http://www.w3.org/TR/wai-aria/roles#banner -->
 <!-- rich snippets for people http://support.google.com/webmasters/bin/answer.py?hl=en&answer=146646 -->
 <!-- W3C vCard: http://www.w3.org/Submission/vcard-rdf/ -->
-<header role="banner" data-module="head_more"
+<header role="banner" class="gill_sans" data-module="head_more"
     data-nextarrow-location="10" data-resizefu-max-ratio="0.75">
     <!--
     The property "dc:title" represents "http://purl.org/dc/elements/1.1/title"
@@ -96,7 +96,7 @@ prefix:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
                 <span property="v:locality" content="Washington"></span>
                 <span property="v:region">DC</span>
             </span> metro area.
-            <span resource="#/me/" typeof="based_near">
+            <span typeof="foaf:based_near" resource="#/me/">
                 <span property="geo:point">
                     <span property="geo:lat" content="38.886757"></span>
                     <span property="geo:long" content="-77.041626"></span>
@@ -253,19 +253,13 @@ for row, index in myArray
     </header>
 
 
-    <figure id="ezra_pound">
-        <blockquote>
-            <p>Day by Day Make It New</p>
+        <p id="ezra_pound">
+            <q>Day by Day Make It New</q>
             <!--<p>This Thing Men Call Immortality.</p>-->
-        </blockquote>
-        <figcaption class="quarter_maya">
-            <p>&mdash;Ezra Pound, <em>Cantos LIII</em></p>
-            <!--<p>&mdash;Ezra Pound, <em>Personae</em></p>-->
-        </figcaption>
-    </figure>
+        </p>
 
     <section>
-        <h3>I want to make everything beautiful.</h3>
+        <h3 class="gill_sans">I want to make everything beautiful.</h3>
 
         <p>A lot of my inspiration for making things look the way they look is from the Modernist era, from Russian Constructivism to the Swiss International Style. It should use technology without becoming outdated, it should let function determine form, and it should limit the barriers to entry. Good design is never ironic; it is accessible for everyone.</p>
         <!-- Herbert Spencer? http://en.wikipedia.org/wiki/Pioneers_of_Modern_Typography -->
@@ -366,31 +360,31 @@ for row, index in myArray
     <ol prefix="dcmitype: http://purl.org/dc/dcmitype/">
         <li resource="#/top_things/derriere_la_gare_saint_lazare" typeof="dcmitype:image">
             <cite property="dc:title">Derriere la Gare Saint-Lazare</cite> - 
-            <span property="dc:date" datetime="1932">1932</span>, by
+            <span property="dc:created" datetime="1932">1932</span>, by
             <span property="dc:creator">Henri Cartier-Bresson</span>
            (<span>French</span>)
         </li>
         <li resource="#/top_things/tomoko_uemura_in_her_bath" typeof="dcmitype:image">
             <cite property="dc:title">Tomoko Uemura in Her Bath</cite> - 
-            <span property="dc:date" datetime="1971">1971</span>, by
+            <span property="dc:created" datetime="1971">1971</span>, by
             <span property="dc:creator">W. Eugene Smith</span>
            (<span>American</span>)
         </li>
         <li resource="#/top_things/elevator_operator" typeof="dcmitype:image">
             <cite property="dc:title">Elevator Operator, Miami Beach, 1955</cite> - 
-            <span property="dc:date" datetime="1958">1958</span>, by
+            <span property="dc:created" datetime="1958">1958</span>, by
             <span property="dc:creator">Robert Frank</span>
            (<span>Swiss, American</span>)
         </li>
         <li resource="#/top_things/margie_cato" typeof="dcmitype:image">
             <cite property="dc:title">Margie Cato</cite>, Junior Bazaar - 
-            <span property="dc:date" datetime="1950">1950</span>, by
+            <span property="dc:created" datetime="1950">1950</span>, by
             <span property="dc:creator">Lillian Bassman</span>
            (<span>American</span>)
         </li>
         <li resource="#/top_things/london_1952" typeof="dc:image">
             <cite property="dc:title">London, 1952</cite> - 
-            <span property="dc:date" datetime="1952">1952</span>, by
+            <span property="dc:created" datetime="1952">1952</span>, by
             <span property="dc:creator">Bill Brandt</span>
            (<span>German, British</span>)
         </li>
@@ -415,7 +409,7 @@ for row, index in myArray
                 <p>&mdash;<span property="dc:creator">Emily Post</span>, 
                     <cite property="dc:title">Etiquette in Society, in Business, in Politics, and at Home</cite>,
                     <span property="bibo:Chapter">Chapter 27</span>,
-                    <time property="dc:date" content="1922-07" datetime="1922-07">1922</time></p>
+                    <time property="dc:created" content="1922-07" datetime="1922-07">1922</time></p>
             </figcaption>
         </figure>
     </section>
@@ -434,7 +428,7 @@ for row, index in myArray
                     <cite property="dc:title">To the Lighthouse</cite>,
                     <span property="bibo:BookSection">The Window</span>, 
                     <span property="bibo:Chapter">Chapter 6</span>,
-                    <time property="dc:date" content="1927-05-05" datetime="1927-05-05">1927</time></p>
+                    <time property="dc:created" content="1927-05-05" datetime="1927-05-05">1927</time></p>
             </figcaption>
         </figure>
     </section>
@@ -460,34 +454,76 @@ for row, index in myArray
                     <cite property="dc:title">Anna Karenina</cite>,
                     <span property="bibo:BookSection">Part 7</span>, 
                     <span property="bibo:Chapter">Chapter 30</span>,
-                    <time property="dc:date" datetime="1878">1878</time></p>
+                    <time property="dc:created" datetime="1878">1878</time></p>
             </figcaption>
         </figure>
     </section>
 </article>
 
 
-<footer role="contentinfo" data-module="footsie">
-    <section>
-        <h3>Here are 5 rules for life:</h3>
-        <ol>
-            <li>The secret to communication is accepting that what the other person knows is different than what I know.</li>
-            <li>It&rsquo;s okay to have issues; everyone has issues.</li>
-            <li>Cynicism isn&rsquo;t really about other people&mdash;it&rsquo;s about me.</li>
-            <li>If I see a problem, and the solution for the problem is for other people to change, then I am the problem.</li>
-            <li>I am the company I keep.</li>
-        </ol>
+<footer role="contentinfo" data-module="footsie" class="gill_sans">
+    <section id="foot_inspire">
+        <h3>Site &amp; Art Inspiration</h3>
+        <p><span resource="#/footer/midnight_blue/" typeof="dcmitype:image">
+                The background of &ldquo;Photos&rdquo; is based on 
+                <cite property="dc:title">Midnight Blue</cite>
+                (<time property="dc:created">1970</time>), by
+                <span property="dc:creator">Barnett Newman</span>.
+            </span>
+            <span resource="#/footer/achaen/" typeof="dcmitype:image">
+                The stripes in &ldquo;Coding&rdquo; comes from
+                <span property="dc:creator">Bridget Riley</span>&rsquo;s 
+                <cite property="dc:title">Achaean</cite>
+                (<time property="dc:created">1981</time>).
+            </span>
+            <span resource="#/footer/kiss/" typeof="dcmitype:image">
+                The geometric shapes of this footer are inspired by
+                <cite property="dc:title">Kiss</cite>
+                (<time property="dc:created">1961</time>), also by
+                <span property="dc:creator">Bridget Riley</span>.
+            </span>
+            <span resource="#/footer/make_it_new" typeof="bibo:Book dc:BibliographicResource">
+                The quote,
+                <q property="http://purl.org/ontology/bibo/Quote">Day by day make it new</q> is from
+                <cite property="dc:title">Cantos LIII</cite>
+                (<time property="dc:created">1940</time>), by 
+                <span property="dc:creator">Ezra Pound</span>.
+            </span></p>
+        <aside>
+            <h3>Here are 5 rules for life:</h3>
+            <p>(1) The secret to communication is remembering that what the other person knows is different than what I know. (2) It&rsquo;s okay to have issues; everyone has issues. (3) Acceptance does not require understanding. (4) If I see a problem, and the solution for the problem is for other people to change, then I am the problem. (5) I am the company I keep.</p>
+        </aside>
     </section>
-    <section>
-        <h3>Here, Read This</h3>
+    <section id="foot_contact">
+        <h3>Contact Info</h3>
+        <!-- hex coding for obfuscation: http://www.ascii.cl/htmlcodes.htm -->
+        <p>&#x45;&#x6D;&#x61;&#x69;&#x6C;&#x3A;
+            &#x6E;&#x6F;&#x77;&#x40;&#x68;&#x65;&#x72;&#x65;&#x72;&#x65;&#x61;&#x64;&#x74;&#x68;&#x69;&#x73;&#x2E;&#x63;&#x6F;&#x6D;</p>
+        <p>Based: Falls Church, VA, USA</p>
+        <p>Twitter: <a href="https://twitter.com/herereadthis" title="Follow Here, Read This on Twitter">@herereadthis</a></p>
+        <p>&#x53;&#x6B;&#x79;&#x70;&#x65;&#x3A;
+            &#x68;&#x65;&#x72;&#x65;&#x72;&#x65;&#x61;&#x64;&#x74;&#x68;&#x69;&#x73;</p>
+        <p>FOAF/Friend-of-a-Friend: <a href="/apps/hrt/xml/foaf.rdf" title="FOAF File (RDF)">RDF</a></p>
+
+
+    </section>
+    <section id="foot_links">
+        <ul>
+            <li><a href="https://www.facebook.com/herereadthis" title="Facebook | herereadthis">Facebook</a></li>
+            <li><a href="http://twitter.com/herereadthis" title="Twitter | herereadthis">Twitter</a></li>
+            <li><a href="http://www.flickr.com/photos/applesanity/" title="Flickr | applesanity">Flickr</a></li>
+            <li><a href="https://github.com/herereadthis" title="Github | herereadthis">Github</a></li>
+            <li><a href="http://pinterest.com/herereadthis/" title="Pinterest | herereadthis">Pinterest</a></li>
+        </ul>
+        <h3 class="gill_sans">Here, Read This</h3>
         <!-- CC license discovery: http://wiki.creativecommons.org/RDFa -->
         <p class="creative_commons_license" resource="#copyright"><a rel="license" class="creative_commons_image"
                     href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img
                     alt="Creative Commons License"
                     src="/apps/hrt/img/cc_by-sa.png" width="100%" /></a>
-            <small>Except where otherwise noted,
+            <small class="gill_sans">Except where otherwise noted,
                 <span prefix:dct="http://purl.org/dc/terms/" property="dct:title">Here, Read This</span> by
-                <a prefix:cc="http://creativecommons.org/ns#" href="http://herereadthis.com/" property="cc:attributionName" rel="cc:attributionURL">Jimmy Ha</a> is licensed under<br />a
+                <a prefix:cc="http://creativecommons.org/ns#" href="http://herereadthis.com/" property="cc:attributionName" rel="cc:attributionURL">Jimmy Ha</a> is licensed under a
                 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</small></p>
     </section>
 </footer>

@@ -12,6 +12,9 @@
 	body > header > h1 {
 		font-size: 10em;
 	}
+	article h2 {
+		width: auto;
+	}
 	#design_modern header {
 		width: auto;
 		padding: 0 2em;
@@ -19,18 +22,11 @@
 	#design_modern header h2 {
 		font-size: 3.8em;
 	}
-	#ezra_pound blockquote p {
+	#ezra_pound q {
 		width: auto;
 		font-size: 10em;
 		text-align: center;
 		text-indent: 0;
-	}
-	#ezra_pound figcaption {
-		width: auto;
-		padding: 0 2em;
-	}
-	#ezra_pound figcaption p {
-		padding: 0;
 	}
 	#design_modern section {
 		width: auto;
@@ -63,19 +59,15 @@
 		padding-right: 3em;
 		padding-left: 3em;
 	}
+	article h2 {
+		width: auto;
+	}
 	#design_modern header {
 		width: auto;
 		padding: 0 3em;
 	}
-	#ezra_pound blockquote {
-		padding-right: 3em;
-	}
-	#ezra_pound figcaption {
-		width: auto;
-		padding: 0 3em;
-	}
-	#ezra_pound figcaption p {
-		padding: 0;
+	#ezra_pound {
+		text-align: center;
 	}
 	#design_modern section {
 		width: auto;
@@ -93,13 +85,32 @@
 		margin-bottom: 0.2em;
 		font-size: 5em;
 	}
+	#foot_links {
+		margin-left: 0;
+	}
+	#foot_links ul {
+		width: 90%;
+		margin: 0 auto;
+	}
+	#foot_links li {
+		width: 20%;
+	}
+	#foot_links ul a {
+		margin: 0 auto;
+	}
+	#foot_links h3 {
+		text-align: center;
+	}
+	[role="contentinfo"] .creative_commons_license {
+		margin: 0 auto;
+	}
 }
 
 @media all and (min-width: 801px) and (max-width: 900px) {
 	#design_modern header h2 {
 		font-size: 3.8em;
 	}
-	#ezra_pound blockquote p {
+	#ezra_pound q {
 		width: auto;
 		font-size: 10em;
 		text-indent: 0;
@@ -109,7 +120,7 @@
 	#design_modern header h2 {
 		font-size: 4.3em;
 	}
-	#ezra_pound blockquote p {
+	#ezra_pound q {
 		width: auto;
 		font-size: 12em;
 		text-indent: 0;
@@ -122,20 +133,15 @@
 	[role="banner"], article > section {
 		width: auto;
 	}
+	article h2 {
+		width: auto;
+	}
 	#design_modern header {
 		width: auto;
 		padding: 0 5em;
 	}
-	#ezra_pound blockquote {
-		padding-right: 5em;
-		text-align: right;
-	}
-	#ezra_pound figcaption {
-		width: auto;
-		padding: 0 5em;
-	}
-	#ezra_pound figcaption p {
-		padding: 0;
+	#ezra_pound {
+		text-align: center;
 	}
 	#design_modern section {
 		width: auto;
@@ -143,12 +149,15 @@
 	#coding header, #coding section {
 		padding-left: 5em;
 	}
+	#foot_links li {
+		width: 20%;
+	}
 }
 @media all and (min-width: 1025px) and (max-width: 1100px) {
 	#design_modern header h2 {
 		font-size: 4.5em;
 	}
-	#ezra_pound blockquote p {
+	#ezra_pound q {
 		width: auto;
 		font-size: 13em;
 		text-indent: 0;
@@ -161,10 +170,11 @@
 	#design_modern header h2 {
 		font-size: 5em;
 	}
-	#ezra_pound blockquote p {
+	#ezra_pound q {
 		width: auto;
 		font-size: 14em;
 		text-indent: 0;
+		word-spacing: -0.1em;
 	}
 	#coding h2 {
 		font-size: 5em;

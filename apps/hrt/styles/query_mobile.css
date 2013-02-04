@@ -5,11 +5,11 @@
 	body > header, body > article, body >footer {
 		font-size: 300%;
 	}
-	[role="banner"], article > section, article > h2 {
+	[role="banner"], article > section, article h2 {
 		width: auto;
 		padding: 0 1.5em;
 	}
-	article > h2 {
+	article h2 {
 		padding: 0 0.75em 0.5em 0.75em;
 	}
 	article {
@@ -22,6 +22,16 @@
 	ol {
 		margin-bottom: 1em;
 		padding-left: 3em;
+	}
+	.double_stack > div {
+		float: none;
+		width: auto;
+	}
+	.double_stack > div:first-child > * {
+		margin-right: 0em;
+	}
+	.double_stack > div:last-child > * {
+		margin-left: 0em;
 	}
 	[role="banner"] h1 {
 		font-size: 5em;
@@ -115,28 +125,21 @@
 		padding: 0.5em 1em 0.5em 1em;
 		font-size: 1.5em;
 	}
-	#ezra_pound blockquote {
-		padding-right: 0em;
-		text-align: center;
+	#design_modern #ezra_pound {
+		width: auto;
 	}
-	#ezra_pound blockquote p {
+	#ezra_pound q {
+		position: static;
 		width: auto;
 		padding: 0.3em 0 0;
-		font-size: 4.4em;
-		line-height: 1em;
-		letter-spacing: 0em;
-		text-align: center;
-		text-indent: 0;
+		font-size: 7em;
+		line-height: 0.8em;
+		word-spacing: 0;
+		text-indent: 0em;
+		letter-spacing: 0;
 	}
-	#ezra_pound blockquote p:before {
+	#ezra_pound q:before {
 		display: none;
-	}
-	#ezra_pound figcaption {
-		width: auto;
-		padding: 0 0em;
-	}
-	#ezra_pound figcaption p {
-		padding: 0 0.833333em 0 0;
 	}
 	#design_modern section {
 		width: auto;
@@ -144,16 +147,27 @@
 	#design_modern section > *:last-child {
 		padding-bottom: 1em;
 	}
-
-	.double_stack > div {
-		float: none;
+	#foot_links {
+		margin-left: 0;
+	}
+	[role="contentinfo"] p, [role="contentinfo"] li {
+		font-size: 1.5em;
+		line-height: 1.5em;
+	}
+	[role="contentinfo"] .creative_commons_license {
 		width: auto;
+		padding: 0 1em;
 	}
-	.double_stack > div:first-child > * {
-		margin-right: 0em;
+	#foot_links li {
+		width: 20%;
 	}
-	.double_stack > div:last-child > * {
-		margin-left: 0em;
+
+	#foot_links ul a {
+		margin: 0 auto;
+	}
+	#foot_links h3 {
+		font-size: 5em;
+		text-align: center;
 	}
 	.creative_commons_license {
 		width: auto;

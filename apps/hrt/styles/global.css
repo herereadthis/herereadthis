@@ -30,7 +30,8 @@ html {
 body {
 	margin: 0;
 	padding: 0;
-    font: normal normal normal 100%/1.5 Helvetica, Arial, sans-serif;
+	font-size: 100%;
+	line-height: 1.5;
     text-rendering: optimizeLegibility;
     /* ligatures https://developer.mozilla.org/en-US/docs/CSS/text-rendering */
 }
@@ -132,6 +133,12 @@ pre {
 /* Begin Shared Class--------- */
 /* --------------------------- */
 /* arrow to lead to next section */
+.gill_sans, [role="contentinfo"] .gill_sans {
+	font-family: "Gill Sans", "gillsans", sans-serif;
+}
+.helvetica {
+	font-family: Helvetica, Arial, sans-serif;
+}
 .next_arrow {
 	position: absolute;
 	bottom: 0;
@@ -174,7 +181,6 @@ pre {
 	width: 108em;
 	padding-right: 5em;
 	padding-left: 5em;
-	font-family: "gillsans", sans-serif;
 }
 [role="banner"] h1 {
 	padding: 0 0 0.25em 0;
@@ -183,18 +189,18 @@ pre {
 	line-height: 1em;
 	font-family: "lavanderiaregular", "Helvetica", sans-serif;
 }
-[role="banner"] h3 {
+/*[role="banner"] h3 {
 	font-weight: normal;
 	font-family: "gillsans_bold", sans-serif;
-}
+}*/
 [role="banner"] h3, [role="banner"] p {
 	font-size: 2em;
 	line-height: 1.5em;
 }
-[role="banner"] cite {
+/*[role="banner"] cite {
 	font-style: normal;
 	font-family: "gillsans_italic", sans-serif;
-}
+}*/
 [role="banner"] > aside#head_soc {
 }
 #head_soc h3 {
@@ -486,7 +492,8 @@ pre {
 	font-size: 3em;
 	line-height: 1.666667em;
 	font-weight: normal;
-	font-family: "gillsans_italic", sans-serif;
+	font-style: italic;
+	/*font-family: "gillsans_italic", sans-serif;*/
 }
 #design_modern p {
 	margin-left: 0;
@@ -504,42 +511,43 @@ pre {
 	font-family: "joanna_italic", serif;
 }
 #design_modern figure#ezra_pound {
+}
+#design_modern #ezra_pound {
+	margin: 0;
 	width: 100%;
 	clear: both;
-}
-#ezra_pound blockquote {
 	background-color: #000;
+	background-image: none;
+	font-size: 1em;
+	padding: 0;
 }
-#ezra_pound blockquote p {
+#ezra_pound q {
+	display: block;
 	position: relative;
-	width: 7.2em;
+	width: 7.866667em;
 	color: #FFF;
 	margin: 0 auto;
 	padding: 0.3em 0.0 0% 0%;
 	font: normal normal normal 15em/0.5em "gillsans_condensed", sans-serif;
 	word-spacing: -0.2em;
-	text-indent: 0.166667em;
+	text-indent: 0.5em;
 	text-transform: uppercase;
 	letter-spacing: 0.006667em;
 }
-#ezra_pound blockquote p:before {
+#ezra_pound q:before {
 	display: block;
 	content: "";
 	position: absolute;
 	background-color: #73C2FB;
 	top: 0;
 	right: 100%;
+	margin-right: -0.333333em;
 	bottom: 0;
 	width: 100%;
 	height: 100%;
 }
-#ezra_pound figcaption {
-	width: 118em;
-	margin: 0 auto;
-}
-#ezra_pound figcaption p {
-	padding: 0.25em 2.5em 0 0;
-	text-align: right;
+#ezra_pound q:after {
+	content: "";
 }
 #design_modern section > *:last-child {
 	padding-bottom: 0;
@@ -609,6 +617,8 @@ pre {
 
 /* Begin Footer -------------- */
 /* --------------------------- */
+
+
 [role="contentinfo"] {
 	background-color: #3D048C;
 	color: #FFF;
@@ -620,14 +630,88 @@ pre {
 [role="contentinfo"] a:hover {
 	color: #73FBC2;
 }
-[role="contentinfo"] h3, [role="contentinfo"] p, [role="contentinfo"] li {
-	font-size: 2em;
-	line-height: 1.5em;
-	font-family: "gillsans_light", sans-serif;
+[role="contentinfo"] section {
+	float: left;
 }
+[role="contentinfo"] p {
+	padding-bottom: 0;
+	font-size: 1.6em;
+	line-height: 1.25em;
+	/*font-family: "Gill Sans,", "gillsans_light", sans-serif;*/
+}
+[role="contentinfo"] h3 {
+	font-size: 3em;
+	line-height: 1.333333em;
+	font-weight: normal;
+	text-transform: lowercase;
+}
+
+
+#foot_inspire {
+	width: 38.19660%;
+}
+#foot_inspire h3 {
+	padding: 0 1em;
+}
+#foot_inspire p {
+	padding: 0 1.875em;
+}
+#foot_contact {
+	width: 23.6067%;
+/*	border-top: 0.5em solid #FFF;
+	border-bottom: 0.5em solid #FFF;
+	padding: 2.5em 0;*/
+}
+#foot_contact p {
+	font-size: 2.4em;
+	font-family: "gillsans_light", "Gill Sans", sans-serif;
+}
+#foot_contact h3 {
+	font-size: 4em;
+	line-height: 1.5em;
+}
+#foot_links {
+	float: none;
+	clear: both;
+	margin-left: 38.19660%;
+}
+#foot_links h3 {
+	font-size: 7em;
+	line-height: 1em;
+}
+#foot_links ul {
+	overflow: auto;
+	margin: 0;
+}
+#foot_links li {
+	list-style-type: none;
+	float: left;
+	width: 13.1em;
+	font-size: 1em;
+}
+#foot_links ul a {
+	display: block;
+	width: 5em;
+	height: 5em;
+	text-indent: -9999px;
+	background-image: url(../img/social_sprites.png);
+	background-size: 5em 60em;
+}
+#foot_links li:nth-child(1) a {background-position: 0em -30em;}
+#foot_links li:nth-child(2) a {background-position: 0em -35em;}
+#foot_links li:nth-child(3) a {background-position: 0em -40em;}
+#foot_links li:nth-child(4) a {background-position: 0em -45em;}
+#foot_links li:nth-child(5) a {background-position: 0em -50em;}
+#foot_links li:nth-child(1) a:hover {background-position: 0em 0em;}
+#foot_links li:nth-child(2) a:hover {background-position: 0em -5em;}
+#foot_links li:nth-child(3) a:hover {background-position: 0em -10em;}
+#foot_links li:nth-child(4) a:hover {background-position: 0em -15em;}
+#foot_links li:nth-child(5) a:hover {background-position: 0em -20em;}
+
+
 [role="contentinfo"] .creative_commons_license {
-	font-size: 1.5em;
-	height: 2.666667em;
+	width: 38.666667em;
+	padding-bottom: 0;
 }
 .creative_commons_license > a.creative_commons_image {
 	display: block;
@@ -638,8 +722,6 @@ pre {
 }
 .creative_commons_license > small {
 	display: block;
-	line-height: 1.333333em;
-	font-family: "gillsans", sans-serif;
 }
 /* --------------------------- */
 /* End Footer ---------------- */

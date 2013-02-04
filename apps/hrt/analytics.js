@@ -14,7 +14,6 @@
         ga.type = "text/javascript";
         ga.async = true;
         ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + ".google-analytics.com/ga.js";
-        console.log(_gaq, "!");
         return s.parentNode.insertBefore(ga, s);
       }
     };

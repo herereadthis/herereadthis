@@ -2,7 +2,7 @@
 (function() {
 
   define(function(require) {
-    var $, Modernizr, exports, footSize, footStreaks, gVars, loadStreaks, makeItHappen, moduleName, rileyKiss, scrollMath, streak, streakNoise, _window;
+    var $, Modernizr, exports, footStreaks, gVars, loadStreaks, makeItHappen, makeSections, moduleName, phi, riley, rileyKiss, scrollMath, sects, streak, streakNoise, _window;
     $ = require("jquery");
     Modernizr = require("Modernizr");
     exports = {};
@@ -11,10 +11,11 @@
     _window = $(window);
     gVars = {
       em: parseInt($("body").css("font-size"), 10),
-      winWidth: "",
-      winHeight: "",
+      winWidth: _window.width(),
+      winHeight: _window.height(),
       showing: 0
     };
+    phi = (1 + Math.sqrt(5)) / 2;
     loadStreaks = true;
     streak = {
       bgWidth: 30,
@@ -27,26 +28,32 @@
       whiteRand: 0.015
     };
     streakNoise = document.createElement("canvas");
-    rileyKiss = function(_this, lVars) {
-      var arcVar, canvas, context, cutoff, inverseCut, magicFactor, nudge, phi;
+    riley = {
+      cutoffRatio: 2 / 3,
+      nudge: 0.4 * gVars.em,
+      magicFactor: 1.5,
+      magicMobile: 1
+    };
+    sects = {
+      endThresh: 2 * gVars.em
+    };
+    rileyKiss = function(_this) {
+      var arcVar, canvas, context, cutoff, inverseCut;
       canvas = document.createElement("canvas");
-      canvas.width = lVars.winWidth;
-      canvas.height = lVars.winHeight;
+      canvas.width = gVars.winWidth;
+      canvas.height = gVars.winHeight;
       context = canvas.getContext("2d");
-      phi = (1 + Math.sqrt(5)) / 2;
-      cutoff = Math.round((phi - 1) * lVars.winHeight);
-      cutoff = (2 / 3) * lVars.winHeight;
-      inverseCut = lVars.winHeight - cutoff;
-      nudge = 0.4 * gVars.em;
-      magicFactor = 1.5;
+      console.log("winHeight is " + gVars.winHeight + "!", "winWidth is " + gVars.winWidth + "!");
+      cutoff = riley.cutoffRatio * gVars.winHeight;
+      inverseCut = gVars.winHeight - cutoff;
       arcVar = {};
-      arcVar.x = (2 - phi) * lVars.winWidth;
-      arcVar.radius = magicFactor * lVars.winWidth;
-      arcVar.y = 0 - arcVar.radius + cutoff - nudge;
+      arcVar.x = (2 - phi) * gVars.winWidth;
+      arcVar.radius = riley.magicFactor * gVars.winWidth;
+      arcVar.y = 0 - arcVar.radius + cutoff - riley.nudge;
       context.beginPath();
       context.arc(arcVar.x, arcVar.y, arcVar.radius, Math.PI * 0.25, Math.PI * 0.75, false);
       context.lineTo(0, cutoff);
-      context.lineTo(lVars.winWidth, cutoff);
+      context.lineTo(gVars.winWidth, cutoff);
       context.closePath();
       context.fillStyle = "#FFF";
       context.fill();
@@ -95,38 +102,68 @@
       }
       return _results;
     };
-    footSize = function(_this) {
-      gVars.winWidth = _window.width();
-      gVars.winHeight = _window.height();
-      return _this.css({
-        "min-height": Math.round(gVars.winHeight * 1)
-      });
-    };
     scrollMath = function(_this, winHtLessOffset) {
       return gVars.showing = _window.scrollTop() + winHtLessOffset;
     };
+    makeSections = function(_this) {
+      var beginHt, endHt, endSize, maybeHt, minEndHeight, sections, toFull, _begin, _end;
+      sections = _this.find("section");
+      _begin = $(sections[0]);
+      _end = $(sections[sections.length - 1]);
+      endHt = (1 - riley.cutoffRatio) * gVars.winHeight;
+      endSize = {};
+      endSize.height = Math.round(_end.height());
+      minEndHeight = endSize.height + 2 * sects.endThresh;
+      toFull = Math.round(minEndHeight / (1 - riley.cutoffRatio));
+      if (minEndHeight <= endHt) {
+        maybeHt = _window.height();
+        if (toFull > maybeHt) {
+          gVars.winHeight = toFull;
+        } else {
+          gVars.winHeight = _window.height();
+        }
+        endSize.padTop = Math.round((endHt - endSize.height) / 2);
+      } else {
+        gVars.winHeight = toFull;
+        endSize.padTop = sects.endThresh;
+      }
+      beginHt = Math.round(riley.cutoffRatio * gVars.winHeight);
+      _this.css({
+        "min-height": gVars.winHeight
+      });
+      _begin.css({
+        "height": Math.round(riley.cutoffRatio * gVars.winHeight)
+      });
+      return _end.css({
+        "padding-top": endSize.padTop
+      });
+    };
     makeItHappen = function(_this) {
       var offset, winHtLessOffset;
-      console.log("init for module " + moduleName);
-      footSize(_this);
+      if (Modernizr.touch === true) {
+        riley.magicFactor = riley.magicMobile;
+      }
+      makeSections(_this);
       offset = _this.offset();
       winHtLessOffset = _window.height() - offset.top;
       _window.scroll(function() {
         scrollMath(_this, winHtLessOffset);
         if (gVars.showing > 0 && loadStreaks === true) {
           loadStreaks = false;
+          makeSections(_this);
           footStreaks(gVars);
-          rileyKiss(_this, gVars);
-          return console.log("bg for footers made!");
+          rileyKiss(_this);
+          return console.log("scrolled to footsie");
         }
       });
       return _window.resize(function() {
-        footSize(_this);
+        gVars.winWidth = _window.width();
+        makeSections(_this);
         if (loadStreaks === true) {
           loadStreaks = false;
           footStreaks(gVars);
         }
-        return rileyKiss(_this, gVars);
+        return rileyKiss(_this);
       });
     };
     exports.init = function(_this) {

@@ -10,11 +10,14 @@ define (require) ->
     _window = $(window)
     gVars = 
         em: parseInt $("body").css("font-size"), 10
-        winWidth: ""
-        winHeight: ""
+        # window height is actually theoretical; if not window's height, then a height to fit content
+        winWidth: do _window.width
+        winHeight: do _window.height
         # showing > 0 if any part of the footer is showing
         showing: 0
 
+    # the golden ratio
+    phi = (1 + Math.sqrt(5)) / 2
     # execute the first and only time when user scrolls to footer
     loadStreaks = true
     # if it's size measurement, express as em values
@@ -39,37 +42,50 @@ define (require) ->
 
     streakNoise = document.createElement "canvas"
 
+    # variables for the rileyKiss background
+    riley =
+        # divide the top and lower portions of footer
+        cutoffRatio: 2 / 3
+        # space between the two shapes, EMs
+        nudge: 0.4 * gVars.em
+        # ratio of radius of circle to width of window
+        magicFactor: 1.5
+        magicMobile: 1
+
+    sects =
+        # threshold for top and bottom pads of last section of footer
+        endThresh: 2 * gVars.em
+
+
+
+
+
 
 
     # rileyKiss will create the circle fields, must be recreated at each instance of window resize
-    rileyKiss = ( _this, lVars ) ->
+    rileyKiss = ( _this ) ->
         # create the canvas
         canvas = document.createElement "canvas"
         # canvas.width = fv.bgWidth
-        canvas.width = lVars.winWidth
-        canvas.height = lVars.winHeight
-        context = canvas.getContext "2d"
+        canvas.width = gVars.winWidth
+        canvas.height = gVars.winHeight
+        context = canvas.getContext "2d"  
+        console.log "winHeight is #{gVars.winHeight}!","winWidth is #{gVars.winWidth}!"
 
-        phi = (1 + Math.sqrt(5)) / 2
-
-        cutoff = Math.round (phi - 1) * lVars.winHeight
-        cutoff = (2/3) * lVars.winHeight
+        # cutoff = Math.round (phi - 1) * gVars.winHeight
+        cutoff = riley.cutoffRatio * gVars.winHeight
         # we will have to revisit inverse cut in case the bottom portion of the footer is larger than the cut
-        inverseCut = lVars.winHeight - cutoff
-        nudge = 0.4 * gVars.em
-        magicFactor = 1.5
+        inverseCut = gVars.winHeight - cutoff
 
         arcVar = {}
-        arcVar.x = (2 - phi) * lVars.winWidth
-        arcVar.radius = magicFactor * lVars.winWidth
-        arcVar.y = 0 - arcVar.radius + cutoff - nudge
-
-
+        arcVar.x = (2 - phi) * gVars.winWidth
+        arcVar.radius = riley.magicFactor * gVars.winWidth
+        arcVar.y = 0 - arcVar.radius + cutoff - riley.nudge
 
         do context.beginPath
         context.arc arcVar.x, arcVar.y, arcVar.radius, Math.PI * 0.25, Math.PI * 0.75, false
         context.lineTo 0, cutoff
-        context.lineTo lVars.winWidth, cutoff
+        context.lineTo gVars.winWidth, cutoff
         do context.closePath
         context.fillStyle = "#FFF"
         do context.fill
@@ -139,23 +155,67 @@ define (require) ->
             i += lw
 
 
-    footSize = ( _this ) ->
-        gVars.winWidth = do _window.width
-        gVars.winHeight = do _window.height
+    # footSize = ( _this ) ->
+    #     gVars.winWidth = do _window.width
+    #     gVars.winHeight = do _window.height
 
-        _this.css
-            "min-height": Math.round gVars.winHeight * 1
+    #     _this.css
+    #         "min-height": Math.round gVars.winHeight * 1
+    #         "height":600
 
 
     scrollMath = ( _this, winHtLessOffset ) ->
         gVars.showing = _window.scrollTop() + winHtLessOffset
 
+
+
+    makeSections = ( _this ) ->
+        sections = _this.find "section"
+
+        _begin = $(sections[0])
+        _end = $(sections[sections.length - 1])
+        # theretical height of end seciton
+        endHt = (1 - riley.cutoffRatio) * gVars.winHeight
+
+        endSize = {}
+        endSize.height = Math.round _end.height()
+        minEndHeight = endSize.height + 2 * sects.endThresh
+        toFull = Math.round minEndHeight / (1 - riley.cutoffRatio)
+        # if the minimum height allowance of last section is less than given height
+        if minEndHeight <= endHt
+            maybeHt = do _window.height
+            # because makeSections activates multiple times, check if resizing to ideal height won't break it
+            if toFull > maybeHt
+                gVars.winHeight = toFull
+            else
+                gVars.winHeight = do _window.height
+            endSize.padTop = Math.round (endHt - endSize.height) / 2
+        # else resize footer to fit last section
+        else
+            gVars.winHeight = toFull
+            endSize.padTop = sects.endThresh
+
+
+        # theoretical height of beginning section
+        beginHt = Math.round riley.cutoffRatio * gVars.winHeight
+
+        _this.css
+            "min-height": gVars.winHeight
+
+        _begin.css
+            "height": Math.round riley.cutoffRatio * gVars.winHeight
+
+        _end.css
+            "padding-top": endSize.padTop
+
+
     makeItHappen = ( _this ) ->
-        console.log "init for module #{ moduleName }"
+        # console.log "init for module #{ moduleName }"
+        if Modernizr.touch is true
+            riley.magicFactor = riley.magicMobile
 
-
-        # set min-height of footer to be height of window
-        footSize _this
+        # set min-height of footer to be height of window or fit sections
+        makeSections _this
 
         # footer math isn't done until user to bottom of page
         offset = _this.offset()
@@ -165,19 +225,23 @@ define (require) ->
             scrollMath _this, winHtLessOffset
             if gVars.showing > 0 and loadStreaks is true
                 loadStreaks = false
+                # space out the sections
+                makeSections _this
                 # generate streak noise. It is resource-intensive, so this only gets done once
                 footStreaks gVars
                 # generate the riley Kiss background
-                rileyKiss _this, gVars
-                console.log "bg for footers made!"
+                rileyKiss _this
+                console.log "scrolled to footsie"
 
         _window.resize () ->
-            footSize _this
+            # footSize _this
+            gVars.winWidth = do _window.width
+            makeSections _this
             if loadStreaks is true
                 loadStreaks = false
                 footStreaks gVars
             # rileyKiss is done regardless of scrolling position because it must fit the window dimensions
-            rileyKiss _this, gVars
+            rileyKiss _this
 
 
 
