@@ -169,6 +169,33 @@ pre {
 .double_stack > div:last-child > * {
 	margin-left: 1em;
 }
+/* creates a row of links with text, pulls from a single sprite file */
+
+.social_fu li {
+	list-style-type: none;
+	float: left;
+	font-size: 1em;
+	height: 4em;
+	margin: 0 1em 0 0;
+	background-image: url(../img/social_sprites.png);
+	background-size: 4em 80em;
+	background-repeat: no-repeat;
+}
+.social_fu li:last-of-type {
+	margin-right: 0;
+}
+.social_fu li > span {
+	display: block;
+	height: 3em;
+	padding: 0.7em 0 0 4.2em;
+}
+.social_fu li > span > * {
+	font-size: 1.6em;
+	line-height: 1em;
+}
+.social_fu li:hover {
+	cursor: pointer;
+}
 /* --------------------------- */
 /* End Shared Classes -------- */
 
@@ -208,43 +235,18 @@ pre {
 #head_menu .social_fu {
 	height: 4em;
 }
-.social_fu li {
-	list-style-type: none;
-	float: left;
-	font-size: 1em;
-	height: 4em;
-	margin: 0 1em 0 0;
-	background-image: url(../img/social_sprites.png);
-	background-size: 4em 80em;
-	background-repeat: no-repeat;
-}
-.social_fu li:last-of-type {
-	margin-right: 0;
-}
-.social_fu li > span {
-	display: block;
-	height: 3em;
-	padding: 0.7em 0 0 4.2em;
-}
-.social_fu li > span > * {
-	font-size: 1.5em;
-	line-height: 1em;
-}
 #head_menu li:nth-child(1) {background-position: 0em -28em;}
 #head_menu li:nth-child(2) {background-position: 0em -32em;}
 #head_menu li:nth-child(3) {background-position: 0em -24em;}
 #head_menu li:nth-child(4) {background-position: 0em -20em;}
 
-.social_fu li:hover {
-	cursor: pointer;
-}
 #head_menu li:hover:nth-child(1) {background-position: 0em -68em;}
 #head_menu li:hover:nth-child(2) {background-position: 0em -72em;}
 #head_menu li:hover:nth-child(3) {background-position: 0em -64em;}
 #head_menu li:hover:nth-child(4) {background-position: 0em -60em;
 	cursor: default;
 }
-.social_fu li:hover a {
+#head_menu li:hover a {
 	color: #8C043D;
 	text-decoration: underline;
 }
@@ -684,10 +686,6 @@ pre {
 	display: block;
 	height: 3.6em;
 	padding: 0.8em 0 0 5.4em;
-}
-#foot_links .social_fu li > span > * {
-	font-size: 1.6em;
-	line-height: 1em;
 }
 #foot_links li:nth-child(1) {background-position: 0em -50em;}
 #foot_links li:nth-child(2) {background-position: 0em -55em;}

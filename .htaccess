@@ -1,3 +1,5 @@
+# maybe add these http://www.queness.com/post/5421/17-useful-htaccess-tricks-and-tips
+
 #404 page
 ErrorDocument 404 /error/404.html
 
@@ -8,6 +10,9 @@ AddType font/ttf .ttf
 AddType font/otf .otf
 AddType application/x-font-woff .woff
 AddType application/rdf+xml .rdf
+
+Content-Type: application/rdf+xml
+Content-Disposition: inline; apps/hrt/xml/foaf.rdf
 
 
 # Add the following headers to every response  
