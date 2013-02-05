@@ -11,8 +11,6 @@ AddType font/otf .otf
 AddType application/x-font-woff .woff
 AddType application/rdf+xml .rdf
 
-Content-Type: application/rdf+xml
-Content-Disposition: inline; apps/hrt/xml/foaf.rdf
 
 
 # Add the following headers to every response  
