@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html version="HTML+RDFa 1.1" lang="en" dir="ltr" xml:lang="en"
-prefix:og="http://ogp.me/ns#"
-prefix:fb="http://ogp.me/ns/fb#"
-prefix:foaf="http://xmlns.com/foaf/0.1/"
-prefix:dc="http://purl.org/dc/terms/"
-prefix:v="http://rdf.data-vocabulary.org/#"
-prefix:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
+prefix="og: http://ogp.me/ns#
+fb: http://ogp.me/ns/fb#
+foaf: http://xmlns.com/foaf/0.1/
+dc: http://purl.org/dc/terms/
+v: http://rdf.data-vocabulary.org/#
+owl: http://www.w3.org/2002/07/owl#">
 <head>
     <title property="dc:title">Here, Read This</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -96,7 +96,7 @@ prefix:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
                 <span property="v:locality" content="Washington"></span>
                 <span property="v:region">DC</span>
             </span> metro area.
-            <span typeof="foaf:based_near" resource="#/me/">
+            <span typeof="foaf:based_near" resource="#/me/" prefix="geo: http://www.w3.org/2003/01/geo/wgs84_pos#">
                 <span property="geo:point">
                     <span property="geo:lat" content="38.886757"></span>
                     <span property="geo:long" content="-77.041626"></span>
@@ -112,7 +112,7 @@ prefix:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
 
         <p>My favorite team is the Baltimore Orioles. My favorite drink is an extra-dry gin martini with a twist (stirred!) and my favorite soda is Diet Coke. My favorite movie is <cite>The Good, the Bad, and the Ugly.</cite> My favorite song is <cite>Sinnerman</cite> by Nina Simone. I like to eat Vietnamese food and Life Cereal, but not at the same time.</p>
     </section>
-
+    
     <nav id="head_menu">
         <h3>Explore Here, Read This</h3>
         <ul class="social_fu">
@@ -539,8 +539,8 @@ for row, index in myArray
                     alt="Creative Commons License"
                     src="/apps/hrt/img/cc_by-sa.png" width="100%" /></a>
             <small class="gill_sans">Except where otherwise noted,
-                <span prefix:dct="http://purl.org/dc/terms/" property="dct:title">Here, Read This</span> by
-                <a prefix:cc="http://creativecommons.org/ns#" href="http://herereadthis.com/" property="cc:attributionName" rel="cc:attributionURL">Jimmy Ha</a> is licensed under a
+                <span property="dc:title">Here, Read This</span> by
+                <a prefix="cc: http://creativecommons.org/ns#" href="http://herereadthis.com/" property="cc:attributionName" rel="cc:attributionURL">Jimmy Ha</a> is licensed under a
                 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</small></p>
     </section>
 </footer>
@@ -565,8 +565,8 @@ RDFa:
 
     All prefixes on this site, either in HTML or body:
         Creative Commmons:      cc="http://creativecommons.org/ns#"
-        Dublin Core Elements:   dc="http://purl.org/dc/elements/1.1/"
-        Dublin Core Terms:      dct="http://purl.org/dc/terms/"
+        Dublin Core Terms:      dc="http://purl.org/dc/terms/"
+        DCMI Types:             dcmitype="http://purl.org/dc/dcmitype/"
         Geo Spatial:            geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
         Facebook:               fb="http://ogp.me/ns/fb#"
         Friend of a Friend:     foaf="http://xmlns.com/foaf/0.1/"
@@ -574,12 +574,15 @@ RDFa:
         Open Graph music:       og="http://ogp.me/ns/music#"
         Vcard:                  v="http://rdf.data-vocabulary.org/#"
         Bibliographic:          bibo="http://purl.org/ontology/bibo/" reference: http://uri.gbv.de/ontology/bibo/
+        W3 Ontology Language:   owl="http://www.w3.org/2002/07/owl#"
 
     DEBUG: http://rdfa.info/play/
     Watch RDF dance at: http://www.visualdataweb.org/relfinder/relfinder.php
     Good Ontologies: http://www.w3.org/wiki/Good_Ontologies
     Test with Google Rich Snippets: http://www.google.com/webmasters/tools/richsnippets
     W3C pyRDFa XML extraction: http://www.w3.org/2012/pyRdfa/extract?format=xml&uri=http://example.com/
+    Validate RDF: http://www.w3.org/RDF/Validator/
+    Convert RDF XML to TURTLE: http://www.rdfabout.com/demo/validator/index.xpd
 
 Icons:
     Online favicon generation: http://convertico.com
