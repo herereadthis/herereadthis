@@ -94,6 +94,7 @@
 	}
 	#foot_links li {
 		width: 20%;
+		margin: 0;
 	}
 	#foot_links ul a {
 		margin: 0 auto;
@@ -151,6 +152,7 @@
 	}
 	#foot_links li {
 		width: 20%;
+		margin: 0;
 	}
 }
 @media all and (min-width: 1025px) and (max-width: 1100px) {

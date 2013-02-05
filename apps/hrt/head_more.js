@@ -2,30 +2,52 @@
 (function() {
 
   define(function(require) {
-    var $, Modernizr, NextArrow, ResizeFu, em, exports, gVars, makeItHappen, makeSocialClick, moduleName, _window;
+    var $, Modernizr, NextArrow, ResizeFu, em, exports, gVars, makeItHappen, makeNavClick, moduleName, _window;
     $ = require("jquery");
     Modernizr = require("Modernizr");
     NextArrow = require("next_arrow");
     ResizeFu = require("resize_fu");
     NextArrow = require("next_arrow");
     exports = {};
-    gVars = {};
+    gVars = {
+      scrollSpeed: 0.4,
+      logFactor: 1.8
+    };
     moduleName = "head_more";
     em = parseInt($("body").css("font-size"), 10);
     _window = $(window);
-    makeSocialClick = function(_this) {
+    makeNavClick = function(_this) {
       return _this.on("click", "li", function(e) {
-        var href, _links;
+        var aniSpeed, artOffTop, articleOffset, distance, getID, href, id, voodoo, _links;
+        e.preventDefault();
         _links = $(this).find("a");
         if (_links.length === 1) {
           href = _links.attr("href");
-          return window.location.href = href;
+          getID = href.split("/");
+          window.location.href = href;
+          if (getID[1] !== "") {
+            id = "#" + getID[1];
+            articleOffset = $(id).offset();
+            artOffTop = articleOffset.top;
+            if ($(id).data("nudge-top") != null) {
+              artOffTop += parseInt($(id).data("nudge-top"));
+            }
+            distance = artOffTop - _window.scrollTop();
+            voodoo = Math.log(gVars.logFactor * ($(document).height() / distance));
+            if (voodoo < 1) {
+              voodoo = 1;
+            }
+            aniSpeed = Math.round(distance * voodoo / (1 / gVars.scrollSpeed));
+            return $("html,body").animate({
+              scrollTop: artOffTop
+            }, aniSpeed);
+          }
         }
       });
     };
     makeItHappen = function(_this) {
       ResizeFu.init(_this);
-      makeSocialClick(_this.find("aside"));
+      makeNavClick(_this.find("nav"));
       return NextArrow.init(_this);
     };
     exports.init = function(_this) {

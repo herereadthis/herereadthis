@@ -113,55 +113,27 @@ prefix:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
         <p>My favorite team is the Baltimore Orioles. My favorite drink is an extra-dry gin martini with a twist (stirred!) and my favorite soda is Diet Coke. My favorite movie is <cite>The Good, the Bad, and the Ugly.</cite> My favorite song is <cite>Sinnerman</cite> by Nina Simone. I like to eat Vietnamese food and Life Cereal, but not at the same time.</p>
     </section>
 
-    <aside resource="#/me/" id="head_soc">
-        <h3>My Social Links</h3>
-        <ul>
-            <li typeof="foaf:account">
-                <span property="foaf:OnlineAccount" content="Facebook">
-                    <span rel="foaf:accountServiceHomepage" href="https://www.facebook.com/">Facebook</span><br />
-                    <a href="https://www.facebook.com/herereadthis"
-                        property="foaf:accountName" rel="#/me/">herereadthis</a>
-                </span>
+    <nav id="head_menu">
+        <h3>Explore Here, Read This</h3>
+        <ul class="social_fu">
+            <li><span><a href="#/photos/" title="Photography Collection">Photo<br />Collection</a></span>
             </li>
-            <li typeof="foaf:account">
-                <span property="foaf:OnlineAccount" content="Twitter">
-                    <span rel="foaf:accountServiceHomepage" href="https://twitter.com/">Twitter</span><br />
-                    <a href="http://twitter.com/herereadthis"
-                        property="foaf:accountName" content="herereadthis" rel="#/me/">@herereadthis</a>
-                </span>
+            <li><span><a href="#/coding/" title="asdf">Coding &amp;<br />Contributing</a></span>
             </li>
-            <li typeof="foaf:account" rel="#/me/">
-                <span property="foaf:OnlineAccount" content="Flickr">
-                    <span rel="foaf:accountServiceHomepage" href="http://www.flickr.com/">Flickr</span><br />
-                    <a href="http://www.flickr.com/photos/applesanity/"
-                        property="foaf:accountName" rel="#/me/">applesanity</a>
-                </span>
-            </li>
-            <li typeof="foaf:account">
-                <span property="foaf:OnlineAccount" content="Github">
-                    <span rel="foaf:accountServiceHomepage" href="https://github.com/">Github</span><br />
-                    <a href="https://github.com/herereadthis"
-                        property="foaf:accountName" rel="#/me/">herereadthis</a>
-                </span>
-            </li>
-            <li typeof="foaf:account">
-                <span property="foaf:OnlineAccount" content="Pinterest">
-                    <span rel="foaf:accountServiceHomepage" href="http://pinterest.com/">Pinterest</span><br />
-                    <a href="http://pinterest.com/herereadthis/"
-                        property="foaf:accountName" rel="#/me/">herereadthis</a>
-                </span>
+            <li><span><a href="#/contact/" title="asdf">Contact<br />Information</a></span>
             </li>
             <li>
-                <span>
-                    <span>Résumé</span><br />
+                <span><span>Résumé</span><br />
                     <a href="/resume/" rel="#/me/">.HTML</a> <span>|</span>
                     <a href="/resume/resume.pdf" rel="#/me/">.PDF</a>
                 </span>
             </li>
         </ul>
-    </aside> 
+    </nav> 
 </header>
 
+
+</header>
 
 <article id="photos" data-module="photo_spice">
     <h2>Photos</h2>
@@ -461,7 +433,7 @@ for row, index in myArray
 </article>
 
 
-<footer role="contentinfo" data-module="footsie" class="gill_sans">
+<footer role="contentinfo" data-module="footsie" data-nudge-top="10" class="gill_sans" id="contact">
     <section id="foot_inspire">
         <h3>Site &amp; Art Inspiration</h3>
         <p><span resource="#/footer/midnight_blue/" typeof="dcmitype:image">
@@ -496,25 +468,70 @@ for row, index in myArray
     </section>
     <section id="foot_contact">
         <h3>Contact Info</h3>
+        <!-- http://blog.qr4.nl/QR-Code-vCard.aspx -->
+        <!-- http://www.the2dcode.com/qr-code-generator -->
         <!-- hex coding for obfuscation: http://www.ascii.cl/htmlcodes.htm -->
-        <p>&#x45;&#x6D;&#x61;&#x69;&#x6C;&#x3A;
-            &#x6E;&#x6F;&#x77;&#x40;&#x68;&#x65;&#x72;&#x65;&#x72;&#x65;&#x61;&#x64;&#x74;&#x68;&#x69;&#x73;&#x2E;&#x63;&#x6F;&#x6D;</p>
+        <p data-module="obfuscate" data-obfuscate-subject="Re: Here, Read This Site">&#x6E;&#x6F;&#x77;&#x40;&#x68;&#x65;&#x72;&#x65;&#x72;&#x65;&#x61;&#x64;&#x74;&#x68;&#x69;&#x73;&#x2E;&#x63;&#x6F;&#x6D;</p>
         <p>Based: Falls Church, VA, USA</p>
-        <p>Twitter: <a href="https://twitter.com/herereadthis" title="Follow Here, Read This on Twitter">@herereadthis</a></p>
-        <p>&#x53;&#x6B;&#x79;&#x70;&#x65;&#x3A;
-            &#x68;&#x65;&#x72;&#x65;&#x72;&#x65;&#x61;&#x64;&#x74;&#x68;&#x69;&#x73;</p>
         <p>FOAF/Friend-of-a-Friend: <a href="/apps/hrt/xml/foaf.rdf" title="FOAF File (RDF)">RDF</a></p>
+        <p>Twitter: <a href="https://twitter.com/herereadthis" title="Follow Here, Read This on Twitter">@herereadthis</a></p>
+        <p>Profiles: <a href="https://www.facebook.com/herereadthis">Facebook</a> |
+            <a href="https://plus.google.com/113505279995940079003?rel=author">Google+</a></p>
+
+        <p>For site updates and useful news on web development and baking:</p>
+        <!--<p>&#x53;&#x6B;&#x79;&#x70;&#x65;&#x3A;
+            &#x68;&#x65;&#x72;&#x65;&#x72;&#x65;&#x61;&#x64;&#x74;&#x68;&#x69;&#x73;</p>-->
+        <p>Facebook: <a href="https://www.facebook.com/HereReadThisPage">HereReadThisPage</a></p>
+        <p>Google+ Page: <a href="https://plus.google.com/110556642392047316226/?rel=publisher">Here, Read This</a></p>
 
 
     </section>
     <section id="foot_links">
-        <ul>
+
+        <ul class="social_fu">
+            <li typeof="foaf:account">
+                <span property="foaf:OnlineAccount" content="Facebook">
+                    <span rel="foaf:accountServiceHomepage" href="https://www.facebook.com/">Facebook</span><br />
+                    <a href="https://www.facebook.com/herereadthis"
+                        property="foaf:accountName" rel="#/me/">herereadthis</a>
+                </span>
+            </li>
+            <li typeof="foaf:account">
+                <span property="foaf:OnlineAccount" content="Twitter">
+                    <span rel="foaf:accountServiceHomepage" href="https://twitter.com/">Twitter</span><br />
+                    <a href="http://twitter.com/herereadthis"
+                        property="foaf:accountName" content="herereadthis" rel="#/me/">@herereadthis</a>
+                </span>
+            </li>
+            <li typeof="foaf:account" rel="#/me/">
+                <span property="foaf:OnlineAccount" content="Flickr">
+                    <span rel="foaf:accountServiceHomepage" href="http://www.flickr.com/">Flickr</span><br />
+                    <a href="http://www.flickr.com/photos/applesanity/"
+                        property="foaf:accountName" rel="#/me/">applesanity</a>
+                </span>
+            </li>
+            <li typeof="foaf:account">
+                <span property="foaf:OnlineAccount" content="Github">
+                    <span rel="foaf:accountServiceHomepage" href="https://github.com/">Github</span><br />
+                    <a href="https://github.com/herereadthis"
+                        property="foaf:accountName" rel="#/me/">herereadthis</a>
+                </span>
+            </li>
+            <li typeof="foaf:account">
+                <span property="foaf:OnlineAccount" content="Pinterest">
+                    <span rel="foaf:accountServiceHomepage" href="http://pinterest.com/">Pinterest</span><br />
+                    <a href="http://pinterest.com/herereadthis/"
+                        property="foaf:accountName" rel="#/me/">herereadthis</a>
+                </span>
+            </li>
+        </ul>
+<!--         <ul>
             <li><a href="https://www.facebook.com/herereadthis" title="Facebook | herereadthis">Facebook</a></li>
             <li><a href="http://twitter.com/herereadthis" title="Twitter | herereadthis">Twitter</a></li>
             <li><a href="http://www.flickr.com/photos/applesanity/" title="Flickr | applesanity">Flickr</a></li>
             <li><a href="https://github.com/herereadthis" title="Github | herereadthis">Github</a></li>
             <li><a href="http://pinterest.com/herereadthis/" title="Pinterest | herereadthis">Pinterest</a></li>
-        </ul>
+        </ul> -->
         <h3 class="gill_sans">Here, Read This</h3>
         <!-- CC license discovery: http://wiki.creativecommons.org/RDFa -->
         <p class="creative_commons_license" resource="#copyright"><a rel="license" class="creative_commons_image"

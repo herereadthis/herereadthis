@@ -208,9 +208,41 @@ define (require) ->
         _end.css
             "padding-top": endSize.padTop
 
+    # creates a mail to ref client side, based on data attributes
+    obfuscate = ( _this ) ->
+        _mail = _this.find $("[data-module=\"obfuscate\"]")
+        address = _mail.html()
+        subject = _mail.data "obfuscate-subject"
+        href = "mailto:#{ address }?subject=#{ subject }"
+        # obsArray = []
+        # for i, k in href
+        #     obsArray.push "&#x#{ i.charCodeAt().toString(16) };"\
+        # href = obsArray.join("")
+        _mail.wrapInner("<a />")
+        _mail.find("a").before("Email: ").attr
+            "href": href
+
+
+
+
+    # adds a little more intuitive action for user: the link acts for the whole list item
+    # E.G. <li>lorem ipsum <a href="/foo">sit dolar</a> amet</li>,
+    # if user clicks on lorem ipsum, is redirected to "/foo"
+    makeSocialClick = ( _this ) ->
+        _this.on "click","li", (e) ->
+            _links = $(@).find "a"
+            # only works if there is only one link in the list item
+            if _links.length is 1
+                href = _links.attr "href"
+                window.location.href = href
+
+
 
     makeItHappen = ( _this ) ->
         # console.log "init for module #{ moduleName }"
+        # make the email:
+        obfuscate _this
+        makeSocialClick _this.find ".social_fu"
         if Modernizr.touch is true
             riley.magicFactor = riley.magicMobile
 

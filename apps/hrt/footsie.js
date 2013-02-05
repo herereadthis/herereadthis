@@ -2,7 +2,7 @@
 (function() {
 
   define(function(require) {
-    var $, Modernizr, exports, footStreaks, gVars, loadStreaks, makeItHappen, makeSections, moduleName, phi, riley, rileyKiss, scrollMath, sects, streak, streakNoise, _window;
+    var $, Modernizr, exports, footStreaks, gVars, loadStreaks, makeItHappen, makeSections, makeSocialClick, moduleName, obfuscate, phi, riley, rileyKiss, scrollMath, sects, streak, streakNoise, _window;
     $ = require("jquery");
     Modernizr = require("Modernizr");
     exports = {};
@@ -138,8 +138,31 @@
         "padding-top": endSize.padTop
       });
     };
+    obfuscate = function(_this) {
+      var address, href, subject, _mail;
+      _mail = _this.find($("[data-module=\"obfuscate\"]"));
+      address = _mail.html();
+      subject = _mail.data("obfuscate-subject");
+      href = "mailto:" + address + "?subject=" + subject;
+      _mail.wrapInner("<a />");
+      return _mail.find("a").before("Email: ").attr({
+        "href": href
+      });
+    };
+    makeSocialClick = function(_this) {
+      return _this.on("click", "li", function(e) {
+        var href, _links;
+        _links = $(this).find("a");
+        if (_links.length === 1) {
+          href = _links.attr("href");
+          return window.location.href = href;
+        }
+      });
+    };
     makeItHappen = function(_this) {
       var offset, winHtLessOffset;
+      obfuscate(_this);
+      makeSocialClick(_this.find(".social_fu"));
       if (Modernizr.touch === true) {
         riley.magicFactor = riley.magicMobile;
       }
