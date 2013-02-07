@@ -667,7 +667,6 @@ body > #coding {
 	padding-bottom: 0;
 	font-size: 1.6em;
 	line-height: 1.25em;
-	/*font-family: "Gill Sans,", "gillsans_light", sans-serif;*/
 }
 [role="contentinfo"] h3 {
 	font-size: 3em;
@@ -733,10 +732,10 @@ body > #coding {
 #foot_contact .rsa_pub_key a {
 	display: block;
 	position: absolute;
-	text-align: right;
+	top: 0.3125em;
 	right: 0.6em;
 	font-size: 1.6em;
-	top: 0.3125em;
+	text-align: right;
 	cursor: pointer;
 }
 #foot_links {
@@ -757,11 +756,9 @@ body > #coding {
 	background-size: 5em 100em;
 }
 #foot_links .social_fu li > span {
-	display: block;
 	padding: 0.5em 0 0 3.375em;
 }
 #foot_links .social_fu li > a {
-	display: block;
 	padding-left: 3.375em;
 }
 #foot_links li:nth-child(1) {background-position: 0em -50em;}

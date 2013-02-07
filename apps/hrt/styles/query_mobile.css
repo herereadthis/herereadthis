@@ -149,9 +149,6 @@
 	#design_modern section > *:last-child {
 		padding-bottom: 1em;
 	}
-	header, article {
-		display: none;
-	}
 	[role="contentinfo"] section {
 		width: auto !important;
 		margin: 0 auto !important;

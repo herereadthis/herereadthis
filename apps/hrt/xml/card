@@ -1,0 +1,78 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix cert: <http://www.w3.org/ns/auth/cert#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
+@prefix admin: <http://webns.net/mvcb/>.
+@prefix v: <http://rdf.data-vocabulary.org/#>.
+<http://herereadthis.com/apps/hrt/xml/foaf#me> a foaf:Person;
+	rdfs:seeAlso <http://dbpedia.org/resource/Washington_Metropolitan_Area>;
+	= <http://my.opera.com/herereadthis/xml/foaf#me>;
+	cert:key _:bnode1098674368;
+	foaf:account _:bnode2066645120,
+		_:bnode1257511488,
+		_:bnode883998208,
+		_:bnode510484928,
+		_:bnode298648704,
+		_:bnode672161984,
+		_:bnode1045675264,
+		_:bnode1854808896;
+	foaf:based_near <http://dbpedia.org/page/Washington,_D.C.>,
+		_:bnode206441024;
+	foaf:depiction <http://herereadthis.com/static/img/jimmy_ha_photo.jpg>;
+	foaf:family_name "Ha";
+	foaf:gender "male";
+	foaf:givenname "James";
+	foaf:homepage <http://herereadthis.com/>;
+	foaf:mbox_sha1sum "18a317f6f440031002a2db147937d6e57f3fb859";
+	foaf:name "James Ha";
+	foaf:nick "Jimmy";
+	foaf:title "Mr";
+	foaf:topic_interest "baking",
+		"gardening",
+		"kyudo",
+		"photography".
+<http://herereadthis.com/apps/hrt/xml/card> admin:errorReportsTo <mailto:leigh@ldodds.com>;
+	admin:generatorAgent <http://www.ldodds.com/foaf/foaf-a-matic>;
+	a foaf:PersonalProfileDocument;
+	foaf:maker <http://herereadthis.com/apps/hrt/xml/foaf#me>;
+	foaf:primaryTopic <http://herereadthis.com/apps/hrt/xml/foaf#me>.
+_:bnode1045675264 a foaf:OnlineAccount;
+	foaf:accountName "herereadthis";
+	foaf:accountServiceHomepage <http://www.typophile.com/>;
+	foaf:homepage <http://typophile.com/user/207490>.
+_:bnode1098674368 a cert:RSAPublicKey;
+	cert:exponent 65537;
+	cert:modulus "a2f4cc49f8b196e5e73b84bd58d9cf345012d1b5fce42eaed428517517b306c14fad67a2c79fb56a70bebb1ce24bc1d912dd100f09e9d5d89320a7146ba44da4f057158482e592d055286e9d536c86dbb3aa193776a8834d6bf8dfacfad24b71e9adf4a90d084e2ce27448146fd74fbb1e7f2c2867cf45c7a3527a820a7b1ede45d5306cacd1b5a9f6b65b88ab87d4ca3e6ccdcb41d87f4d4e1b3bcfa01ace9f2a2cdc001d358cbe1f012d3d1e4919ad20c3ec4295a40399202a410f6f40276fb52d888d1748964e9cd535af6e50c1577c2c3ddaf2ae3862b0aa91dbfa664798e71a333ffcc6568bfe717e121d6589e5bc01a44a5121745dfc46fe2dd986b53b"^^<http://www.w3.org/2001/XMLSchema#hexBinary>.
+_:bnode1257511488 a foaf:OnlineAccount;
+	foaf:accountName "herereadthis";
+	foaf:accountServiceHomepage <https://delicious.com/>;
+	foaf:homepage <https://delicious.com/herereadthis>.
+_:bnode1854808896 a foaf:OnlineAccount;
+	foaf:accountName "applesanity";
+	foaf:accountServiceHomepage <http://www.flickr.com/>;
+	foaf:homepage <http://www.flickr.com/photos/applesanity>.
+_:bnode206441024 a geo:point;
+	geo:lat "38.886757";
+	geo:long "-77.041626".
+_:bnode2066645120 a foaf:OnlineAccount;
+	foaf:accountName "herereadthis";
+	foaf:accountServiceHomepage <http://www.reddit.com/>;
+	foaf:homepage <http://www.reddit.com/user/herereadthis>.
+_:bnode298648704 a foaf:OnlineAccount;
+	foaf:accountName "herereadthis";
+	foaf:accountServiceHomepage <https://www.facebook.com/>;
+	foaf:homepage <https://www.facebook.com/herereadthis>.
+_:bnode510484928 a foaf:OnlineAccount;
+	foaf:accountName "herereadthis";
+	foaf:accountServiceHomepage <https://twitter.com/>;
+	foaf:homepage <https://twitter.com/herereadthis>.
+_:bnode672161984 a foaf:OnlineAccount;
+	foaf:accountName "herereadthis";
+	foaf:accountServiceHomepage <http://pinterest.com/>;
+	foaf:homepage <http://pinterest.com/herereadthis/>.
+_:bnode883998208 a foaf:OnlineAccount;
+	foaf:accountName "herereadthis";
+	foaf:accountServiceHomepage <https://github.com/>;
+	foaf:homepage <https://github.com/herereadthis>.
