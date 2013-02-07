@@ -10,6 +10,7 @@ AddType font/ttf .ttf
 AddType font/otf .otf
 AddType application/x-font-woff .woff
 AddType application/rdf+xml .rdf
+AddType application/ld+json .json
 
 
 

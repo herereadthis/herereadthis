@@ -54,7 +54,9 @@ define (require) ->
 
     sects =
         # threshold for top and bottom pads of last section of footer
-        endThresh: 2 * gVars.em
+        endThresh: 4 * gVars.em
+        # popups, time in milliseconds to fade in or out
+        windowFade: 300
 
 
 
@@ -216,10 +218,10 @@ define (require) ->
         href = "mailto:#{ address }?subject=#{ subject }"
         # obsArray = []
         # for i, k in href
-        #     obsArray.push "&#x#{ i.charCodeAt().toString(16) };"\
+        #     obsArray.push "&#x#{ i.charCodeAt().toString(16) };"
         # href = obsArray.join("")
         _mail.wrapInner("<a />")
-        _mail.find("a").before("Email: ").attr
+        _mail.find("a").attr
             "href": href
 
 
@@ -237,12 +239,50 @@ define (require) ->
                 window.location.href = href
 
 
+    rsaDisplay = ( e, $rpk ) ->
+        do e.preventDefault
+        if $rpk.attr("aria-expanded") is "false"
+            $rpk.fadeIn sects.windowFade, () ->
+                $rpk.attr "aria-expanded", true
+        else
+            $rpk.fadeOut sects.windowFade, () ->
+                $rpk.attr "aria-expanded", false
+
+    rsaPublic = ( $this ) ->
+        $this.wrapInner $("<a />").attr
+            "href":""
+        modulus = $this.attr "content"
+        exponent = $this.next().html()
+        $section = $this.closest "section"
+        modArray = []
+        cutKey = modulus
+        while cutKey.length > 0
+            modArray.push cutKey.substring(0,32)
+            cutKey = cutKey.substring(32)
+        modOut = modArray.join("<br />")
+        
+        $section.append $("<div />").attr
+            "class": "rsa_pub_key"
+            "aria-expanded": false
+        $rpk = $section.find ".rsa_pub_key"
+        $rpk.append $("<a />").html("close [X]").attr
+            "href":""
+            "title": "Close Window"
+        $rpk.append($("<code />").html("Modulus (Hexadecimal):")).append($("<br />"))
+        $rpk.append($("<code />").html(modOut)).append($("<br />"))
+        $rpk.append($("<code />").html("Exponent (Decimal): #{ exponent }"))
+
+        $this.on "click", "a", (e) ->
+            rsaDisplay e, $rpk
+
+        $rpk.on "click", "a", (e) ->
+            rsaDisplay e, $rpk
+
 
     makeItHappen = ( _this ) ->
         # console.log "init for module #{ moduleName }"
         # make the email:
         obfuscate _this
-        makeSocialClick _this.find ".social_fu"
         if Modernizr.touch is true
             riley.magicFactor = riley.magicMobile
 
@@ -257,6 +297,10 @@ define (require) ->
             scrollMath _this, winHtLessOffset
             if gVars.showing > 0 and loadStreaks is true
                 loadStreaks = false
+                # create the RSA public key window
+                rsaPublic _this.find $('[property="cert:modulus"]')
+                # make the social links behaviors
+                makeSocialClick _this.find ".social_fu"
                 # space out the sections
                 makeSections _this
                 # generate streak noise. It is resource-intensive, so this only gets done once

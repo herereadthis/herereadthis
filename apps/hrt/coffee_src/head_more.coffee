@@ -5,7 +5,6 @@ define (require) ->
     NextArrow = require "next_arrow"
     ResizeFu = require "resize_fu"
     NextArrow = require "next_arrow"
-    # NextArrow = require "next_arrow"
     exports = {}
     gVars =
         # rate is based on distance traveled: set how many pixels traveled per millisecond

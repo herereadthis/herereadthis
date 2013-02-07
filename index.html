@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html version="HTML+RDFa 1.1" lang="en" dir="ltr" xml:lang="en"
+<html lang="en" dir="ltr" xml:lang="en"
 prefix="og: http://ogp.me/ns#
 fb: http://ogp.me/ns/fb#
 foaf: http://xmlns.com/foaf/0.1/
@@ -21,8 +21,8 @@ owl: http://www.w3.org/2002/07/owl#">
     <meta property="dc:created" content="2012-12-12" />
     <meta property="dc:language" content="en-US" />
 <!-- Open Graph RDFa -->
-    <meta name="title" property="og:title" content="Here, Read This" />
-    <meta name="description" property="og:description" content="A website by Jimmy Ha about design: typography, Modernism, and web development; and interests: photography, gardening, and baking." />
+    <meta property="og:title" content="Here, Read This" />
+    <meta property="og:description" name="description" content="A website by Jimmy Ha about design: typography, Modernism, and web development; and interests: photography, gardening, and baking." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://herereadthis.com/" />
     <meta property="og:image" content="http://herereadthis.com/static/img/herereadthis_fb.jpg" />
@@ -55,7 +55,7 @@ owl: http://www.w3.org/2002/07/owl#">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apps/hrt/img/logo_icon_iphone_retina.png" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apps/hrt/img/logo_icon_ipad_retina.png" />
 <!-- Friend of a Friend FOAF -->
-    <link rel="meta" type="application/rdf+xml" title="FOAF" href="http://herereadthis.com/apps/hrt/xml/foaf.rdf" />
+    <link rel="foaf:primaryTopic" type="application/rdf+xml" title="FOAF" href="http://herereadthis.com/apps/hrt/xml/foaf.rdf" />
 <!-- Google Plus Verification -->
     <link href="https://plus.google.com/113505279995940079003" rel="author" />
     <link href="https://plus.google.com/110556642392047316226" rel="publisher" />
@@ -83,31 +83,32 @@ owl: http://www.w3.org/2002/07/owl#">
     -->
     <h1 class="font_no_calt_no_swsh">Here, Read This</h1>
 
-    <section  typeof="v:Person foaf:Person" resource="#/me/">
-        <h3>My Name is Jimmy Ha
-            <span property="v:name foaf:name" content="Jimmy Ha"></span>
-            <span property="v:nickname foaf:nick" content="Jimmy"></span>
-            <span property="v:given-name foaf:givenname" content="Jimmy"></span>
-            <span property="v:family-name foaf:family_name" content="Ha"></span>
-            <span property="v:logo foaf:logo" content="http://herereadthis.com/apps/hrt/img/herereadthis_logo.svg"></span>
+    <section typeof="foaf:Person v:Person" resource="#/me/">
+        <h3>My Name is
+            <span property="foaf:name v:name">
+                <span property="foaf:nick v:nickname">Jimmy</span>
+                <span property="foaf:family_name v:family-name">Ha</span>
+            </span>
+            <span property="foaf:givenname v:given-name" content="Jimmy"></span>
+            <span property="foaf:logo v:logo" content="http://herereadthis.com/apps/hrt/img/herereadthis_logo.svg"></span>
         </h3>
-        <p>I <span property="v:title" content="UX Web Developer">make web pages</span> <span href="http://herereadthis.com/" rel="v:url foaf:homepage" content="http://herereadthis.com/"></span> and specialize in user interface development and Django frameworks. I live and play in the
-            <span typeof="v:Address" resource="#/me/">
+        <p>I 
+            <span property="v:title" content="UX Web Developer">make web pages</span>
+            <span resource="http://herereadthis.com/" property="v:url foaf:homepage"></span> and specialize in user interface development and Django frameworks. I live and play in the
+            <span property="v:Postal" resource="#/me/address/" typeof="v:Address">
                 <span property="v:locality" content="Washington"></span>
                 <span property="v:region">DC</span>
             </span> metro area.
-            <span typeof="foaf:based_near" resource="#/me/" prefix="geo: http://www.w3.org/2003/01/geo/wgs84_pos#">
-                <span property="geo:point">
-                    <span property="geo:lat" content="38.886757"></span>
-                    <span property="geo:long" content="-77.041626"></span>
-                </span>
+            <span property="foaf:based_near" resource="#/me/geo/" typeof="geo:point" prefix="geo: http://www.w3.org/2003/01/geo/wgs84_pos#">
+                <span property="geo:lat" content="38.886757"></span>
+                <span property="geo:long" content="-77.041626"></span>
             </span>
             I do 
             <span property="foaf:topic_interest">photography</span> with a Hasselblad camera, 
             <span property="foaf:topic_interest" content="gardening">grow roses</span>, 
             <span property="foaf:topic_interest" content="baking">bake pastries</span>, 
-            dance at <span property="foaf:topic_interest" content="Burning Man">Burner parties</span>, and
-            <span property="foaf:topic_interest" content="kyudo">practice kyudo</span>.
+            dance at <span property="foaf:topic_interest" content="Burning Man">Burner parties</span>,
+            and practice <span property="foaf:topic_interest">Kyudo</span>.
             I am guilty of putting Sriracha on everything.</p>
 
         <p>My favorite team is the Baltimore Orioles. My favorite drink is an extra-dry gin martini with a twist (stirred!) and my favorite soda is Diet Coke. My favorite movie is <cite>The Good, the Bad, and the Ugly.</cite> My favorite song is <cite>Sinnerman</cite> by Nina Simone. I like to eat Vietnamese food and Life Cereal, but not at the same time.</p>
@@ -116,24 +117,22 @@ owl: http://www.w3.org/2002/07/owl#">
     <nav id="head_menu">
         <h3>Explore Here, Read This</h3>
         <ul class="social_fu">
-            <li><span><a href="#/photos/" title="Photography Collection">Photo<br />Collection</a></span>
+            <li><a href="#/photos/" title="Photography Collection">Photo<br />Collection</a>
             </li>
-            <li><span><a href="#/coding/" title="asdf">Coding &amp;<br />Contributing</a></span>
+            <li><a href="#/coding/" title="asdf">Coding &amp;<br />Contributing</a>
             </li>
-            <li><span><a href="#/contact/" title="asdf">Contact<br />Information</a></span>
+            <li><a href="#/contact/" title="asdf">Contact<br />Information</a>
             </li>
             <li>
-                <span><span>Résumé</span><br />
-                    <a href="/resume/" rel="#/me/">.HTML</a> <span>|</span>
-                    <a href="/resume/resume.pdf" rel="#/me/">.PDF</a>
-                </span>
+                <span>Résumé</span>
+                <a href="/resume/">.HTML</a>
+                <a href="/resume/resume.pdf">.PDF</a>
             </li>
         </ul>
     </nav> 
 </header>
 
 
-</header>
 
 <article id="photos" data-module="photo_spice">
     <h2>Photos</h2>
@@ -146,9 +145,10 @@ owl: http://www.w3.org/2002/07/owl#">
     <header>
         <h2>Coding</h2>
 
-        <figure>
+        <figure id="code_git">
             <figcaption>
-                <p>Coders always ought to contribute. You can clone a repository of this entire site with Git:</p>
+                <a href="https://github.com/herereadthis" title="Here, Read This on GitHub">Here, Read This on Github</a>
+                <p>Coders always ought to contribute. My GitHub account is <a href="https://github.com/herereadthis" title="Here, Read This on GitHub">herereadthis</a>. To clone a repository of this entire site with Git:</p>
             </figcaption>
             <blockquote>
     <pre><code>git clone https://github.com/herereadthis/herereadthis.git</code></pre>
@@ -158,7 +158,14 @@ owl: http://www.w3.org/2002/07/owl#">
 
     <section>
         <h3>Semantic Web</h3>
-        <p>This page is written with semantic HTML5; you can check out by using Geoffrey Sneddon&rsquo;s <a href="http://gsnedders.html5.org/outliner/process.py?url=http%3A%2F%2Fherereadthis.com%2F" title="HTM5 Outliner tool">HTM5 Outliner tool</a>. Check out all the RDFa action with the <a href="http://www.google.com/webmasters/tools/richsnippets?url=http%3A%2F%2Fherereadthis.com%2F" title="Google Structured Data Testing Tool for http://herereadthis.com/">Google Structured Data</a> Testing Tool, my <a href="/apps/hrt/xml/foaf.rdf">foaf.rdf</a> XML, or use the <a href="http://www.w3.org/2012/pyRdfa/extract?uri=http%3A%2F%2Fherereadthis.com%2F&format=xml&rdfagraph=processor%2Coutput&vocab_expansion=true&rdfa_lite=true&embedded_rdf=true&space_preserve=true&vocab_cache=true&vocab_cache_report=false&vocab_cache_refresh=false" title="W3C pyRDFa Extraction">W3C RDFa 1.1 Distiller</a> to view as XML.</p>
+        <p>Accessibility is the priority underlying the code of herereadthis.com. Anyone and any device or technology should be able to retrieve information from this site.</p>
+        <ul>
+            <li>Behaviors and states are triggered with WAI-ARIA roles and properties.</li>
+            <li>The struture done with semantic HTML5 sectioning; you can check out by using Geoffrey Sneddon&rsquo;s <a href="http://gsnedders.html5.org/outliner/process.py?url=http%3A%2F%2Fherereadthis.com%2F" title="HTM5 Outliner tool">HTM5 Outliner tool</a>.</li>
+            <li>Get a glimpse of the RDFa action with the <a href="http://www.google.com/webmasters/tools/richsnippets?url=http%3A%2F%2Fherereadthis.com%2F" title="Google Structured Data Testing Tool for http://herereadthis.com/">Google Structured Data Testing Tool</a>.</li>
+            <li>Using the W3C RDFa 1.1 Distiller, developers can parse the information within this site by retrieving it as <a href="http://www.w3.org/2012/pyRdfa/extract?uri=http%3A%2F%2Fherereadthis.com%2F&amp;format=xml" title="W3C pyRDFa Extraction: XML">XML</a> or <a href="http://www.w3.org/2012/pyRdfa/extract?uri=http%3A%2F%2Fherereadthis.com%2F&amp;format=json" title="W3C pyRDFa Extraction: JSON">JSON</a> output.</li>
+            <li>My <a rel="owl:sameAs" href="http://herereadthis.com/apps/hrt/xml/foaf#me">WebID certificate</a> is part of my FOAF (Friend of a Friend) <a href="http://herereadthis.com/apps/hrt/xml/foaf.rdf">RDF file</a>.</li>
+        </ul>
         <!--
         resources on html5 sectioning outline:
         http://www.456bereastreet.com/archive/201103/html5_sectioning_elements_headings_and_document_outlines/
@@ -257,31 +264,31 @@ for row, index in myArray
             <cite property="og:video:movie">Le Mépris</cite>, starring
             <span property="og:video:actor">Brigitte Bardot</span>, directed by
             <span property="og:video:director">Jean-Luc Godard</span>
-           (<span property="og:video:release_date" content="1963-10-29" datetime="1963-10-29">1963</span>)
+           (<time property="og:video:release_date dc:created" content="1963-10-29" datetime="1963-10-29">1963</time>)
         </li>
         <li resource="#/top_things/the_good_the_bad_and_the_ugly/" typeof="og:video">
             <cite property="og:video:movie">The Good, The Bad, and The Ugly</cite>, starring
             <span property="og:video:actor">Clint Eastwood</span>, directed by
             <span property="og:video:director">Sergio Leone</span>
-           (<span property="og:video:release_date" content="1966-12-15" datetime="1966-12-15">1966</span>)
+           (<time property="og:video:release_date dc:created" content="1966-12-15" datetime="1966-12-15">1966</time>)
         </li>
         <li resource="#/top_things/blade_runner/" typeof="og:video">
             <cite property="og:video:movie">Blade Runner</cite>, starring
             <span property="og:video:actor">Harrison Ford</span>, directed by
             <span property="og:video:director">Ridley Scott</span>
-           (<time property="og:video:release_date" content="1982-06-25" datetime="1982-06-25">1982</time>)
+           (<time property="og:video:release_date dc:created" content="1982-06-25" datetime="1982-06-25">1982</time>)
         </li>
         <li resource="#/top_things/akira/" typeof="og:video">
             <cite property="og:video:movie">Akira</cite>, starring
             <span property="og:video:actor">Mitsuo Iwata</span>, directed by
             <span property="og:video:director">Katsuhiro Otomo</span>
-           (<span property="og:video:release_date" content="1988-07-16" datetime="1998-06-16">1988</span>)
+           (<time property="og:video:release_date dc:created" content="1988-07-16" datetime="1998-06-16">1988</time>)
         </li>
         <li resource="#/top_things/melancholia/" typeof="og:video">
             <cite property="og:video:movie">Melancholia</cite>, starring
             <span property="og:video:actor">Kirsten Dunst</span>, directed by
             <span property="og:video:director">Lars von Trier</span>
-           (<span property="og:video:release_date" content="2011-05-18" datetime="2011-05-18">2011</span>)
+           (<time property="og:video:release_date dc:created" content="2011-05-18" datetime="2011-05-18">2011</time>)
         </li>
         <!--
         <li><span>Casablanca</span> (<span>1942</span>)</li>
@@ -299,31 +306,31 @@ for row, index in myArray
             <cite property="og:music:song dc:title">Sinnerman</cite>, by
             <span property="og:music:musician dc:creator">Nina Simone</span>
            (<span property="og:music:album"><em>Pastel Blues</em></span>,
-            <span property="og:music:release_date">1965</span>)
+            <time property="og:music:release_date dc:created" datetime="1965">1965</time>)
         </li>
         <li resource="#/top_things/the_beatles/" typeof="og:music">
             <cite property="og:music:song dc:title">Tomorrow Never Knows</cite> by
             <span property="og:music:musician dc:creator">The Beatles</span>
            (<span property="og:music:album"><em>Revolver</em></span>,
-            <span property="og:music:release_date">1966</span>)
+            <time property="og:music:release_date dc:created" content="1966-08-05" datetime="1966-08-05">1966</time>)
         </li>
         <li resource="#/top_things/pink_floyd/" typeof="og:music">
             <cite property="og:music:song dc:title">Time</cite> by
             <span property="og:music:musician dc:creator">Pink Floyd</span>
            (<span property="og:music:album"><em>The Dark Side of the Moon</em></span>,
-            <span property="og:music:release_date">1974</span>)
+            <time property="og:music:release_date dc:created" content="1974-02-04" datetime="1974-02-04">1974</time>)
         </li>
         <li resource="#/top_things/bjork/" typeof="og:music">
             <cite property="og:music:song dc:title">Bachelorette</cite>, by
             <span property="og:music:musician dc:creator">Björk</span>
            (<span property="og:music:album"><em>Homogenic</em></span>,
-            <span property="og:music:release_date">1997</span>)
+            <time property="og:music:release_date dc:created" content="1997-12-08" datetime="1997-12-08">1997</time>)
         </li>
         <li resource="#/top_things/wu_tang_clan/" typeof="og:music">
             <cite property="og:music:song dc:title">Hollow Bones</cite>, by
             <span property="og:music:musician dc:creator">Wu-Tang Clan</span>
            (<span property="og:music:album"><em>The W</em></span>,
-            <span property="og:music:release_date">2000</span>)
+            <time property="og:music:release_date dc:created" content="2000-11-21" datetime="2000-11-21">2000</time>)
         </li>
     </ol>
 </section>
@@ -332,31 +339,31 @@ for row, index in myArray
     <ol prefix="dcmitype: http://purl.org/dc/dcmitype/">
         <li resource="#/top_things/derriere_la_gare_saint_lazare" typeof="dcmitype:image">
             <cite property="dc:title">Derriere la Gare Saint-Lazare</cite> - 
-            <span property="dc:created" datetime="1932">1932</span>, by
+            <time property="dc:created" datetime="1932">1932</time>, by
             <span property="dc:creator">Henri Cartier-Bresson</span>
            (<span>French</span>)
         </li>
         <li resource="#/top_things/tomoko_uemura_in_her_bath" typeof="dcmitype:image">
             <cite property="dc:title">Tomoko Uemura in Her Bath</cite> - 
-            <span property="dc:created" datetime="1971">1971</span>, by
+            <time property="dc:created" datetime="1971">1971</time>, by
             <span property="dc:creator">W. Eugene Smith</span>
            (<span>American</span>)
         </li>
         <li resource="#/top_things/elevator_operator" typeof="dcmitype:image">
             <cite property="dc:title">Elevator Operator, Miami Beach, 1955</cite> - 
-            <span property="dc:created" datetime="1958">1958</span>, by
+            <time property="dc:created" datetime="1958">1958</time>, by
             <span property="dc:creator">Robert Frank</span>
            (<span>Swiss, American</span>)
         </li>
         <li resource="#/top_things/margie_cato" typeof="dcmitype:image">
             <cite property="dc:title">Margie Cato</cite>, Junior Bazaar - 
-            <span property="dc:created" datetime="1950">1950</span>, by
+            <time property="dc:created" datetime="1950">1950</time>, by
             <span property="dc:creator">Lillian Bassman</span>
            (<span>American</span>)
         </li>
         <li resource="#/top_things/london_1952" typeof="dc:image">
             <cite property="dc:title">London, 1952</cite> - 
-            <span property="dc:created" datetime="1952">1952</span>, by
+            <time property="dc:created" datetime="1952">1952</time>, by
             <span property="dc:creator">Bill Brandt</span>
            (<span>German, British</span>)
         </li>
@@ -370,7 +377,7 @@ for row, index in myArray
     <section>
         <h3>On Writing</h3>
         <figure resource="#/excerpts/etiquette_in_society/" typeof="bibo:Book dc:BibliographicResource">
-            <blockquote property="bibo:Excerpt" aria-expanded="false">
+            <blockquote property="bibo:Excerpt" aria-expanded="false" role="document">
                 <p>In writing notes or letters, as in all other forms of social observance, the highest achievement is in giving the appearance of simplicity, naturalness and force.</p>
 
                 <p>Those who use long periods of flowered prolixity and pretentious phrases&mdash;who write in complicated form with meaningless flourishes, do not make an impression of elegance and erudition upon their readers, but flaunt instead unmistakable evidence of vainglory and ignorance.</p>
@@ -390,7 +397,7 @@ for row, index in myArray
         <h3>On Legacy</h3>
         <figure resource="#/excerpts/to_the_lighthouse/" typeof="bibo:Book dc:BibliographicResource">
             <!--He stood stock-still, by the urn, with the geranium flowing over it. How many men in a thousand million, he asked himself, reach Z after all? Surely the leader of a forlorn hope may ask himself that, and answer, without treachery to the expedition behind him, &ldquo;One perhaps.&rdquo; One in a generation. Is he to be blamed then if he is not that one? provided he has toiled honestly, given to the best of his power, and till he has no more left to give? -->
-            <blockquote property="bibo:Excerpt" aria-expanded="false">
+            <blockquote property="bibo:Excerpt" aria-expanded="false" role="document">
                 <p>And his fame lasts how long? It is permissible even for a dying hero to think before he dies how men will speak of him hereafter. His fame lasts perhaps two thousand years. And what are two thousand years? (asked Mr Ramsay ironically, staring at the hedge). What, indeed, if you look from a mountain top down the long wastes of the ages? The very stone one kicks with one&rsquo;s boot will outlast Shakespeare. His own little light would shine, not very brightly, for a year or two, and would then be merged in some bigger light, and that in a bigger still. (He looked into the hedge, into the intricacy of the twigs.) Who then could blame the leader of that forlorn party which after all has climbed high enough to see the waste of the years and the perishing of the stars, if before death stiffens his limbs beyond the power of movement he does a little consciously raise his numbed fingers to his brow, and square his shoulders, so that when the search party comes they will find him dead at his post, the fine figure of a soldier? Mr Ramsay squared his shoulders and stood very upright by the urn.</p>
 
                 <p>Who shall blame him, if, so standing for a moment he dwells upon fame, upon search parties, upon cairns raised by grateful followers over his bones? Finally, who shall blame the leader of the doomed expedition, if, having adventured to the uttermost, and used his strength wholly to the last ounce and fallen asleep not much caring if he wakes or not, he now perceives by some pricking in his toes that he lives, and does not on the whole object to live, but requires sympathy, and whisky, and some one to tell the story of his suffering to at once? Who shall blame him? Who will not secretly rejoice when the hero puts his armour off, and halts by the window and gazes at his wife and son, who, very distant at first, gradually come closer and closer, till lips and book and head are clearly before him, though still lovely and unfamiliar from the intensity of his isolation and the waste of ages and the perishing of the stars, and finally putting his pipe in his pocket and bending his magnificent head before her-who will blame him if he does homage to the beauty of the world?</p>
@@ -408,7 +415,7 @@ for row, index in myArray
     <section resource="#/excerpts/anna_karenina/" typeof="bibo:Book dc:BibliographicResource">
         <h3>On Desire</h3>
         <figure>
-            <blockquote property="bibo:Excerpt" aria-expanded="false">
+            <blockquote property="bibo:Excerpt" aria-expanded="false" role="document">
                 <p>&ldquo;Yes; what was the last thing I thought of so clearly?&rdquo; she tried to recall it. &ldquo;<em>&lsquo;Tiutkin, coiffeur?&rsquo;</em>&mdash;no, not that. Yes, of what Yashvin says, the struggle for existence and hatred is the one thing that holds men together. No, it&rsquo;s a useless journey you&rsquo;re making,&rdquo; she said, mentally addressing a party in a coach and four, evidently going for an excursion into the country. &ldquo;And the dog you&rsquo;re taking with you will be no help to you. You can&rsquo;t get away from yourselves.&rdquo; Turning her eyes in the direction Pyotr had turned to look, she saw a factory-hand almost dead-drunk, with hanging head, being led away by a policeman. &ldquo;Come, he&rsquo;s found a quicker way,&rdquo; she thought. &ldquo;Count Vronsky and I did not find that happiness either, though we expected so much from it.&rdquo; And now for the first time Anna turned that glaring light in which she was seeing everything on to her relations with him, which she had hitherto avoided thinking about. &ldquo;What was it he sought in me? Not love so much as the satisfaction of vanity.&rdquo; She remembered his words, the expression of his face, that recalled an abject setter-dog, in the early days of their connection. And everything now confirmed this. &ldquo;Yes, there was the triumph of success in him. Of course there was love too, but the chief element was the pride of success. He boasted of me. Now that&rsquo;s over. There&rsquo;s nothing to be proud of. Not to be proud of, but to be ashamed of. He has taken from me all he could, and now I am no use to him. He is weary of me and is trying not to be dishonorable in his behavior to me. He let that out yesterday&mdash;he wants divorce and marriage so as to burn his ships. He loves me, but how? The zest is gone, as the English say. That fellow wants every one to admire him and is very much pleased with himself,&rdquo; she thought, looking at a red-faced clerk, riding on a riding-school horse. &ldquo;Yes, there&rsquo;s not the same flavor about me for him now. If I go away from him, at the bottom of his heart he will be glad.&rdquo;</p>
 
                 <p>This was not mere supposition, she saw it distinctly in the piercing light, which revealed to her now the meaning of life and human relations.</p>
@@ -421,7 +428,7 @@ for row, index in myArray
             </blockquote>
             <figcaption>
                 <!-- Russian text: http://ilibrary.ru/text/1099/p.219/index.html -->
-                <p><q property="bibo:Quote">И собака, которую вы везете с собой, не поможет вам. От себя не уйдете.</q><br >
+                <p><q property="bibo:Quote" lang="ru" xml:lang="ru">И собака, которую вы везете с собой, не поможет вам. От себя не уйдете.</q><br >
                     &mdash;<span property="dc:creator">Leo Tolstoy</span>, 
                     <cite property="dc:title">Anna Karenina</cite>,
                     <span property="bibo:BookSection">Part 7</span>, 
@@ -433,7 +440,7 @@ for row, index in myArray
 </article>
 
 
-<footer role="contentinfo" data-module="footsie" data-nudge-top="10" class="gill_sans" id="contact">
+<footer role="contentinfo" data-module="footsie" data-nudge-top="100" class="gill_sans" id="contact">
     <section id="foot_inspire">
         <h3>Site &amp; Art Inspiration</h3>
         <p><span resource="#/footer/midnight_blue/" typeof="dcmitype:image">
@@ -466,77 +473,71 @@ for row, index in myArray
             <p>(1) The secret to communication is remembering that what the other person knows is different than what I know. (2) It&rsquo;s okay to have issues; everyone has issues. (3) Acceptance does not require understanding. (4) If I see a problem, and the solution for the problem is for other people to change, then I am the problem. (5) I am the company I keep.</p>
         </aside>
     </section>
+
     <section id="foot_contact">
         <h3>Contact Info</h3>
         <!-- http://blog.qr4.nl/QR-Code-vCard.aspx -->
         <!-- http://www.the2dcode.com/qr-code-generator -->
         <!-- hex coding for obfuscation: http://www.ascii.cl/htmlcodes.htm -->
-        <p data-module="obfuscate" data-obfuscate-subject="Re: Here, Read This Site">&#x6E;&#x6F;&#x77;&#x40;&#x68;&#x65;&#x72;&#x65;&#x72;&#x65;&#x61;&#x64;&#x74;&#x68;&#x69;&#x73;&#x2E;&#x63;&#x6F;&#x6D;</p>
-        <p>Based: Falls Church, VA, USA</p>
-        <p>FOAF/Friend-of-a-Friend: <a href="/apps/hrt/xml/foaf.rdf" title="FOAF File (RDF)">RDF</a></p>
-        <p>Twitter: <a href="https://twitter.com/herereadthis" title="Follow Here, Read This on Twitter">@herereadthis</a></p>
-        <p>Profiles: <a href="https://www.facebook.com/herereadthis">Facebook</a> |
-            <a href="https://plus.google.com/113505279995940079003?rel=author">Google+</a></p>
-
-        <p>For site updates and useful news on web development and baking:</p>
-        <!--<p>&#x53;&#x6B;&#x79;&#x70;&#x65;&#x3A;
-            &#x68;&#x65;&#x72;&#x65;&#x72;&#x65;&#x61;&#x64;&#x74;&#x68;&#x69;&#x73;</p>-->
-        <p>Facebook: <a href="https://www.facebook.com/HereReadThisPage">HereReadThisPage</a></p>
-        <p>Google+ Page: <a href="https://plus.google.com/110556642392047316226/?rel=publisher">Here, Read This</a></p>
-
-
+        <dl>
+            <dt>&#x45;&#x6D;&#x61;&#x69;&#x6C;&#x3A;</dt>
+            <dd data-module="obfuscate" data-obfuscate-subject="Re: Here, Read This Site">&#x6E;&#x6F;&#x77;&#x40;&#x68;&#x65;&#x72;&#x65;&#x72;&#x65;&#x61;&#x64;&#x74;&#x68;&#x69;&#x73;&#x2E;&#x63;&#x6F;&#x6D;</dd>
+            <dt>Based:</dt>
+            <dd>Falls Church, VA, USA</dd>
+            <dt>Twitter:</dt>
+            <dd><a href="https://twitter.com/herereadthis" title="Follow Here, Read This on Twitter">@herereadthis</a></dd>
+            <dt>Profiles:</dt>
+            <dd><a href="https://www.facebook.com/herereadthis">Facebook</a></dd>
+            <dd><a href="https://plus.google.com/113505279995940079003">Google+</a></dd>
+        </dl>
+        <div resource="#/me/" typeof="foaf:person">
+            <dl property="cert:key" resource="#/me/cert/" typeof="cert:RSAPublicKey">
+                <dt>FOAF:</dt>
+                <dd><a href="/apps/hrt/xml/foaf#me" title="FOAF File (RDF)">RDF</a></dd>
+                <dd><a href="/apps/hrt/xml/card" title="FOAF File (RDF)">Notation 3</a></dd>
+                <dt>WebID:</dt>
+                <dd property="cert:modulus" content="a2f4cc49f8b196e5e73b84bd58d9cf345012d1b5fce42eaed428517517b306c14fad67a2c79fb56a70bebb1ce24bc1d912dd100f09e9d5d89320a7146ba44da4f057158482e592d055286e9d536c86dbb3aa193776a8834d6bf8dfacfad24b71e9adf4a90d084e2ce27448146fd74fbb1e7f2c2867cf45c7a3527a820a7b1ede45d5306cacd1b5a9f6b65b88ab87d4ca3e6ccdcb41d87f4d4e1b3bcfa01ace9f2a2cdc001d358cbe1f012d3d1e4919ad20c3ec4295a40399202a410f6f40276fb52d888d1748964e9cd535af6e50c1577c2c3ddaf2ae3862b0aa91dbfa664798e71a333ffcc6568bfe717e121d6589e5bc01a44a5121745dfc46fe2dd986b53b">RSA public key</dd>
+                <dd property="cert:exponent">65537</dd>
+            </dl>
+        </div>
+        <p><em>For site updates and useful news on web development and baking:</em></p>
+        <dl>
+            <dt>Facebook Page:</dt>
+            <dd><a href="https://www.facebook.com/HereReadThisPage">HereReadThisPage</a></dd>
+            <dt>Google+ Page:</dt>
+            <dd><a href="https://plus.google.com/110556642392047316226/">Here, Read This</a></dd>
+        </dl>
     </section>
-    <section id="foot_links">
 
-        <ul class="social_fu">
-            <li typeof="foaf:account">
-                <span property="foaf:OnlineAccount" content="Facebook">
-                    <span rel="foaf:accountServiceHomepage" href="https://www.facebook.com/">Facebook</span><br />
-                    <span property="foaf:homepage" resource="https://www.facebook.com/herereadthis"></span>
-                    <a href="https://www.facebook.com/herereadthis"
-                        property="foaf:accountName" rel="#/me/">herereadthis</a>
-                </span>
+    <section id="foot_links">
+        <ul class="social_fu" resource="#/me/" typeof="foaf:Person">
+            <li property="foaf:account" resource="#/me/facebook/" typeof="foaf:OnlineAccount">
+                <span property="foaf:accountServiceHomepage" resource="https://www.facebook.com/">Facebook</span><br />
+                <a property="foaf:homepage" href="https://www.facebook.com/herereadthis"><span
+                        property="foaf:accountName">herereadthis</span></a>
             </li>
-            <li typeof="foaf:account">
-                <span property="foaf:OnlineAccount" content="Twitter">
-                    <span rel="foaf:accountServiceHomepage" href="https://twitter.com/">Twitter</span><br />
-                    <span property="foaf:homepage" resource="http://twitter.com/herereadthis"></span>
-                    <a href="http://twitter.com/herereadthis"
-                        property="foaf:accountName" content="herereadthis" rel="#/me/">@herereadthis</a>
-                </span>
+            <li property="foaf:account" resource="#/me/twitter/" typeof="foaf:OnlineAccount">
+                <span property="foaf:accountServiceHomepage" resource="https://twitter.com/">Twitter</span><br />
+                <a property="foaf:homepage" href="http://twitter.com/herereadthis"><span
+                        property="foaf:accountName">herereadthis</span></a> 
             </li>
-            <li typeof="foaf:account" rel="#/me/">
-                <span property="foaf:OnlineAccount" content="Flickr">
-                    <span rel="foaf:accountServiceHomepage" href="http://www.flickr.com/">Flickr</span><br />
-                    <span property="foaf:homepage" resource="http://www.flickr.com/photos/applesanity"></span>
-                    <a href="http://www.flickr.com/photos/applesanity/"
-                        property="foaf:accountName" rel="#/me/">applesanity</a>
-                </span>
+            <li property="foaf:account" resource="#/me/flickr/" typeof="foaf:OnlineAccount">
+                <span property="foaf:accountServiceHomepage" resource="http://www.flickr.com/">Flickr</span><br />
+                <a property="foaf:homepage" href="http://www.flickr.com/photos/applesanity/"><span
+                        property="foaf:accountName">applesanity</span></a> 
             </li>
-            <li typeof="foaf:account">
-                <span property="foaf:OnlineAccount" content="Github">
-                    <span rel="foaf:accountServiceHomepage" href="https://github.com/">Github</span><br />
-                    <span property="foaf:homepage" resource="https://github.com/herereadthis"></span>
-                    <a href="https://github.com/herereadthis"
-                        property="foaf:accountName" rel="#/me/">herereadthis</a>
-                </span>
+            <li property="foaf:account" resource="#/me/github/" typeof="foaf:OnlineAccount">
+                <span property="foaf:accountServiceHomepage" resource="https://github.com/">GitHub</span><br />
+                <a property="foaf:homepage" href="https://github.com/herereadthis"><span
+                        property="foaf:accountName">herereadthis</span></a> 
             </li>
-            <li typeof="foaf:account">
-                <span property="foaf:OnlineAccount" content="Pinterest">
-                    <span rel="foaf:accountServiceHomepage" href="http://pinterest.com/">Pinterest</span><br />
-                    <span property="foaf:homepage" resource="http://pinterest.com/herereadthis/"></span>
-                    <a href="http://pinterest.com/herereadthis/"
-                        property="foaf:accountName" rel="#/me/">herereadthis</a>
-                </span>
+            <li property="foaf:account" resource="#/me/pinterest/" typeof="foaf:OnlineAccount">
+                <span property="foaf:accountServiceHomepage" resource="http://pinterest.com/">Pinterest</span><br />
+                <a property="foaf:homepage" href="http://pinterest.com/herereadthis/"><span
+                        property="foaf:accountName">herereadthis</span></a> 
             </li>
         </ul>
-<!--         <ul>
-            <li><a href="https://www.facebook.com/herereadthis" title="Facebook | herereadthis">Facebook</a></li>
-            <li><a href="http://twitter.com/herereadthis" title="Twitter | herereadthis">Twitter</a></li>
-            <li><a href="http://www.flickr.com/photos/applesanity/" title="Flickr | applesanity">Flickr</a></li>
-            <li><a href="https://github.com/herereadthis" title="Github | herereadthis">Github</a></li>
-            <li><a href="http://pinterest.com/herereadthis/" title="Pinterest | herereadthis">Pinterest</a></li>
-        </ul> -->
+
         <h3 class="gill_sans">Here, Read This</h3>
         <!-- CC license discovery: http://wiki.creativecommons.org/RDFa -->
         <p class="creative_commons_license" resource="#copyright"><a rel="license" class="creative_commons_image"
@@ -557,6 +558,7 @@ for row, index in myArray
 
 Remember that Character encoding must appear within first 512 bytes of page:
     http://www.w3.org/TR/xhtml-rdfa-primer/#using-multiple-vocabularies
+HTML5 does not support <html version="HTML+RDFa 1.1">
 
 RDFa:
     Primers:
@@ -579,7 +581,8 @@ RDFa:
         Open Graph music:       og="http://ogp.me/ns/music#"
         Vcard:                  v="http://rdf.data-vocabulary.org/#"
         Bibliographic:          bibo="http://purl.org/ontology/bibo/" reference: http://uri.gbv.de/ontology/bibo/
-        W3 Ontology Language:   owl="http://www.w3.org/2002/07/owl#"
+        W3 Ontology Language:   owl: http://www.w3.org/2002/07/owl#
+        XML:                    xsd: http://www.w3.org/2001/XMLSchema#
 
     DEBUG: http://rdfa.info/play/
     Watch RDF dance at: http://www.visualdataweb.org/relfinder/relfinder.php
@@ -588,6 +591,7 @@ RDFa:
     W3C pyRDFa XML extraction: http://www.w3.org/2012/pyRdfa/extract?format=xml&uri=http://example.com/
     Validate RDF: http://www.w3.org/RDF/Validator/
     Convert RDF XML to TURTLE: http://www.rdfabout.com/demo/validator/index.xpd
+    OWL Primer: http://www.w3.org/TR/owl2-primer/
 
 Icons:
     Online favicon generation: http://convertico.com
@@ -602,9 +606,13 @@ Open Graph and Facebook:
 FOAF generated from:
     http://www.ldodds.com/foaf/foaf-a-matic.en.html
     wiki: http://wiki.foaf-project.org/w/FAQ and spec: http://xmlns.com/foaf/spec/
+    Good examples: http://www.ivan-herman.net/foaf.rdf http://bblfish.net/people/henry/card#me
     validate at http://www.w3.org/RDF/Validator/
     explore FOAF connections: http://xml.mfd-consult.dk/foaf/
     WebID: http://trueg.wordpress.com/2012/03/15/webid-a-guide-for-the-clueless/
+    Wiki: http://www.w3.org/wiki/WebID http://webid.info/
+    Generate certificate: https://my-profile.eu/certgen.php
+    Test certificate: https://foafssl.org/test/WebId https://my-profile.eu/
 -->
 
 <!--
@@ -624,107 +632,6 @@ Ezra Pound, Personae
 -->
 
 
-
-<!--
-<style>
-.complete {
-    color: #BBB;
-    text-decoration: line-through;
-}
-</style>
-<script>
-var TodoItem = Backbone.Model.extend({
-    toggleStatus: function() {
-        if(this.get("status") === "complete") {
-            this.set("status","incomplete");
-        }
-        else {
-            this.set("status","complete");
-        }
-    }
-});
-var todoItem = new TodoItem({
-    description: 'Pick up milk',
-    status: 'incomplete',
-    id: 1
-});
-
-
-var TodoList = Backbone.Collection.extend({
-    url: "/static/js/json/todo.json",
-    model: TodoItem
-});
-var todoList = new TodoList();
-
-todoList.reset([
-    {
-        "description": "pick up milk",
-        "status": "incomplete",
-        "id": 1
-    },
-    {
-        "description": "get a car wash",
-        "status": "incomplete",
-        "id": 2
-    }
-]);
-// todoList.fetch();
-console.log(todoList.length);
-todoList.forEach(function(todoItem) {
-    console.log(todoItem.get("description"));
-});
-
-
-var TodoView = Backbone.View.extend({
-    tagName: 'article',
-    id: 'todo-view',
-    className: 'todo',
-    events: {
-        "change input": "toggleStatus"
-    },
-    initialize: function() {
-        this.model.on("change", this.render, this);
-    },
-    toggleStatus: function() {
-        this.model.toggleStatus();
-    },
-    template: _.template('<h3 class="<%= status %>">' +
-        '<input type="checkbox" ' +
-        '<% if(status === "complete") print("checked") %> />' +
-        '<%= description %></h3>'),
-    render: function() {
-        var attributes = this.model.toJSON();
-        this.$el.html(this.template(attributes));
-    }
-});
-var todoView = new TodoView({
-    model: todoItem
-});
-todoView.render();
-console.log(todoView.el);
-$('[role="banner"]').before(todoView.el);
-
-
-
-
-</script>
--->
-<!--
-<article style="display: none;">
-    <h2>Quote Machine</h2>
-</article>
--->
-<!--
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=252650604778642";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-like-box" data-href="http://www.facebook.com/HereReadThisPage" data-width="250" data-height="63" data-show-faces="false" data-stream="false" data-header="false"></div>
--->
 
 </body>
 </html>

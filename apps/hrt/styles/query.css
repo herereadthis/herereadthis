@@ -85,6 +85,13 @@
 		margin-bottom: 0.2em;
 		font-size: 5em;
 	}
+	#foot_contact {
+		width: 33.3333%;
+	}
+	#foot_contact dt, #foot_contact > dl:last-of-type dt {
+		width: auto;
+		margin-right: 0.5em;
+	}
 	#foot_links {
 		margin-left: 0;
 	}
@@ -149,6 +156,13 @@
 	}
 	#coding header, #coding section {
 		padding-left: 5em;
+	}
+	#foot_contact {
+		width: 33.3333%;
+	}
+	#foot_contact dt, #foot_contact dl ~ dl dt {
+		width: auto;
+		margin-right: 0.5em;
 	}
 	#foot_links li {
 		width: 20%;

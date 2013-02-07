@@ -256,15 +256,13 @@
       lVars.idealWidth = thisData.idealWidth != null ? thisData.idealWidth : cVars.bgWidth;
       lVars.sidePad = thisData.sidePad != null ? thisData.sidePad : cVars.sidePad;
       rileyGo(_this, lVars);
-      if (Modernizr.touch === false) {
-        ResizeFu.init(_this);
-      }
       pres = _this.find("pre");
       for (_i = 0, _len = pres.length; _i < _len; _i++) {
         i = pres[_i];
         code_tango($(i));
       }
       if (Modernizr.touch === false) {
+        ResizeFu.init(_this);
         scrollTitle(_this);
       }
       _window.resize(function() {

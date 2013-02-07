@@ -14,7 +14,6 @@
 		<admin:errorReportsTo rdf:resource="mailto:leigh@ldodds.com"/>
 	</foaf:PersonalProfileDocument>
 	<foaf:Person rdf:about="http://herereadthis.com/apps/hrt/xml/foaf#me">
-		<owl:sameAs rdf:resource="http://my.opera.com/herereadthis/xml/foaf#me"/>
 		<cert:key>
 			<cert:RSAPublicKey>
 				<cert:modulus rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">a2f4cc49f8b196e5e73b84bd58d9cf345012d1b5fce42eaed428517517b306c14fad67a2c79fb56a70bebb1ce24bc1d912dd100f09e9d5d89320a7146ba44da4f057158482e592d055286e9d536c86dbb3aa193776a8834d6bf8dfacfad24b71e9adf4a90d084e2ce27448146fd74fbb1e7f2c2867cf45c7a3527a820a7b1ede45d5306cacd1b5a9f6b65b88ab87d4ca3e6ccdcb41d87f4d4e1b3bcfa01ace9f2a2cdc001d358cbe1f012d3d1e4919ad20c3ec4295a40399202a410f6f40276fb52d888d1748964e9cd535af6e50c1577c2c3ddaf2ae3862b0aa91dbfa664798e71a333ffcc6568bfe717e121d6589e5bc01a44a5121745dfc46fe2dd986b53b</cert:modulus>
@@ -70,6 +69,14 @@
 				<foaf:homepage rdf:resource="https://github.com/herereadthis" />
 			</foaf:OnlineAccount>
 		</foaf:account>
+		<foaf:account>
+			<foaf:OnlineAccount>
+				<foaf:accountServiceHomepage rdf:resource="http://my.opera.com/" />
+				<foaf:accountName>herereadthis</foaf:accountName>
+				<foaf:homepage rdf:resource="http://my.opera.com/herereadthis/blog/" />
+			</foaf:OnlineAccount>
+		</foaf:account>
+		<owl:sameAs rdf:resource="http://my.opera.com/herereadthis/xml/foaf#me"/>
 		<foaf:account>
 			<foaf:OnlineAccount>
 				<foaf:accountServiceHomepage rdf:resource="http://pinterest.com/" />

@@ -2,7 +2,7 @@
 (function() {
 
   define(function(require) {
-    var $, Modernizr, exports, footStreaks, gVars, loadStreaks, makeItHappen, makeSections, makeSocialClick, moduleName, obfuscate, phi, riley, rileyKiss, scrollMath, sects, streak, streakNoise, _window;
+    var $, Modernizr, exports, footStreaks, gVars, loadStreaks, makeItHappen, makeSections, makeSocialClick, moduleName, obfuscate, phi, riley, rileyKiss, rsaDisplay, rsaPublic, scrollMath, sects, streak, streakNoise, _window;
     $ = require("jquery");
     Modernizr = require("Modernizr");
     exports = {};
@@ -35,7 +35,8 @@
       magicMobile: 1
     };
     sects = {
-      endThresh: 2 * gVars.em
+      endThresh: 4 * gVars.em,
+      windowFade: 300
     };
     rileyKiss = function(_this) {
       var arcVar, canvas, context, cutoff, inverseCut;
@@ -145,7 +146,7 @@
       subject = _mail.data("obfuscate-subject");
       href = "mailto:" + address + "?subject=" + subject;
       _mail.wrapInner("<a />");
-      return _mail.find("a").before("Email: ").attr({
+      return _mail.find("a").attr({
         "href": href
       });
     };
@@ -159,10 +160,55 @@
         }
       });
     };
+    rsaDisplay = function(e, $rpk) {
+      e.preventDefault();
+      if ($rpk.attr("aria-expanded") === "false") {
+        return $rpk.fadeIn(sects.windowFade, function() {
+          return $rpk.attr("aria-expanded", true);
+        });
+      } else {
+        return $rpk.fadeOut(sects.windowFade, function() {
+          return $rpk.attr("aria-expanded", false);
+        });
+      }
+    };
+    rsaPublic = function($this) {
+      var $rpk, $section, cutKey, exponent, modArray, modOut, modulus;
+      $this.wrapInner($("<a />").attr({
+        "href": ""
+      }));
+      modulus = $this.attr("content");
+      exponent = $this.next().html();
+      $section = $this.closest("section");
+      modArray = [];
+      cutKey = modulus;
+      while (cutKey.length > 0) {
+        modArray.push(cutKey.substring(0, 32));
+        cutKey = cutKey.substring(32);
+      }
+      modOut = modArray.join("<br />");
+      $section.append($("<div />").attr({
+        "class": "rsa_pub_key",
+        "aria-expanded": false
+      }));
+      $rpk = $section.find(".rsa_pub_key");
+      $rpk.append($("<a />").html("close [X]").attr({
+        "href": "",
+        "title": "Close Window"
+      }));
+      $rpk.append($("<code />").html("Modulus (Hexadecimal):")).append($("<br />"));
+      $rpk.append($("<code />").html(modOut)).append($("<br />"));
+      $rpk.append($("<code />").html("Exponent (Decimal): " + exponent));
+      $this.on("click", "a", function(e) {
+        return rsaDisplay(e, $rpk);
+      });
+      return $rpk.on("click", "a", function(e) {
+        return rsaDisplay(e, $rpk);
+      });
+    };
     makeItHappen = function(_this) {
       var offset, winHtLessOffset;
       obfuscate(_this);
-      makeSocialClick(_this.find(".social_fu"));
       if (Modernizr.touch === true) {
         riley.magicFactor = riley.magicMobile;
       }
@@ -173,6 +219,8 @@
         scrollMath(_this, winHtLessOffset);
         if (gVars.showing > 0 && loadStreaks === true) {
           loadStreaks = false;
+          rsaPublic(_this.find($('[property="cert:modulus"]')));
+          makeSocialClick(_this.find(".social_fu"));
           makeSections(_this);
           footStreaks(gVars);
           rileyKiss(_this);

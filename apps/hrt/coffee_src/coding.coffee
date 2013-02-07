@@ -19,6 +19,7 @@ define (require) ->
         # unless specified by data-coding-bgwidth="###" in html, expressed as a 0 <= decimal < 1
         bgWidth: 192
         # unless specified by data-coding-pc="0.###" in html, expressed as EMs
+        # the percentage of how much the background intrudes into page
         pc: 0.2
         # width of each bar, unless specified by data-bar-width="0.###" in html, expressed as EMs
         barWidth: 1
@@ -65,11 +66,14 @@ define (require) ->
             horbarSize: lVars.horbarSize
             horFactor: lVars.horFactor
 
+        # this appears complicated, hold on... Attempt to start the background at a certain percentage from the left
+        # but since the background is 100% of the window width, the start point has to be adjusted
         rVars.start = rVars.ideal - (rVars.ideal * rVars.pc) + ((rVars.cWidth - rVars.ideal) / 2)
         rVars.docIdealWidth = rVars.ideal + 2 * lVars.sidePad * cVars.em
+        # adjusted width is the space that will contain the content
         rVars.adjustedWidth = rVars.ideal - rVars.pc * rVars.ideal - rVars.pLeftThreshold
 
-
+        # first background is the vertical bars.
         canvas = document.createElement "canvas"
         canvas.width = rVars.cWidth
         canvas.height = rVars.cHeight
@@ -81,7 +85,7 @@ define (require) ->
             context.fillRect barStart,0,rVars.increment,rVars.cHeight
             barStart += rVars.increment
 
-
+        # horizontal bars is the first *n* colors of the vertical bars, where *n* = horbarSize
         horBars = cVars.rileyColors.slice 0,rVars.horbarSize
 
         canvas2 = document.createElement "canvas"
@@ -335,12 +339,11 @@ define (require) ->
 
         # the first thing is set the background of this article
         rileyGo _this, lVars
-        if Modernizr.touch is false
-            ResizeFu.init _this
         pres = _this.find "pre"
         for i in pres
             code_tango $(i)
         if Modernizr.touch is false
+            ResizeFu.init _this
             scrollTitle _this
 
         _window.resize () ->

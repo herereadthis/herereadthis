@@ -184,12 +184,8 @@ pre {
 .social_fu li:last-of-type {
 	margin-right: 0;
 }
-.social_fu li > span {
+.social_fu li > * {
 	display: block;
-	height: 3em;
-	padding: 0.7em 0 0 4.2em;
-}
-.social_fu li > span > * {
 	font-size: 1.6em;
 	line-height: 1em;
 }
@@ -235,6 +231,22 @@ pre {
 #head_menu .social_fu {
 	height: 4em;
 }
+#head_menu .social_fu li > *:first-child {
+	padding: 0.3125em 0 0 2.625em;
+}
+#head_menu .social_fu li > a {
+	float: left;
+	padding-left: 2.625em;
+}
+#head_menu .social_fu li > a + a {
+	float: left;
+	padding-left: 0;
+}
+#head_menu .social_fu li > a + a:before {
+	float: left;
+	content: "|";
+	margin: 0 0.1875em;
+}
 #head_menu li:nth-child(1) {background-position: 0em -28em;}
 #head_menu li:nth-child(2) {background-position: 0em -32em;}
 #head_menu li:nth-child(3) {background-position: 0em -24em;}
@@ -246,7 +258,7 @@ pre {
 #head_menu li:hover:nth-child(4) {background-position: 0em -60em;
 	cursor: default;
 }
-#head_menu li:hover a {
+#head_menu li:hover a:link, #head_menu li:hover a:visited {
 	color: #8C043D;
 	text-decoration: underline;
 }
@@ -399,6 +411,12 @@ pre {
 
 /* Begin Coding Article ------ */
 /* --------------------------- */
+/*body > header, body > article, body > footer {
+	display: none;
+}
+body > #coding {
+	display: block;
+}*/
 #coding {
 	width: 100%;
 	padding-right: 0;
@@ -426,6 +444,25 @@ pre {
     background-color: rgba(0,0,0,0.80);
     padding: 0;
     text-align: center;
+}
+#code_git figcaption {
+	position: relative;
+}
+#code_git figcaption > a  {
+	display: block;
+	position: absolute;
+	height: 3em;
+	width: 3em;
+	right: 100%;
+	margin-right: 0.3em;
+	top: -0.5em;
+	text-indent: -9999px;
+	background-image: url(../img/social_sprites.png);
+	background-size: 3em 60em;
+	background-position: 0 -39em;
+}
+#code_git figcaption > a:hover {
+	background-position: 0em -9em;
 }
 #coding .code_tango {
 	overflow: auto;
@@ -649,11 +686,9 @@ pre {
 }
 #foot_contact {
 	width: 23.6067%;
-/*	border-top: 0.5em solid #FFF;
-	border-bottom: 0.5em solid #FFF;
-	padding: 2.5em 0;*/
+	position: relative;
 }
-#foot_contact p {
+#foot_contact p, #foot_contact dl {
 	font-size: 2em;
 	line-height: 1.5em;
 	font-family: "gillsans_light", "Gill Sans", sans-serif;
@@ -661,6 +696,48 @@ pre {
 #foot_contact h3 {
 	font-size: 4em;
 	line-height: 1.5em;
+}
+#foot_contact dl {
+	overflow: auto;
+	margin: 0;
+}
+#foot_contact dt {
+	display: block;
+	float: left;
+	clear: both;
+	width: 4em;
+}
+#foot_contact > dl:last-of-type dt {
+	width: 6.5em;
+}
+#foot_contact dd {
+	display: block;
+	float: left;
+	margin: 0;
+}
+#foot_contact dd + dd:before {
+	display: block;
+	float: left;
+	content: "|";
+	margin: 0 0.3em;
+}
+#foot_contact .rsa_pub_key {
+	display: none;
+	position: absolute;
+	top: 1em;
+	left: 100%;
+	padding: 2em 3em 1.5em 3em;
+	background-color: rgba(0,0,0,0.25);
+	text-transform: uppercase;
+}
+#foot_contact .rsa_pub_key a {
+	display: block;
+	position: absolute;
+	text-align: right;
+	right: 0.6em;
+	font-size: 1.6em;
+	top: 0.3125em;
+	cursor: pointer;
 }
 #foot_links {
 	float: none;
@@ -671,9 +748,6 @@ pre {
 	font-size: 7em;
 	line-height: 1em;
 }
-
-
-
 #foot_links .social_fu {
 	height: 5em;
 	margin-bottom: 0.5em;
@@ -684,8 +758,11 @@ pre {
 }
 #foot_links .social_fu li > span {
 	display: block;
-	height: 3.6em;
-	padding: 0.8em 0 0 5.4em;
+	padding: 0.5em 0 0 3.375em;
+}
+#foot_links .social_fu li > a {
+	display: block;
+	padding-left: 3.375em;
 }
 #foot_links li:nth-child(1) {background-position: 0em -50em;}
 #foot_links li:nth-child(2) {background-position: 0em -55em;}
@@ -698,38 +775,6 @@ pre {
 #foot_links li:hover:nth-child(3) {background-position: 0em -10em;}
 #foot_links li:hover:nth-child(4) {background-position: 0em -15em;}
 #foot_links li:hover:nth-child(5) {background-position: 0em -20em;}
-
-
-/*
-#foot_links ul {
-	overflow: auto;
-	margin: 0;
-}
-#foot_links li {
-	list-style-type: none;
-	float: left;
-	width: 13.1em;
-	font-size: 1em;
-}
-#foot_links ul a {
-	display: block;
-	width: 5em;
-	height: 5em;
-	text-indent: -9999px;
-	background-image: url(../img/social_sprites.png);
-	background-size: 5em 60em;
-}
-#foot_links li:nth-child(1) a {background-position: 0em -30em;}
-#foot_links li:nth-child(2) a {background-position: 0em -35em;}
-#foot_links li:nth-child(3) a {background-position: 0em -40em;}
-#foot_links li:nth-child(4) a {background-position: 0em -45em;}
-#foot_links li:nth-child(5) a {background-position: 0em -50em;}
-#foot_links li:nth-child(1) a:hover {background-position: 0em 0em;}
-#foot_links li:nth-child(2) a:hover {background-position: 0em -5em;}
-#foot_links li:nth-child(3) a:hover {background-position: 0em -10em;}
-#foot_links li:nth-child(4) a:hover {background-position: 0em -15em;}
-#foot_links li:nth-child(5) a:hover {background-position: 0em -20em;}
-*/
 
 [role="contentinfo"] .creative_commons_license {
 	width: 38.75em;
