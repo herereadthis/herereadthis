@@ -62,12 +62,10 @@ owl: http://www.w3.org/2002/07/owl#">
 <!-- vcard: http://www.w3.org/Submission/vcard-rdf/ -->
     <!-- take care of this later -->
 
-<!-- CHECK THE BOTTOM OF THIS PAGE FOR DOCUMENTATION ON THE <HEAD /> SECTION -->
 </head>
 
 <body class="helvetica" data-resizefu-ideal-width="108" data-resizefu-side-pad="5"
     data-google-analytics="UA-37798496-1">
-
 
 <!-- WAI-ARIA: | http://www.w3.org/TR/wai-aria-primer/ -->
 <!-- Roles: http://www.w3.org/TR/wai-aria/roles -->
@@ -77,11 +75,6 @@ owl: http://www.w3.org/2002/07/owl#">
 <!-- W3C vCard: http://www.w3.org/Submission/vcard-rdf/ -->
 <header role="banner" class="gill_sans" data-module="head_more"
     data-nextarrow-location="10" data-resizefu-max-ratio="0.75">
-    <!--
-    The property "dc:title" represents "http://purl.org/dc/elements/1.1/title"
-    "dc:title" is called a Compact URL, aka CURIE, which is a representation of a URI from html prefix
-    xmlns:dc="http://purl.org/dc/elements/1.1/"
-    -->
     <h1 class="font_no_calt_no_swsh">Here, Read This</h1>
 
     <section typeof="foaf:Person v:Person" resource="#/me/">
@@ -172,7 +165,6 @@ owl: http://www.w3.org/2002/07/owl#">
         http://www.456bereastreet.com/archive/201103/html5_sectioning_elements_headings_and_document_outlines/
         http://www.456bereastreet.com/archive/201104/html5_document_outline_revisited/
         http://html5doctor.com/downloads/h5d-sectioning-flowchart.pdf
-        RDFa distiller: http://www.w3.org/2012/pyRdfa/
         -->
     </section>
 
@@ -546,88 +538,6 @@ for row, index in myArray
                 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</small></p>
     </section>
 </footer>
-
-
-<!--
-
-<HEAD /> DOCUMENTATION
-
-Remember that Character encoding must appear within first 512 bytes of page:
-    http://www.w3.org/TR/xhtml-rdfa-primer/#using-multiple-vocabularies
-HTML5 does not support <html version="HTML+RDFa 1.1">
-
-RDFa:
-    Primers:
-        http://www.w3.org/MarkUp/2009/rdfa-for-html-authors
-        http://www.w3.org/TR/2008/WD-xhtml-rdfa-primer-20080317/
-        http://www.w3.org/TR/rdfa-in-html/
-        http://answers.semanticweb.com/questions/1187/can-i-use-the-html5-doctype-with-rdfa
-        http://blog.3kbo.com/2010/11/10/simple-html5-rdfa-example/
-        http://notes.3kbo.com/rdfa
-        http://manu.sporny.org/2011/rdfa-lite/ (RDFa Lite for Dummies sort of)
-
-    All prefixes on this site, either in HTML or body:
-        Creative Commmons:      cc="http://creativecommons.org/ns#"
-        Dublin Core Terms:      dc="http://purl.org/dc/terms/"
-        DCMI Types:             dcmitype="http://purl.org/dc/dcmitype/"
-        Geo Spatial:            geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
-        Facebook:               fb="http://ogp.me/ns/fb#"
-        Friend of a Friend:     foaf="http://xmlns.com/foaf/0.1/"
-        Open Graph:             og="http://ogp.me/ns#"
-        Open Graph music:       og="http://ogp.me/ns/music#"
-        Vcard:                  v="http://rdf.data-vocabulary.org/#"
-        Bibliographic:          bibo="http://purl.org/ontology/bibo/" reference: http://uri.gbv.de/ontology/bibo/
-        W3 Ontology Language:   owl: http://www.w3.org/2002/07/owl#
-        XML:                    xsd: http://www.w3.org/2001/XMLSchema#
-
-    DEBUG: http://rdfa.info/play/
-    Watch RDF dance at: http://www.visualdataweb.org/relfinder/relfinder.php
-    Good Ontologies: http://www.w3.org/wiki/Good_Ontologies
-    Test with Google Rich Snippets: http://www.google.com/webmasters/tools/richsnippets
-    W3C pyRDFa XML extraction: http://www.w3.org/2012/pyRdfa/extract?format=xml&uri=http://example.com/
-    Validate RDF: http://www.w3.org/RDF/Validator/
-    Convert RDF XML to TURTLE: http://www.rdfabout.com/demo/validator/index.xpd
-    OWL Primer: http://www.w3.org/TR/owl2-primer/
-
-Icons:
-    Online favicon generation: http://convertico.com
-    Apple Icons: http://goo.gl/6Qdi3 (developer.apple.com/)
-
-Open Graph and Facebook:
-    Facebook JSON is https://graph.facebook.com/142652672557253&scraped=true
-    linter is at https://developers.facebook.com/tools/debug
-    documentation on OG protocol at https://developers.facebook.com/docs/opengraphprotocol/
-    curl https://developers.facebook.com/tools/lint/?url=http%3A%2F%2Fherereadthis.com&format=json
-
-FOAF generated from:
-    http://www.ldodds.com/foaf/foaf-a-matic.en.html
-    wiki: http://wiki.foaf-project.org/w/FAQ and spec: http://xmlns.com/foaf/spec/
-    Good examples: http://www.ivan-herman.net/foaf.rdf http://bblfish.net/people/henry/card#me
-    validate at http://www.w3.org/RDF/Validator/
-    explore FOAF connections: http://xml.mfd-consult.dk/foaf/
-    WebID: http://trueg.wordpress.com/2012/03/15/webid-a-guide-for-the-clueless/
-    Wiki: http://www.w3.org/wiki/WebID http://webid.info/
-    Generate certificate: https://my-profile.eu/certgen.php
-    Test certificate: https://foafssl.org/test/WebId https://my-profile.eu/
--->
-
-<!--
-Ezra Pound, Personae
-    <p>Dear, an this dream come true,<br />
-        I, who being poet only,<br />
-        Can give thee poor words only,<br />
-        Add this one poor other tribute,<br />
-        <strong>This thing men call immortality.</strong><br />
-        A gift I give thee even as Ronsard gave it.</br />
-        Seeing before time, one sweet face grown old,<br />
-        And seeing the old eyes grow bright<br />
-        From out the border of Her fire-lit wrinkles,<br />
-        As she should make boast unto her maids<br />
-        &ldquo;Ronsard hath sung the beauty, my beauty,<br />
-        Of the days that I was fair.&rdquo;</p>
--->
-
-
 
 </body>
 </html>
