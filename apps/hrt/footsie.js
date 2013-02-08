@@ -219,7 +219,6 @@
       }
       modOut = modArray.join("<br />");
       rsaTop = $section.css("padding-top");
-      alert(rsaTop);
       $section.append($("<div />").attr({
         "class": "rsa_pub_key",
         "aria-expanded": false

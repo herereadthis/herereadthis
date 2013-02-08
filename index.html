@@ -142,7 +142,7 @@ owl: http://www.w3.org/2002/07/owl#">
         <figure id="code_git">
             <figcaption class="code_logo">
                 <a href="https://github.com/herereadthis" title="Here, Read This on GitHub" data-logo="git">Here, Read This on Github</a>
-                <p>Coders always ought to contribute. My GitHub account is <a href="https://github.com/herereadthis" title="Here, Read This on GitHub">herereadthis</a>. To clone a repository of this entire site with Git:</p>
+                <p>Coders always ought to contribute. We take so much from Open Source; surely we must give as well. My GitHub account is <a href="https://github.com/herereadthis" title="Here, Read This on GitHub">herereadthis</a>, where <a href="https://github.com/herereadthis/herereadthis" title="herereadthis.com Respository on GitHub">site documention</a> is also available. <strong>To clone a repository of herereadthis.com with Git:</strong></p>
             </figcaption>
             <blockquote>
     <pre><code>git clone https://github.com/herereadthis/herereadthis.git</code></pre>
@@ -160,12 +160,6 @@ owl: http://www.w3.org/2002/07/owl#">
             <li>Using the W3C RDFa 1.1 Distiller, developers can parse the information within this site by retrieving it as <a href="http://www.w3.org/2012/pyRdfa/extract?uri=http%3A%2F%2Fherereadthis.com%2F&amp;format=xml" title="W3C pyRDFa Extraction: XML">XML</a> or <a href="http://www.w3.org/2012/pyRdfa/extract?uri=http%3A%2F%2Fherereadthis.com%2F&amp;format=json" title="W3C pyRDFa Extraction: JSON">JSON</a> output.</li>
             <li>My <a rel="owl:sameAs" href="http://herereadthis.com/apps/hrt/xml/foaf#me">WebID certificate</a> is part of my FOAF (Friend of a Friend) <a href="http://herereadthis.com/apps/hrt/xml/foaf.rdf">RDF file</a>.</li>
         </ul>
-        <!--
-        resources on html5 sectioning outline:
-        http://www.456bereastreet.com/archive/201103/html5_sectioning_elements_headings_and_document_outlines/
-        http://www.456bereastreet.com/archive/201104/html5_document_outline_revisited/
-        http://html5doctor.com/downloads/h5d-sectioning-flowchart.pdf
-        -->
     </section>
 
     <section>
@@ -215,15 +209,15 @@ for row, index in myArray
 </article>
 
 
-<article id="design_modern" data-module="make_it_new">
-    <header class="quarter_maya">
+<article id="design_modern" data-module="make_it_new" prefix="bibo: http://purl.org/ontology/bibo/">
+    <header class="quarter_maya" resource="#/design_modern/nagy/" typeof="bibo:Book dc:BibliographicResource">
         <h2>Design: Philosphy, Typography, Modern.</h2>
 
-        <p>Design has many connotations. It is the organization of materials and processes in the most productive, economic way, in a harmonious balance of all elements necessary for a certain function. It is not a matter of façade, of mere external appearance&hellip;<!--; rather it is the essence of products and institutions, penetrating and comprehensive.--> Designing is a complex and intricate task. It is integration of technological, social and economic requirements, biological necessities, and the psychophysical effects of materials, shape, color, volume, and space: thinking in relationships. The designer must see the periphery as well as the core&hellip;<!--, the immediate and the ultimate, at least in the biological sense. He must anchor his special job in the complex whole. The designer must be trained not only in the use of materials and various skills, but also in appreciation of organic functions and planning.--> He must know that design is indivisible, that the internal and external characteristics of a dish, a chair, a table, a machine, painting, sculpture are not to be separated. The idea of design and the profession of the designer has to be transformed from the notion of a specialist function into a generally valid attitude of resourcefulness and inventiveness which allows projects to be seen not in isolation but in relationship with the need of the individual and the community.<!--One cannot simply lift out any subject matter from the complexity of life and try to handle it as an independent unit.--></p>
-        <p>&mdash;László Moholy-Nagy, <em>Vision in Motion</em> (1947)</p>
-        <!-- swiped from http://www.dailyicon.net/2009/12/books-vision-in-motion-by-laszlo-moholy-nagy/ -->
+        <p property="bibo:Excerpt">Design has many connotations. It is the organization of materials and processes in the most productive, economic way, in a harmonious balance of all elements necessary for a certain function. It is not a matter of façade, of mere external appearance&hellip;Designing is a complex and intricate task. It is integration of technological, social and economic requirements, biological necessities, and the psychophysical effects of materials, shape, color, volume, and space: thinking in relationships. The designer must see the periphery as well as the core&hellip;He must know that design is indivisible, that the internal and external characteristics of a dish, a chair, a table, a machine, painting, sculpture are not to be separated. The idea of design and the profession of the designer has to be transformed from the notion of a specialist function into a generally valid attitude of resourcefulness and inventiveness which allows projects to be seen not in isolation but in relationship with the need of the individual and the community.</p>
+        <p>&mdash;<span property="dc:creator">László Moholy-Nagy</span>,
+            <cite property="dc:title">Vision in Motion</cite>
+            (<time property="dc:created" datetime="1947">1947</time>)</p>
     </header>
-
 
         <p id="ezra_pound">
             <q>Day by Day Make It New</q>
@@ -234,7 +228,6 @@ for row, index in myArray
         <h3 class="gill_sans">I want to make everything beautiful.</h3>
 
         <p>A lot of my inspiration for making things look the way they look is from the Modernist era, from Russian Constructivism to the Swiss International Style. It should use technology without becoming outdated, it should let function determine form, and it should limit the barriers to entry. Good design is never ironic; it is accessible for everyone.</p>
-        <!-- Herbert Spencer? http://en.wikipedia.org/wiki/Pioneers_of_Modern_Typography -->
         <!-- perhaps some paul rand?
              http://www.hellerbooks.com/pdfs/catalogs_rand_designers_words.pdf
              http://arteydisegno.files.wordpress.com/2010/04/paul_rand_thoughts-on-design.pdf -->

@@ -299,7 +299,6 @@ define (require) ->
             cutKey = cutKey.substring(32)
         modOut = modArray.join("<br />")
         rsaTop = $section.css("padding-top")
-        alert rsaTop
         
         $section.append $("<div />").attr
             "class": "rsa_pub_key"
