@@ -38,7 +38,11 @@ requirejs.config
         NextArrow: "next_arrow"
         "Analytics": "analytics"
     # Libraries ------------
-        "jquery": "../../lib/jquery.1.9.0.min"
+        jquery: [
+            'http://code.jquery.com/jquery-1.9.1.min'
+            "../../lib/jquery.1.9.1.min"
+        ]
+        # "jquery": "../../lib/jquery.1.9.0.min"
         "Modernizr": "../../lib/modernizr_custom"
 
 
@@ -46,22 +50,6 @@ requirejs.config
 # http://backbonetutorials.com
 # http://www.joezimjs.com/javascript/introduction-to-backbone-js-part-1-models-video-tutorial/
 
-###
-require ["jquery", "maya_stripes", "accordian_player"], ($) ->
-    $ () ->
-        _banner = $("html.no-touch").find('[role="banner"]')
-        _main = $("html.no-touch").find('[role="main"]')
-        if _banner != undefined and _main != undefined
-            _banner.mayaStripes
-                "complement": _main
-                "clearance": true
-            _main.mayaStripes
-                "complement": _banner
-                "clearance": false
-        _article = $("html.touch").find("article")
-        if _article.html() != undefined
-            _article.accordianPlayer()
-###
 
 
 
@@ -97,7 +85,7 @@ require ["jquery", "Modernizr",
     do Footsie.init
         # do TestApp.init
         # do Backbone.history.start
-    Analytics.track('UA-37798496-1')
+    # Analytics.track 'UA-37798496-1'
 
 
 

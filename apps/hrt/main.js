@@ -30,28 +30,10 @@
       ResizeFu: "resize_fu",
       NextArrow: "next_arrow",
       "Analytics": "analytics",
-      "jquery": "../../lib/jquery.1.9.0.min",
+      jquery: ['http://code.jquery.com/jquery-1.9.1.min', "../../lib/jquery.1.9.1.min"],
       "Modernizr": "../../lib/modernizr_custom"
     }
   });
-
-  /*
-  require ["jquery", "maya_stripes", "accordian_player"], ($) ->
-      $ () ->
-          _banner = $("html.no-touch").find('[role="banner"]')
-          _main = $("html.no-touch").find('[role="main"]')
-          if _banner != undefined and _main != undefined
-              _banner.mayaStripes
-                  "complement": _main
-                  "clearance": true
-              _main.mayaStripes
-                  "complement": _banner
-                  "clearance": false
-          _article = $("html.touch").find("article")
-          if _article.html() != undefined
-              _article.accordianPlayer()
-  */
-
 
   require(["jquery", "Modernizr", 'HeadMore', "PhotoSpice", "Coding", "MakeItNew", "Excerpts", "Footsie", 'Analytics'], function($, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Excerpts, Footsie, Analytics) {
     if (Modernizr.touch === false) {
@@ -61,8 +43,7 @@
     }
     Coding.init();
     Excerpts.init();
-    Footsie.init();
-    return Analytics.track('UA-37798496-1');
+    return Footsie.init();
   });
 
   /*

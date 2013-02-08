@@ -701,6 +701,9 @@ h3.code_logo > a {
 	line-height: 1.5em;
 	font-family: "gillsans_light", "Gill Sans", sans-serif;
 }
+#foot_contact p {
+	padding-right: 0.5em;
+}
 #foot_contact h3 {
 	padding-top: 0.5em;
 	padding-bottom: 0.25em;
@@ -794,7 +797,6 @@ h3.code_logo > a {
 	width: 7.6em;
 	height: 2.666667em;
 	margin-right: 0.333333em;
-	text-indent: -9999px;
 }
 .creative_commons_license > small {
 	display: block;

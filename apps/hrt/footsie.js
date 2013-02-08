@@ -2,7 +2,7 @@
 (function() {
 
   define(function(require) {
-    var $, Modernizr, exports, footStreaks, gVars, loadStreaks, makeItHappen, makeSections, makeSocialClick, moduleName, obfuscate, phi, riley, rileyKiss, rsaDisplay, rsaPublic, scrollMath, sects, streak, streakNoise, _window;
+    var $, Modernizr, ccImg, exports, footStreaks, gVars, loadStreaks, makeItHappen, makeSections, makeSocialClick, moduleName, obfuscate, phi, riley, rileyKiss, rsaDisplay, rsaPublic, scrollMath, sects, streak, streakNoise, _window;
     $ = require("jquery");
     Modernizr = require("Modernizr");
     exports = {};
@@ -13,7 +13,8 @@
       em: parseInt($("body").css("font-size"), 10),
       winWidth: _window.width(),
       winHeight: _window.height(),
-      showing: 0
+      showing: 0,
+      ccClass: ".creative_commons_image"
     };
     phi = (1 + Math.sqrt(5)) / 2;
     loadStreaks = true;
@@ -203,7 +204,7 @@
       }
     };
     rsaPublic = function($this) {
-      var $rpk, $section, cutKey, exponent, modArray, modOut, modulus;
+      var $rpk, $section, cutKey, exponent, modArray, modOut, modulus, rsaTop;
       $this.wrapInner($("<a />").attr({
         "href": ""
       }));
@@ -217,6 +218,8 @@
         cutKey = cutKey.substring(32);
       }
       modOut = modArray.join("<br />");
+      rsaTop = $section.css("padding-top");
+      alert(rsaTop);
       $section.append($("<div />").attr({
         "class": "rsa_pub_key",
         "aria-expanded": false
@@ -236,6 +239,14 @@
         return rsaDisplay(e, $rpk);
       });
     };
+    ccImg = function($this) {
+      var $img, src;
+      $img = $this.find(gVars.ccClass).find("img");
+      src = $img.data("src");
+      return $img.attr({
+        "src": src
+      });
+    };
     makeItHappen = function(_this) {
       var offset, winHtLessOffset;
       obfuscate(_this);
@@ -251,6 +262,7 @@
           rsaPublic(_this.find($('[property="cert:modulus"]')));
           makeSocialClick(_this.find(".social_fu"));
           makeSections(_this);
+          ccImg(_this);
           footStreaks(gVars);
           rileyKiss(_this);
           return console.log("scrolled to footsie");
@@ -261,6 +273,9 @@
         makeSections(_this);
         if (loadStreaks === true) {
           loadStreaks = false;
+          rsaPublic(_this.find($('[property="cert:modulus"]')));
+          makeSocialClick(_this.find(".social_fu"));
+          ccImg(_this);
           footStreaks(gVars);
         }
         return rileyKiss(_this);

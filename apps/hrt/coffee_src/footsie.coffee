@@ -15,6 +15,8 @@ define (require) ->
         winHeight: do _window.height
         # showing > 0 if any part of the footer is showing
         showing: 0
+        # creative commons img
+        ccClass: ".creative_commons_image"
 
     # the golden ratio
     phi = (1 + Math.sqrt(5)) / 2
@@ -296,6 +298,8 @@ define (require) ->
             modArray.push cutKey.substring(0,32)
             cutKey = cutKey.substring(32)
         modOut = modArray.join("<br />")
+        rsaTop = $section.css("padding-top")
+        alert rsaTop
         
         $section.append $("<div />").attr
             "class": "rsa_pub_key"
@@ -313,6 +317,15 @@ define (require) ->
 
         $rpk.on "click", "a", (e) ->
             rsaDisplay e, $rpk
+
+
+    # writes the CC licences image into the page when needed.
+    ccImg = ( $this ) ->
+        $img = $this.find(gVars.ccClass).find "img"
+        src = $img.data "src"
+        $img.attr
+            "src":src
+
 
 
     makeItHappen = ( _this ) ->
@@ -339,6 +352,8 @@ define (require) ->
                 makeSocialClick _this.find ".social_fu"
                 # space out the sections
                 makeSections _this
+                # make the CC image
+                ccImg _this
                 # generate streak noise. It is resource-intensive, so this only gets done once
                 footStreaks gVars
                 # generate the riley Kiss background
@@ -351,6 +366,9 @@ define (require) ->
             makeSections _this
             if loadStreaks is true
                 loadStreaks = false
+                rsaPublic _this.find $('[property="cert:modulus"]')
+                makeSocialClick _this.find ".social_fu"
+                ccImg _this
                 footStreaks gVars
             # rileyKiss is done regardless of scrolling position because it must fit the window dimensions
             rileyKiss _this

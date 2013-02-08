@@ -2,7 +2,8 @@
 (function() {
 
   define(function(require) {
-    var exports;
+    var $, exports;
+    $ = require("jquery");
     exports = {
       track: function(accountId) {
         var ga, s, _gaq;
