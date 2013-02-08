@@ -23,7 +23,7 @@
             ```
             That is, if running a query against the RDFa, the resource `/anna_karenina/` has the title, "Anna Karenina", which was created by Leo Tolsty in 1878.
 
-            ```html
+            ```xml
             @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
             @prefix dc: <http://purl.org/dc/terms/> .
             <http://example.com/anna_karenina/>
@@ -97,11 +97,8 @@
     * Design has many connotations. It is the organization of materials and processes in the most productive, economic way, in a harmonious balance of all elements necessary for a certain function. It is not a matter of façade, of mere external appearance rather it is the essence of products and institutions, penetrating and comprehensive. Designing is a complex and intricate task. It is integration of technological, social and economic requirements, biological necessities, and the psychophysical effects of materials, shape, color, volume, and space: thinking in relationships. The designer must see the periphery as well as the core, the immediate and the ultimate, at least in the biological sense. He must anchor his special job in the complex whole. The designer must be trained not only in the use of materials and various skills, but also in appreciation of organic functions and planning. He must know that design is indivisible, that the internal and external characteristics of a dish, a chair, a table, a machine, painting, sculpture are not to be separated. The idea of design and the profession of the designer has to be transformed from the notion of a specialist function into a generally valid attitude of resourcefulness and inventiveness which allows projects to be seen not in isolation but in relationship with the need of the individual and the community. One cannot simply lift out any subject matter from the complexity of life and try to handle it as an independent unit.
 * Inspirations
     * Herbert Spencer, [*Pioneers of Modern Typography*](http://en.wikipedia.org/wiki/Pioneers_of_Modern_Typography)
-
-
-
-### Ezra Pound, *Personae*
-Dear, an this dream come true,/
+* Ezra Pound, *Personae*
+    * Dear, an this dream come true,/
 I, who being poet only,/
 Can give thee poor words only,/
 Add this one poor other tribute,/
