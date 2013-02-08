@@ -107,7 +107,7 @@
       return gVars.showing = _window.scrollTop() + winHtLessOffset;
     };
     makeSections = function(_this) {
-      var beginHt, endHt, endSize, maybeHt, minEndHeight, sections, toFull, _begin, _end;
+      var beginHt, diffHt, endHt, endSize, i, k, maybeHt, minEndHeight, sectHts, sections, toFull, _begin, _end, _i, _len;
       sections = _this.find("section");
       _begin = $(sections[0]);
       _end = $(sections[sections.length - 1]);
@@ -128,13 +128,43 @@
         gVars.winHeight = toFull;
         endSize.padTop = sects.endThresh;
       }
+      _begin.css({
+        "height": ""
+      });
+      sectHts = [];
+      for (k = _i = 0, _len = sections.length; _i < _len; k = ++_i) {
+        i = sections[k];
+        if (k < sections.length - 1) {
+          sectHts[k] = [];
+          sectHts[k].push($(i).height());
+        }
+      }
+      diffHt = Math.round(gVars.winHeight - _window.height());
+      sectHts[0][1] = Math.round((gVars.winWidth / riley.magicFactor) / 10);
+      sectHts[1][1] = Math.round((gVars.winWidth / riley.magicFactor) / 20);
       beginHt = Math.round(riley.cutoffRatio * gVars.winHeight);
       _this.css({
         "min-height": gVars.winHeight
       });
-      _begin.css({
-        "height": Math.round(riley.cutoffRatio * gVars.winHeight)
-      });
+      if (diffHt > 0 && Modernizr.touch === false) {
+        _begin.css({
+          "height": beginHt - diffHt,
+          "padding-top": diffHt
+        });
+        _begin.find("h3:first-of-type").css({
+          "padding-top": 0
+        });
+        _begin.next().css({
+          "padding-top": diffHt
+        });
+        _begin.next().find("h3:first-of-type").css({
+          "padding-top": 0
+        });
+      } else {
+        _begin.css({
+          "height": Math.round(riley.cutoffRatio * gVars.winHeight)
+        });
+      }
       return _end.css({
         "padding-top": endSize.padTop
       });
@@ -212,7 +242,6 @@
       if (Modernizr.touch === true) {
         riley.magicFactor = riley.magicMobile;
       }
-      makeSections(_this);
       offset = _this.offset();
       winHtLessOffset = _window.height() - offset.top;
       _window.scroll(function() {

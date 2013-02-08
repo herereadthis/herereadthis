@@ -53,7 +53,7 @@
   */
 
 
-  require(["jquery", 'Modernizr', 'HeadMore', "PhotoSpice", "Coding", "MakeItNew", "Excerpts", "Footsie", 'Analytics'], function($, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Excerpts, Footsie, Analytics) {
+  require(["jquery", "Modernizr", 'HeadMore', "PhotoSpice", "Coding", "MakeItNew", "Excerpts", "Footsie", 'Analytics'], function($, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Excerpts, Footsie, Analytics) {
     if (Modernizr.touch === false) {
       HeadMore.init();
       PhotoSpice.init();

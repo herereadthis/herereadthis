@@ -198,14 +198,50 @@ define (require) ->
             endSize.padTop = sects.endThresh
 
 
-        # theoretical height of beginning section
+        # actual height of beginning section requires reset
+        _begin.css
+            "height":""
+        sectHts = []
+        for i,k in sections
+            if k < sections.length - 1
+                sectHts[k] = []
+                sectHts[k].push $(i).height()
+        diffHt = Math.round gVars.winHeight - _window.height()
+        sectHts[0][1] =  Math.round((gVars.winWidth / riley.magicFactor) / 10)
+        sectHts[1][1] = Math.round((gVars.winWidth / riley.magicFactor) / 20)
+
         beginHt = Math.round riley.cutoffRatio * gVars.winHeight
+
+        # if Modernizr.touch is false
+        #     for i, k in sectHts
+        #         theoryPad = Math.round ((beginHt - i[0] - i[1]) / 2) - sects.topMinPad
+        #         i.push theoryPad
+        #         if diffHt is 0
+        #             if i[2] > 0
+        #                 i.push theoryPad
+        #             else
+        #                 i.push sects.topMinPad
+                # which means size of footer is greater than window Height
+
+
+
 
         _this.css
             "min-height": gVars.winHeight
 
-        _begin.css
-            "height": Math.round riley.cutoffRatio * gVars.winHeight
+        if diffHt > 0 and Modernizr.touch is false
+            _begin.css
+                "height": beginHt - diffHt
+                "padding-top": diffHt
+            _begin.find("h3:first-of-type").css
+                "padding-top": 0
+            _begin.next().css
+                "padding-top": diffHt
+            _begin.next().find("h3:first-of-type").css
+                "padding-top": 0
+        else
+            _begin.css
+                "height": Math.round riley.cutoffRatio * gVars.winHeight
 
         _end.css
             "padding-top": endSize.padTop
@@ -287,7 +323,7 @@ define (require) ->
             riley.magicFactor = riley.magicMobile
 
         # set min-height of footer to be height of window or fit sections
-        makeSections _this
+        # makeSections _this
 
         # footer math isn't done until user to bottom of page
         offset = _this.offset()

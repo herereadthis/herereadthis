@@ -146,8 +146,8 @@ owl: http://www.w3.org/2002/07/owl#">
         <h2>Coding</h2>
 
         <figure id="code_git">
-            <figcaption>
-                <a href="https://github.com/herereadthis" title="Here, Read This on GitHub">Here, Read This on Github</a>
+            <figcaption class="code_logo">
+                <a href="https://github.com/herereadthis" title="Here, Read This on GitHub" data-logo="git">Here, Read This on Github</a>
                 <p>Coders always ought to contribute. My GitHub account is <a href="https://github.com/herereadthis" title="Here, Read This on GitHub">herereadthis</a>. To clone a repository of this entire site with Git:</p>
             </figcaption>
             <blockquote>
@@ -157,7 +157,7 @@ owl: http://www.w3.org/2002/07/owl#">
     </header>
 
     <section>
-        <h3>Semantic Web</h3>
+        <h3 class="code_logo"><a href="https://github.com/herereadthis" title="Here, Read This on GitHub" data-logo="smw">Here, Read This on Github</a>Semantic Web</h3>
         <p>Accessibility is the priority underlying the code of herereadthis.com. Anyone and any device or technology should be able to retrieve information from this site.</p>
         <ul>
             <li>Behaviors and states are triggered with WAI-ARIA roles and properties.</li>
@@ -176,7 +176,7 @@ owl: http://www.w3.org/2002/07/owl#">
     </section>
 
     <section>
-        <h3>CoffeeScript is Awesome!</h3>
+        <h3 class="code_logo"><a href="https://github.com/herereadthis" title="Here, Read This on GitHub" data-logo="cfs">Here, Read This on Github</a>CoffeeScript is Awesome!</h3>
 
         <p>CoffeeScript is an abstraction of Javascript. You can write your scripts much faster, have fewer (if any) errors when you lint, see better-defined objects and models.</p>
 
@@ -512,27 +512,27 @@ for row, index in myArray
     <section id="foot_links">
         <ul class="social_fu" resource="#/me/" typeof="foaf:Person">
             <li property="foaf:account" resource="#/me/facebook/" typeof="foaf:OnlineAccount">
-                <span property="foaf:accountServiceHomepage" resource="https://www.facebook.com/">Facebook</span><br />
+                <span property="foaf:accountServiceHomepage" resource="https://www.facebook.com/">Facebook</span>
                 <a property="foaf:homepage" href="https://www.facebook.com/herereadthis"><span
                         property="foaf:accountName">herereadthis</span></a>
             </li>
             <li property="foaf:account" resource="#/me/twitter/" typeof="foaf:OnlineAccount">
-                <span property="foaf:accountServiceHomepage" resource="https://twitter.com/">Twitter</span><br />
+                <span property="foaf:accountServiceHomepage" resource="https://twitter.com/">Twitter</span>
                 <a property="foaf:homepage" href="http://twitter.com/herereadthis"><span
                         property="foaf:accountName">herereadthis</span></a> 
             </li>
             <li property="foaf:account" resource="#/me/flickr/" typeof="foaf:OnlineAccount">
-                <span property="foaf:accountServiceHomepage" resource="http://www.flickr.com/">Flickr</span><br />
+                <span property="foaf:accountServiceHomepage" resource="http://www.flickr.com/">Flickr</span>
                 <a property="foaf:homepage" href="http://www.flickr.com/photos/applesanity/"><span
                         property="foaf:accountName">applesanity</span></a> 
             </li>
             <li property="foaf:account" resource="#/me/github/" typeof="foaf:OnlineAccount">
-                <span property="foaf:accountServiceHomepage" resource="https://github.com/">GitHub</span><br />
+                <span property="foaf:accountServiceHomepage" resource="https://github.com/">GitHub</span>
                 <a property="foaf:homepage" href="https://github.com/herereadthis"><span
                         property="foaf:accountName">herereadthis</span></a> 
             </li>
             <li property="foaf:account" resource="#/me/pinterest/" typeof="foaf:OnlineAccount">
-                <span property="foaf:accountServiceHomepage" resource="http://pinterest.com/">Pinterest</span><br />
+                <span property="foaf:accountServiceHomepage" resource="http://pinterest.com/">Pinterest</span>
                 <a property="foaf:homepage" href="http://pinterest.com/herereadthis/"><span
                         property="foaf:accountName">herereadthis</span></a> 
             </li>
@@ -543,7 +543,7 @@ for row, index in myArray
         <p class="creative_commons_license" resource="#copyright"><a rel="license" class="creative_commons_image"
                     href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img
                     alt="Creative Commons License"
-                    src="/apps/hrt/img/cc_by-sa.png" width="100%" /></a>
+                    data-src="/apps/hrt/img/cc_by-sa.png" width="100%" /></a>
             <small class="gill_sans">Except where otherwise noted,
                 <span property="dc:title">Here, Read This</span> by
                 <a prefix="cc: http://creativecommons.org/ns#" href="http://herereadthis.com/" property="cc:attributionName" rel="cc:attributionURL">Jimmy Ha</a> is licensed under a
