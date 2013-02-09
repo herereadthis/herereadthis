@@ -1,4 +1,5 @@
 # Here Read This
+(Incomplete) [extended documentation](https://github.com/herereadthis/herereadthis/blob/master/docs/readme.md) is located in `docs` directory.
 
 ## Documentation for Index Page
 
@@ -11,6 +12,7 @@
         * W3 References: **[W3 RDFa for HTML Authors](http://www.w3.org/MarkUp/2009/rdfa-for-html-authors)**, **[W3 RDFa Primer](http://www.w3.org/TR/xhtml-rdfa-primer/)**, **[W3 RDFa in HTML](http://www.w3.org/TR/rdfa-in-html/)**
         * [3kbo RDFa working example](http://blog.3kbo.com/2010/11/10/simple-html5-rdfa-example/) and [3kbo Wiki for RDFa](http://notes.3kbo.com/rdfa)
         * [Manu Sporny's RDFa Lite for Dummies](http://manu.sporny.org/2011/rdfa-lite/)
+        * [Google Rich Snippets for People](http://support.google.com/webmasters/bin/answer.py?hl=en&answer=146646)
     * **Prefixes:**
         * The property `dc:title` is defined by `http://purl.org/dc/terms/title` Therefore, `dc:title` is called a Compact URL, aka CURIE, which is a representation of a URI from html prefix `prefix="dc: http://purl.org/dc/terms/"`
 
@@ -52,6 +54,7 @@
             * [Bibliographic Ontology reference](http://uri.gbv.de/ontology/bibo/)
             * [W3 Web Ontoloty Language (OWL) Primer](http://www.w3.org/TR/owl2-primer/)
             * [Dublin Core Metadata Initiative](http://dublincore.org/)
+            * [W3 VCard](http://www.w3.org/Submission/vcard-rdf/)
     * **Useful RDFa Tools and Apps:**
         * [Debug RDFa in HTML with mappings](http://rdfa.info/play/)
         * **[Watch RDFa visualization using dbpedia](http://www.visualdataweb.org/relfinder/relfinder.php)**
@@ -66,20 +69,13 @@
         * Linter is at [https://developers.facebook.com/tools/debug](https://developers.facebook.com/tools/debug)
         * [Documentation on Open Graph `prefix="og"` protocol](https://developers.facebook.com/docs/opengraphprotocol/)
         * curl `https://developers.facebook.com/tools/lint/?url=http%3A%2F%2Fherereadthis.com&format=json`
-    * **FOAF (Friend of a Friend)** is a vocabulary for identifying people and their relationships to their works and other people.
-        * [Starter: Foaf-O-Matic FOAF File generation](http://www.ldodds.com/foaf/foaf-a-matic.en.html)
-        * [FOAF Project Wiki](http://wiki.foaf-project.org/w/FAQ) 
-        * [FOAF XML Specification](http://xmlns.com/foaf/spec/)
-        * Examples of Good FOAF files from leaders: [Ivan Herman](http://www.ivan-herman.net/foaf.rdf) and [Henry Story](http://bblfish.net/people/henry/card#me)
-        * [Explore FOAF Connections](http://xml.mfd-consult.dk/foaf/)
-        * [Use FOAF to generate WebID (primer)](http://trueg.wordpress.com/2012/03/15/webid-a-guide-for-the-clueless/) and [WebID Wiki](http://www.w3.org/wiki/WebID http://webid.info/)
-        * [Generate WebID Certificate and RSA Public Key](https://my-profile.eu/certgen.php) or [MyOpenLink](http://id.myopenlink.net/certgen/)
-        * Test and confirm certificate is working: [foaf SSL](https://foafssl.org/test/WebId) or [My Profile](https://my-profile.eu/)
+    * **FOAF (Friend of a Friend)** is a vocabulary for identifying people and their relationships to their works and other people. [Go to FOAF + WebID Docs](/herereadthis/herereadthis/blob/master/docs/foaf.md)
 * **Icons**
     * [Online favicon generation (.ICO format)](http://convertico.com)
     * [Icons for iOS (iPhone and iPad) at Apple Developers](http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)
 
 ### `<header role="banner" />` Header
+* `role="banner"` is a WAI-ARIA Landmark Role. See the [documentation](/herereadthis/herereadthis/blob/master/docs/wai_aria.md) )
 
 ### `<article id="photos" />` Photography Article
 
