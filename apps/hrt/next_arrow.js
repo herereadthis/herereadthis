@@ -61,7 +61,7 @@
       var href, _arrow;
       href = _this.next().attr("id");
       href = "#/" + href + "/";
-      _this.append($("<a />").addClass(moduleName).html("&darr;").attr({
+      _this.append($("<a />").addClass(moduleName).html("&#x2B07;").attr({
         "href": href
       }));
       _arrow = _this.find(moduleClass);

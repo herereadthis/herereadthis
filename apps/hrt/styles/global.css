@@ -132,6 +132,25 @@ pre {
 
 /* Begin Shared Class--------- */
 /* --------------------------- */
+/* Prevent Flash of Unstyled Content (FOUC) */
+/* Works in conjunction with Modernizr */
+.no-js.no-touch body > header {
+    position: absolute;
+    width: 108em;
+    top: 8%;
+    left: 50%;
+    margin-left: -54em;
+    padding-right: 0;
+    padding-left: 0;
+
+}
+.no-js.no-touch body > header h1 {
+    padding-top: 0.416667em;
+}
+.no-js.no-touch body > article, .no-js body > footer {
+    position: absolute !important;
+    top: 100% !important;
+}
 /* arrow to lead to next section */
 .gill_sans, [role="contentinfo"] .gill_sans {
 	font-family: "Gill Sans", "gillsans", sans-serif;
@@ -142,14 +161,14 @@ pre {
 .next_arrow {
 	position: absolute;
 	bottom: 0;
-	width: 1.12em;
-	height: 0.8em;
-	padding-top: 0.32em;
 	z-index: 6;
-	font-size: 5em;
-	line-height: 0.8em;
 	font-family: "inconsolatamedium", monospace;
 	text-align: center;
+	font-size: 4em;
+	width: 1.2em;
+	height: 1em;
+	padding-top: 0.6em;
+	line-height: 1em;
 }
 .next_arrow:hover, .next_arrow:active, .next_arrow:focus {
 	cursor: pointer;
@@ -275,7 +294,7 @@ pre {
 	text-decoration: underline;
 }
 [role="banner"] .next_arrow {
-	text-shadow: 0 0.02em 0.02em rgba(255,255,255,1);
+	text-shadow: 0 0 0.1em rgba(255,255,255,1);
 	color: #043D8C;
 	background-image:
 		-webkit-linear-gradient(270deg, rgba(115,137,153,0.18) 0%, rgba(115,137,153,0.13) 10%,
@@ -298,10 +317,13 @@ pre {
 	background-repeat: no-repeat;
 	background-size: 0.8em 1.6em;
 	background-position: 0.16em 0.32em;
+	background-size: 1.6em 3.2em;
+	background-position: 0.0em 0.32em;
 }
 [role="banner"] .next_arrow:hover {
 	color: #3D048C;
 	background-position: 0.16em 0em;
+	background-position: 0em 0em;
 }
 /* --------------------------- */
 /* End Header ---------------- */

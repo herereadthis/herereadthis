@@ -53,27 +53,10 @@ requirejs.config
 
 
 
-# require [
-#     "jquery"
-#     'Modernizr'
-#     'HeadMore', "PhotoSpice", "Coding", "MakeItNew", "Excerpts", "Footsie"
-#     'Analytics'], ($, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Excerpts, Footsie, Analytics ) ->
-#     # do TestApp.init
-#     # do Backbone.history.start
-#     # if Modernizr.touch is false
-#     #     do HeadMore.init
-#     #     do PhotoSpice.init
-#     #     do MakeItNew.init
-#     # do Coding.init
-#     # do Excerpts.init
-#     # do Footsie.init
-#         # do TestApp.init
-#         # do Backbone.history.start
-#     Analytics.track('UA-37798496-1')
-
-require ["jquery", "Modernizr",
+require [
+    "jquery", 'Modernizr'
     'HeadMore', "PhotoSpice", "Coding", "MakeItNew", "Excerpts", "Footsie"
-    'Analytics'], ( $, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Excerpts, Footsie, Analytics ) ->
+    "Analytics"], ( $, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Excerpts, Footsie, Analytics ) ->
     # do TestApp.init
     # do Backbone.history.start
     if Modernizr.touch is false
@@ -85,7 +68,24 @@ require ["jquery", "Modernizr",
     do Footsie.init
         # do TestApp.init
         # do Backbone.history.start
-    # Analytics.track 'UA-37798496-1'
+    Analytics.track 'UA-37798496-1' 
+
+# require ["jquery", "Modernizr",
+#     'HeadMore', "PhotoSpice", "Coding", "MakeItNew", "Excerpts", "Footsie"
+#     'Analytics'], ( $, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Excerpts, Footsie, Analytics ) ->
+#     # do TestApp.init
+#     # do Backbone.history.start
+#     if Modernizr.touch is false
+#         do HeadMore.init
+#         do PhotoSpice.init
+#         do MakeItNew.init
+#     alert Modernizr.touch
+#     do Coding.init
+#     do Excerpts.init
+#     do Footsie.init
+#         # do TestApp.init
+#         # do Backbone.history.start
+#     # Analytics.track 'UA-37798496-1'
 
 
 
