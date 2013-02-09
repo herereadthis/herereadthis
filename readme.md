@@ -75,7 +75,7 @@
     * [Icons for iOS (iPhone and iPad) at Apple Developers](http://developer.apple.com/library/ios/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)
 
 ### `<header role="banner" />` Header
-* `role="banner"` is a WAI-ARIA Landmark Role. See the [documentation](/herereadthis/herereadthis/blob/master/docs/wai_aria.md) )
+* `role="banner"` is a WAI-ARIA Landmark Role. See the [documentation](https://github.com/herereadthis/herereadthis/blob/master/docs/wai_aria.md) )
 
 ### `<article id="photos" />` Photography Article
 
