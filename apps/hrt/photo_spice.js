@@ -24,8 +24,8 @@
         top: 0,
         bottom: 0
       },
-      threshSides: 0.05,
-      threshTB: 0.05,
+      threshSides: 0.07,
+      threshTB: 0.07,
       overhang: 5,
       maxRatio: 1 / 2,
       titleWidth: 0.1475

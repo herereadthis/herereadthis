@@ -24,10 +24,10 @@ define (require) ->
             bottom: 0
         # expressed as a 0 < percentage < 1, spacing between edge of window and sides of photo section
         # override locally with html data-photospice-thresh-sides="0.##"
-        threshSides: 0.05
+        threshSides: 0.07
         # same as above, but for top and bottom edges
         # override locally with html data-photospice-thresh-tb="0.##"
-        threshTB: 0.05
+        threshTB: 0.07
         # overhang of photoSpice, to prevent peek-through of next article in case of over-scrolling, EMs
         overhang: 5
         # phi is ratio of height to width of photo section. Attempt to fit

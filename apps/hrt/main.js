@@ -14,6 +14,10 @@
 (function() {
 
   requirejs.config({
+    hbs: {
+      templateExtension: 'hbs',
+      disableI18n: true
+    },
     shim: {
       "Modernizr": {
         deps: ["jquery"],
@@ -22,6 +26,7 @@
     },
     paths: {
       HeadMore: "head_more",
+      TakeMe: "take_me",
       PhotoSpice: "photo_spice",
       Coding: "coding",
       MakeItNew: "make_it_new",
@@ -31,11 +36,17 @@
       NextArrow: "next_arrow",
       "Analytics": "analytics",
       jquery: ['http://code.jquery.com/jquery-1.9.1.min', "../../lib/jquery.1.9.1.min"],
-      "Modernizr": "../../lib/modernizr_custom"
+      "Modernizr": "../../lib/modernizr_custom",
+      "backbone": "../../lib/backbone",
+      "hbs": "../../lib/hbs",
+      "Handlebars": "../../lib/Handlebars",
+      "i18nprecompile": "../../lib/hbs/i18nprecompile",
+      "json2": "../../lib/hbs/json2",
+      "underscore": "../../lib/underscore"
     }
   });
 
-  require(["jquery", 'Modernizr', 'HeadMore', "PhotoSpice", "Coding", "MakeItNew", "Excerpts", "Footsie", "Analytics"], function($, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Excerpts, Footsie, Analytics) {
+  require(["jquery", 'Modernizr', 'HeadMore', "TakeMe", "PhotoSpice", "Coding", "MakeItNew", "Excerpts", "Footsie", "Analytics"], function($, Modernizr, HeadMore, TakeMe, PhotoSpice, Coding, MakeItNew, Excerpts, Footsie, Analytics) {
     if (Modernizr.touch === false) {
       HeadMore.init();
       PhotoSpice.init();
@@ -44,7 +55,7 @@
     Coding.init();
     Excerpts.init();
     Footsie.init();
-    return Analytics.track('UA-37798496-1');
+    return Analytics.track();
   });
 
   /*

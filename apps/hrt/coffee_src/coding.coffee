@@ -141,6 +141,7 @@ define (require) ->
             widthPlusPad = _window.width()
             beyondView = (rVars.cWidth - widthPlusPad) / 2
             titleWidth = (rVars.cWidth - rVars.start) - beyondView
+
             pRight = titleWidth + rVars.pLeftThreshold
             _this.children().css
                 "padding-right": pRight
@@ -303,7 +304,6 @@ define (require) ->
 
     makeItHappen = ( _this ) ->
         # resize header to fit page, accordingly
-
 
         # set a few globals based on data-attributes
         _body = $("body")

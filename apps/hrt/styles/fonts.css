@@ -21,6 +21,30 @@
     font-style: normal;
 }
 
+@font-face {
+	font-family: 'metropolis';
+	src: url('fonts/metropolis.otf'),
+		url('fonts/inconsolata-webfont.eot');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'cassannet';
+	src: url('fonts/cassannet.otf'),
+		url('fonts/inconsolata-webfont.eot');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+	font-family: 'bgbold';
+	src: url('fonts/bglight.otf'),
+		url('fonts/inconsolata-webfont.eot');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 /* Lavandaria found at:; http://www.losttype.com/
    Referral: http://www.creativebloq.com/graphic-design-tips/best-free-fonts-for-designers-1233380 */
 /*
@@ -106,7 +130,7 @@
     font-weight: normal;
     font-style: normal;
 }
-/*
+
 @font-face {
 	font-family: 'gillsans_lightitalic';
 	src: url('fonts/gillsans_lightitalic.otf'),
@@ -114,7 +138,7 @@
     font-weight: normal;
     font-style: normal;
 }
-*/
+
 /* Joanna is the complement to gill sans */
 @font-face {
 	font-family: 'joanna';

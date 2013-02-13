@@ -303,6 +303,7 @@ define (require) ->
         $section.append $("<div />").attr
             "class": "rsa_pub_key"
             "aria-expanded": false
+            "role": "tooltip"
         $rpk = $section.find ".rsa_pub_key"
         $rpk.append $("<a />").html("close [X]").attr
             "href":""

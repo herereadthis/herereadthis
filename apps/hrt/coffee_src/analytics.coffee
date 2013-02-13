@@ -3,6 +3,7 @@ define (require) ->
 	$ = require "jquery"
 	exports = 
 		track: ( accountId ) ->
+			accountId = $("body").data("google-analytics") or accountId
 			
 			_gaq = window._gaq = _gaq or []
 			ga = document.createElement "script"
@@ -10,6 +11,7 @@ define (require) ->
 
 			_gaq.push ['_setAccount', accountId]
 			_gaq.push ['_trackPageview']
+			console.log _gaq
 			
 			ga.type = "text/javascript"
 			ga.async = true

@@ -28,6 +28,7 @@ html {
     overflow-y: scroll;
 }
 body {
+	position: relative;
 	margin: 0;
 	padding: 0;
 	font-size: 100%;
@@ -69,6 +70,9 @@ p > code {
 p > small {
 	font-size: 1em;
 }
+q[lang="ru"]:before {content: "«";}
+q[lang="ru"]:after  {content: "»";}
+
 a:link {
 	color: #043D8C;
 	text-decoration:  none;
@@ -144,6 +148,9 @@ pre {
     padding-left: 0;
 
 }
+.no-js.no-touch [role="navigation"] {
+	display: none;
+}
 .no-js.no-touch body > header h1 {
     padding-top: 0.416667em;
 }
@@ -165,7 +172,7 @@ pre {
 	font-family: "inconsolatamedium", monospace;
 	text-align: center;
 	font-size: 4em;
-	width: 1.2em;
+	width: 1.6em;
 	height: 1em;
 	padding-top: 0.6em;
 	line-height: 1em;
@@ -315,15 +322,32 @@ pre {
 			rgba(115,137,153,0.63) 60%, rgba(115,137,153,0.58) 70%,
 			rgba(115,137,153,0.71) 70%, rgba(115,137,153,0.64) 80%);
 	background-repeat: no-repeat;
-	background-size: 1.6em 3.2em;
-	background-position: 0.0em 0.32em;
+	background-size: 1.2em 3.2em;
+	background-position: 0.2em 0.32em;
 }
 [role="banner"] .next_arrow:hover {
 	color: #3D048C;
-	background-position: 0em 0em;
+	background-position: 0.2em 0em;
 }
 /* --------------------------- */
 /* End Header ---------------- */
+
+
+
+/* Begin Navigation ---------- */
+/* --------------------------- */
+[role="navigation"] {
+	display: none;
+	background-color: rgba(115, 194, 251, 0.8);
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 40em;
+	height: 4em;
+	z-index: 10;
+}
+/* --------------------------- */
+/* End Navigation ------------ */
 
 
 
@@ -333,6 +357,7 @@ pre {
 	position: relative;
 	width: 100%;
 	padding: 0;
+	color: #FFF;
 	background-color: #282828;
 	overflow: auto;
 }
@@ -436,7 +461,12 @@ pre {
 body > #coding {
 	display: block;
 }*/
+
+#design_modern, #top_things, #excerpts {
+	display: block;
+}
 #coding {
+	display: block;
 	width: 100%;
 	padding-right: 0;
 	padding-left: 0;
@@ -446,7 +476,7 @@ body > #coding {
 	position: relative
 }
 #coding header, #coding section {
-	width: 108em;
+	width: auto;
 	margin: 0 auto;
 	padding-left: 5em;
 }

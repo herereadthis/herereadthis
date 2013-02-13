@@ -71,7 +71,10 @@ define (require) ->
 
 
     makeItHappen = ( _this ) ->
-        href = _this.next().attr "id"
+        if _this.next().prop("tagName").toLowerCase() is "nav"
+            href = _this.next().next().attr "id"
+        else
+            href = _this.next().attr "id"
         href = "#/#{ href }/"
         _this.append $("<a />").addClass(moduleName).html("&#x2B07;").attr
             "href": href
@@ -87,7 +90,10 @@ define (require) ->
             scrollMe _this, _arrow
 
         _arrow.on "click", (e) ->
-            nextOffset = $(@).parent().next().offset()
+            if _this.next().prop("tagName").toLowerCase() is "nav"
+                nextOffset = $(@).parent().next().next().offset()
+            else
+                nextOffset = $(@).parent().next().offset()
             nextOffTop = Math.round nextOffset.top
             # that is, the further away the next article is, the longer it will take to scroll there
             aniSpeed = Math.round ((nextOffset.top - _window.scrollTop()) / gVars.scrollSpeed)

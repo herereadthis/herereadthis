@@ -59,7 +59,11 @@
     };
     makeItHappen = function(_this) {
       var href, _arrow;
-      href = _this.next().attr("id");
+      if (_this.next().prop("tagName").toLowerCase() === "nav") {
+        href = _this.next().next().attr("id");
+      } else {
+        href = _this.next().attr("id");
+      }
       href = "#/" + href + "/";
       _this.append($("<a />").addClass(moduleName).html("&#x2B07;").attr({
         "href": href
@@ -75,7 +79,11 @@
       });
       return _arrow.on("click", function(e) {
         var aniSpeed, nextOffTop, nextOffset;
-        nextOffset = $(this).parent().next().offset();
+        if (_this.next().prop("tagName").toLowerCase() === "nav") {
+          nextOffset = $(this).parent().next().next().offset();
+        } else {
+          nextOffset = $(this).parent().next().offset();
+        }
         nextOffTop = Math.round(nextOffset.top);
         aniSpeed = Math.round((nextOffset.top - _window.scrollTop()) / gVars.scrollSpeed);
         return $("html,body").animate({

@@ -17,18 +17,27 @@
 
 # using RequireJs API
 requirejs.config
+    hbs:
+        templateExtension: 'hbs'
+        disableI18n: true
     # "baseURL" is the root path to use for all module lookups, root is defined as where index.html lives
     # baseUrl: "/static/js/"
     shim:
         "Modernizr":
             deps: ["jquery"]
             exports: "Modernizr"
+        # "backbone":
+        #     deps: ["jquery", "underscore"]
+        #     exports: "Backbone"
+        # "underscore":
+        #     exports: "_"
 
     # "paths" are path mappings for module names not found directly under baseUrl
     paths:
     # In-House -------------
         # ModuleJack: "module_jack"
         HeadMore: "head_more"
+        TakeMe: "take_me"
         PhotoSpice: "photo_spice"
         Coding: "coding"
         MakeItNew: "make_it_new"
@@ -37,6 +46,7 @@ requirejs.config
         ResizeFu: "resize_fu"
         NextArrow: "next_arrow"
         "Analytics": "analytics"
+        # "application": "application"
     # Libraries ------------
         jquery: [
             'http://code.jquery.com/jquery-1.9.1.min'
@@ -44,6 +54,12 @@ requirejs.config
         ]
         # "jquery": "../../lib/jquery.1.9.0.min"
         "Modernizr": "../../lib/modernizr_custom"
+        "backbone":       "../../lib/backbone"
+        "hbs":            "../../lib/hbs"
+        "Handlebars":     "../../lib/Handlebars"
+        "i18nprecompile": "../../lib/hbs/i18nprecompile"
+        "json2":          "../../lib/hbs/json2"
+        "underscore":     "../../lib/underscore" 
 
 
 # backbone tutorials:
@@ -55,38 +71,20 @@ requirejs.config
 
 require [
     "jquery", 'Modernizr'
-    'HeadMore', "PhotoSpice", "Coding", "MakeItNew", "Excerpts", "Footsie"
-    "Analytics"], ( $, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Excerpts, Footsie, Analytics ) ->
+    'HeadMore', "TakeMe", "PhotoSpice", "Coding", "MakeItNew", "Excerpts", "Footsie"
+    # "application"
+    "Analytics"], ( $, Modernizr, HeadMore, TakeMe, PhotoSpice, Coding, MakeItNew, Excerpts, Footsie, Analytics ) ->
     # do TestApp.init
     # do Backbone.history.start
     if Modernizr.touch is false
         do HeadMore.init
         do PhotoSpice.init
         do MakeItNew.init
+    # do TakeMe.init
     do Coding.init
     do Excerpts.init
     do Footsie.init
-        # do TestApp.init
-        # do Backbone.history.start
-    Analytics.track 'UA-37798496-1' 
-
-# require ["jquery", "Modernizr",
-#     'HeadMore', "PhotoSpice", "Coding", "MakeItNew", "Excerpts", "Footsie"
-#     'Analytics'], ( $, Modernizr, HeadMore, PhotoSpice, Coding, MakeItNew, Excerpts, Footsie, Analytics ) ->
-#     # do TestApp.init
-#     # do Backbone.history.start
-#     if Modernizr.touch is false
-#         do HeadMore.init
-#         do PhotoSpice.init
-#         do MakeItNew.init
-#     alert Modernizr.touch
-#     do Coding.init
-#     do Excerpts.init
-#     do Footsie.init
-#         # do TestApp.init
-#         # do Backbone.history.start
-#     # Analytics.track 'UA-37798496-1'
-
+    do Analytics.track
 
 
 ###
