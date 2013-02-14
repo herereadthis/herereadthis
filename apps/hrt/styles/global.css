@@ -32,7 +32,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-size: 100%;
-	line-height: 1.5;
+	line-height: 1.25;
     text-rendering: optimizeLegibility;
     /* ligatures https://developer.mozilla.org/en-US/docs/CSS/text-rendering */
 }
@@ -50,21 +50,24 @@ ul, ol {
 	padding: 0;
 }
 p, li {
-	font-size: 1.5em;
-	line-height: 1.3333333em;
+	font-size: 1.6em;
 }
 p {
-	padding-bottom: 1.333333em;
+	padding-bottom: 1.25em;
+}
+/*p strong, li strong {
+	font-weight: normal;
+	font-family: "Candida Bold", sans-serif;
+}*/
+article p em, article li em, article cite {
+	font-weight: normal;
+	font-family: "Candida Italic", sans-serif;
 }
 code, pre > span {
-	font-size: 1.6em;
-	line-height: 1.25em;
 	font-family: "inconsolatamedium", "Consolas", "Menlo", "Monaco", monospace;
 }
 p > code {
 	padding: 0 0.125em;
-	font-size: 1.066667em;
-	line-height: 1.25em;
 	background-color: rgba(0,0,0,0.05);
 }
 p > small {
@@ -108,8 +111,7 @@ article h2 {
 	padding-bottom: 0.5em;
 }
 article h3 {
-	font-size: 1.5em;
-	line-height: 1.333333em;
+	font-size: 1.6em;
 	padding-bottom: 0em;
 }
 figure {
@@ -120,13 +122,14 @@ figure > blockquote {
 }
 pre {
 	margin: 0;
-	font-size: 1.2295082em;
+	font-size: 1.967213em;
 	line-height: 1em;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 	pre {
-	font-size: 1em;
+		font-size: 1.6em;
+		line-height: 1.23077em;
 	}
 }
 /* End Global settings ------- */
@@ -158,13 +161,17 @@ pre {
     position: absolute !important;
     top: 100% !important;
 }
-/* arrow to lead to next section */
-.gill_sans, [role="contentinfo"] .gill_sans {
+/* Typefaces */
+.candida {
+	font-family: "Candida", "Georgia", "Palatino", sans-serif;
+}
+.gill_sans, [role="contentinfo"] .gill_sans, article h2, article h3 {
 	font-family: "Gill Sans", "gillsans", sans-serif;
 }
 .helvetica {
 	font-family: Helvetica, Arial, sans-serif;
 }
+/* arrow to lead to next section */
 .next_arrow {
 	position: absolute;
 	bottom: 0;
@@ -236,7 +243,7 @@ pre {
 	font-weight: normal;
 	font-size: 12em;
 	line-height: 1em;
-	font-family: "lavanderiaregular", "Helvetica", sans-serif;
+	font-family: "Candida", "Lavanderia", "Helvetica", sans-serif;
 }
 /*[role="banner"] h3 {
 	font-weight: normal;
@@ -455,16 +462,6 @@ pre {
 
 /* Begin Coding Article ------ */
 /* --------------------------- */
-/*body > header, body > article, body > footer {
-	display: none;
-}
-body > #coding {
-	display: block;
-}*/
-
-#design_modern, #top_things, #excerpts {
-	display: block;
-}
 #coding {
 	display: block;
 	width: 100%;
@@ -586,16 +583,6 @@ h3.code_logo > a {
 	margin-left: 0;
 	padding-bottom: 1em;
 	font-size: 2em;
-	line-height: 1.25em;
-	font-family: "joanna", serif;
-}
-#design_modern p strong {
-	font-weight: normal;
-	font-family: "joanna_bold", serif;
-}
-#design_modern p em {
-	font-style: normal;
-	font-family: "joanna_italic", serif;
 }
 #design_modern figure#ezra_pound {
 }
@@ -665,8 +652,10 @@ h3.code_logo > a {
 	width: 59em;
 	padding: 0;
 }
+*/
 #excerpts section {
-	width: 118em;
+	padding-bottom: 0.8em;
+/*	width: 118em;
 	padding: 0;
 	background-image: 
 		linear-gradient(0deg, #000 0em, #000 1em);
@@ -676,10 +665,17 @@ h3.code_logo > a {
 		-webkit-linear-gradient(0deg, #000 0em, #000 1em);
 	background-repeat: no-repeat;
 	background-size: 25% 100%;
-	background-position: 0em 0em;
+	background-position: 0em 0em;*/
 
 }
-*/
+#excerpts h3 {
+	font-size: 1.8em;
+	line-height: 1.333333em;
+}
+#excerpts p {
+	line-height: 1.5em;
+	padding-bottom: 1em;
+}
 [aria-expanded="false"] .cut_after ~ * {
 	display: none;
 }
@@ -720,8 +716,6 @@ h3.code_logo > a {
 }
 [role="contentinfo"] p {
 	padding-bottom: 0;
-	font-size: 1.6em;
-	line-height: 1.25em;
 }
 [role="contentinfo"] h3 {
 	font-size: 3em;
@@ -800,6 +794,10 @@ h3.code_logo > a {
 	font-size: 1.6em;
 	text-align: right;
 	cursor: pointer;
+}
+#foot_contact .rsa_pub_key code {
+	font-size: 1.6em;
+	line-height: 1em;
 }
 #foot_links {
 	float: none;

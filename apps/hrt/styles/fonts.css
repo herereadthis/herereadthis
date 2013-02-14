@@ -21,68 +21,32 @@
     font-style: normal;
 }
 
-@font-face {
-	font-family: 'metropolis';
-	src: url('fonts/metropolis.otf'),
-		url('fonts/inconsolata-webfont.eot');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-	font-family: 'cassannet';
-	src: url('fonts/cassannet.otf'),
-		url('fonts/inconsolata-webfont.eot');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-	font-family: 'bgbold';
-	src: url('fonts/bglight.otf'),
-		url('fonts/inconsolata-webfont.eot');
-    font-weight: normal;
-    font-style: normal;
-}
 
 
 /* Lavandaria found at:; http://www.losttype.com/
    Referral: http://www.creativebloq.com/graphic-design-tips/best-free-fonts-for-designers-1233380 */
-/*
+
 @font-face {
-	font-family: 'lavanderiadelicate';
-	src: url('fonts/lavanderia_delicate.otf'),
-		url('fonts/lavanderia_delicate-webfont.eot');
+    font-family: 'Lavanderia';
+    src: url('fonts/lavanderia_regular-webfont.eot');
+    src: url('fonts/lavanderia_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lavanderia_regular-webfont.woff') format('woff'),
+         url('fonts/lavanderia_regular-webfont.ttf') format('truetype'),
+         url('fonts/lavanderia_regular-webfont.svg#lavanderia_regularregular') format('svg');
     font-weight: normal;
     font-style: normal;
-}
-*/
-@font-face {
-	font-family: 'lavanderiaregular';
-	src: url('fonts/lavanderia_regular.otf'),
-		url('fonts/lavanderia_regular-webfont.eot');
-    font-weight: normal;
-    font-style: normal;
+
 }
 @font-face {
-	font-family: 'lavanderiaregularttf';
-	src: url('fonts/lavanderia_regular-webfont.ttf'),
-		url('fonts/lavanderia_regular-webfont.eot');
+    font-family: 'Lavanderia Sturdy';
+    src: url('fonts/lavanderia_sturdy-webfont.eot');
+    src: url('fonts/lavanderia_sturdy-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lavanderia_sturdy-webfont.woff') format('woff'),
+         url('fonts/lavanderia_sturdy-webfont.ttf') format('truetype'),
+         url('fonts/lavanderia_sturdy-webfont.svg#lavanderia_sturdysturdy') format('svg');
     font-weight: normal;
     font-style: normal;
-}
-@font-face {
-	font-family: 'lavanderiasturdyttf';
-	src: url('fonts/lavanderia_sturdy-webfont.ttf'),
-		url('fonts/lavanderia_sturdy-webfont.eot');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-	font-family: 'lavanderiasturdy';
-	src: url('fonts/lavanderia_sturdy.otf'),
-		url('fonts/lavanderia_sturdy-webfont.eot');
-    font-weight: normal;
-    font-style: normal;
+
 }
 
 /* Gill Sans http://bonfx.com/fonts-that-work-with-gill-sans/ */
@@ -139,28 +103,46 @@
     font-style: normal;
 }
 
-/* Joanna is the complement to gill sans */
+
+
+
+/* Candida complement for Erbar */
 @font-face {
-	font-family: 'joanna';
-	src: url('fonts/joanna.otf'),
-		url('fonts/joanna.eot');
+    font-family: 'Candida Bold';
+    src: url('fonts/baltica_bold_cyrillic-webfont.eot');
+    src: url('fonts/baltica_bold_cyrillic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/baltica_bold_cyrillic-webfont.woff') format('woff'),
+         url('fonts/baltica_bold_cyrillic-webfont.ttf') format('truetype'),
+         url('fonts/baltica_bold_cyrillic-webfont.svg#balticacbold') format('svg');
     font-weight: normal;
     font-style: normal;
+
 }
 @font-face {
-	font-family: 'joanna_bold';
-	src: url('fonts/joanna_bold.otf'),
-		url('fonts/joanna_bold.eot');
+    font-family: 'Candida';
+    src: url('fonts/baltica_cyrillic-webfont.eot');
+    src: url('fonts/baltica_cyrillic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/baltica_cyrillic-webfont.woff') format('woff'),
+         url('fonts/baltica_cyrillic-webfont.ttf') format('truetype'),
+         url('fonts/baltica_cyrillic-webfont.svg#balticacregular') format('svg');
     font-weight: normal;
     font-style: normal;
+
 }
 @font-face {
-	font-family: 'joanna_italic';
-	src: url('fonts/joanna_italic.otf'),
-		url('fonts/joanna_italic.eot');
+    font-family: 'Candida Italic';
+    src: url('fonts/baltica_italic_cyrillic-webfont.eot');
+    src: url('fonts/baltica_italic_cyrillic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/baltica_italic_cyrillic-webfont.woff') format('woff'),
+         url('fonts/baltica_italic_cyrillic-webfont.ttf') format('truetype'),
+         url('fonts/baltica_italic_cyrillic-webfont.svg#balticacitalic') format('svg');
     font-weight: normal;
     font-style: normal;
+
 }
+
+
+
 
 /* Poly: http://www.behance.net/gallery/Poly-a-free-web-font/2890189;
    Referral: http://www.smashingmagazine.com/2012/07/20/free-font-round-up/ */

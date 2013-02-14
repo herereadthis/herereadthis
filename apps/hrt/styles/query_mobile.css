@@ -23,6 +23,9 @@
 		margin-bottom: 1em;
 		padding-left: 3em;
 	}
+	p, li {
+		font-size: 1.4em;
+	}
 	.double_stack > div {
 		float: none;
 		width: auto;
@@ -34,8 +37,9 @@
 		margin-left: 0em;
 	}
 	[role="banner"] h1 {
-		font-size: 5em;
-		font-family: "lavanderiasturdyttf";
+		font-size: 4em;
+		font-family: "Candida Bold", serif;
+		/*font-family: "lavanderiasturdyttf";*/
 		line-height: 1em;
 		padding: 0.4em 0 0.4em 0;
 	}
@@ -43,12 +47,9 @@
 		font-weight: bold;
 	}
 	[role="banner"] h3, [role="banner"] p {
-		font-size: 1.5em;
-		font-family: Helvetica, sans-serif;
+		font-size: 1.6em;
 	}
 	[role="banner"] cite {
-		font-style: italic;
-		font-family: Helvetica, sans-serif;
 	}
 	#head_soc ul {
 		margin-bottom: 3em;
@@ -116,7 +117,7 @@
 		width: auto;
 		font-size: 1.5em;
 		background-color: #73C2FB;
-		font-family: "gillsans_bolditalic", sans-serif
+		/*font-family: "gillsans_bolditalic", sans-serif*/
 	}
 	#design_modern header p {
 		float: none;
@@ -148,6 +149,10 @@
 	}
 	#design_modern section > *:last-child {
 		padding-bottom: 1em;
+	}
+	#excerpts p {
+		font-size: 1.4em;
+		line-height: 1.25em;
 	}
 	[role="contentinfo"] section {
 		width: auto !important;
