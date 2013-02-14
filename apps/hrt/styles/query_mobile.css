@@ -5,6 +5,16 @@
 	body > header, body > article, body >footer {
 		font-size: 300%;
 	}
+	.no-js.no-touch body > header[role="banner"] {
+	    top: auto;
+	    left: auto;
+	    margin-left: auto;
+	    padding: 0 1.5em;
+	    position: static;
+	    width: auto;
+	    min-height: auto;
+
+	}
 	[role="banner"], article > section, article h2 {
 		width: auto;
 		padding: 0 1.5em;

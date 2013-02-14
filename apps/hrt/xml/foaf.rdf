@@ -50,6 +50,13 @@
 		</foaf:account>
 		<foaf:account>
 			<foaf:OnlineAccount>
+				<foaf:accountServiceHomepage rdf:resource="http://www.deviantart.com/" />
+				<foaf:accountName>herereadthis</foaf:accountName>
+				<foaf:homepage rdf:resource="http://herereadthis.deviantart.com/" />
+			</foaf:OnlineAccount>
+		</foaf:account>
+		<foaf:account>
+			<foaf:OnlineAccount>
 				<foaf:accountServiceHomepage rdf:resource="https://www.facebook.com/" />
 				<foaf:accountName>herereadthis</foaf:accountName>
 				<foaf:homepage rdf:resource="https://www.facebook.com/herereadthis" />
@@ -100,9 +107,23 @@
 		</foaf:account>
 		<foaf:account>
 			<foaf:OnlineAccount>
+				<foaf:accountServiceHomepage rdf:resource="https://www.tumblr.com/" />
+				<foaf:accountName>herereadthis</foaf:accountName>
+				<foaf:homepage rdf:resource="http://herereadthis.tumblr.com/" />
+			</foaf:OnlineAccount>
+		</foaf:account>
+		<foaf:account>
+			<foaf:OnlineAccount>
 				<foaf:accountServiceHomepage rdf:resource="http://www.typophile.com/" />
 				<foaf:accountName>herereadthis</foaf:accountName>
 				<foaf:homepage rdf:resource="http://typophile.com/user/207490" />
+			</foaf:OnlineAccount>
+		</foaf:account>
+		<foaf:account>
+			<foaf:OnlineAccount>
+				<foaf:accountServiceHomepage rdf:resource="https://wordpress.com/" />
+				<foaf:accountName>herereadthis</foaf:accountName>
+				<foaf:homepage rdf:resource="http://herereadthis.wordpress.com" />
 			</foaf:OnlineAccount>
 		</foaf:account>
 	</foaf:Person>

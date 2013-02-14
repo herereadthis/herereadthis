@@ -108,6 +108,7 @@
 
 
 /* Candida complement for Erbar */
+/*
 @font-face {
     font-family: 'Candida Bold';
     src: url('fonts/baltica_bold_cyrillic-webfont.eot');
@@ -141,7 +142,33 @@
     font-style: normal;
 
 }
+*/
 
+
+@font-face {
+    font-family: 'Candida Bold';
+    src: url('fonts/baltica_bold_cyrillic-webfont.eot');
+    src: url('fonts/baltica_bold_cyrillic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Candida';
+    src: url('fonts/baltica_cyrillic-webfont.eot');
+    src: url('fonts/baltica_cyrillic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'Candida Italic';
+    src: url('fonts/baltica_italic_cyrillic-webfont.eot');
+    src: url('fonts/baltica_italic_cyrillic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 
 
